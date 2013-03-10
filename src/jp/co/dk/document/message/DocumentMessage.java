@@ -55,6 +55,12 @@ public class DocumentMessage extends AbstractMessage{
 	/** 要素の変換処理に失敗しました。 */
 	public static final DocumentMessage ERROR_ELEMENT_CONVERT = new DocumentMessage("E014");
 	
+	/** 要素の生成に失敗しました。 */
+	public static final DocumentMessage ERROR_CREATE_ELEMENT = new DocumentMessage("E015");
+	
+	/** 属性の生成に失敗しました。 */
+	public static final DocumentMessage ERROR_CREATE_ATTRIBUTE = new DocumentMessage("E016");
+	
 	protected DocumentMessage(String messageId) {
 		super(messageId);
 	}
