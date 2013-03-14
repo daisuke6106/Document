@@ -6,7 +6,6 @@ import java.util.List;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
-import jp.co.dk.document.Attribute;
 import jp.co.dk.document.Element;
 import jp.co.dk.document.ElementName;
 import jp.co.dk.document.ElementSelector;
@@ -22,13 +21,11 @@ import static jp.co.dk.document.message.DocumentMessage.*;
  */
 public class XmlElement implements jp.co.dk.document.Element{
 	
-//	private org.w3c.dom.Node element;
-	
 	/** タグ名称 */
 	private String tagName;
 	
 	/** 属性一覧 */
-	private List<Attribute> attributes;
+	private List<XmlAttribute> attributes;
 	
 	/** 小要素一覧 */
 	private List<XmlElement> elements;
@@ -42,12 +39,15 @@ public class XmlElement implements jp.co.dk.document.Element{
 	 * @param inputStream 入力ストリーム
 	 */
 	XmlElement(org.w3c.dom.Node element) {
+		this.attributes = new ArrayList<XmlAttribute>();
+		this.elements   = new ArrayList<XmlElement>();
+		this.textNode   = new StringBuilder();
+		
 		this.tagName = element.getNodeName();
 		NamedNodeMap nodeMap = element.getAttributes();
 		for (int i = 0; i<nodeMap.getLength(); i++) {
 			Node node = nodeMap.item(i);
 		}
-		
 	}
 	
 	/**
@@ -60,7 +60,7 @@ public class XmlElement implements jp.co.dk.document.Element{
 	public XmlElement(String tagName) throws XmlDocumentException{
 		if (tagName == null || tagName.equals("")) throw new XmlDocumentException(ERROR_CREATE_ELEMENT); 
 		this.tagName = tagName;
-		this.attributes = new ArrayList<Attribute>();
+		this.attributes = new ArrayList<XmlAttribute>();
 		this.elements   = new ArrayList<XmlElement>();
 		this.textNode   = new StringBuilder();
 	}
@@ -158,7 +158,7 @@ public class XmlElement implements jp.co.dk.document.Element{
 //		NamedNodeMap nodeMap = this.element.getAttributes();
 //		Node node = nodeMap.getNamedItem(name);
 //		return node.getNodeValue();
-		for (Attribute attribute : this.attributes) {
+		for (XmlAttribute attribute : this.attributes) {
 			if (attribute.getKey().equals(name)) return attribute.getValue(); 
 		}
 		return "";
@@ -166,13 +166,7 @@ public class XmlElement implements jp.co.dk.document.Element{
 
 	@Override
 	public boolean hasAttribute(String attributeName) {
-//		String value = this.getAttribute(attributeName);
-//		if (value == null || value.equals("")) {
-//			return false;
-//		} else {
-//			return true;
-//		}
-		for (Attribute attribute : this.attributes) {
+		for (XmlAttribute attribute : this.attributes) {
 			if (attribute.getKey().equals(attributeName)) return true;
 		}
 		return false;
@@ -193,7 +187,7 @@ public class XmlElement implements jp.co.dk.document.Element{
 	 * 
 	 * @param attribute 属性 
 	 */
-	public void addAttribute(Attribute attribute) {
+	public void addAttribute(XmlAttribute attribute) {
 		this.attributes.add(attribute);
 	}
 	
@@ -203,8 +197,8 @@ public class XmlElement implements jp.co.dk.document.Element{
 	 * @param attribute 属性
 	 * @return 判定結果（true=存在する、false=存在しない）
 	 */
-	public boolean hasAttribute(Attribute attribute) {
-		for (Attribute attributeObject : this.attributes){
+	public boolean hasAttribute(XmlAttribute attribute) {
+		for (XmlAttribute attributeObject : this.attributes){
 			if (attributeObject.equals(attribute)) return true;
 		}
 		return false;
@@ -215,8 +209,8 @@ public class XmlElement implements jp.co.dk.document.Element{
 	 * 
 	 * @return 属性一覧
 	 */
-	public List<Attribute> getAttribute() {
-		return new ArrayList<Attribute>(this.attributes);
+	public List<XmlAttribute> getAttribute() {
+		return new ArrayList<XmlAttribute>(this.attributes);
 	}
 	
 	/**
@@ -302,7 +296,7 @@ public class XmlElement implements jp.co.dk.document.Element{
 	 */
 	org.w3c.dom.Element combertElement(org.w3c.dom.Document document) {
 		org.w3c.dom.Element element = document.createElement(this.tagName);
-		for (Attribute attribute : this.attributes) {
+		for (XmlAttribute attribute : this.attributes) {
 			element.setAttribute(attribute.getKey(), attribute.getValue());
 		}
 		for (XmlElement elementObject : this.elements) {
@@ -331,7 +325,7 @@ public class XmlElement implements jp.co.dk.document.Element{
 		int hashE = -1;
 		int hashA = -1;
 		for (Element e : this.elements) hashE += e.hashCode();
-		for (Attribute a : this.attributes) hashA += a.hashCode();
+		for (XmlAttribute a : this.attributes) hashA += a.hashCode();
 		return 17 * this.tagName.hashCode() * hashE * hashA * this.textNode.hashCode();
 	}
 }

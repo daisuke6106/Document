@@ -61,6 +61,9 @@ public class DocumentMessage extends AbstractMessage{
 	/** 属性の生成に失敗しました。 */
 	public static final DocumentMessage ERROR_CREATE_ATTRIBUTE = new DocumentMessage("E016");
 	
+	/** XMLドキュメントの生成に失敗しました。 */
+	public static final DocumentMessage ERROR_DOCUMENT_CAN_NOT_CREATE = new DocumentMessage("E015");
+	
 	protected DocumentMessage(String messageId) {
 		super(messageId);
 	}

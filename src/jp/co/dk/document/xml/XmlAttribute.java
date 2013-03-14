@@ -1,7 +1,7 @@
-package jp.co.dk.document;
+package jp.co.dk.document.xml;
 
-import jp.co.dk.xml.exception.XmlDocumentException;
-import static jp.co.dk.xml.exception.XmlDocumentMessage.*;
+import jp.co.dk.document.xml.exception.XmlDocumentException;
+import static jp.co.dk.document.message.DocumentMessage.*;
 
 /**
  * Attributeは、XMLの属性を表すオブジェクトです。
@@ -9,7 +9,7 @@ import static jp.co.dk.xml.exception.XmlDocumentMessage.*;
  * @author D.Kanno
  * @version 1.0
  */
-public class Attribute {
+public class XmlAttribute {
 	
 	private String key;
 	
@@ -22,8 +22,8 @@ public class Attribute {
 	 * @param value 属性の値
 	 * @throws XmlDocumentException 属性オブジェクトの生成に失敗した場合
 	 */
-	public Attribute (String key, String value) throws XmlDocumentException {
-		if (key == null || value == null) throw new XmlDocumentException(ERROR_VALUE_CA_NOT_BE_SPECIFIED_KEY_OR_NULL);
+	public XmlAttribute (String key, String value) throws XmlDocumentException {
+		if (key == null || value == null) throw new XmlDocumentException(ERROR_CREATE_ATTRIBUTE);
 		this.key = key;
 		this.value = value;
 	}
@@ -47,8 +47,8 @@ public class Attribute {
 	@Override
 	public boolean equals(Object object) {
 		if (object == null) return false;
-		if (!(object instanceof Attribute)) return false;
-		Attribute attribute = (Attribute) object;
+		if (!(object instanceof XmlAttribute)) return false;
+		XmlAttribute attribute = (XmlAttribute) object;
 		if (this.key.equals(attribute.key) && this.value.equals(attribute.value)) return true;
 		return false;
 	}
