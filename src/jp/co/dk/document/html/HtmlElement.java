@@ -10,8 +10,6 @@ import jp.co.dk.document.ElementName;
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HtmlElementName;
-import jp.co.dk.document.html.constant.InputTypeName;
-import jp.co.dk.document.html.element.Form;
 
 /**
  * HtmlElementは、HTMLの要素を表すクラス。<br/>

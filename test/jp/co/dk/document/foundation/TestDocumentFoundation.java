@@ -7,12 +7,12 @@ import jp.co.dk.test.template.TestCaseTemplate;
 public class TestDocumentFoundation extends TestCaseTemplate {
 	
 	protected jp.co.dk.document.File createFileDocument() {
-		return new jp.co.dk.document.File(super.getInputStreamByOwnClass("JPEG.jpg"));
+		return new jp.co.dk.document.File(super.getInputStreamBySystemResource("jp/co/dk/documentJPEG.jpg"));
 	}
 	
 	protected jp.co.dk.document.html.HtmlDocument createHtmlDocument() {
 		try {
-			return new jp.co.dk.document.html.HtmlDocument(super.getInputStreamByOwnClass("HTML.html"));
+			return new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/html/HTML.html"));
 		} catch (HtmlDocumentException e) {
 			fail(e);
 		}
@@ -21,7 +21,7 @@ public class TestDocumentFoundation extends TestCaseTemplate {
 	
 	protected jp.co.dk.document.xml.XmlDocument createXmlDocument() {
 		try {
-			return new jp.co.dk.document.xml.XmlDocument(super.getInputStreamByOwnClass("XML.xml"));
+			return new jp.co.dk.document.xml.XmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/xml/XML.xml"));
 		} catch (XmlDocumentException e) {
 			fail(e);
 		}

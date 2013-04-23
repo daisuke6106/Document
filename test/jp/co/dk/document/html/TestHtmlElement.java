@@ -1,20 +1,15 @@
 package jp.co.dk.document.html;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.junit.Test;
 
 import jp.co.dk.document.Element;
-import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.foundation.TestDocumentFoundation;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HtmlCharSetName;
 import jp.co.dk.document.html.constant.HtmlElementName;
 import jp.co.dk.document.html.element.selector.AnchorHasImage;
-import jp.co.dk.document.message.DocumentMessage;
-import junit.framework.JUnit4TestAdapter;
 
 public class TestHtmlElement extends TestDocumentFoundation {
 	
