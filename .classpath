@@ -7,5 +7,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Message"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/TestTemplate"/>
+	<classpathentry kind="lib" path="lib/test/testtemplate.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
