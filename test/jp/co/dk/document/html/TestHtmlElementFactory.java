@@ -109,12 +109,10 @@ public class TestHtmlElementFactory extends TestDocumentFoundation {
 		}
 		
 		// インプット要素を変換した場合、インプットオブジェクトが返却されること。
-		new Expectations() {
-			{
+		new Expectations() {{
 				mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
-				mockHtmlElement.getAttribute("text");result = "text";
-			}
-		};
+				mockHtmlElement.getAttribute("type");result = "text";
+		}};
 		try {
 			InputTypeName result = (InputTypeName)super.executePrivateMethod(factory, "getInpuTypeName", mockHtmlElement);
 			assertEquals(InputTypeName.TEXT, result);
