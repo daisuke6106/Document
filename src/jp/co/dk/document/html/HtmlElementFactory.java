@@ -34,6 +34,7 @@ public class HtmlElementFactory implements ElementFactory {
 	public Element convert(Element element) throws DocumentException {
 		HtmlElement htmlElement = null;
 		try {
+
 			htmlElement = (HtmlElement)element;
 		} catch (ClassCastException e) {
 			throw new DocumentException(DocumentMessage.ERROR_ELEMENT_CONVERT, e);
