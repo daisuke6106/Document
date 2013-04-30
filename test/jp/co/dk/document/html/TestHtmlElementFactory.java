@@ -3,8 +3,6 @@ package jp.co.dk.document.html;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
-
 import mockit.Expectations;
 import mockit.Mocked;
 
@@ -16,9 +14,17 @@ import jp.co.dk.document.foundation.TestDocumentFoundation;
 import jp.co.dk.document.html.constant.HtmlElementName;
 import jp.co.dk.document.html.constant.InputTypeName;
 import jp.co.dk.document.html.element.A;
+import jp.co.dk.document.html.element.CheckBox;
 import jp.co.dk.document.html.element.Form;
 import jp.co.dk.document.html.element.Image;
 import jp.co.dk.document.html.element.Meta;
+import jp.co.dk.document.html.element.Password;
+import jp.co.dk.document.html.element.Radio;
+import jp.co.dk.document.html.element.Text;
+import jp.co.dk.document.html.element.File;
+import jp.co.dk.document.html.element.Hidden;
+import jp.co.dk.document.html.element.Reset;
+import jp.co.dk.document.html.element.Submit;
 import jp.co.dk.document.message.DocumentMessage;
 
 public class TestHtmlElementFactory extends TestDocumentFoundation {
@@ -78,7 +84,7 @@ public class TestHtmlElementFactory extends TestDocumentFoundation {
 			fail(e);
 		}
 		
-		// メタ要素を変換した場合、メタオブジェクトが返却されること。
+		// フォーム要素を変換した場合、フォームオブジェクトが返却されること。
 		new Expectations() {{mockHtmlElement.getElementType();result = HtmlElementName.FORM;}};
 		try {
 			Element returnElement = factory.convert(mockHtmlElement);
@@ -87,11 +93,134 @@ public class TestHtmlElementFactory extends TestDocumentFoundation {
 			fail(e);
 		}
 		
-		// インプット要素を変換した場合、インプットオブジェクトが返却されること。
-		new Expectations() {{mockHtmlElement.getElementType();result = HtmlElementName.FORM;}};
+		// インプット（属性がtest）の要素を変換した場合、インプットオブジェクトが返却されること。
+		new Expectations() {{
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getAttribute("type");result = "test";
+		}};
 		try {
 			Element returnElement = factory.convert(mockHtmlElement);
-			assertTrue(returnElement instanceof Form);
+			assertTrue(returnElement instanceof Text);
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// インプット（属性がtext）の要素を変換した場合、インプットオブジェクトが返却されること。
+		new Expectations() {{
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getAttribute("type");result = "text";
+		}};
+		try {
+			Element returnElement = factory.convert(mockHtmlElement);
+			assertTrue(returnElement instanceof Text);
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// インプット（属性がpassword）の要素を変換した場合、インプットオブジェクトが返却されること。
+		new Expectations() {{
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getAttribute("type");result = "password";
+		}};
+		try {
+			Element returnElement = factory.convert(mockHtmlElement);
+			assertTrue(returnElement instanceof Password);
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// インプット（属性がcheckbox）の要素を変換した場合、インプットオブジェクトが返却されること。
+		new Expectations() {{
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getAttribute("type");result = "checkbox";
+			mockHtmlElement.hasAttribute("checked");result = true;
+		}};
+		try {
+			Element returnElement = factory.convert(mockHtmlElement);
+			assertTrue(returnElement instanceof CheckBox);
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// インプット（属性がradio）の要素を変換した場合、インプットオブジェクトが返却されること。
+		new Expectations() {{
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getAttribute("type");result = "radio";
+			mockHtmlElement.hasAttribute("checked");result = true;
+		}};
+		try {
+			Element returnElement = factory.convert(mockHtmlElement);
+			assertTrue(returnElement instanceof Radio);
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// インプット（属性がsubmit）の要素を変換した場合、インプットオブジェクトが返却されること。
+		new Expectations() {{
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getAttribute("type");result = "submit";
+		}};
+		try {
+			Element returnElement = factory.convert(mockHtmlElement);
+			assertTrue(returnElement instanceof Submit);
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// インプット（属性がimage）の要素を変換した場合、インプットオブジェクトが返却されること。
+		new Expectations() {{
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getAttribute("type");result = "image";
+		}};
+		try {
+			Element returnElement = factory.convert(mockHtmlElement);
+			assertTrue(returnElement instanceof Image);
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// インプット（属性がreset）の要素を変換した場合、インプットオブジェクトが返却されること。
+		new Expectations() {{
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getAttribute("type");result = "reset";
+		}};
+		try {
+			Element returnElement = factory.convert(mockHtmlElement);
+			assertTrue(returnElement instanceof Reset);
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// インプット（属性がfile）の要素を変換した場合、インプットオブジェクトが返却されること。
+		new Expectations() {{
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getAttribute("type");result = "file";
+		}};
+		try {
+			Element returnElement = factory.convert(mockHtmlElement);
+			assertTrue(returnElement instanceof File);
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// インプット（属性がhidden）の要素を変換した場合、インプットオブジェクトが返却されること。
+		new Expectations() {{
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+			mockHtmlElement.getAttribute("type");result = "hidden";
+		}};
+		try {
+			Element returnElement = factory.convert(mockHtmlElement);
+			assertTrue(returnElement instanceof Hidden);
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -108,7 +237,7 @@ public class TestHtmlElementFactory extends TestDocumentFoundation {
 			fail(e1);
 		}
 		
-		// インプット要素を変換した場合、インプットオブジェクトが返却されること。
+		// インプット要素からタイプ属性を取得し、その値が"text"の場合、InputTypeName.TEXTが返却されること。
 		new Expectations() {{
 				mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
 				mockHtmlElement.getAttribute("type");result = "text";
@@ -116,6 +245,18 @@ public class TestHtmlElementFactory extends TestDocumentFoundation {
 		try {
 			InputTypeName result = (InputTypeName)super.executePrivateMethod(factory, "getInpuTypeName", mockHtmlElement);
 			assertEquals(InputTypeName.TEXT, result);
+		} catch (Throwable e) {
+			fail(e);
+		}
+		
+		// インプット要素からタイプ属性を取得し、その値がInputTypeNameに定義されていない値の場合、nullが返却されること。
+		new Expectations() {{
+				mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
+				mockHtmlElement.getAttribute("type");result = "test";
+		}};
+		try {
+			InputTypeName result = (InputTypeName)super.executePrivateMethod(factory, "getInpuTypeName", mockHtmlElement);
+			assertNull(result);
 		} catch (Throwable e) {
 			fail(e);
 		}
