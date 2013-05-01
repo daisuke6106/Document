@@ -26,10 +26,22 @@ public enum HtmlRequestMethodName {
 		this.method = method;
 	}
 	
+	/**
+	 * このHTMLの送信メソッド名称を返却する。
+	 * 
+	 * @return 送信メソッド名称
+	 */
 	public String getMethod() {
 		return this.method;
 	}
 	
+	/**
+	 * 指定された文字列がこのメソッド名称と一致するか判定する。<p/>
+	 * 判定する際に文字列の大文字小文字は差異の対象としない。
+	 * 
+	 * @param method メソッド名称
+	 * @return 判定結果(true=一致、false=不一致)
+	 */
 	public boolean isMethod(String method) {
 		if (method != null && this.method.equals(method.toUpperCase()) ) {
 			return true;

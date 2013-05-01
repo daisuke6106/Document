@@ -34,7 +34,8 @@ public enum HtmlCharSetName {
 	}
 	
 	/**
-	 * コンテンツタイプにこのキャラクタセットが含まれるか判定する。
+	 * 引数に渡された文字列とこのキャラクタセットを比較し、一致するかを判定します。<p/>
+	 * 比較する際は、文字列の大文字小文字は差異の対象としない。
 	 * 
 	 * @param contentType コンテンツタイプ
 	 * @return 判定結果（true=, false=）
@@ -48,8 +49,7 @@ public enum HtmlCharSetName {
 	/**
 	 * キャラクターセット文字列を取得する。
 	 * 
-	 * @param contentType コンテンツタイプ
-	 * @return 判定結果（true=, false=）
+	 * @return キャラクターセット文字列
 	 */
 	public String getEncoding() {
 		return this.charset;
