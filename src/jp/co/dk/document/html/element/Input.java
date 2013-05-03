@@ -71,11 +71,10 @@ class Input extends HtmlElement{
 	 * @return 送信用メッセージ
 	 */
 	protected String getMessage() {
-		if (this.isDisabled()) {
-			return "";
-		}
+		if (this.isDisabled()) 	return "";
 		String name  = this.getName();
 		String value = this.getValue();
+		if (name == null || name.equals("")) return "";
 		StringBuilder sb = new StringBuilder(name).append('=').append(value);
 		return sb.toString();
 	}
