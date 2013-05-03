@@ -7,7 +7,7 @@ import jp.co.dk.test.template.TestCaseTemplate;
 public class TestDocumentFoundation extends TestCaseTemplate {
 	
 	protected jp.co.dk.document.File createFileDocument() {
-		return new jp.co.dk.document.File(super.getInputStreamBySystemResource("jp/co/dk/documentJPEG.jpg"));
+		return new jp.co.dk.document.File(super.getInputStreamBySystemResource("jp/co/dk/document/JPEG.jpg"));
 	}
 	
 	protected jp.co.dk.document.html.HtmlDocument createHtmlDocument() {
