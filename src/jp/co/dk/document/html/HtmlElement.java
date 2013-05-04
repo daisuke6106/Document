@@ -10,6 +10,9 @@ import jp.co.dk.document.ElementName;
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HtmlElementName;
+import jp.co.dk.document.html.exception.HtmlDocumentException;
+
+import static jp.co.dk.document.message.DocumentMessage.*;
 
 /**
  * HtmlElementは、HTMLの要素を表すクラス。<br/>
@@ -49,6 +52,16 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	
 	/** Contentのキャッシュ */
 	private String cache_content;
+	
+	public HtmlElement(String elementStr, HtmlElementFactory elementFactory) throws HtmlDocumentException {
+		if (elementStr == null || elementStr.equals("")) throw new HtmlDocumentException(ERROR_ELEMENT_STRING_IS_NOT_SET);
+		if (elementFactory == null) throw new HtmlDocumentException(ERROR_ELEMENT_FACTORY_IS_NOT_SET);
+		net.htmlparser.jericho.Source element = new net.htmlparser.jericho.Source(elementStr); 
+		this.element  = element;
+		this.startTag = element.getFirstStartTag();
+		if (this.startTag == null) throw new HtmlDocumentException(ERROR_ELEMENT_STRING_CONVERT);
+		this.elementFactory = elementFactory;
+	}
 	
 	/**
 	 * コンストラクタ

@@ -55,6 +55,16 @@ public class DocumentMessage extends AbstractMessage{
 	/** 要素の変換処理に失敗しました。 */
 	public static final DocumentMessage ERROR_ELEMENT_CONVERT = new DocumentMessage("E014");
 	
+	/** 要素文字列の変換処理に失敗しました。要素文字列=[{0}] */
+	public static final DocumentMessage ERROR_ELEMENT_STRING_CONVERT = new DocumentMessage("E015");
+	
+	/** 要素の変換処理ファクトリが設定されていません。 */
+	public static final DocumentMessage ERROR_ELEMENT_FACTORY_IS_NOT_SET = new DocumentMessage("E016");
+	
+	/** 要素文字列の変換処理に失敗しました。要素文字列が設定されていません。 */
+	public static final DocumentMessage ERROR_ELEMENT_STRING_IS_NOT_SET = new DocumentMessage("E017");
+	
+	
 	protected DocumentMessage(String messageId) {
 		super(messageId);
 	}

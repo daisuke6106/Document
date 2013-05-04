@@ -1,5 +1,7 @@
 package jp.co.dk.document.html;
 
+import static jp.co.dk.document.message.DocumentMessage.*;
+
 import java.util.List;
 
 import org.junit.Test;
@@ -10,9 +12,67 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HtmlCharSetName;
 import jp.co.dk.document.html.constant.HtmlElementName;
 import jp.co.dk.document.html.element.selector.AnchorHasImage;
+import jp.co.dk.document.html.exception.HtmlDocumentException;
 
 public class TestHtmlElement extends TestDocumentFoundation {
 	
+	@Test
+	public void constractor() {
+		// nullにてインスタンス生成した場合、例外を送出すること
+		try {
+			String elementStr = null;
+			HtmlElement htmlElement = new HtmlElement(elementStr, new HtmlElementFactory());
+			fail();
+		} catch (HtmlDocumentException e) {
+			assertEquals(e.getMessageObj(), ERROR_ELEMENT_STRING_IS_NOT_SET);
+		}
+		
+		// 空文字にてインスタンス生成した場合、例外を送出すること
+		try {
+			HtmlElement htmlElement = new HtmlElement("", new HtmlElementFactory());
+			fail();
+		} catch (HtmlDocumentException e) {	
+			assertEquals(e.getMessageObj(), ERROR_ELEMENT_STRING_IS_NOT_SET);
+		}
+				
+		// 要素を表す文字列、ファクトリにnullが設定されていた場合、例外が送出すること
+		try {
+			HtmlElement htmlElement = new HtmlElement("<input type=\"test\" name=\"name\" value=\"value\"/>", null);
+			fail();
+		} catch (HtmlDocumentException e) {	
+			assertEquals(e.getMessageObj(), ERROR_ELEMENT_FACTORY_IS_NOT_SET);
+		}
+		
+		// 不正な文字列にてインスタンス生成した場合、例外を送出すること
+		try {
+			HtmlElement htmlElement = new HtmlElement("あいう", new HtmlElementFactory());
+			fail();
+		} catch (HtmlDocumentException e) {	
+			assertEquals(e.getMessageObj(), ERROR_ELEMENT_STRING_CONVERT);
+		}
+		
+		// 不正な文字列にてインスタンス生成した場合、例外を送出すること
+		try {
+			HtmlElement htmlElement = new HtmlElement("abc", new HtmlElementFactory());
+			fail();
+		} catch (HtmlDocumentException e) {
+			assertEquals(e.getMessageObj(), ERROR_ELEMENT_STRING_CONVERT);
+		}
+				
+		// 要素を表す文字列にてインスタンス生成した場合、正常に生成できること
+		try {
+			HtmlElement htmlElement = new HtmlElement("<input type=\"test\" name=\"name\" value=\"value\"/>", new HtmlElementFactory());
+			assertEquals(htmlElement.getElementType(), HtmlElementName.INPUT);
+			assertEquals(htmlElement.getAttribute("type"), "test");
+			assertEquals(htmlElement.getAttribute("name"), "name");
+			assertEquals(htmlElement.getAttribute("value"), "value");
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+		
+		
+		
+	}
 	
 	@Test
 	public void getEncode() {
