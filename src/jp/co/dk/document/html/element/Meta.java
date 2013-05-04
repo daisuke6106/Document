@@ -25,7 +25,7 @@ public class Meta extends HtmlElement {
 	
 	/**
 	 * HTTPヘッダ名を取得する。<p>
-	 * このMETA要素のHTTPヘッダ名を取得します。設定されていない場合、空文字を返却します。
+	 * このMETA要素のHTTPヘッダ名を取得します。設定されていない場合、nullを返却します。
 	 * 
 	 * @return HTTPヘッダ名
 	 */
