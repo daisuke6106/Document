@@ -69,7 +69,24 @@ public class TestHtmlElement extends TestDocumentFoundation {
 		} catch (HtmlDocumentException e) {
 			fail(e);
 		}
-		
+		// 要素を表す文字列にてインスタンス生成した場合、正常に生成できること。
+		// 要素は小要素を保持するselect要素です。
+		StringBuilder sb = new StringBuilder();
+		sb.append("<select name=\"name\">");
+		sb.append("<option value=\"value1\"/>");
+		sb.append("<option value=\"value2\"/>");
+		sb.append("<option value=\"value3\"/>");
+		sb.append("</select>");
+		try {
+			HtmlElement htmlElement = new HtmlElement(sb.toString(), new HtmlElementFactory());
+			assertEquals(htmlElement.getElementType(), HtmlElementName.SELECT);
+			assertEquals(htmlElement.getAttribute("name"), "name");
+			List<jp.co.dk.document.Element> elements = htmlElement.getChildElement();
+			assertEquals(elements.get(0).getTagName(), "option");
+			assertEquals(elements.get(0).getAttribute("value"), "value1");
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
 		
 	}
