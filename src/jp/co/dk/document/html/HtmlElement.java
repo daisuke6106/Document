@@ -114,7 +114,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	
 	@Override
 	public boolean hasElement(jp.co.dk.document.ElementName elementName) {
-		List<jp.co.dk.document.Element> elementList = this.convertList(this.element.getAllElements());
+		List<jp.co.dk.document.Element> elementList = this.getElement();
 		for (jp.co.dk.document.Element element : elementList) {
 			HtmlElement htmlElement = (HtmlElement) element;
 			if (elementName.getName().equals(htmlElement.getElementType().getName())) { 

@@ -65,13 +65,20 @@ public class TestHtmlElement extends TestDocumentFoundation {
 		try {
 			HtmlElement htmlElement = new HtmlElement("<a href=\"a.shtml\">content</a>", new HtmlElementFactory());
 			assertEquals(htmlElement.getElement().size(),1);
-			assertEquals(htmlElement.getElement().get(0).getTagName(),"");
-			assertEquals(htmlElement.getElementType(), HtmlElementName.A);
-			assertEquals(htmlElement.getAttribute("href"), "a.shtml");
-			assertEquals(htmlElement.getContent(), "content");
-			assertEquals(htmlElement.getElement().size(), 1);
+			assertEquals(htmlElement.getElement().get(0).getTagName(),"a");
+			assertEquals(htmlElement.getElement(HtmlElementName.A).size(),1);
+			assertEquals(htmlElement.getElement(HtmlElementName.A).get(0).getTagName(),"a");
+			assertTrue(htmlElement.hasElement(HtmlElementName.A));
 			assertEquals(htmlElement.getChildElement().size(), 0);
 			assertFalse(htmlElement.hasChildElement());
+			assertTrue(htmlElement.isElement(HtmlElementName.A));
+			assertEquals(htmlElement.getAttribute("href"), "a.shtml");
+			assertTrue(htmlElement.hasAttribute(HtmlAttributeName.HREF.getName()));
+			assertEquals(htmlElement.getTagName(),"a");
+			assertEquals(htmlElement.getContent(), "content");
+			assertEquals(htmlElement.getElementType(), HtmlElementName.A);
+			assertEquals(htmlElement.getElement().size(), 1);
+			
 		} catch (HtmlDocumentException e) {
 			fail(e);
 		}
@@ -80,14 +87,25 @@ public class TestHtmlElement extends TestDocumentFoundation {
 		// 要素を表す文字列にてインスタンス生成した場合、正常に生成できること
 		try {
 			HtmlElement htmlElement = new HtmlElement("<input type=\"test\" name=\"name\" value=\"value\"/>", new HtmlElementFactory());
-			assertEquals(htmlElement.getElementType(), HtmlElementName.INPUT);
+			assertEquals(htmlElement.getElement().size(),1);
+			assertEquals(htmlElement.getElement().get(0).getTagName(),"input");
+			assertEquals(htmlElement.getElement(HtmlElementName.INPUT).size(),1);
+			assertEquals(htmlElement.getElement(HtmlElementName.INPUT).get(0).getTagName(),"input");
+			assertTrue(htmlElement.hasElement(HtmlElementName.INPUT));
+			assertEquals(htmlElement.getChildElement().size(), 0);
+			assertFalse(htmlElement.hasChildElement());
+			assertTrue(htmlElement.isElement(HtmlElementName.INPUT));
 			assertEquals(htmlElement.getAttribute("type"), "test");
 			assertEquals(htmlElement.getAttribute("name"), "name");
 			assertEquals(htmlElement.getAttribute("value"), "value");
 			assertEquals(htmlElement.getContent(), "");
-			assertEquals(htmlElement.getElement().size(), 1);
-			assertEquals(htmlElement.getChildElement().size(), 0);
-			assertFalse(htmlElement.hasChildElement());
+			assertTrue(htmlElement.hasAttribute(HtmlAttributeName.TYPE.getName()));
+			assertTrue(htmlElement.hasAttribute(HtmlAttributeName.NAME.getName()));
+			assertTrue(htmlElement.hasAttribute(HtmlAttributeName.VALUE.getName()));
+			assertEquals(htmlElement.getTagName(),"input");
+			assertEquals(htmlElement.getContent(), "");
+			assertEquals(htmlElement.getElementType(), HtmlElementName.INPUT);
+			
 		} catch (HtmlDocumentException e) {
 			fail(e);
 		}
@@ -103,10 +121,31 @@ public class TestHtmlElement extends TestDocumentFoundation {
 
 		try {
 			HtmlElement htmlElement = new HtmlElement(sb.toString(), new HtmlElementFactory());
-			assertEquals(htmlElement.getElementType(), HtmlElementName.SELECT);
+			assertEquals(htmlElement.getElement().size(),4);
+			assertEquals(htmlElement.getElement().get(0).getTagName(),"select");
+			assertEquals(htmlElement.getElement().get(1).getTagName(),"option");
+			assertEquals(htmlElement.getElement().get(2).getTagName(),"option");
+			assertEquals(htmlElement.getElement().get(3).getTagName(),"option");
+			assertEquals(htmlElement.getElement(HtmlElementName.SELECT).size(),1);
+			assertEquals(htmlElement.getElement(HtmlElementName.SELECT).get(0).getTagName(),"select");
+			assertEquals(htmlElement.getElement(HtmlElementName.OPTION).size(),3);
+			assertEquals(htmlElement.getElement(HtmlElementName.OPTION).get(0).getTagName(),"option");
+			assertEquals(htmlElement.getElement(HtmlElementName.OPTION).get(1).getTagName(),"option");
+			assertEquals(htmlElement.getElement(HtmlElementName.OPTION).get(2).getTagName(),"option");
+			assertTrue(htmlElement.hasElement(HtmlElementName.SELECT));
+			assertTrue(htmlElement.hasElement(HtmlElementName.OPTION));
+			assertEquals(htmlElement.getChildElement().size(), 3);
+			assertEquals(htmlElement.getChildElement().get(0).getTagName(), "option");
+			assertEquals(htmlElement.getChildElement().get(1).getTagName(), "option");
+			assertEquals(htmlElement.getChildElement().get(2).getTagName(), "option");
+			assertTrue(htmlElement.hasChildElement());
+			assertTrue(htmlElement.isElement(HtmlElementName.SELECT));
 			assertEquals(htmlElement.getAttribute("name"), "example");
 			assertEquals(htmlElement.getContent(), "");
-			
+			assertTrue(htmlElement.hasAttribute(HtmlAttributeName.NAME.getName()));
+			assertEquals(htmlElement.getTagName(),"select");
+			assertEquals(htmlElement.getContent(), "");
+			assertEquals(htmlElement.getElementType(), HtmlElementName.SELECT);
 			List<jp.co.dk.document.Element> elements = htmlElement.getChildElement();
 			assertEquals(elements.get(0).getTagName(), "option");
 			assertEquals(elements.get(0).getAttribute("value"), "サンプル1");
@@ -133,23 +172,38 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	
 	@Test
 	public void getElement() {
-		// デバックで目視確認
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<jp.co.dk.document.Element> elementList1 = htmlDocument.getElement();
+		assertEquals(elementList1.get(0).getTagName(), "!doctype");
+		assertEquals(elementList1.get(1).getTagName(), "html");
 		for (HtmlElementName html : HtmlElementName.values()) {
 			List<jp.co.dk.document.Element> elementList2 = htmlDocument.getElement(html);
+			for(jp.co.dk.document.Element element : elementList2){
+				assertEquals(element.getTagName(), html.getName());
+			}
 		}
 		List<jp.co.dk.document.Element> elementList3 = htmlDocument.getElement(new AnchorHasImage());
+		for(jp.co.dk.document.Element element : elementList3){
+			assertEquals(element.getTagName(), "a");
+			assertEquals(element.getChildElement().size(), 1);
+			assertEquals(element.getChildElement().get(0).getTagName(), "image");
+		} 
 	}
 	
 	@Test
 	public void getChildElement() {
-			jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-			List<jp.co.dk.document.Element> elementList1 = htmlDocument.getChildElement();
-			for (HtmlElementName html : HtmlElementName.values()) {
-				List<jp.co.dk.document.Element> elementList2 = htmlDocument.getChildElement(html);
-			}
-			List<jp.co.dk.document.Element> elementList3 = htmlDocument.getChildElement(new AnchorHasImage());
+		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
+		List<jp.co.dk.document.Element> elementList1 = htmlDocument.getChildElement();
+		assertEquals(elementList1.get(0).getTagName(), "!doctype");
+		assertEquals(elementList1.get(1).getTagName(), "html");
+		
+		List<jp.co.dk.document.Element> elementList2 = htmlDocument.getChildElement(HtmlElementName.HTML);
+		for(jp.co.dk.document.Element element : elementList2){
+			assertEquals(element.getTagName(), HtmlElementName.HTML.getName());
+		}
+		
+		List<jp.co.dk.document.Element> elementList3 = htmlDocument.getChildElement(new AnchorHasImage());
+		assertEquals(elementList3.size(), 0);
 	}
 	
 	@Test
