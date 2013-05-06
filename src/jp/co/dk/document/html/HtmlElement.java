@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.FormControl;
 
 import jp.co.dk.document.ElementName;
@@ -125,13 +126,17 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	
 	@Override
 	public List<jp.co.dk.document.Element> getChildElement() {
-		return this.convertList(this.element.getChildElements());
+		if (this.element.getChildElements().size() == 1) {
+			return this.convertList(this.element.getChildElements().get(0).getChildElements());
+		}else {
+			return this.convertList(this.element.getChildElements());
+		}
 	}
 	
 	@Override
 	public List<jp.co.dk.document.Element> getChildElement(jp.co.dk.document.ElementName elementName) {
 		List<jp.co.dk.document.Element> returnList = new ArrayList<jp.co.dk.document.Element>();
-		List<jp.co.dk.document.Element> list = this.convertList(this.element.getChildElements()); 
+		List<jp.co.dk.document.Element> list = this.getChildElement(); 
 		for (jp.co.dk.document.Element element : list) {
 			if (element.isElement(elementName)) {
 				returnList.add(element);
@@ -154,7 +159,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	
 	@Override
 	public boolean hasChildElement() {
-		List<net.htmlparser.jericho.Element> list = this.element.getChildElements();
+		List<jp.co.dk.document.Element> list = this.getChildElement();
 		if (list.size()==0) {
 			return false;
 		} else {
@@ -201,11 +206,17 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	@Override
 	public String getContent() {
 		if (this.cache_content == null) {
-			String getContent = ((net.htmlparser.jericho.Element)this.element).getContent().toString();
-			if (getContent == null) {
-				getContent = "";
+			String content = "";
+			net.htmlparser.jericho.Segment segment = this.startTag.getElement().getContent();
+			List<net.htmlparser.jericho.Element> chileList = segment.getChildElements();
+			if (chileList.size() == 0) {
+				this.cache_content = segment.toString();
+				return this.cache_content;
 			}
-			this.cache_content = getContent;
+ 			for (net.htmlparser.jericho.Element element : chileList) {
+ 				if (element.getStartTag() == null) content = element.toString();
+ 			}
+ 			this.cache_content = content;
 		}
 		return this.cache_content;
 	}

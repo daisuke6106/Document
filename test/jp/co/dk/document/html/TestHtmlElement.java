@@ -1,6 +1,8 @@
 package jp.co.dk.document.html;
 
 import static jp.co.dk.document.message.DocumentMessage.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -58,7 +60,23 @@ public class TestHtmlElement extends TestDocumentFoundation {
 		} catch (HtmlDocumentException e) {
 			assertEquals(e.getMessageObj(), ERROR_ELEMENT_STRING_CONVERT);
 		}
-				
+		
+		// 要素を表す文字列にてインスタンス生成した場合、正常に生成できること
+		try {
+			HtmlElement htmlElement = new HtmlElement("<a href=\"a.shtml\">content</a>", new HtmlElementFactory());
+			assertEquals(htmlElement.getElement().size(),1);
+			assertEquals(htmlElement.getElement().get(0).getTagName(),"");
+			assertEquals(htmlElement.getElementType(), HtmlElementName.A);
+			assertEquals(htmlElement.getAttribute("href"), "a.shtml");
+			assertEquals(htmlElement.getContent(), "content");
+			assertEquals(htmlElement.getElement().size(), 1);
+			assertEquals(htmlElement.getChildElement().size(), 0);
+			assertFalse(htmlElement.hasChildElement());
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+		
+		
 		// 要素を表す文字列にてインスタンス生成した場合、正常に生成できること
 		try {
 			HtmlElement htmlElement = new HtmlElement("<input type=\"test\" name=\"name\" value=\"value\"/>", new HtmlElementFactory());
@@ -66,29 +84,45 @@ public class TestHtmlElement extends TestDocumentFoundation {
 			assertEquals(htmlElement.getAttribute("type"), "test");
 			assertEquals(htmlElement.getAttribute("name"), "name");
 			assertEquals(htmlElement.getAttribute("value"), "value");
+			assertEquals(htmlElement.getContent(), "");
+			assertEquals(htmlElement.getElement().size(), 1);
+			assertEquals(htmlElement.getChildElement().size(), 0);
+			assertFalse(htmlElement.hasChildElement());
 		} catch (HtmlDocumentException e) {
 			fail(e);
 		}
+		
 		// 要素を表す文字列にてインスタンス生成した場合、正常に生成できること。
 		// 要素は小要素を保持するselect要素です。
 		StringBuilder sb = new StringBuilder();
-		sb.append("<select name=\"name\">");
-		sb.append("<option value=\"value1\"/>");
-		sb.append("<option value=\"value2\"/>");
-		sb.append("<option value=\"value3\"/>");
+		sb.append("<select name=\"example\">");
+		sb.append("<option value=\"サンプル1\">サンプル1</option>");
+		sb.append("<option value=\"サンプル2\">サンプル2</option>");
+		sb.append("<option value=\"サンプル3\">サンプル3</option>");
 		sb.append("</select>");
+
 		try {
 			HtmlElement htmlElement = new HtmlElement(sb.toString(), new HtmlElementFactory());
 			assertEquals(htmlElement.getElementType(), HtmlElementName.SELECT);
-			assertEquals(htmlElement.getAttribute("name"), "name");
+			assertEquals(htmlElement.getAttribute("name"), "example");
+			assertEquals(htmlElement.getContent(), "");
+			
 			List<jp.co.dk.document.Element> elements = htmlElement.getChildElement();
 			assertEquals(elements.get(0).getTagName(), "option");
-			assertEquals(elements.get(0).getAttribute("value"), "value1");
+			assertEquals(elements.get(0).getAttribute("value"), "サンプル1");
+			assertEquals(elements.get(0).getContent(), "サンプル1");
+			assertEquals(elements.get(1).getTagName(), "option");
+			assertEquals(elements.get(1).getAttribute("value"), "サンプル2");
+			assertEquals(elements.get(1).getContent(), "サンプル2");
+			assertEquals(elements.get(2).getTagName(), "option");
+			assertEquals(elements.get(2).getAttribute("value"), "サンプル3");
+			assertEquals(elements.get(2).getContent(), "サンプル3");
+			assertEquals(htmlElement.getElement().size(), 4);
+			assertEquals(htmlElement.getChildElement().size(), 3);
+			assertTrue(htmlElement.hasChildElement());
 		} catch (HtmlDocumentException e) {
 			fail(e);
 		}
-		
-		
 	}
 	
 	@Test
