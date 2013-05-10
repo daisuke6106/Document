@@ -53,7 +53,7 @@ public class Select extends HtmlElement{
 	/**
 	 * 選択OPTION要素取得
 	 * 
-	 * 本SELECT要素に設定されているOPTION要素一覧を取得する
+	 * 本SELECT要素に設定されているOPTION要素を取得する
 	 * 
 	 * @return 選択済みOPTION要素
 	 */
