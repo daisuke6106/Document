@@ -157,6 +157,11 @@ public class HtmlElement implements jp.co.dk.document.Element{
 		return returnList;
 	}
 	
+	public List<jp.co.dk.document.Element> getAllElement() {
+		List<jp.co.dk.document.Element> returnList  = new ArrayList<jp.co.dk.document.Element>();
+		return this.convertList(this.element.getAllElements());
+	}
+	
 	@Override
 	public boolean hasChildElement() {
 		List<jp.co.dk.document.Element> list = this.getChildElement();

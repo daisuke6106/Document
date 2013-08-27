@@ -117,12 +117,18 @@ public class TestHtmlDocument extends TestDocumentFoundation {
 	
 	@Test
 	public void getContent() {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		List<Element> elementList = htmlDocument.getElement(HtmlElementName.LABEL);
+		jp.co.dk.document.html.HtmlDocument htmlDocument1 = super.createHtmlDocument();
+		List<Element> elementList = htmlDocument1.getElement(HtmlElementName.LABEL);
 		Element element = elementList.get(0);
 		if (!element.getContent().equals("検索")) {
 			fail();
 		}
+		
+		// ドキュメントに対して実行して実行した、ドキュメント内に定義されているすべてのコンテキスト要素を取得できること
+		jp.co.dk.document.html.HtmlDocument htmlDocument2 = super.createHtmlDocument("jp/co/dk/document/html/HTML_getDocument001.html");
+		assertEquals(htmlDocument2.getContent(),"文書のタイトル文書の本体");
+		
+		
 	}
 	
 	@Test

@@ -158,6 +158,7 @@ public class HtmlDocument extends File implements Document{
 	@Override
 	public String getContent() {
 		return this.htmlElement.getContent();
+		this.htmlElement.
 	}
 	
 	@Override

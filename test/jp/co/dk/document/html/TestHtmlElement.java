@@ -207,6 +207,14 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
+	public void getAllElement() {
+		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument("jp/co/dk/document/html/HTML_getDocument001.html");
+		List<jp.co.dk.document.Element> elementList = htmlDocument.getChildElement();
+		List<jp.co.dk.document.Element> allElementList = ((HtmlElement)elementList.get(0)).getAllElement();
+		assertEquals(allElementList.size(), 0);
+	}
+	
+	@Test
 	public void hasChildElement() {
 			jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 			if (!htmlDocument.hasChildElement()) {
