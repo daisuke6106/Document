@@ -7,6 +7,9 @@ import org.junit.Test;
 
 public class TestReset extends TestDocumentFoundation {
 
-	
+	@Test
+	public void empty() {
+		
+	}
 
 }

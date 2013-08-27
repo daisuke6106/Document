@@ -1,5 +1,8 @@
 package jp.co.dk.document;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.foundation.TestDocumentFoundation;
 import jp.co.dk.document.message.DocumentMessage;
@@ -22,8 +25,8 @@ public class TestFile extends TestDocumentFoundation{
 		 */
 		try {
 			java.io.File saveFile = file.save(saveTmpDir, "JPEG.jpg");
-			super.assertFileEquals(saveFile, super.getFileByOwnClass("JPEG.jpg"));
-		} catch (DocumentException e) {
+			super.assertStreamEquals(new FileInputStream(saveFile), super.getInputStreamBySystemResource("jp/co/dk/document/JPEG.jpg"));
+		} catch (DocumentException | FileNotFoundException e) {
 			fail(e);
 		}
 		

@@ -1,5 +1,9 @@
 package jp.co.dk.document.html;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.List;
 
 import org.junit.Test;
@@ -117,16 +121,16 @@ public class TestHtmlDocument extends TestDocumentFoundation {
 	
 	@Test
 	public void getContent() {
-		jp.co.dk.document.html.HtmlDocument htmlDocument1 = super.createHtmlDocument();
-		List<Element> elementList = htmlDocument1.getElement(HtmlElementName.LABEL);
-		Element element = elementList.get(0);
-		if (!element.getContent().equals("検索")) {
-			fail();
-		}
+//		jp.co.dk.document.html.HtmlDocument htmlDocument1 = super.createHtmlDocument();
+//		List<Element> elementList = htmlDocument1.getElement(HtmlElementName.LABEL);
+//		Element element = elementList.get(0);
+//		if (!element.getContent().equals("検索")) {
+//			fail();
+//		}
 		
 		// ドキュメントに対して実行して実行した、ドキュメント内に定義されているすべてのコンテキスト要素を取得できること
 		jp.co.dk.document.html.HtmlDocument htmlDocument2 = super.createHtmlDocument("jp/co/dk/document/html/HTML_getDocument001.html");
-		assertEquals(htmlDocument2.getContent(),"文書のタイトル文書の本体");
+		assertEquals(htmlDocument2.getContent(),"文書のタイトル\n文書の本体\n");
 		
 		
 	}
@@ -262,8 +266,8 @@ public class TestHtmlDocument extends TestDocumentFoundation {
 		try {
 			jp.co.dk.document.html.HtmlDocument file = super.createHtmlDocument();
 			java.io.File saveFile = file.save(super.getTestTmpDir(), "HTML.html");
-			super.assertFileEquals(saveFile, super.getFileByOwnClass("HTML.html"));
-		} catch (DocumentException e) {
+			super.assertStreamEquals(new FileInputStream(saveFile), super.getInputStreamBySystemResource("jp/co/dk/document/html/HTML.html"));
+		} catch (DocumentException | FileNotFoundException e) {
 			fail(e);
 		}
 		

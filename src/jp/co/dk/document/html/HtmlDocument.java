@@ -88,7 +88,7 @@ public class HtmlDocument extends File implements Document{
 			HttpEquivName httpEquiv = meta.getHttpEquiv();
 			if (HttpEquivName.CONTENT_TYPE == httpEquiv) {
 				for (HtmlCharSetName charset :HtmlCharSetName.values()) {
-					if (charset.isEncording(meta.getContent())) return charset;
+					if (charset.isEncording(meta.getMetaContent())) return charset;
 				}
 			}
 		}
@@ -157,8 +157,17 @@ public class HtmlDocument extends File implements Document{
 
 	@Override
 	public String getContent() {
-		return this.htmlElement.getContent();
-		this.htmlElement.
+		StringBuilder sb = new StringBuilder();
+		this.getContect(sb, this.htmlElement);
+		return sb.toString();
+	}
+	
+	private void getContect(StringBuilder sb, HtmlElement element) {
+		for (jp.co.dk.document.Element childElement : element.getChildElement()){
+			HtmlElement htmlElement = (HtmlElement)childElement;
+			sb.append(htmlElement.getContent());
+			getContect(sb, htmlElement);
+		}
 	}
 	
 	@Override

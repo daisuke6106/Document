@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="2.0.2" sequence="0" timestamp="1377621057917" analysisTimestamp="1377621057941" release="">
+  <Project projectName="">
+    <Jar>/home/dk/projects/Document/document.jar</Jar>
+    <AuxClasspathEntry>/home/dk/projects/Document/lib/jericho-html-3.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/projects/Document/lib/message_all.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/projects/Document/lib/property_all.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/projects/Document/lib/test/jmockit-coverage.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/projects/Document/lib/test/jmockit.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/projects/Document/lib/test/testtemplate_all.jar</AuxClasspathEntry>
+    <SrcDir>/home/dk/projects/Document/src</SrcDir>
+  </Project>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" abbrev="OBL" category="EXPERIMENTAL">
+    <Class classname="jp.co.dk.document.File">
+      <SourceLine classname="jp.co.dk.document.File" start="29" end="67" sourcefile="File.java" sourcepath="jp/co/dk/document/File.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.File" name="save" signature="(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.File" start="48" end="67" startBytecode="0" endBytecode="455" sourcefile="File.java" sourcepath="jp/co/dk/document/File.java"/>
+    </Method>
+    <Class classname="java.io.OutputStream" role="CLASS_REFTYPE">
+      <SourceLine classname="java.io.OutputStream" start="46" end="152" sourcefile="OutputStream.java" sourcepath="java/io/OutputStream.java"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="jp.co.dk.document.File" start="54" end="54" startBytecode="102" endBytecode="102" sourcefile="File.java" sourcepath="jp/co/dk/document/File.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="jp.co.dk.document.File" start="55" end="55" startBytecode="107" endBytecode="107" sourcefile="File.java" sourcepath="jp/co/dk/document/File.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="jp.co.dk.document.File" start="56" end="56" startBytecode="114" endBytecode="114" sourcefile="File.java" sourcepath="jp/co/dk/document/File.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="jp.co.dk.document.File" start="57" end="57" startBytecode="117" endBytecode="117" sourcefile="File.java" sourcepath="jp/co/dk/document/File.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="jp.co.dk.document.File" start="62" end="62" startBytecode="160" endBytecode="160" sourcefile="File.java" sourcepath="jp/co/dk/document/File.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="jp.co.dk.document.File" start="63" end="63" startBytecode="162" endBytecode="162" sourcefile="File.java" sourcepath="jp/co/dk/document/File.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{OutputStream x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" abbrev="OBL" category="EXPERIMENTAL">
+    <Class classname="jp.co.dk.document.html.HtmlDocument">
+      <SourceLine classname="jp.co.dk.document.html.HtmlDocument" start="42" end="221" sourcefile="HtmlDocument.java" sourcepath="jp/co/dk/document/html/HtmlDocument.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlDocument" name="save" signature="(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.HtmlDocument" start="200" end="216" startBytecode="0" endBytecode="424" sourcefile="HtmlDocument.java" sourcepath="jp/co/dk/document/html/HtmlDocument.java"/>
+    </Method>
+    <Class classname="java.io.OutputStream" role="CLASS_REFTYPE">
+      <SourceLine classname="java.io.OutputStream" start="46" end="152" sourcefile="OutputStream.java" sourcepath="java/io/OutputStream.java"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="jp.co.dk.document.html.HtmlDocument" start="207" end="207" startBytecode="128" endBytecode="128" sourcefile="HtmlDocument.java" sourcepath="jp/co/dk/document/html/HtmlDocument.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="jp.co.dk.document.html.HtmlDocument" start="208" end="208" startBytecode="133" endBytecode="133" sourcefile="HtmlDocument.java" sourcepath="jp/co/dk/document/html/HtmlDocument.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="jp.co.dk.document.html.HtmlDocument" start="211" end="211" startBytecode="161" endBytecode="161" sourcefile="HtmlDocument.java" sourcepath="jp/co/dk/document/html/HtmlDocument.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="jp.co.dk.document.html.HtmlDocument" start="212" end="212" startBytecode="163" endBytecode="163" sourcefile="HtmlDocument.java" sourcepath="jp/co/dk/document/html/HtmlDocument.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{OutputStream x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
+    <Class classname="jp.co.dk.document.html.HtmlDocument">
+      <SourceLine classname="jp.co.dk.document.html.HtmlDocument" start="42" end="221" sourcefile="HtmlDocument.java" sourcepath="jp/co/dk/document/html/HtmlDocument.java"/>
+    </Class>
+    <Field classname="jp.co.dk.document.html.HtmlDocument" name="elementFactory" signature="Ljp/co/dk/document/ElementFactory;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.HtmlDocument" sourcefile="HtmlDocument.java" sourcepath="jp/co/dk/document/html/HtmlDocument.java"/>
+    </Field>
+    <SourceLine classname="jp.co.dk.document.html.HtmlDocument" start="56" end="56" startBytecode="27" endBytecode="27" sourcefile="HtmlDocument.java" sourcepath="jp/co/dk/document/html/HtmlDocument.java"/>
+  </BugInstance>
+  <BugInstance type="HE_EQUALS_USE_HASHCODE" priority="1" abbrev="HE" category="BAD_PRACTICE">
+    <Class classname="jp.co.dk.document.html.HtmlElement">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="57" end="446" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" abbrev="UuF" category="PERFORMANCE">
+    <Class classname="jp.co.dk.document.html.HtmlElement">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="57" end="446" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Class>
+    <Field classname="jp.co.dk.document.html.HtmlElement" name="cache_allElement" signature="Ljava/util/List;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" abbrev="UuF" category="PERFORMANCE">
+    <Class classname="jp.co.dk.document.html.HtmlElement">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="57" end="446" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Class>
+    <Field classname="jp.co.dk.document.html.HtmlElement" name="cache_childElement" signature="Ljava/util/List;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.CheckBox">
+      <SourceLine classname="jp.co.dk.document.html.element.CheckBox" start="12" end="80" sourcefile="CheckBox.java" sourcepath="jp/co/dk/document/html/element/CheckBox.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.Form">
+      <SourceLine classname="jp.co.dk.document.html.element.Form" start="37" end="134" sourcefile="Form.java" sourcepath="jp/co/dk/document/html/element/Form.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.Input">
+      <SourceLine classname="jp.co.dk.document.html.element.Input" start="17" end="79" sourcefile="Input.java" sourcepath="jp/co/dk/document/html/element/Input.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.Option">
+      <SourceLine classname="jp.co.dk.document.html.element.Option" start="25" end="44" sourcefile="Option.java" sourcepath="jp/co/dk/document/html/element/Option.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.Radio">
+      <SourceLine classname="jp.co.dk.document.html.element.Radio" start="12" end="81" sourcefile="Radio.java" sourcepath="jp/co/dk/document/html/element/Radio.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.Select">
+      <SourceLine classname="jp.co.dk.document.html.element.Select" start="36" end="194" sourcefile="Select.java" sourcepath="jp/co/dk/document/html/element/Select.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" priority="2" abbrev="RCN" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.Select">
+      <SourceLine classname="jp.co.dk.document.html.element.Select" start="36" end="194" sourcefile="Select.java" sourcepath="jp/co/dk/document/html/element/Select.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.element.Select" name="getOptionList" signature="()Ljava/util/List;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.element.Select" start="169" end="177" startBytecode="0" endBytecode="277" sourcefile="Select.java" sourcepath="jp/co/dk/document/html/element/Select.java"/>
+    </Method>
+    <LocalVariable name="childElementList" register="2" pc="13" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="getChildElement" signature="()Ljava/util/List;" isStatic="false" role="METHOD_RETURN_VALUE_OF">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="129" end="132" startBytecode="0" endBytecode="110" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+    <SourceLine classname="jp.co.dk.document.html.element.Select" start="171" end="171" startBytecode="14" endBytecode="14" sourcefile="Select.java" sourcepath="jp/co/dk/document/html/element/Select.java" role="SOURCE_REDUNDANT_NULL_CHECK"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.form.Checkbox">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Checkbox" start="11" end="13" sourcefile="Checkbox.java" sourcepath="jp/co/dk/document/html/element/form/Checkbox.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
+    <Class classname="jp.co.dk.document.html.element.form.Checkbox">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Checkbox" start="11" end="13" sourcefile="Checkbox.java" sourcepath="jp/co/dk/document/html/element/form/Checkbox.java"/>
+    </Class>
+    <Field classname="jp.co.dk.document.html.element.form.Checkbox" name="form" signature="Ljp/co/dk/document/html/element/Form;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Checkbox" sourcefile="Checkbox.java" sourcepath="jp/co/dk/document/html/element/form/Checkbox.java"/>
+    </Field>
+    <SourceLine classname="jp.co.dk.document.html.element.form.Checkbox" start="12" end="12" startBytecode="7" endBytecode="7" sourcefile="Checkbox.java" sourcepath="jp/co/dk/document/html/element/form/Checkbox.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.form.File">
+      <SourceLine classname="jp.co.dk.document.html.element.form.File" start="11" end="13" sourcefile="File.java" sourcepath="jp/co/dk/document/html/element/form/File.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" priority="1" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="jp.co.dk.document.html.element.form.File">
+      <SourceLine classname="jp.co.dk.document.html.element.form.File" start="11" end="13" sourcefile="File.java" sourcepath="jp/co/dk/document/html/element/form/File.java"/>
+    </Class>
+    <Class classname="jp.co.dk.document.html.element.File">
+      <SourceLine classname="jp.co.dk.document.html.element.File" start="11" end="14" sourcefile="File.java" sourcepath="jp/co/dk/document/html/element/File.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
+    <Class classname="jp.co.dk.document.html.element.form.File">
+      <SourceLine classname="jp.co.dk.document.html.element.form.File" start="11" end="13" sourcefile="File.java" sourcepath="jp/co/dk/document/html/element/form/File.java"/>
+    </Class>
+    <Field classname="jp.co.dk.document.html.element.form.File" name="form" signature="Ljp/co/dk/document/html/element/Form;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.element.form.File" sourcefile="File.java" sourcepath="jp/co/dk/document/html/element/form/File.java"/>
+    </Field>
+    <SourceLine classname="jp.co.dk.document.html.element.form.File" start="12" end="12" startBytecode="7" endBytecode="7" sourcefile="File.java" sourcepath="jp/co/dk/document/html/element/form/File.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.form.Hidden">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Hidden" start="11" end="13" sourcefile="Hidden.java" sourcepath="jp/co/dk/document/html/element/form/Hidden.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" priority="1" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="jp.co.dk.document.html.element.form.Hidden">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Hidden" start="11" end="13" sourcefile="Hidden.java" sourcepath="jp/co/dk/document/html/element/form/Hidden.java"/>
+    </Class>
+    <Class classname="jp.co.dk.document.html.element.Hidden">
+      <SourceLine classname="jp.co.dk.document.html.element.Hidden" start="11" end="15" sourcefile="Hidden.java" sourcepath="jp/co/dk/document/html/element/Hidden.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
+    <Class classname="jp.co.dk.document.html.element.form.Hidden">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Hidden" start="11" end="13" sourcefile="Hidden.java" sourcepath="jp/co/dk/document/html/element/form/Hidden.java"/>
+    </Class>
+    <Field classname="jp.co.dk.document.html.element.form.Hidden" name="form" signature="Ljp/co/dk/document/html/element/Form;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Hidden" sourcefile="Hidden.java" sourcepath="jp/co/dk/document/html/element/form/Hidden.java"/>
+    </Field>
+    <SourceLine classname="jp.co.dk.document.html.element.form.Hidden" start="12" end="12" startBytecode="7" endBytecode="7" sourcefile="Hidden.java" sourcepath="jp/co/dk/document/html/element/form/Hidden.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.form.Password">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Password" start="11" end="13" sourcefile="Password.java" sourcepath="jp/co/dk/document/html/element/form/Password.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" priority="1" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="jp.co.dk.document.html.element.form.Password">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Password" start="11" end="13" sourcefile="Password.java" sourcepath="jp/co/dk/document/html/element/form/Password.java"/>
+    </Class>
+    <Class classname="jp.co.dk.document.html.element.Password">
+      <SourceLine classname="jp.co.dk.document.html.element.Password" start="11" end="15" sourcefile="Password.java" sourcepath="jp/co/dk/document/html/element/Password.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
+    <Class classname="jp.co.dk.document.html.element.form.Password">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Password" start="11" end="13" sourcefile="Password.java" sourcepath="jp/co/dk/document/html/element/form/Password.java"/>
+    </Class>
+    <Field classname="jp.co.dk.document.html.element.form.Password" name="form" signature="Ljp/co/dk/document/html/element/Form;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Password" sourcefile="Password.java" sourcepath="jp/co/dk/document/html/element/form/Password.java"/>
+    </Field>
+    <SourceLine classname="jp.co.dk.document.html.element.form.Password" start="12" end="12" startBytecode="7" endBytecode="7" sourcefile="Password.java" sourcepath="jp/co/dk/document/html/element/form/Password.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.form.Radio">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Radio" start="11" end="13" sourcefile="Radio.java" sourcepath="jp/co/dk/document/html/element/form/Radio.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" priority="1" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="jp.co.dk.document.html.element.form.Radio">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Radio" start="11" end="13" sourcefile="Radio.java" sourcepath="jp/co/dk/document/html/element/form/Radio.java"/>
+    </Class>
+    <Class classname="jp.co.dk.document.html.element.Radio">
+      <SourceLine classname="jp.co.dk.document.html.element.Radio" start="12" end="81" sourcefile="Radio.java" sourcepath="jp/co/dk/document/html/element/Radio.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
+    <Class classname="jp.co.dk.document.html.element.form.Radio">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Radio" start="11" end="13" sourcefile="Radio.java" sourcepath="jp/co/dk/document/html/element/form/Radio.java"/>
+    </Class>
+    <Field classname="jp.co.dk.document.html.element.form.Radio" name="form" signature="Ljp/co/dk/document/html/element/Form;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Radio" sourcefile="Radio.java" sourcepath="jp/co/dk/document/html/element/form/Radio.java"/>
+    </Field>
+    <SourceLine classname="jp.co.dk.document.html.element.form.Radio" start="12" end="12" startBytecode="7" endBytecode="7" sourcefile="Radio.java" sourcepath="jp/co/dk/document/html/element/form/Radio.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.form.Reset">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Reset" start="11" end="13" sourcefile="Reset.java" sourcepath="jp/co/dk/document/html/element/form/Reset.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" priority="1" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="jp.co.dk.document.html.element.form.Reset">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Reset" start="11" end="13" sourcefile="Reset.java" sourcepath="jp/co/dk/document/html/element/form/Reset.java"/>
+    </Class>
+    <Class classname="jp.co.dk.document.html.element.Reset">
+      <SourceLine classname="jp.co.dk.document.html.element.Reset" start="11" end="15" sourcefile="Reset.java" sourcepath="jp/co/dk/document/html/element/Reset.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
+    <Class classname="jp.co.dk.document.html.element.form.Reset">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Reset" start="11" end="13" sourcefile="Reset.java" sourcepath="jp/co/dk/document/html/element/form/Reset.java"/>
+    </Class>
+    <Field classname="jp.co.dk.document.html.element.form.Reset" name="form" signature="Ljp/co/dk/document/html/element/Form;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Reset" sourcefile="Reset.java" sourcepath="jp/co/dk/document/html/element/form/Reset.java"/>
+    </Field>
+    <SourceLine classname="jp.co.dk.document.html.element.form.Reset" start="12" end="12" startBytecode="7" endBytecode="7" sourcefile="Reset.java" sourcepath="jp/co/dk/document/html/element/form/Reset.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.form.Select">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Select" start="11" end="13" sourcefile="Select.java" sourcepath="jp/co/dk/document/html/element/form/Select.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" priority="1" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="jp.co.dk.document.html.element.form.Select">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Select" start="11" end="13" sourcefile="Select.java" sourcepath="jp/co/dk/document/html/element/form/Select.java"/>
+    </Class>
+    <Class classname="jp.co.dk.document.html.element.Select">
+      <SourceLine classname="jp.co.dk.document.html.element.Select" start="36" end="194" sourcefile="Select.java" sourcepath="jp/co/dk/document/html/element/Select.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
+    <Class classname="jp.co.dk.document.html.element.form.Select">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Select" start="11" end="13" sourcefile="Select.java" sourcepath="jp/co/dk/document/html/element/form/Select.java"/>
+    </Class>
+    <Field classname="jp.co.dk.document.html.element.form.Select" name="form" signature="Ljp/co/dk/document/html/element/Form;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Select" sourcefile="Select.java" sourcepath="jp/co/dk/document/html/element/form/Select.java"/>
+    </Field>
+    <SourceLine classname="jp.co.dk.document.html.element.form.Select" start="12" end="12" startBytecode="7" endBytecode="7" sourcefile="Select.java" sourcepath="jp/co/dk/document/html/element/form/Select.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.form.Submit">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Submit" start="11" end="13" sourcefile="Submit.java" sourcepath="jp/co/dk/document/html/element/form/Submit.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" priority="1" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="jp.co.dk.document.html.element.form.Submit">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Submit" start="11" end="13" sourcefile="Submit.java" sourcepath="jp/co/dk/document/html/element/form/Submit.java"/>
+    </Class>
+    <Class classname="jp.co.dk.document.html.element.Submit">
+      <SourceLine classname="jp.co.dk.document.html.element.Submit" start="11" end="19" sourcefile="Submit.java" sourcepath="jp/co/dk/document/html/element/Submit.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
+    <Class classname="jp.co.dk.document.html.element.form.Submit">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Submit" start="11" end="13" sourcefile="Submit.java" sourcepath="jp/co/dk/document/html/element/form/Submit.java"/>
+    </Class>
+    <Field classname="jp.co.dk.document.html.element.form.Submit" name="form" signature="Ljp/co/dk/document/html/element/Form;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Submit" sourcefile="Submit.java" sourcepath="jp/co/dk/document/html/element/form/Submit.java"/>
+    </Field>
+    <SourceLine classname="jp.co.dk.document.html.element.form.Submit" start="12" end="12" startBytecode="7" endBytecode="7" sourcefile="Submit.java" sourcepath="jp/co/dk/document/html/element/form/Submit.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="jp.co.dk.document.html.element.form.Text">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Text" start="11" end="13" sourcefile="Text.java" sourcepath="jp/co/dk/document/html/element/form/Text.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.html.HtmlElement" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="jp.co.dk.document.html.HtmlElement" start="365" end="368" startBytecode="0" endBytecode="127" sourcefile="HtmlElement.java" sourcepath="jp/co/dk/document/html/HtmlElement.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" priority="1" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="jp.co.dk.document.html.element.form.Text">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Text" start="11" end="13" sourcefile="Text.java" sourcepath="jp/co/dk/document/html/element/form/Text.java"/>
+    </Class>
+    <Class classname="jp.co.dk.document.html.element.Text">
+      <SourceLine classname="jp.co.dk.document.html.element.Text" start="11" end="15" sourcefile="Text.java" sourcepath="jp/co/dk/document/html/element/Text.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
+    <Class classname="jp.co.dk.document.html.element.form.Text">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Text" start="11" end="13" sourcefile="Text.java" sourcepath="jp/co/dk/document/html/element/form/Text.java"/>
+    </Class>
+    <Field classname="jp.co.dk.document.html.element.form.Text" name="form" signature="Ljp/co/dk/document/html/element/Form;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.html.element.form.Text" sourcefile="Text.java" sourcepath="jp/co/dk/document/html/element/form/Text.java"/>
+    </Field>
+    <SourceLine classname="jp.co.dk.document.html.element.form.Text" start="12" end="12" startBytecode="7" endBytecode="7" sourcefile="Text.java" sourcepath="jp/co/dk/document/html/element/form/Text.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="jp.co.dk.document.xml.XmlDocument">
+      <SourceLine classname="jp.co.dk.document.xml.XmlDocument" start="48" end="159" sourcefile="XmlDocument.java" sourcepath="jp/co/dk/document/xml/XmlDocument.java"/>
+    </Class>
+    <Method classname="jp.co.dk.document.xml.XmlDocument" name="save" signature="(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;" isStatic="false">
+      <SourceLine classname="jp.co.dk.document.xml.XmlDocument" start="120" end="135" startBytecode="0" endBytecode="371" sourcefile="XmlDocument.java" sourcepath="jp/co/dk/document/xml/XmlDocument.java"/>
+    </Method>
+    <Method classname="java.io.FileWriter" name="&lt;init&gt;" signature="(Ljava/io/File;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileWriter" start="90" end="91" startBytecode="0" endBytecode="40" sourcefile="FileWriter.java" sourcepath="java/io/FileWriter.java"/>
+    </Method>
+    <SourceLine classname="jp.co.dk.document.xml.XmlDocument" start="127" end="127" startBytecode="110" endBytecode="110" sourcefile="XmlDocument.java" sourcepath="jp/co/dk/document/xml/XmlDocument.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Wed, 28 Aug 2013 01:30:57 +0900" total_classes="64" referenced_classes="143" total_bugs="40" total_size="1777" num_packages="11" vm_version="22.0-b10" cpu_seconds="26.98" clock_seconds="15.21" peak_mbytes="163.23" alloc_mbytes="780.50" gc_seconds="0.26" priority_2="30" priority_1="10">
+    <PackageStats package="jp.co.dk.document" total_bugs="1" total_types="6" total_size="45" priority_2="1">
+      <ClassStats class="jp.co.dk.document.Document" sourceFile="Document.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.Element" sourceFile="Element.java" interface="true" size="14" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.ElementFactory" sourceFile="ElementFactory.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.ElementName" sourceFile="ElementName.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.ElementSelector" sourceFile="ElementSelector.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.File" sourceFile="File.java" interface="false" size="24" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="jp.co.dk.document.exception" total_bugs="0" total_types="1" total_size="26">
+      <ClassStats class="jp.co.dk.document.exception.DocumentException" sourceFile="DocumentException.java" interface="false" size="26" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="jp.co.dk.document.html" total_bugs="20" total_types="4" total_size="355" priority_2="19" priority_1="1">
+      <ClassStats class="jp.co.dk.document.html.HtmlDocument" sourceFile="HtmlDocument.java" interface="false" size="87" bugs="2" priority_2="2"/>
+      <ClassStats class="jp.co.dk.document.html.HtmlElement" sourceFile="HtmlElement.java" interface="false" size="196" bugs="18" priority_2="17" priority_1="1"/>
+      <ClassStats class="jp.co.dk.document.html.HtmlElementFactory" sourceFile="HtmlElementFactory.java" interface="false" size="66" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.HtmlElementFactory$1" sourceFile="HtmlElementFactory.java" interface="false" size="6" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="jp.co.dk.document.html.constant" total_bugs="0" total_types="6" total_size="579">
+      <ClassStats class="jp.co.dk.document.html.constant.HtmlAttributeName" sourceFile="HtmlAttributeName.java" interface="false" size="215" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.constant.HtmlCharSetName" sourceFile="HtmlCharSetName.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.constant.HtmlElementName" sourceFile="HtmlElementName.java" interface="false" size="253" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.constant.HtmlRequestMethodName" sourceFile="HtmlRequestMethodName.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.constant.HttpEquivName" sourceFile="HttpEquivName.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.constant.InputTypeName" sourceFile="InputTypeName.java" interface="false" size="31" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="jp.co.dk.document.html.element" total_bugs="1" total_types="19" total_size="370" priority_2="1">
+      <ClassStats class="jp.co.dk.document.html.element.A" sourceFile="A.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.Action" sourceFile="Action.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.ActionType" sourceFile="Action.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.CheckBox" sourceFile="CheckBox.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.File" sourceFile="File.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.Form" sourceFile="Form.java" interface="false" size="55" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.FormElemenetFactory" sourceFile="Form.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.FormElemenetFactory$1" sourceFile="Form.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.Hidden" sourceFile="Hidden.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.Image" sourceFile="Image.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.Input" sourceFile="Input.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.Meta" sourceFile="Meta.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.Option" sourceFile="Option.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.Password" sourceFile="Password.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.Radio" sourceFile="Radio.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.Reset" sourceFile="Reset.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.Select" sourceFile="Select.java" interface="false" size="59" bugs="1" priority_2="1"/>
+      <ClassStats class="jp.co.dk.document.html.element.Submit" sourceFile="Submit.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.Text" sourceFile="Text.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="jp.co.dk.document.html.element.form" total_bugs="17" total_types="9" total_size="54" priority_2="9" priority_1="8">
+      <ClassStats class="jp.co.dk.document.html.element.form.Checkbox" sourceFile="Checkbox.java" interface="false" size="6" bugs="1" priority_2="1"/>
+      <ClassStats class="jp.co.dk.document.html.element.form.File" sourceFile="File.java" interface="false" size="6" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="jp.co.dk.document.html.element.form.Hidden" sourceFile="Hidden.java" interface="false" size="6" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="jp.co.dk.document.html.element.form.Password" sourceFile="Password.java" interface="false" size="6" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="jp.co.dk.document.html.element.form.Radio" sourceFile="Radio.java" interface="false" size="6" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="jp.co.dk.document.html.element.form.Reset" sourceFile="Reset.java" interface="false" size="6" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="jp.co.dk.document.html.element.form.Select" sourceFile="Select.java" interface="false" size="6" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="jp.co.dk.document.html.element.form.Submit" sourceFile="Submit.java" interface="false" size="6" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="jp.co.dk.document.html.element.form.Text" sourceFile="Text.java" interface="false" size="6" bugs="2" priority_2="1" priority_1="1"/>
+    </PackageStats>
+    <PackageStats package="jp.co.dk.document.html.element.selector" total_bugs="0" total_types="12" total_size="102">
+      <ClassStats class="jp.co.dk.document.html.element.selector.AnchorHasImage" sourceFile="AnchorHasImage.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.selector.InputCheckbox" sourceFile="InputCheckbox.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.selector.InputFile" sourceFile="InputFile.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.selector.InputHidden" sourceFile="InputHidden.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.selector.InputImage" sourceFile="InputImage.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.selector.InputPassword" sourceFile="InputPassword.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.selector.InputRadioButton" sourceFile="InputRadioButton.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.selector.InputReset" sourceFile="InputReset.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.selector.InputSubmit" sourceFile="InputSubmit.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.selector.InputText" sourceFile="InputText.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.selector.MetaContentType" sourceFile="MetaContentType.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.html.element.selector.Select" sourceFile="Select.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="jp.co.dk.document.html.exception" total_bugs="0" total_types="1" total_size="20">
+      <ClassStats class="jp.co.dk.document.html.exception.HtmlDocumentException" sourceFile="HtmlDocumentException.java" interface="false" size="20" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="jp.co.dk.document.message" total_bugs="0" total_types="1" total_size="41">
+      <ClassStats class="jp.co.dk.document.message.DocumentMessage" sourceFile="DocumentMessage.java" interface="false" size="41" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="jp.co.dk.document.xml" total_bugs="1" total_types="4" total_size="168" priority_1="1">
+      <ClassStats class="jp.co.dk.document.xml.DocumentPropertyType" sourceFile="DocumentPropertyType.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.xml.XmlDocument" sourceFile="XmlDocument.java" interface="false" size="59" bugs="1" priority_1="1"/>
+      <ClassStats class="jp.co.dk.document.xml.XmlElement" sourceFile="XmlElement.java" interface="false" size="81" bugs="0"/>
+      <ClassStats class="jp.co.dk.document.xml.XmlElementFactory" sourceFile="XmlElementFactory.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="jp.co.dk.document.xml.exception" total_bugs="0" total_types="1" total_size="17">
+      <ClassStats class="jp.co.dk.document.xml.exception.XmlDocumentException" sourceFile="XmlDocumentException.java" interface="false" size="17" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="1113" invocations="735" avgMicrosecondsPerInvocation="1515" maxMicrosecondsPerInvocation="42397" standardDeviationMircosecondsPerInvocation="4151"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="1098" invocations="143" avgMicrosecondsPerInvocation="7684" maxMicrosecondsPerInvocation="135745" standardDeviationMircosecondsPerInvocation="18421"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="814" invocations="258" avgMicrosecondsPerInvocation="3158" maxMicrosecondsPerInvocation="33418" standardDeviationMircosecondsPerInvocation="4742"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="764" invocations="267" avgMicrosecondsPerInvocation="2863" maxMicrosecondsPerInvocation="34580" standardDeviationMircosecondsPerInvocation="4638"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="694" invocations="285" avgMicrosecondsPerInvocation="2437" maxMicrosecondsPerInvocation="33947" standardDeviationMircosecondsPerInvocation="4261"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="658" invocations="291" avgMicrosecondsPerInvocation="2261" maxMicrosecondsPerInvocation="38464" standardDeviationMircosecondsPerInvocation="4409"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="556" invocations="143" avgMicrosecondsPerInvocation="3892" maxMicrosecondsPerInvocation="52805" standardDeviationMircosecondsPerInvocation="9016"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="546" invocations="290" avgMicrosecondsPerInvocation="1882" maxMicrosecondsPerInvocation="35748" standardDeviationMircosecondsPerInvocation="4144"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="448" invocations="630" avgMicrosecondsPerInvocation="711" maxMicrosecondsPerInvocation="15514" standardDeviationMircosecondsPerInvocation="1694"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="433" invocations="287" avgMicrosecondsPerInvocation="1509" maxMicrosecondsPerInvocation="25438" standardDeviationMircosecondsPerInvocation="3074"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="350" invocations="266" avgMicrosecondsPerInvocation="1318" maxMicrosecondsPerInvocation="26061" standardDeviationMircosecondsPerInvocation="2766"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.impl.ZipCodeBaseFactory" totalMilliseconds="304" invocations="20" avgMicrosecondsPerInvocation="15201" maxMicrosecondsPerInvocation="298325" standardDeviationMircosecondsPerInvocation="64955"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="280" invocations="143" avgMicrosecondsPerInvocation="1964" maxMicrosecondsPerInvocation="19924" standardDeviationMircosecondsPerInvocation="3738"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="246" invocations="143" avgMicrosecondsPerInvocation="1723" maxMicrosecondsPerInvocation="17812" standardDeviationMircosecondsPerInvocation="3583"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="236" invocations="143" avgMicrosecondsPerInvocation="1656" maxMicrosecondsPerInvocation="28462" standardDeviationMircosecondsPerInvocation="4092"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="224" invocations="285" avgMicrosecondsPerInvocation="787" maxMicrosecondsPerInvocation="20028" standardDeviationMircosecondsPerInvocation="1978"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="189" invocations="143" avgMicrosecondsPerInvocation="1327" maxMicrosecondsPerInvocation="23376" standardDeviationMircosecondsPerInvocation="3516"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.obl.ObligationAnalysis" totalMilliseconds="175" invocations="39" avgMicrosecondsPerInvocation="4492" maxMicrosecondsPerInvocation="134953" standardDeviationMircosecondsPerInvocation="21400"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="167" invocations="258" avgMicrosecondsPerInvocation="649" maxMicrosecondsPerInvocation="10713" standardDeviationMircosecondsPerInvocation="1639"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="148" invocations="738" avgMicrosecondsPerInvocation="200" maxMicrosecondsPerInvocation="6224" standardDeviationMircosecondsPerInvocation="680"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="142" invocations="171" avgMicrosecondsPerInvocation="832" maxMicrosecondsPerInvocation="36520" standardDeviationMircosecondsPerInvocation="3120"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="141" invocations="303" avgMicrosecondsPerInvocation="468" maxMicrosecondsPerInvocation="96405" standardDeviationMircosecondsPerInvocation="5546"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ReflectiveClasses" totalMilliseconds="140" invocations="143" avgMicrosecondsPerInvocation="985" maxMicrosecondsPerInvocation="14397" standardDeviationMircosecondsPerInvocation="2439"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="134" invocations="689" avgMicrosecondsPerInvocation="194" maxMicrosecondsPerInvocation="7219" standardDeviationMircosecondsPerInvocation="642"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="131" invocations="64" avgMicrosecondsPerInvocation="2059" maxMicrosecondsPerInvocation="24179" standardDeviationMircosecondsPerInvocation="4113"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.URLProblems" totalMilliseconds="128" invocations="64" avgMicrosecondsPerInvocation="2012" maxMicrosecondsPerInvocation="22899" standardDeviationMircosecondsPerInvocation="4033"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="114" invocations="143" avgMicrosecondsPerInvocation="801" maxMicrosecondsPerInvocation="19369" standardDeviationMircosecondsPerInvocation="2249"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SerializableIdiom" totalMilliseconds="103" invocations="64" avgMicrosecondsPerInvocation="1614" maxMicrosecondsPerInvocation="69162" standardDeviationMircosecondsPerInvocation="8641"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

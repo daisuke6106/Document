@@ -58,7 +58,7 @@ public class TestMeta extends TestDocumentFoundation{
 			result = null;
 		}};
 		Meta meta1 = new Meta(htmlElement);
-		assertEquals(meta1.getContent(), "");
+		assertEquals(meta1.getMetaContent(), "");
 		
 		// Meta要素に"content"の属性に空文字が設定されていた場合、空文字を返却すること。
 		new NonStrictExpectations() {{
@@ -66,7 +66,7 @@ public class TestMeta extends TestDocumentFoundation{
 			result = "";
 		}};
 		Meta meta2 = new Meta(htmlElement);
-		assertEquals(meta2.getContent(), "");
+		assertEquals(meta2.getMetaContent(), "");
 		
 		// Meta要素に"content"の属性に空文字が設定されていた場合、空文字を返却すること。
 		new NonStrictExpectations() {{
@@ -74,6 +74,6 @@ public class TestMeta extends TestDocumentFoundation{
 			result = "text/html; charset=shift_jis";
 		}};
 		Meta meta3 = new Meta(htmlElement);
-		assertEquals(meta3.getContent(), "text/html; charset=shift_jis");
+		assertEquals(meta3.getMetaContent(), "text/html; charset=shift_jis");
 	}
 }
