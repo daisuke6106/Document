@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.Test;
 
 import jp.co.dk.document.Element;
+import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.foundation.TestDocumentFoundation;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HtmlCharSetName;
@@ -19,7 +20,7 @@ import jp.co.dk.document.html.exception.HtmlDocumentException;
 public class TestHtmlElement extends TestDocumentFoundation {
 	
 	@Test
-	public void constractor() {
+	public void constractor() throws DocumentException {
 		// nullにてインスタンス生成した場合、例外を送出すること
 		try {
 			String elementStr = null;
@@ -165,13 +166,13 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getEncode() {
+	public void getEncode() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		assertThat(htmlDocument.getEncode(), is (HtmlCharSetName.UTF_8));
 	}
 	
 	@Test
-	public void getElement() {
+	public void getElement() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<jp.co.dk.document.Element> elementList1 = htmlDocument.getElement();
 		assertEquals(elementList1.get(0).getTagName(), "!doctype");
@@ -191,7 +192,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getChildElement() {
+	public void getChildElement() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<jp.co.dk.document.Element> elementList1 = htmlDocument.getChildElement();
 		assertEquals(elementList1.get(0).getTagName(), "!doctype");
@@ -207,7 +208,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getAllElement() {
+	public void getAllElement() throws DocumentException {
 //		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument("jp/co/dk/document/html/HTML_getDocument001.html");
 //		List<jp.co.dk.document.Element> elementList = htmlDocument.getChildElement();
 //		List<jp.co.dk.document.Element> allElementList = ((HtmlElement)elementList.get(0)).getAllElement();
@@ -215,7 +216,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void hasChildElement() {
+	public void hasChildElement() throws DocumentException {
 			jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 			if (!htmlDocument.hasChildElement()) {
 				fail();
@@ -226,7 +227,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void isElement() {
+	public void isElement() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		boolean trueHtml = htmlDocument.getElement(HtmlElementName.HTML).get(0).isElement(HtmlElementName.HTML);
 		if (!trueHtml) {
@@ -235,14 +236,14 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void hasElement() {
+	public void hasElement() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		assertThat(htmlDocument.hasChildElement(), is (true) );
 		assertThat(htmlDocument.getElement(HtmlElementName.IMG).get(0).hasChildElement(), is (false));
 	}
 	
 	@Test
-	public void getAttribute() {
+	public void getAttribute() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		Element element = htmlDocument.getElement(HtmlElementName.IMG).get(0);
 		
@@ -252,7 +253,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void hasAttribute() {
+	public void hasAttribute() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<Element> elementList = htmlDocument.getElement(HtmlElementName.IMG);
 		Element element = elementList.get(0);
@@ -271,7 +272,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getTagName() {
+	public void getTagName() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<Element> elementList = htmlDocument.getElement(HtmlElementName.IMG);
 		String name = elementList.get(0).getTagName();
@@ -281,7 +282,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getContent() {
+	public void getContent() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<Element> elementList = htmlDocument.getElement(HtmlElementName.LABEL);
 		Element element = elementList.get(0);
@@ -291,7 +292,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getId() {
+	public void getId() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<Element> elementList = htmlDocument.getElement();
 		for (Element element: elementList) {
@@ -312,7 +313,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getName() {
+	public void getName() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<Element> elementList = htmlDocument.getElement();
 		for (Element element: elementList) {
@@ -333,7 +334,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getClassList() {
+	public void getClassList() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<Element> elementList = htmlDocument.getElement();
 		for (Element element: elementList) {
@@ -354,7 +355,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getElementById() {
+	public void getElementById() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<Element> list =  htmlDocument.getElement(HtmlElementName.HTML);
 		HtmlElement element = (HtmlElement)list.get(0);
@@ -369,7 +370,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getElementByName() {
+	public void getElementByName() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<Element> list =  htmlDocument.getElement(HtmlElementName.HTML);
 		HtmlElement element = (HtmlElement)list.get(0);
@@ -384,7 +385,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getElementType() {
+	public void getElementType() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<Element> list =  htmlDocument.getElement(HtmlElementName.HTML);
 		HtmlElement element = (HtmlElement)list.get(0);
@@ -395,7 +396,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getHrefList() {
+	public void getHrefList() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<Element> list =  htmlDocument.getElement(HtmlElementName.HTML);
 		HtmlElement element = (HtmlElement)list.get(0);
@@ -406,7 +407,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void getFormElement() {
+	public void getFormElement() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<Element> list =  htmlDocument.getElement(HtmlElementName.HTML);
 		HtmlElement element = (HtmlElement)list.get(0);
@@ -417,7 +418,7 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	}
 	
 	@Test
-	public void equals() {
+	public void equals() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument1 = super.createHtmlDocument();
 		List<Element> list1 =  htmlDocument1.getElement(HtmlElementName.HTML);
 		HtmlElement element1 = (HtmlElement)list1.get(0);

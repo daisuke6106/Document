@@ -33,7 +33,7 @@ public class TestHtmlElementFactory extends TestDocumentFoundation {
 	private jp.co.dk.document.html.HtmlElement mockHtmlElement;
 	
 	@Test
-	public void convert() {
+	public void convert() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = createHtmlDocument();
 		jp.co.dk.document.xml.XmlDocument   xmlDocument  = createXmlDocument();
 		HtmlElementFactory factory = new HtmlElementFactory();

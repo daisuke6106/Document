@@ -43,10 +43,11 @@ public class XmlDocument extends File implements Document {
 	 * 読み込みストリームを元にオブジェクトを生成する。
 	 * 
 	 * @param inputStream  読み込みストリーム
+	 * @throws DocumentException 
 	 */
-	public XmlDocument(InputStream inputStream) throws XmlDocumentException{
+	public XmlDocument(InputStream inputStream) throws DocumentException{
 		super(inputStream);
-		this.document   = this.createDocument(inputStream);
+		this.document   = this.createDocument(super.fileData.getStream());
 		this.xmlElement = new jp.co.dk.document.xml.XmlElement(this.document.getDocumentElement());
 	}
 	

@@ -40,7 +40,7 @@ public class DocumentMessage extends AbstractMessage{
 	/** SAXの一般的なエラーまたは警告を検出しました。 */
 	public static final DocumentMessage SAX_WARNING_OR_ERROR = new DocumentMessage("E010");
 	
-	/** ファイル入出力にて例外がはっせいしました。 */
+	/** ファイル入出力にて例外が発生しました。 */
 	public static final DocumentMessage FILE_INPUT_OUTPUT_ERROR = new DocumentMessage("E011");
 	
 	/** XMLファイルが既に存在します。 */
@@ -63,6 +63,9 @@ public class DocumentMessage extends AbstractMessage{
 	
 	/** 要素文字列の変換処理に失敗しました。要素文字列が設定されていません。 */
 	public static final DocumentMessage ERROR_ELEMENT_STRING_IS_NOT_SET = new DocumentMessage("E017");
+	
+	/** ファイル読み込みに失敗しました。 */
+	public static final DocumentMessage ERROR_FILE_READ = new DocumentMessage("E018");
 	
 	
 	protected DocumentMessage(String messageId) {

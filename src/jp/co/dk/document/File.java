@@ -17,17 +17,18 @@ import jp.co.dk.document.message.DocumentMessage;
  */
 public class File {
 	
-	private InputStream inputStream;
+	protected ByteDump fileData;
 	
 	/**
 	 * コンストラクタ<br/>
 	 * 
 	 * 読み込みストリームを元にオブジェクトを生成する。
 	 * 
-	 * @param inputStream 
+	 * @param inputStream 読み込みストリーム
+	 * @throws DocumentException 読み込みストリームからの読み込みに失敗した場合
 	 */
-	public File(InputStream inputStream) {
-		this.inputStream = inputStream;
+	public File(InputStream inputStream) throws DocumentException {
+		this.fileData = new ByteDump(inputStream);
 	}
 	
 	/**
@@ -51,14 +52,9 @@ public class File {
 		java.io.File path = new java.io.File(new StringBuilder(dir.getAbsolutePath()).append('/').append(filename).toString());
 		if (path.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH, dir.getAbsolutePath());
 		try {
-			OutputStream outputStream = new FileOutputStream(path); 
-			byte[] buffer = new byte[1024];
-			int len = 0;
-			while ((len = inputStream.read(buffer)) > 0) {
-				outputStream.write(buffer, 0, len);
-		    }
+			OutputStream outputStream = new FileOutputStream(path);
+			outputStream.write(this.fileData.getBytes());
 			outputStream.close();
-			inputStream.close();
 		} catch (MalformedURLException e) {
 			throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE, path.getPath(), e);
 		} catch (IOException e) {

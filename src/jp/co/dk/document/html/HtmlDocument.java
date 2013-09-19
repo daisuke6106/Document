@@ -37,8 +37,9 @@ public class HtmlDocument extends File implements Document{
 	 * InputStreamから要素を生成します。
 	 * 
 	 * @param element HTMLパーサの要素インスタンス
+	 * @throws DocumentException 
 	 */
-	public HtmlDocument(InputStream inputStream) throws HtmlDocumentException{
+	public HtmlDocument(InputStream inputStream) throws DocumentException{
 		this(inputStream, new HtmlElementFactory());
 	}
 	
@@ -48,11 +49,12 @@ public class HtmlDocument extends File implements Document{
 	 * 
 	 * @param element HTMLパーサの要素インスタンス
 	 * @param elementFactory 要素生成ファクトリ
+	 * @throws DocumentException 
 	 */
-	public HtmlDocument(InputStream inputStream, HtmlElementFactory elementFactory) throws HtmlDocumentException{
+	public HtmlDocument(InputStream inputStream, HtmlElementFactory elementFactory) throws DocumentException{
 		super(inputStream);
 		try {
-			this.htmlElement    = new HtmlElement(new net.htmlparser.jericho.Source(inputStream), elementFactory);
+			this.htmlElement    = new HtmlElement(new net.htmlparser.jericho.Source(super.fileData.getStream()), elementFactory);
 			this.elementFactory = elementFactory;
 		} catch (IOException e) {
 			throw new HtmlDocumentException(DocumentMessage.ERROR_FAILED_TO_PARSE_HTML, e);

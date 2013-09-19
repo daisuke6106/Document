@@ -25,7 +25,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestFile.class, TestHtmlDocument.class, TestHtmlElement.class, TestHtmlElementFactory.class, TestHtmlCharSetName.class,
+@SuiteClasses({ TestByteDump.class, TestFile.class, TestHtmlDocument.class, TestHtmlElement.class, TestHtmlElementFactory.class, TestHtmlCharSetName.class,
 	TestHtmlRequestMethodName.class, TestHttpEquivName.class, 
 	TestA.class, TestAction.class, TestCheckBox.class, TestForm.class, TestImage.class, TestInput.class, TestMeta.class,
 	TestOption.class, TestPassword.class, TestRadio.class, TestReset.class, TestSelect.class,

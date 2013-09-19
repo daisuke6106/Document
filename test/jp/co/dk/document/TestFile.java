@@ -12,7 +12,7 @@ import org.junit.Test;
 public class TestFile extends TestDocumentFoundation{
 	
 	@Test
-	public void save() {
+	public void save() throws DocumentException {
 		
 		jp.co.dk.document.File     file = super.createFileDocument();
 		java.io.File         saveTmpDir = super.getTestTmpDir();

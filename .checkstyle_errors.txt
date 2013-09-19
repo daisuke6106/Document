@@ -1,5 +1,37 @@
 Starting audit...
-/home/dk/projects/Document/src/jp/co/dk/document/Document.java:0: Missing package-info.java file.
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:0: Missing package-info.java file.
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:14: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:15:1: File contains tab characters (this is the first instance).
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:15:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:15:30: 変数 'buffer' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:15:36: ';' の前にホワイトスペースがあります。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:16:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:16:18: Parameter inputStream should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:16:50: DocumentException のクラス情報が取得できません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:18:24: 'buffer' がフィールドを隠しています。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:18:42: '1024' はマジックナンバーです。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:21: 'while' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:21: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:23: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:26: 'for' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:26:20: 'for' の後にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:28: 'for' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:28: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:28:20: 'for' の後にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:30:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:30:9: メソッド 'length' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:33:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:33:9: メソッド 'getBytes' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:36: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:37:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:37:9: メソッド 'getStream' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:41: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:42:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:43:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:43:18: Parameter bytes should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:43:25: 'bytes' がフィールドを隠しています。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:46:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:49:13: Javadoc コメントがありません。
 /home/dk/projects/Document/src/jp/co/dk/document/Document.java:3: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/Document.java:5: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/Document.java:9:42: '{' の前にホワイトスペースがありません。
@@ -103,35 +135,33 @@ Starting audit...
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:19: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:19:1: File contains tab characters (this is the first instance).
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:20:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:20:28: 変数 'fileData' は private とし、アクセッサメソッドを持つべきです。
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:21: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:22: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:24: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:26: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:27: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:29:21: Parameter inputStream should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:29:33: 'inputStream' がフィールドを隠しています。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:32: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:33: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:41: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:47: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:47:9: メソッド 'save' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:47:34: '(' の前にホワイトスペースがあります。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:47:35: Parameter dir should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:47:53: Parameter filename should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:47:68: ')' の前にホワイトスペースがあります。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:47:78: DocumentException のクラス情報が取得できません。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:48: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:30:21: Parameter inputStream should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:30:53: DocumentException のクラス情報が取得できません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:33: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:34: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:42: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:48: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:48:9: メソッド 'save' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:48:34: '(' の前にホワイトスペースがあります。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:48:35: Parameter dir should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:48:53: Parameter filename should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:48:68: ')' の前にホワイトスペースがあります。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:48:78: DocumentException のクラス情報が取得できません。
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:49: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:49: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:50: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:51: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:52: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:50: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:50: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:51: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:52: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:54: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:55:50: '1024' はマジックナンバーです。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:63: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:65: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:53: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:53: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:59: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:61: 行が 80 文字を超えています。
 /home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:0: Missing package-info.java file.
 /home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:8: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:10: Line has trailing spaces.
@@ -215,106 +245,105 @@ Starting audit...
 /home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:35: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:38: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:39:12: 'element' に対する使用されない @param タグです。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:41: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:41:29: Parameter inputStream should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:41:41: 'inputStream' には @param タグが必要です。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:41:61: 'HtmlDocumentException' には @throws タグが必要です。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:41:61: HtmlDocumentException のクラス情報が取得できません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:41:82: '{' の前にホワイトスペースがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:44: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:45: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:48: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:49:12: 'element' に対する使用されない @param タグです。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:52: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:52:29: Parameter inputStream should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:52:41: 'inputStream' には @param タグが必要です。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:52:54: Parameter elementFactory should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:52:73: 'elementFactory' がフィールドを隠しています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:52:96: 'HtmlDocumentException' には @throws タグが必要です。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:52:96: HtmlDocumentException のクラス情報が取得できません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:52:117: '{' の前にホワイトスペースがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:55: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:58: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:61: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:62: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:64: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:40: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:42:29: Parameter inputStream should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:42:41: 'inputStream' には @param タグが必要です。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:42:61: DocumentException のクラス情報が取得できません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:42:78: '{' の前にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:45: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:46: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:49: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:50:12: 'element' に対する使用されない @param タグです。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:52: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:54: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:54:29: Parameter inputStream should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:54:41: 'inputStream' には @param タグが必要です。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:54:54: Parameter elementFactory should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:54:73: 'elementFactory' がフィールドを隠しています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:54:96: DocumentException のクラス情報が取得できません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:54:113: '{' の前にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:57: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:60: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:63: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:64: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:66: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:69:9: メソッド 'getTitle' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:70: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:77: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:78: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:80: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:84: @return タグが必要です。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:84:9: メソッド 'getEncode' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:85: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:90: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:91: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:91: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:98:9: メソッド 'getElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:103:9: メソッド 'getElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:104:41: Parameter elementName should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:108:9: メソッド 'getElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:109:41: Parameter elementSelector should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:112: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:113:9: メソッド 'getChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:118:9: メソッド 'getChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:119:46: Parameter elementName should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:122: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:123:9: メソッド 'getChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:124:46: Parameter elementSelector should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:128:9: メソッド 'hasChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:133:9: メソッド 'isElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:134:34: Parameter elementName should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:138:9: メソッド 'hasElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:139:35: Parameter elementName should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:143:9: メソッド 'getAttribute' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:144:36: Parameter name should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:148:9: メソッド 'hasAttribute' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:149:37: Parameter attributeName should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:153:9: メソッド 'getTagName' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:158:9: メソッド 'getContent' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:164: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:165:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:165:33: Parameter sb should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:165:51: Parameter element should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:166: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:166:89: '{' の前にホワイトスペースがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:167:37: 'htmlElement' がフィールドを隠しています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:167:64: 'cast' の後にホワイトスペースがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:172: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:173:9: メソッド 'save' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:174: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:174:34: '(' の前にホワイトスペースがあります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:174:35: Parameter dir should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:174:53: Parameter filename should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:174:68: ')' の前にホワイトスペースがあります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:174:78: DocumentException のクラス情報が取得できません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:179: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:182: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:183: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:192: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:199: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:199:9: メソッド 'save' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:199:34: '(' の前にホワイトスペースがあります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:199:35: Parameter dir should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:199:53: Parameter filename should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:199:70: Parameter charset should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:199:93: DocumentException のクラス情報が取得できません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:200: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:200: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:201: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:68: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:71:9: メソッド 'getTitle' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:72: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:79: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:80: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:82: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:86: @return タグが必要です。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:86:9: メソッド 'getEncode' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:87: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:92: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:93: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:93: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:100:9: メソッド 'getElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:105:9: メソッド 'getElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:106:41: Parameter elementName should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:110:9: メソッド 'getElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:111:41: Parameter elementSelector should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:114: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:115:9: メソッド 'getChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:120:9: メソッド 'getChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:121:46: Parameter elementName should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:124: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:125:9: メソッド 'getChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:126:46: Parameter elementSelector should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:130:9: メソッド 'hasChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:135:9: メソッド 'isElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:136:34: Parameter elementName should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:140:9: メソッド 'hasElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:141:35: Parameter elementName should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:145:9: メソッド 'getAttribute' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:146:36: Parameter name should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:150:9: メソッド 'hasAttribute' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:151:37: Parameter attributeName should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:155:9: メソッド 'getTagName' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:160:9: メソッド 'getContent' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:166: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:167:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:167:33: Parameter sb should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:167:51: Parameter element should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:168: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:168:89: '{' の前にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:169:37: 'htmlElement' がフィールドを隠しています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:169:64: 'cast' の後にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:174: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:175:9: メソッド 'save' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:176: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:176:34: '(' の前にホワイトスペースがあります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:176:35: Parameter dir should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:176:53: Parameter filename should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:176:68: ')' の前にホワイトスペースがあります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:176:78: DocumentException のクラス情報が取得できません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:181: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:184: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:185: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:194: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:201: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:201:9: メソッド 'save' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:201:34: '(' の前にホワイトスペースがあります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:201:35: Parameter dir should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:201:53: Parameter filename should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:201:70: Parameter charset should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:201:93: DocumentException のクラス情報が取得できません。
 /home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:202: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:202: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:203: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:203: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:203: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:204: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:204: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:205: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:205: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:208: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:212: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:205: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:206: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:207: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:207: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:210: 行が 80 文字を超えています。
 /home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:214: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:218: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:219:9: メソッド 'toString' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:216: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:220: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/HtmlDocument.java:221:9: メソッド 'toString' は拡張するように設計されていません - abstract か final か空である必要があります。
 /home/dk/projects/Document/src/jp/co/dk/document/html/HtmlElement.java:7:8: 使用されないインポートです - net.htmlparser.jericho.Element。
 /home/dk/projects/Document/src/jp/co/dk/document/html/HtmlElement.java:16: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.document.message.DocumentMessage.*。
 /home/dk/projects/Document/src/jp/co/dk/document/html/HtmlElement.java:18: 最初の一文はピリオドで終わらなければなりません。
@@ -1821,9 +1850,12 @@ Starting audit...
 /home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:64: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:65: 行が 80 文字を超えています。
 /home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:66: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:67: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:68:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:68:35: Parameter messageId should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:67: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:68: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:69: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:70: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:71:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:71:35: Parameter messageId should be final.
 /home/dk/projects/Document/src/jp/co/dk/document/xml/DocumentPropertyType.java:0: Missing package-info.java file.
 /home/dk/projects/Document/src/jp/co/dk/document/xml/DocumentPropertyType.java:5: Javadoc コメントがありません。
 /home/dk/projects/Document/src/jp/co/dk/document/xml/DocumentPropertyType.java:6: Line has trailing spaces.
@@ -1858,81 +1890,82 @@ Starting audit...
 /home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:40: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:42: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:44: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:47:28: Parameter inputStream should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:47:60: 'XmlDocumentException' には @throws タグが必要です。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:47:60: XmlDocumentException のクラス情報が取得できません。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:47:80: '{' の前にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:46: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:48:28: Parameter inputStream should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:48:60: DocumentException のクラス情報が取得できません。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:48:77: '{' の前にホワイトスペースがありません。
 /home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:50: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:52: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:53:9: メソッド 'getElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:57: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:58:9: メソッド 'getElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:59: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:59:59: Parameter elementName should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:62: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:63:9: メソッド 'getElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:64: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:64:59: Parameter elementSelector should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:67: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:68:9: メソッド 'getChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:72: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:73:9: メソッド 'getChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:74: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:74:64: Parameter elementName should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:77: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:78:9: メソッド 'getChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:79: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:79:64: Parameter elementSelector should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:82: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:83:9: メソッド 'hasChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:87: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:88:9: メソッド 'isElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:89:34: Parameter elementName should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:92: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:93:9: メソッド 'hasElement' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:94:35: Parameter elementName should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:97: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:98:9: メソッド 'getAttribute' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:99:36: Parameter name should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:102: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:103:9: メソッド 'hasAttribute' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:104:37: Parameter attributeName should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:107: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:108:9: メソッド 'getTagName' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:112: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:113:9: メソッド 'getContent' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:117: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:118:9: メソッド 'save' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:119: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:119:34: '(' の前にホワイトスペースがあります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:119:35: Parameter dir should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:119:53: Parameter filename should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:119:68: ')' の前にホワイトスペースがあります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:119:78: DocumentException のクラス情報が取得できません。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:120: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:51: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:53: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:54:9: メソッド 'getElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:58: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:59:9: メソッド 'getElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:60: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:60:59: Parameter elementName should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:63: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:64:9: メソッド 'getElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:65: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:65:59: Parameter elementSelector should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:68: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:69:9: メソッド 'getChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:73: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:74:9: メソッド 'getChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:75: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:75:64: Parameter elementName should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:78: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:79:9: メソッド 'getChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:80: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:80:64: Parameter elementSelector should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:83: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:84:9: メソッド 'hasChildElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:88: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:89:9: メソッド 'isElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:90:34: Parameter elementName should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:93: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:94:9: メソッド 'hasElement' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:95:35: Parameter elementName should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:98: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:99:9: メソッド 'getAttribute' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:100:36: Parameter name should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:103: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:104:9: メソッド 'hasAttribute' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:105:37: Parameter attributeName should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:108: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:109:9: メソッド 'getTagName' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:113: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:114:9: メソッド 'getContent' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:118: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:119:9: メソッド 'save' は拡張するように設計されていません - abstract か final か空である必要があります。
 /home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:120: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:120:34: '(' の前にホワイトスペースがあります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:120:35: Parameter dir should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:120:53: Parameter filename should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:120:68: ')' の前にホワイトスペースがあります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:120:78: DocumentException のクラス情報が取得できません。
 /home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:121: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:121: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:122: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:123: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:124: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:122: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:122: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:123: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:124: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:126: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:127: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:131: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:133: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:137: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:138: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:141: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:146: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:146:53: Parameter inputStream should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:146:85: XmlDocumentException のクラス情報が取得できません。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:146:105: '{' の前にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:125: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:125: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:127: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:128: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:132: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:134: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:138: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:139: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:142: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:147: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:148:40: ';' の前にホワイトスペースがあります。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:152: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:157: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:159: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:147:53: Parameter inputStream should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:147:85: XmlDocumentException のクラス情報が取得できません。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:147:105: '{' の前にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:148: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:149:40: ';' の前にホワイトスペースがあります。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:153: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:158: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/XmlDocument.java:160: 行が 80 文字を超えています。
 /home/dk/projects/Document/src/jp/co/dk/document/xml/XmlElement.java:14: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/xml/XmlElement.java:16: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/xml/XmlElement.java:20:61: '{' の前にホワイトスペースがありません。
