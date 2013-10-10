@@ -13,7 +13,7 @@ import jp.co.dk.document.message.DocumentMessage;
 
 public class ByteDump {
 	protected ByteBuffer buffer ;
-	ByteDump(InputStream inputStream) throws DocumentException {
+	public ByteDump(InputStream inputStream) throws DocumentException {
 		List<BytesTmp> bytes = new ArrayList<BytesTmp>();
 		byte[] buffer = new byte[1024];
 		int len = 0;
@@ -26,6 +26,11 @@ public class ByteDump {
 		for(BytesTmp bytetmp : bytes) length += bytetmp.length();
 		this.buffer = ByteBuffer.allocate(length);
 		for(BytesTmp bytetmp : bytes) this.buffer.put(bytetmp.getBytes());
+		try {
+			inputStream.close();
+		} catch (IOException e) {
+			throw new DocumentException(DocumentMessage.ERROR_FILE_READ, e);
+		}
 	}
 	public int length() {
 		return this.buffer.limit();

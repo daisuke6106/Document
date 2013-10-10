@@ -6,8 +6,8 @@ Starting audit...
 /home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:15:30: 変数 'buffer' は private とし、アクセッサメソッドを持つべきです。
 /home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:15:36: ';' の前にホワイトスペースがあります。
 /home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:16:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:16:18: Parameter inputStream should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:16:50: DocumentException のクラス情報が取得できません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:16:25: Parameter inputStream should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:16:57: DocumentException のクラス情報が取得できません。
 /home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:18:24: 'buffer' がフィールドを隠しています。
 /home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:18:42: '1024' はマジックナンバーです。
 /home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:21: 'while' 文では '{}' を使用しなければなりません。
@@ -18,20 +18,21 @@ Starting audit...
 /home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:28: 'for' 文では '{}' を使用しなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:28: 行が 80 文字を超えています。
 /home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:28:20: 'for' の後にホワイトスペースがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:30:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:30:9: メソッド 'length' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:33:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:33:9: メソッド 'getBytes' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:36: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:37:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:37:9: メソッド 'getStream' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:41: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:32: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:35:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:35:9: メソッド 'length' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:38:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:38:9: メソッド 'getBytes' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:41: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:42:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:43:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:43:18: Parameter bytes should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:43:25: 'bytes' がフィールドを隠しています。
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:46:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:49:13: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:42:9: メソッド 'getStream' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:46: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:47:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:48:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:48:18: Parameter bytes should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:48:25: 'bytes' がフィールドを隠しています。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:51:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/ByteDump.java:54:13: Javadoc コメントがありません。
 /home/dk/projects/Document/src/jp/co/dk/document/Document.java:3: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/Document.java:5: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/Document.java:9:42: '{' の前にホワイトスペースがありません。
