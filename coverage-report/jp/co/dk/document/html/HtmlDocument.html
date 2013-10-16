@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - HtmlDocument.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/HtmlDocument.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.document.html;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+import jp.co.dk.document.Document;
+import jp.co.dk.document.ElementFactory;
+import jp.co.dk.document.ElementName;
+import jp.co.dk.document.File;
+import jp.co.dk.document.Element;
+import jp.co.dk.document.ElementSelector;
+import jp.co.dk.document.exception.DocumentException;
+import jp.co.dk.document.html.constant.HtmlCharSetName;
+import jp.co.dk.document.html.constant.HtmlElementName;
+import jp.co.dk.document.html.constant.HttpEquivName;
+import jp.co.dk.document.html.element.Meta;
+import jp.co.dk.document.html.exception.HtmlDocumentException;
+import jp.co.dk.document.message.DocumentMessage;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * HtmlRootElementは、HTMLドキュメントの最上位を表すクラス。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>29</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class HtmlDocument extends File implements Document{</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>31</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private HtmlElement <span class='instance covered' title='Reads: 413 Writes: 44'>htmlElement</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>33</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private ElementFactory <span class='instance uncovered' title='Reads: 0 Writes: 44'>elementFactory</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ&lt;p/>
+	 * InputStreamから要素を生成します。
+	 * 
+	 * @param element HTMLパーサの要素インスタンス
+	 * @throws DocumentException 
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>42</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public HtmlDocument(InputStream inputStream) throws DocumentException{</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>43</td><td class='count'>44</td>
+      <td><pre class='prettyprint covered' id='l43s0'>		this(inputStream, new HtmlElementFactory());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>44</td><td class='count'>44</td>
+      <td><pre class='prettyprint covered' id='l44s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ&lt;p/>
+	 * InputStreamから要素を生成します。
+	 * 
+	 * @param element HTMLパーサの要素インスタンス
+	 * @param elementFactory 要素生成ファクトリ
+	 * @throws DocumentException 
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>54</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public HtmlDocument(InputStream inputStream, HtmlElementFactory elementFactory) throws DocumentException{</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>55</td><td class='count'>44</td>
+      <td><pre class='prettyprint covered' id='l55s0'>		super(inputStream);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>56</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>57</td><td class='count'>44</td>
+      <td><pre class='prettyprint covered' id='l57s0'>			this.htmlElement    = new HtmlElement(new net.htmlparser.jericho.Source(super.fileData.getStream()), elementFactory);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>58</td><td class='count'>44</td>
+      <td><pre class='prettyprint covered' id='l58s0'>			this.elementFactory = elementFactory;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>59</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l59s0'>		} catch (IOException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>60</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l60s0'>			throw new HtmlDocumentException(DocumentMessage.ERROR_FAILED_TO_PARSE_HTML, e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>61</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>62</td><td class='count'>44</td>
+      <td><pre class='prettyprint covered' id='l62s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * ページタイトル取得&lt;p>
+	 * 
+	 * ページのタイトルを取得する。
+	 * 
+	 * @return ページタイトル
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>71</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getTitle() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>1</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#aa5500' onclick='hidePath()'>Path coverage: 1/3</span>
+        <span class='uncovered' onclick="showPath(this,'l72s0 l73s0 l74s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l72s0 l73s0 l73s1 l74s0')">B: 0</span>
+        <span class='covered' onclick="showPath(this,'l72s0 l73s0 l73s1 l76s0')">C: 1</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>72</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l72s0'>		List&lt;jp.co.dk.document.Element> title = this.htmlElement.getElement(HtmlElementName.TITLE);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>73</td><td class='count'>1</td>
+      <td><pre class='prettyprint jmp'>		<span id='l73s0' title='Executions: 1' class='covered'>if (title == null</span> || <span id='l73s1' title='Executions: 1' class='covered'>title.size() == 0) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>74</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l74s0'>			return "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>75</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>76</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l76s0'>			return title.get(0).getContent().toString();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>77</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>78</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * ページエンコード取得&lt;p>
+	 * 
+	 * このページのエンコードを取得します。&lt;br/>
+	 * 設定されていない場合、nullを返却します。
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>86</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public HtmlCharSetName getEncode() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l87s0 l91s0 l97s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l87s0 l91s0 l92s0 l92s1 l97s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>87</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l87s0'>		List&lt;Element> elementList = this.htmlElement.getElement(HtmlElementName.META);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>88</td><td class='count'>12</td>
+      <td><pre class='prettyprint covered' id='l88s0'>		for (Element element : elementList) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>89</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l89s0'>			Meta meta = (Meta) element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>90</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l90s0'>			HttpEquivName httpEquiv = meta.getHttpEquiv();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>91</td><td class='count'>6</td>
+      <td><pre class='prettyprint jmp'>			<span id='l91s0' title='Executions: 6' class='covered'>if (HttpEquivName.CONTENT_TYPE == httpEquiv)</span> <span id='l91s1' title='Executions: 6' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>92</td><td class='count'>30</td>
+      <td><pre class='prettyprint covered' id='l92s0'>				for (HtmlCharSetName charset :HtmlCharSetName.values()) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>93</td><td class='count'>30</td>
+      <td><pre class='prettyprint jmp'>					<span id='l93s0' title='Executions: 30' class='covered'>if (charset.isEncording(meta.getMetaContent())) return charset;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>94</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>95</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>96</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>97</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l97s0'>		return null;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>98</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>100</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>101</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;Element> getElement() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>102</td><td class='count'>8</td>
+      <td><pre class='prettyprint covered' id='l102s0'>		return this.htmlElement.getElement();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>103</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>105</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>106</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;Element> getElement(ElementName elementName) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>107</td><td class='count'>265</td>
+      <td><pre class='prettyprint covered' id='l107s0'>		return this.htmlElement.getElement(elementName);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>108</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>110</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>111</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;Element> getElement(ElementSelector elementSelector) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>112</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l112s0'>		return this.htmlElement.getElement(elementSelector);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>113</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>115</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>116</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;Element> getChildElement() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>117</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l117s0'>		return this.htmlElement.getChildElement();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>118</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>120</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>121</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;Element> getChildElement(ElementName elementName) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>122</td><td class='count'>121</td>
+      <td><pre class='prettyprint covered' id='l122s0'>		return this.htmlElement.getChildElement(elementName);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>123</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>125</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>126</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;Element> getChildElement(ElementSelector elementSelector) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>127</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l127s0'>		return this.htmlElement.getChildElement(elementSelector);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>128</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>130</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>131</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean hasChildElement() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>132</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l132s0'>		return this.htmlElement.hasChildElement();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>133</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>135</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>136</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean isElement(ElementName elementName) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>137</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l137s0'>		return this.htmlElement.isElement(elementName);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>138</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>140</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>141</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean hasElement(ElementName elementName) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>142</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l142s0'>		return this.htmlElement.hasElement(elementName);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>143</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>145</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>146</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getAttribute(String name) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>147</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l147s0'>		return this.htmlElement.getAttribute(name);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>148</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>150</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>151</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean hasAttribute(String attributeName) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>152</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l152s0'>		return this.htmlElement.hasAttribute(attributeName);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>153</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>155</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>156</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getTagName() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>157</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l157s0'>		return this.htmlElement.getTagName();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>158</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>160</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>161</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getContent() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>162</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l162s0'>		StringBuilder sb = new StringBuilder();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>163</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l163s0'>		this.getContect(sb, this.htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>164</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l164s0'>		return sb.toString();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>165</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>167</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private void getContect(StringBuilder sb, HtmlElement element) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>168</td><td class='count'>14</td>
+      <td><pre class='prettyprint covered' id='l168s0'>		for (jp.co.dk.document.Element childElement : element.getChildElement()){</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>169</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l169s0'>			HtmlElement htmlElement = (HtmlElement)childElement;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>170</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l170s0'>			sb.append(htmlElement.getContent());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>171</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l171s0'>			getContect(sb, htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>172</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>173</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l173s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>175</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>176</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public java.io.File save (java.io.File dir, String filename ) throws DocumentException {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>1</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
+        <span class='covered' onclick="showPath(this,'l177s0 l178s0 l179s0')">A: 1</span>
+        <span class='uncovered' onclick="showPath(this,'l177s0 l178s0 l181s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>177</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l177s0'>		HtmlCharSetName charset = this.getEncode();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>178</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>		<span id='l178s0' title='Executions: 4' class='covered'>if (charset != null)</span> <span id='l178s1' title='Executions: 4' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>179</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l179s0'>			return this.save(dir, filename, charset.getEncoding());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>180</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>181</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l181s0'>			return this.save(dir, filename, HtmlCharSetName.UTF_8.getEncoding());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>182</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>183</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * このオブジェクトが表すファイルを指定のディレクトリへ指定のファイル名、指定の文字コードにて保存する。&lt;p>
+	 * 正常に保存した場合、保存したファイルオブジェクトを返却する。
+	 * &lt;br/>
+	 * 以下の条件の場合、例外を発生する。&lt;br/>
+	 * ・引数が設定されていない場合&lt;br/>
+	 * ・指定された保存先ディレクトリが存在しない場合&lt;br/>
+	 * ・保存先のファイルがすでに存在する場合&lt;br/>
+	 * ・その他の理由で保存に失敗した場合&lt;br/>
+	 * 
+	 * @param dir 保存先ディレクトリ
+	 * @param filename ファイル名
+	 * @param charset 文字コード
+	 * @return 保存したファイル
+	 * @throws DocumentException 保存に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>201</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public java.io.File save (java.io.File dir, String filename, String charset) throws DocumentException {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>4</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#6d9200' onclick='hidePath()'>Path coverage: 4/7</span>
+        <span class='uncovered' onclick="showPath(this,'l202s0 l202s3')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l202s0 l202s1 l202s3')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l202s0 l202s1 l202s2 l202s3')">C: 0</span>
+        <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l203s1')">D: 1</span>
+        <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l204s0 l204s1')">E: 1</span>
+        <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l204s0 l206s0 l207s0 l207s1')">F: 1</span>
+        <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l204s0 l206s0 l207s0 l209s0 l218s0')">G: 1</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>202</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>		<span id='l202s0' title='Executions: 4' class='covered'>if (dir == null</span> || <span id='l202s1' title='Executions: 4' class='covered'>filename == null</span> || <span id='l202s2' title='Executions: 4' class='covered'>charset == null)</span> <span id='l202s3' title='Executions: 0' class='uncovered'>throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE_PARAM_IS_NOT_SET);</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>203</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>		<span id='l203s0' title='Executions: 4' class='covered'>if (!dir.exists()) throw new DocumentException(DocumentMessage.ERROR_DOWNLOAD_DIR_IS_NOT_FOUND, dir.getAbsolutePath());</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>204</td><td class='count'>3</td>
+      <td><pre class='prettyprint jmp'>		<span id='l204s0' title='Executions: 3' class='covered'>if (!dir.isDirectory()) throw new DocumentException(DocumentMessage.ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY, dir.getAbsolutePath());</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>206</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l206s0'>		java.io.File path = new java.io.File(new StringBuilder(dir.getAbsolutePath()).append('/').append(filename).toString());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>207</td><td class='count'>2</td>
+      <td><pre class='prettyprint jmp'>		<span id='l207s0' title='Executions: 2' class='covered'>if (path.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH, dir.getAbsolutePath());</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>208</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>209</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l209s0'>			FileOutputStream fos = new FileOutputStream(path);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>210</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l210s0'>			 byte [] byteArray = this.htmlElement.toString().getBytes(charset);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>211</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l211s0'>			fos.write(byteArray);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>212</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l212s0'>			fos.close();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>213</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l213s0'>		} catch (UnsupportedEncodingException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>214</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l214s0'>			throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE, path.getPath(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>215</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l215s0'>		} catch (IOException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>216</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l216s0'>			throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE, path.getPath(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>217</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>218</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l218s0'>		return path;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>219</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>221</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>222</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String toString() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>223</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l223s0'>		return this.htmlElement.toString();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>224</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>225</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

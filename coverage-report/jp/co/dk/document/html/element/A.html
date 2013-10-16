@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - A.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/element/A.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.document.html.element;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import jp.co.dk.document.html.HtmlElement;
+import jp.co.dk.document.html.constant.HtmlAttributeName;
+import jp.co.dk.message.exception.AbstractMessageException;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * Aは、HTMLのアンカー要素を表す要素クラス。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>13</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class A extends HtmlElement {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ
+	 * 
+	 * HTMLの要素のインスタンスを生成する。
+	 * 
+	 * @param element HTMLパーサの要素インスタンス
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>22</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public A(HtmlElement element) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>23</td><td class='count'>6128</td>
+      <td><pre class='prettyprint covered' id='l23s0'>		super(element);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>24</td><td class='count'>6128</td>
+      <td><pre class='prettyprint covered' id='l24s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * このアンカーが示すHREF属性の設定値を取得する。&lt;br/>
+	 * 
+	 * HREFが設定されていない場合、空文字を返却する。
+	 * 
+	 * @return href設定値
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>33</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getHref() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>3</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 3/3</span>
+        <span class='covered' onclick="showPath(this,'l34s0 l35s0 l36s0')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l34s0 l35s0 l35s1 l36s0')">B: 1</span>
+        <span class='covered' onclick="showPath(this,'l34s0 l35s0 l35s1 l38s0')">C: 1</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>34</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l34s0'>		String href = super.getAttribute(HtmlAttributeName.HREF.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>35</td><td class='count'>3</td>
+      <td><pre class='prettyprint jmp'>		<span id='l35s0' title='Executions: 3' class='covered'>if (href == null</span> || <span id='l35s1' title='Executions: 2' class='covered'>href.equals("")) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>36</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l36s0'>			return "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>37</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>38</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l38s0'>			return href;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>39</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>40</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * ファイル名を取得する。&lt;br/>
+	 * 
+	 * 指定のURLからファイル名称を取得する。
+	 * 
+	 * @param url
+	 * @return ファイル名
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>50</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private String getFileName(String url) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>51</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l51s0'>		return url.substring(url.lastIndexOf('/') + 1);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>52</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 引数に指定されたファイル名から拡張子を取得する。&lt;br//>
+	 * 
+	 * @param ファイル名
+	 * @return 拡張子
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>60</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private String getExtension(String fileName) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/4</span>
+        <span class='uncovered' onclick="showPath(this,'l61s0 l62s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l61s0 l61s1 l62s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l61s0 l61s1 l64s0 l65s0 l66s0')">C: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l61s0 l61s1 l64s0 l65s0 l68s0')">D: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>61</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l61s0' title='Executions: 0' class='uncovered'>if (fileName == null</span> || <span id='l61s1' title='Executions: 0' class='uncovered'>fileName.equals("")) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>62</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l62s0'>			return "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>63</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>64</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l64s0'>		int index = fileName.indexOf('.');</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>65</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l65s0' title='Executions: 0' class='uncovered'>if (index == -1)</span> <span id='l65s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>66</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l66s0'>			return "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>67</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>68</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l68s0'>		return fileName.substring(index+1);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>69</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>70</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

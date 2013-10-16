@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - Select.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/element/Select.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.document.html.element;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.util.ArrayList;
+import java.util.List;
+
+import jp.co.dk.document.html.HtmlElement;
+import jp.co.dk.document.html.constant.HtmlAttributeName;
+import jp.co.dk.document.html.constant.HtmlElementName;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * Selectは、HTMLのSelect要素を表す要素クラス。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>16</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class Select extends HtmlElement{</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>18</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** オプション一覧 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>19</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private List&lt;Option> <span class='instance covered' title='Reads: 25 Writes: 24'>option</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>21</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** デフォルト選択オプション */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>22</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private Option <span class='instance covered' title='Reads: 24 Writes: 24'>defaltSelected</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>24</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 選択オプション */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>25</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private Option <span class='instance covered' title='Reads: 1 Writes: 24'>selected</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ
+	 * 
+	 * HTMLの要素のインスタンスを生成する。
+	 * 
+	 * @param element HTMLパーサの要素インスタンス
+	 * @param page 本要素を保持しているHTMLへのコネクションインスタンス
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>35</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Select(HtmlElement element) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>36</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l36s0'>		super(element);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>37</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l37s0'>		this.option         = this.getOptionList();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>38</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l38s0'>		this.defaltSelected = this.selectedOption(this.option);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>39</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l39s0'>		this.selected       = this.defaltSelected;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>40</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l40s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * OPTION要素取得
+	 * 
+	 * 本SELECT要素に設定されているOPTION要素一覧を取得する
+	 * 
+	 * @return OPTION要素一覧
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>49</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;Option> getOption() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>50</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l50s0'>		return this.option;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>51</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 選択OPTION要素取得
+	 * 
+	 * 本SELECT要素に設定されているOPTION要素を取得する
+	 * 
+	 * @return 選択済みOPTION要素
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>60</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Option getSelectedOption() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>61</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l61s0'>		return this.selected;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>62</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * デフォルト選択OPTION要素取得
+	 * 
+	 * 本SELECT要素にデフォルトで設定されているOPTION要素を取得する
+	 * 
+	 * @return デフォルト選択OPTION要素
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>71</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Option getDefaltSelectedOption() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>72</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l72s0'>		return this.defaltSelected;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>73</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * OPTION選択
+	 * 
+	 * 指定された番号のOPTIONを選択状態にする
+	 * (OPTIONの指定番号は0始り)
+	 * 
+	 * @param 選択対象とするOPTIONの番号
+	 * @return 設定判定 true=正常に設定 false=設定を失敗 (指定の番号がない等で設定できなかった場合)
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>84</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean select(int optionIndex) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>85</td><td>&nbsp;</td>
+      <td><pre class='comment'>		// 指定の番号が要素数を上回っている場合</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l86s0 l87s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l86s0 l89s0 l90s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>86</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l86s0' title='Executions: 0' class='uncovered'>if ((optionIndex + 1)</span> <span id='l86s1' title='Executions: 0' class='uncovered'>> this.option.size()) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>87</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l87s0'>			return false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>88</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>89</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l89s0'>		this.selected = this.option.get(optionIndex);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>90</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l90s0'>		return true;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>91</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * OPTION選択
+	 * 
+	 * 指定された文字列と同じVALUEを持つOPTIONを選択状態にする
+	 * 
+	 * @param 選択対象の文字列
+	 * @return 設定判定 true=正常に設定 false=設定を失敗
+	 *         (指定の文字列をOPTIONが保持していない等の場合)
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>102</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean select(String value) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/3</span>
+        <span class='uncovered' onclick="showPath(this,'l103s0 l105s0 l105s1 l106s0 l107s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l103s0 l105s0 l110s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l103s0 l105s0 l105s1 l110s0')">C: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>103</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l103s0'>		for (Option option : this.option) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>104</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l104s0'>			String optionValue = option.getValue();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>105</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l105s0' title='Executions: 0' class='uncovered'>if (optionValue!=null</span> && <span id='l105s1' title='Executions: 0' class='uncovered'>optionValue.equals(value)) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>106</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l106s0'>				this.selected = option;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>107</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l107s0'>				return true;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>108</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>109</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>110</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l110s0'>		return false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>111</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 値を取得する。&lt;p/>
+	 * 選択済みのオプションの値を取得する。&lt;br/>
+	 * 本SELECTオブジェクトに属するオプションがない場合は空文字を返却。
+	 * オプションが選択済みでない場合、最初のオプションの値を返却。
+	 * 
+	 * @return オプション値
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>121</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getValue() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/5</span>
+        <span class='uncovered' onclick="showPath(this,'l122s0 l122s2')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l122s0 l122s1 l122s2')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l122s0 l122s1 l123s0 l123s1')">C: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l122s0 l122s1 l123s0 l124s0 l124s1')">D: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l122s0 l122s1 l123s0 l124s0 l125s0')">E: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>122</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l122s0' title='Executions: 0' class='uncovered'>if (this.option == null</span> || <span id='l122s1' title='Executions: 0' class='uncovered'>this.option.size() == 0) return "";</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>123</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l123s0' title='Executions: 0' class='uncovered'>if (this.selected != null )</span> <span id='l123s1' title='Executions: 0' class='uncovered'>return this.selected.getValue();</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>124</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l124s0' title='Executions: 0' class='uncovered'>if (this.defaltSelected != null)</span> <span id='l124s1' title='Executions: 0' class='uncovered'>return this.defaltSelected.getValue();</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>125</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l125s0'>		return this.option.get(0).getValue();</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>127</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * この要素の無効状態を取得します。&lt;br/>
+	 * この要素に"disabled"が設定されていた場合、true、設定されていなかった場合、falseを返却します。
+	 * 
+	 * @return 無効状態(true=無効、false=無効でない)
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>135</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean isDisabled() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>136</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l136s0'>		return super.hasAttribute(HtmlAttributeName.DISABLED.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>137</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 送信メッセージ生成&lt;br/>
+	 * 
+	 * この要素から送信メッセージを生成します。&lt;br/>
+	 * &lt;br/>
+	 * 以下の場合、"name1=value1" が文字列として返却されます。&lt;br/>
+	 * 例：&lt;input tyoe="text" name="name1" value="value1"/&gt;&lt;br/>
+	 * 
+	 * 本要素がdisabledの場合、空文字が返却されます。
+	 * 
+	 * @return 送信用メッセージ
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>151</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected String getMessage() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l152s0 l152s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l152s0 l153s0 l156s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>152</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l152s0' title='Executions: 0' class='uncovered'>if (this.isDisabled()) return "";</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>153</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l153s0'>		String name  = this.getName();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>154</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l154s0'>		String value = this.getValue();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>155</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l155s0'>		StringBuilder sb = new StringBuilder(name).append('=').append(value);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>156</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l156s0'>		return sb.toString();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>157</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>159</td><td>&nbsp;</td>
+      <td><pre class='comment'>	// ---------------------------------------------------------------------------------------------------------------</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 本SELECT要素保持オプション一覧
+	 * 
+	 * 本SELECT要素に保持しているOPTION要素の一覧を取得する。
+	 * 
+	 * @return OPTION要素一覧
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>168</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private List&lt;Option> getOptionList() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>24</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
+        <span class='uncovered' onclick="showPath(this,'l169s0 l171s0 l171s1')">A: 0</span>
+        <span class='covered' onclick="showPath(this,'l169s0 l171s0 l172s0 l177s0')">B: 24</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>169</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l169s0'>		List&lt;Option> optionList = new ArrayList&lt;Option>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>170</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l170s0'>		List&lt;jp.co.dk.document.Element> childElementList = super.getChildElement();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>171</td><td class='count'>24</td>
+      <td><pre class='prettyprint jmp'>		<span id='l171s0' title='Executions: 24' class='covered'>if (childElementList == null)</span> <span id='l171s1' title='Executions: 0' class='uncovered'>return optionList;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>172</td><td class='count'>120</td>
+      <td><pre class='prettyprint covered' id='l172s0'>		for (jp.co.dk.document.Element element : childElementList) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>173</td><td class='count'>72</td>
+      <td><pre class='prettyprint covered' id='l173s0'>			HtmlElement htmlElement = (HtmlElement)element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>174</td><td class='count'>72</td>
+      <td><pre class='prettyprint covered' id='l174s0'>			HtmlElementName elementName = htmlElement.getElementType();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>175</td><td class='count'>72</td>
+      <td><pre class='prettyprint jmp'>			<span id='l175s0' title='Executions: 72' class='covered'>if (HtmlElementName.OPTION == elementName)</span> <span id='l175s1' title='Executions: 72' class='covered'>optionList.add(new Option(htmlElement));</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>176</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>177</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l177s0'>		return optionList;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>178</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * デフォルト選択済みオプション取得
+	 * 
+	 * 本SELECT要素に保持しているOPTION要素から選択済みのオプションを返却する。
+	 * 
+	 * @return 選択済みOPTION要素
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>187</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private Option selectedOption(List&lt;Option> optionList ) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l188s0 l190s0 l194s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l188s0 l190s0 l191s0 l194s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>188</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l188s0'>		Option selectedOption = null;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>189</td><td class='count'>120</td>
+      <td><pre class='prettyprint covered' id='l189s0'>		for (Option option : optionList) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>190</td><td class='count'>72</td>
+      <td><pre class='prettyprint jmp'>			<span id='l190s0' title='Executions: 72' class='covered'>if (option.hasAttribute(HtmlAttributeName.SELECTED.getName())) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>191</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l191s0'>				selectedOption = option;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>192</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>193</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>194</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l194s0'>		return selectedOption;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>195</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>196</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

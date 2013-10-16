@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - HttpEquivName.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/constant/HttpEquivName.java</caption>
+    <tr>
+      <td class='line'>1</td><td class='count'>10</td>
+      <td><pre class='prettyprint covered' id='l1s0'>package jp.co.dk.document.html.constant;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * HttpEquivNameは、HTTPヘッダ名を定義する定数クラス。&lt;br/>
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>9</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public enum HttpEquivName {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>10</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** Content-Type */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>11</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	CONTENT_TYPE("Content-Type"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>13</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** Content-Style-Type */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>14</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	CONTENT_STYLE_TYPE("Content-Style-Type"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>16</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** Content-Script-Type */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>17</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	CONTENT_SCRIPT_TYPE("Content-Script-Type"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>19</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** refresh */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>20</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	REFRESH("refresh"),</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>21</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>23</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private String httpEquivName;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>25</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l25s0'>	private HttpEquivName(String httpEquivName) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>26</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l26s0'>		this.httpEquivName = httpEquivName;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>27</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l27s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定の文字列がこのHTTPヘッダ名と一致するか判定します。&lt;p>
+	 * 
+	 * @param httpEquivName HTTPヘッダ名文字列
+	 * @return 判定結果（true=一致,false=一致しない）
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>35</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean match(String httpEquivName) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>21</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 3/3</span>
+        <span class='covered' onclick="showPath(this,'l36s0 l36s2')">A: 5</span>
+        <span class='covered' onclick="showPath(this,'l36s0 l36s1 l36s2')">B: 1</span>
+        <span class='covered' onclick="showPath(this,'l36s0 l36s1 l37s0')">C: 15</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>36</td><td class='count'>21</td>
+      <td><pre class='prettyprint jmp'>		<span id='l36s0' title='Executions: 21' class='covered'>if (httpEquivName == null</span> || <span id='l36s1' title='Executions: 16' class='covered'>httpEquivName.equals("")) return false;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>37</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l37s0'>		return this.httpEquivName.toUpperCase().equals(httpEquivName.toUpperCase());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>38</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>39</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

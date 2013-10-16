@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - HtmlRequestMethodName.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/constant/HtmlRequestMethodName.java</caption>
+    <tr>
+      <td class='line'>1</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l1s0'>package jp.co.dk.document.html.constant;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * HttpRequestMethodは、HTMLの送信メソッドを定義する定数クラス。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>9</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public enum HtmlRequestMethodName {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>11</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	GET("GET"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>13</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	POST("POST"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>15</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	HEAD("HEAD"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>17</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	PUT("PUT"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>19</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	DELETE("DELETE"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>21</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	TRACE("TRACE");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>23</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private final String method;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>25</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l25s0'>	private HtmlRequestMethodName(String method){</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>26</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l26s0'>		this.method = method;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>27</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l27s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * このHTMLの送信メソッド名称を返却する。
+	 * 
+	 * @return 送信メソッド名称
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>34</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getMethod() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>35</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l35s0'>		return this.method;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>36</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定された文字列がこのメソッド名称と一致するか判定する。&lt;p/>
+	 * 判定する際に文字列の大文字小文字は差異の対象としない。
+	 * 
+	 * @param method メソッド名称
+	 * @return 判定結果(true=一致、false=不一致)
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>45</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean isMethod(String method) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>15</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 3/3</span>
+        <span class='covered' onclick="showPath(this,'l46s0 l46s1 l47s0')">A: 6</span>
+        <span class='covered' onclick="showPath(this,'l46s0 l49s0')">B: 7</span>
+        <span class='covered' onclick="showPath(this,'l46s0 l46s1 l49s0')">C: 2</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>46</td><td class='count'>15</td>
+      <td><pre class='prettyprint jmp'>		<span id='l46s0' title='Executions: 15' class='covered'>if (method != null</span> && <span id='l46s1' title='Executions: 8' class='covered'>this.method.equals(method.toUpperCase()) ) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>47</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l47s0'>			return true;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>48</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>49</td><td class='count'>9</td>
+      <td><pre class='prettyprint covered' id='l49s0'>			return false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>50</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>51</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>53</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

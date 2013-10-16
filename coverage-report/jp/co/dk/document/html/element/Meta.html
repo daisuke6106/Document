@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - Meta.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/element/Meta.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.document.html.element;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import jp.co.dk.document.html.HtmlElement;
+import jp.co.dk.document.html.constant.HtmlAttributeName;
+import jp.co.dk.document.html.constant.HttpEquivName;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * Metaは、HTMLのMeta要素を表す要素クラス。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>13</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class Meta extends HtmlElement {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ
+	 * 
+	 * HTMLの要素のインスタンスを生成する。
+	 * 
+	 * @param element HTMLパーサの要素インスタンス
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>22</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Meta(HtmlElement element) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>23</td><td class='count'>81</td>
+      <td><pre class='prettyprint covered' id='l23s0'>		super(element);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>24</td><td class='count'>81</td>
+      <td><pre class='prettyprint covered' id='l24s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTTPヘッダ名を取得する。&lt;p>
+	 * このMETA要素のHTTPヘッダ名を取得します。設定されていない場合、nullを返却します。
+	 * 
+	 * @return HTTPヘッダ名
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>32</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public HttpEquivName getHttpEquiv() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l33s0 l35s0 l35s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l33s0 l35s0 l34s1 l37s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>33</td><td class='count'>10</td>
+      <td><pre class='prettyprint covered' id='l33s0'>		String httpEquiv = super.getAttribute(HtmlAttributeName.HTTP_EQUIV.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>34</td><td class='count'>18</td>
+      <td><pre class='prettyprint covered' id='l34s0'>		for (HttpEquivName httpEquivName : HttpEquivName.values()) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>35</td><td class='count'>16</td>
+      <td><pre class='prettyprint jmp'>			<span id='l35s0' title='Executions: 16' class='covered'>if (httpEquivName.match(httpEquiv)) return httpEquivName;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>36</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>37</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l37s0'>		return null;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>38</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンテンツを取得する。&lt;p>
+	 * このMETA要素のコンテンツを取得します。設定されていない場合、空文字を返却します。
+	 * 
+	 * @return コンテンツ
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>46</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getMetaContent() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>33</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 3/3</span>
+        <span class='covered' onclick="showPath(this,'l47s0 l48s0 l49s0')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l47s0 l48s0 l48s1 l49s0')">B: 1</span>
+        <span class='covered' onclick="showPath(this,'l47s0 l48s0 l48s1 l51s0')">C: 31</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>47</td><td class='count'>33</td>
+      <td><pre class='prettyprint covered' id='l47s0'>		String content = super.getAttribute(HtmlAttributeName.CONTENT.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>48</td><td class='count'>33</td>
+      <td><pre class='prettyprint jmp'>		<span id='l48s0' title='Executions: 33' class='covered'>if (content == null</span> || <span id='l48s1' title='Executions: 32' class='covered'>content.equals("")) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>49</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l49s0'>			return "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>50</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>51</td><td class='count'>31</td>
+      <td><pre class='prettyprint covered' id='l51s0'>			return content;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>52</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>53</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>54</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

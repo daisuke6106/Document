@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - Form.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/element/Form.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.document.html.element;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import jp.co.dk.document.Element;
+import jp.co.dk.document.html.HtmlElement;
+import jp.co.dk.document.html.HtmlElementFactory;
+import jp.co.dk.document.html.constant.HtmlAttributeName;
+import jp.co.dk.document.html.constant.HtmlElementName;
+import jp.co.dk.document.html.constant.HtmlRequestMethodName;
+import jp.co.dk.document.html.constant.InputTypeName;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * Formは、HTMLのForm要素をを表すクラス。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>22</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class Form extends HtmlElement{</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>24</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private FormElemenetFactory <span class='instance uncovered' title='Reads: 0 Writes: 48'>formElementFactory</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>26</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private List&lt;HtmlElement> <span class='instance covered' title='Reads: 2 Writes: 1'>cache_formElementList</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ
+	 * 
+	 * HTMLの要素のインスタンスを生成する。
+	 * 
+	 * @param element HTMLパーサの要素インスタンス
+	 * @param page 本要素を保持しているHTMLへのコネクションインスタンス
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>36</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Form(HtmlElement element) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>37</td><td class='count'>48</td>
+      <td><pre class='prettyprint covered' id='l37s0'>		super(element);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>38</td><td class='count'>48</td>
+      <td><pre class='prettyprint covered' id='l38s0'>		this.formElementFactory = new FormElemenetFactory(this);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>39</td><td class='count'>48</td>
+      <td><pre class='prettyprint covered' id='l39s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * FORMメソッド取得&lt;br/>
+	 * 
+	 * 本FORM要素からメソッドを取得する。&lt;br/>
+	 * 指定されていない場合、デフォルトのGETを返却する。&lt;br/>
+	 * 
+	 * @return メソッド名
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>49</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public HtmlRequestMethodName getMethod(){</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l50s0 l52s0 l53s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l50s0 l52s0 l51s1 l56s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>50</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l50s0'>		String methodName = this.getAttribute(HtmlAttributeName.METHOD.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>51</td><td class='count'>11</td>
+      <td><pre class='prettyprint covered' id='l51s0'>		for (HtmlRequestMethodName method : HtmlRequestMethodName.values()) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>52</td><td class='count'>10</td>
+      <td><pre class='prettyprint jmp'>			<span id='l52s0' title='Executions: 10' class='covered'>if (method.isMethod(methodName)) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>53</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l53s0'>				return method;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>54</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>55</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>56</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l56s0'>		return HtmlRequestMethodName.GET;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>57</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Action取得
+	 * 本FORM要素に設定されているアクションを表すオブジェクトを取得する。
+	 * 
+	 * @return アクション文字列
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>65</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Action getAction(){</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>66</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l66s0'>		return new Action(this);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>67</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * FORM要素取得
+	 * このFORM要素からFORM一覧を取得する
+	 * 
+	 * @return FORM要素一覧
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>75</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;HtmlElement> getFormElementList() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>1</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
+        <span class='uncovered' onclick="showPath(this,'l76s0 l85s0')">A: 0</span>
+        <span class='covered' onclick="showPath(this,'l76s0 l77s0 l79s0 l85s0')">B: 1</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>76</td><td class='count'>1</td>
+      <td><pre class='prettyprint jmp'>		<span id='l76s0' title='Executions: 1' class='covered'>if (this.cache_formElementList == null)</span> <span id='l76s1' title='Executions: 1' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>77</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l77s0'>			List&lt;HtmlElement> list = new ArrayList&lt;HtmlElement>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>78</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l78s0'>			List&lt;HtmlElement> form = super.getFormElementList();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>79</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l79s0'>			for (HtmlElement htmlElement : form) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>80</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l80s0'>				HtmlElement formElement = (HtmlElement) this.formElementFactory.convert(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>81</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l81s0'>				list.add(formElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>82</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>83</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l83s0'>			this.cache_formElementList = list;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>84</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>85</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l85s0'>		return this.cache_formElementList;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>86</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/** 
+	 * FORM要素取得
+	 * 指定されたFORMの要素内から送信用要素の一覧をマップ形式で返却します。
+	 * 
+	 * key=nameの名称
+	 * value=nameを保持する要素の一覧
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>95</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Map&lt;String, List&lt;HtmlElement>> getFormElementMap() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/4</span>
+        <span class='uncovered' onclick="showPath(this,'l96s0 l100s0 l110s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l96s0 l100s0 l100s1 l101s0 l102s0 l107s0 l110s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l96s0 l100s0 l100s1 l101s0 l102s0 l103s0 l110s0')">C: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l96s0 l100s0 l100s1 l100s2 l110s0')">D: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>96</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l96s0'>		List&lt;HtmlElement> formElementList = this.getFormElementList();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>97</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l97s0'>		Map&lt;String, List&lt;HtmlElement>> map = new HashMap&lt;String, List&lt;HtmlElement>>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>98</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l98s0'>		for (HtmlElement formElement : formElementList) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>99</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l99s0'>			String name = formElement.getName();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>100</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l100s0' title='Executions: 0' class='uncovered'>if (name == null</span> || <span id='l100s1' title='Executions: 0' class='uncovered'>name.equals("")) continue;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>101</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l101s0'>			List&lt;HtmlElement> addedList = map.get(name);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>102</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l102s0' title='Executions: 0' class='uncovered'>if (addedList == null)</span> <span id='l102s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>103</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l103s0'>				List&lt;HtmlElement> addList = new ArrayList&lt;HtmlElement>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>104</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l104s0'>				addList.add(formElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>105</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l105s0'>				map.put(name, addList);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>106</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>107</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l107s0'>				addedList.add(formElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>108</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>109</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>110</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l110s0'>		return map;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>111</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 送信メッセージ生成
+	 * 
+	 * @param formElementList FORM要素一覧
+	 * @return 送信メッセージ
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>119</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String createMessage () {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/18</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l131s0 l133s0 l133s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l131s0 l131s1 l133s0 l133s1')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l131s0 l131s1 l131s2 l133s0 l133s1')">C: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l128s0 l131s0 l133s0 l133s1')">D: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l128s0 l131s0 l131s1 l133s0 l133s1')">E: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l128s0 l131s0 l131s1 l131s2 l133s0 l133s1')">F: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l125s0 l131s0 l133s0 l133s1')">G: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l125s0 l131s0 l131s1 l133s0 l133s1')">H: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l125s0 l131s0 l131s1 l131s2 l133s0 l133s1')">I: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l131s0 l133s0 l134s0')">J: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l131s0 l131s1 l133s0 l134s0')">K: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l131s0 l131s1 l131s2 l133s0 l134s0')">L: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l128s0 l131s0 l133s0 l134s0')">M: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l128s0 l131s0 l131s1 l133s0 l134s0')">N: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l128s0 l131s0 l131s1 l131s2 l133s0 l134s0')">O: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l125s0 l131s0 l133s0 l134s0')">P: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l125s0 l131s0 l131s1 l133s0 l134s0')">Q: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l125s0 l131s0 l131s1 l131s2 l133s0 l134s0')">R: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>120</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l120s0'>		List&lt;HtmlElement> formElementList = this.getFormElementList();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>121</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l121s0'>		StringBuilder sb = new StringBuilder();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>122</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l122s0'>		for (HtmlElement formElement : formElementList) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>123</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l123s0'>			String message = null;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>124</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l124s0' title='Executions: 0' class='uncovered'>if (formElement instanceof Input)</span> <span id='l124s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>125</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l125s0'>				Input input = (Input)formElement;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>126</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l126s0'>				message = input.getMessage();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>127</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l127s0' title='Executions: 0' class='uncovered'>}</span> else <span id='l127s1' title='Executions: 0' class='uncovered'>if (formElement instanceof Select)</span> </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>128</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l128s0'>				Select select = (Select)formElement;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>129</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l129s0'>				message = select.getMessage();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>130</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>131</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l131s0' title='Executions: 0' class='uncovered'>if (message != null</span> && <span id='l131s1' title='Executions: 0' class='uncovered'>!message.equals("")) sb.append(message).append('&');</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>132</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>133</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l133s0' title='Executions: 0' class='uncovered'>if (sb.length() == 0) return "";</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>134</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l134s0'>		return sb.substring(0, sb.length()-1);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>135</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>137</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>139</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>class FormElemenetFactory extends HtmlElementFactory {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>141</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private Form <span class='instance uncovered' title='Reads: 0 Writes: 48'>form</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>143</td><td class='count'>48</td>
+      <td><pre class='prettyprint covered' id='l143s0'>	FormElemenetFactory(Form form) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>144</td><td class='count'>48</td>
+      <td><pre class='prettyprint covered' id='l144s0'>		this.form = form;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>145</td><td class='count'>48</td>
+      <td><pre class='prettyprint covered' id='l145s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>147</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>148</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Element convert(Element element) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/12</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l155s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l158s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l160s0')">C: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l162s0')">D: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l164s0')">E: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l166s0')">F: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l168s0')">G: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l170s0')">H: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l172s0')">I: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l174s0')">J: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l176s0 l177s0')">K: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l176s0 l179s0')">L: 0</span>
+      </td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>150</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l150s0'>		HtmlElement htmlElement = (HtmlElement) element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>151</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l151s0'>		HtmlElementName htmlElementName = htmlElement.getElementType();</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>153</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l153s0' title='Executions: 0' class='uncovered'>if (HtmlElementName.INPUT == htmlElementName)</span> <span id='l153s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>154</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l154s0'>			InputTypeName input = this.cornvertInputTypeName(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>155</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l155s0' title='Executions: 0' class='uncovered'>if (input == null)</span> <span id='l155s1' title='Executions: 0' class='uncovered'>return new jp.co.dk.document.html.element.form.Text(htmlElement, this.form);;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>156</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l156s0'>			switch (input) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>157</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				case CHECKBOX:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>158</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l158s0'>					return new jp.co.dk.document.html.element.form.Checkbox(htmlElement, this.form);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>159</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				case FILE:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>160</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l160s0'>					return new jp.co.dk.document.html.element.form.File(htmlElement, this.form);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>161</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				case HIDDEN:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>162</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l162s0'>					return new jp.co.dk.document.html.element.form.Hidden(htmlElement, this.form);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>163</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				case PASSWORD:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>164</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l164s0'>					return new jp.co.dk.document.html.element.form.Password(htmlElement, this.form);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>165</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				case RADIO:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>166</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l166s0'>					return new jp.co.dk.document.html.element.form.Radio(htmlElement, this.form);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>167</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				case RESET:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>168</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l168s0'>					return new jp.co.dk.document.html.element.form.Reset(htmlElement, this.form);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>169</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				case SUBMIT:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>170</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l170s0'>					return new jp.co.dk.document.html.element.form.Submit(htmlElement, this.form);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>171</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				case TEXT:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>172</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l172s0'>					return new jp.co.dk.document.html.element.form.Text(htmlElement, this.form);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>173</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				default:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>174</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l174s0'>					return element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>175</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>176</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l176s0' title='Executions: 0' class='uncovered'>}</span> else <span id='l176s1' title='Executions: 0' class='uncovered'>if (HtmlElementName.SELECT == htmlElementName)</span> </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>177</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l177s0'>			return new jp.co.dk.document.html.element.form.Select(htmlElement, this.form);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>178</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>179</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l179s0'>			return element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>180</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>182</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/** 
+	 * 指定のElementオブジェクトのINPUT要素からINPUTタイプ要素を取得する。&lt;br/>
+	 * 該当のINPUTタイプ要素がない場合、nullを返却する。
+	 * 
+	 * @return HTML要素名称
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>190</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private InputTypeName cornvertInputTypeName(HtmlElement element) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l191s0 l193s0 l193s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l191s0 l193s0 l192s1 l195s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>191</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l191s0'>		String type = element.getAttribute(HtmlAttributeName.TYPE.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>192</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l192s0'>		for (InputTypeName typeName: InputTypeName.values()) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>193</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l193s0' title='Executions: 0' class='uncovered'>if (typeName.getName().equals(type)) return typeName;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>194</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>195</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l195s0'>		return null;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>196</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>197</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

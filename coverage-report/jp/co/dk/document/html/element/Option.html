@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - Option.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/element/Option.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.document.html.element;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import jp.co.dk.document.html.HtmlElement;
+import jp.co.dk.document.html.constant.HtmlAttributeName;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * Optionは、HTMLのOption要素を表す要素クラス。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>12</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class Option extends HtmlElement{</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>14</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** Valueのキャッシュ */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>15</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private String <span class='instance covered' title='Reads: 6 Writes: 3'>cache_value</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ
+	 * 
+	 * HTMLの要素のインスタンスを生成する。
+	 * 
+	 * @param element HTMLパーサの要素インスタンス
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>24</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Option(HtmlElement element) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>25</td><td class='count'>243</td>
+      <td><pre class='prettyprint covered' id='l25s0'>		super(element);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>26</td><td class='count'>243</td>
+      <td><pre class='prettyprint covered' id='l26s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Valueの取得
+	 * 要素に設定されているValueの一覧を取得します。
+	 * 
+	 * Valueが指定されていなかった場合、空のリストインスタンスが返却されます。
+	 * 
+	 * @return 要素に指定されているValue
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>36</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getValue() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>3</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#55aa00' onclick='hidePath()'>Path coverage: 2/3</span>
+        <span class='uncovered' onclick="showPath(this,'l37s0 l44s0')">A: 0</span>
+        <span class='covered' onclick="showPath(this,'l37s0 l38s0 l39s0 l42s0 l44s0')">B: 2</span>
+        <span class='covered' onclick="showPath(this,'l37s0 l38s0 l39s0 l40s0 l42s0 l44s0')">C: 1</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>37</td><td class='count'>3</td>
+      <td><pre class='prettyprint jmp'>		<span id='l37s0' title='Executions: 3' class='covered'>if (this.cache_value == null)</span> <span id='l37s1' title='Executions: 3' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>38</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l38s0'>			String getValue = super.getAttribute(HtmlAttributeName.VALUE.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>39</td><td class='count'>3</td>
+      <td><pre class='prettyprint jmp'>			<span id='l39s0' title='Executions: 3' class='covered'>if (getValue == null)</span> <span id='l39s1' title='Executions: 1' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>40</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l40s0'>				getValue = "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>41</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>42</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l42s0'>			this.cache_value = getValue;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>43</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>44</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l44s0'>		return this.cache_value;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>45</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>46</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

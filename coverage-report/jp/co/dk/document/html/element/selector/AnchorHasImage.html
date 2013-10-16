@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - AnchorHasImage.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/element/selector/AnchorHasImage.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.document.html.element.selector;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.util.List;
+
+import jp.co.dk.document.Element;
+import jp.co.dk.document.ElementSelector;
+import jp.co.dk.document.html.HtmlElement;
+import jp.co.dk.document.html.constant.HtmlElementName;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * AnchorHasImageは、イメージタグを保持するアンカータグを選択するクラス。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>16</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l16s0'>public class AnchorHasImage implements ElementSelector {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>18</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>19</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean judgment(Element element) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>3170</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 2/4</span>
+        <span class='uncovered' onclick="showPath(this,'l20s0 l21s0 l22s0 l23s0 l24s0 l25s0 l26s0')">A: 0</span>
+        <span class='covered' onclick="showPath(this,'l20s0 l21s0 l22s0 l23s0 l29s0')">B: 874</span>
+        <span class='covered' onclick="showPath(this,'l20s0 l21s0 l32s0')">C: 2296</span>
+        <span class='uncovered' onclick="showPath(this,'l20s0 l21s0 l22s0 l23s0 l24s0 l25s0 l32s0')">D: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>20</td><td class='count'>3170</td>
+      <td><pre class='prettyprint covered' id='l20s0'>		HtmlElement htmlElement = (HtmlElement)element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>21</td><td class='count'>3170</td>
+      <td><pre class='prettyprint jmp'>		<span id='l21s0' title='Executions: 3170' class='covered'>if (HtmlElementName.A == htmlElement.getElementType() ) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>22</td><td class='count'>874</td>
+      <td><pre class='prettyprint covered' id='l22s0'>			List&lt;Element> childElementList = element.getChildElement();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>23</td><td class='count'>874</td>
+      <td><pre class='prettyprint jmp'>			<span id='l23s0' title='Executions: 874' class='covered'>if (childElementList.size() == 1) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>24</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l24s0'>				HtmlElement childElement = (HtmlElement)childElementList.get(0);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>25</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>				<span id='l25s0' title='Executions: 0' class='uncovered'>if (HtmlElementName.IMG == childElement.getElementType()) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>26</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l26s0'>					return true;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>27</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>28</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>29</td><td class='count'>874</td>
+      <td><pre class='prettyprint covered' id='l29s0'>				return false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>30</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>31</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>32</td><td class='count'>2296</td>
+      <td><pre class='prettyprint covered' id='l32s0'>		return false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>33</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>34</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

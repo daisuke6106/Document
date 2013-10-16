@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - HtmlElement.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/HtmlElement.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.document.html;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import net.htmlparser.jericho.Element;
+import net.htmlparser.jericho.FormControl;
+
+import jp.co.dk.document.ElementName;
+import jp.co.dk.document.exception.DocumentException;
+import jp.co.dk.document.html.constant.HtmlAttributeName;
+import jp.co.dk.document.html.constant.HtmlElementName;
+import jp.co.dk.document.html.exception.HtmlDocumentException;
+
+import static jp.co.dk.document.message.DocumentMessage.*;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * HtmlElementは、HTMLの要素を表すクラス。&lt;br/>
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ * 
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>25</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class HtmlElement implements jp.co.dk.document.Element{</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>27</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 要素インスタンス */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>28</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private net.htmlparser.jericho.Segment <span class='instance covered' title='Reads: 28711 Writes: 27349'>element</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>30</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 要素生成ファクトリ */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>31</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private HtmlElementFactory <span class='instance uncovered' title='Reads: 47686 Writes: 27347'>elementFactory</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>33</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 本要素のタグインスタンス */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>34</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private net.htmlparser.jericho.StartTag <span class='instance uncovered' title='Reads: 1249991 Writes: 27349'>startTag</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>36</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 本要素のタグ */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>37</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private HtmlElementName <span class='instance covered' title='Reads: 47656 Writes: 20694'>cache_elementName</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>39</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 全要素キャッシュ */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>40</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private List&lt;jp.co.dk.document.Element> <span class='instance uncovered' title='Reads: 0 Writes: 0'>cache_allElement</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>42</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 全子要素キャッシュ */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>43</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private List&lt;jp.co.dk.document.Element> <span class='instance uncovered' title='Reads: 0 Writes: 0'>cache_childElement</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>45</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** IDのキャッシュ */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>46</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private String <span class='instance covered' title='Reads: 6332 Writes: 3166'>cache_id</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>48</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** Nameのキャッシュ */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>49</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private String <span class='instance covered' title='Reads: 6332 Writes: 3166'>cache_name</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>51</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** Classのキャッシュ */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>52</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private List&lt;String> <span class='instance covered' title='Reads: 6332 Writes: 3166'>cache_class</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>54</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** Contentのキャッシュ */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>55</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private String <span class='instance covered' title='Reads: 34 Writes: 15'>cache_content</span>;</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>10</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 5/5</span>
+        <span class='covered' onclick="showPath(this,'l57s0 l58s0 l58s2')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l57s0 l58s0 l58s1 l58s2')">B: 1</span>
+        <span class='covered' onclick="showPath(this,'l57s0 l58s0 l58s1 l59s0 l59s1')">C: 1</span>
+        <span class='covered' onclick="showPath(this,'l57s0 l58s0 l58s1 l59s0 l60s0 l63s0 l63s1')">D: 2</span>
+        <span class='covered' onclick="showPath(this,'l57s0 l58s0 l58s1 l59s0 l60s0 l63s0 l64s0 l65s0')">E: 5</span>
+      </td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>57</td><td class='count'>10</td>
+      <td><pre class='prettyprint covered' id='l57s0'>	public HtmlElement(String elementStr, HtmlElementFactory elementFactory) throws HtmlDocumentException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>58</td><td class='count'>10</td>
+      <td><pre class='prettyprint jmp'>		<span id='l58s0' title='Executions: 10' class='covered'>if (elementStr == null</span> || <span id='l58s1' title='Executions: 9' class='covered'>elementStr.equals("")) throw new HtmlDocumentException(ERROR_ELEMENT_STRING_IS_NOT_SET);</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>59</td><td class='count'>8</td>
+      <td><pre class='prettyprint jmp'>		<span id='l59s0' title='Executions: 8' class='covered'>if (elementFactory == null)</span> <span id='l59s1' title='Executions: 1' class='covered'>throw new HtmlDocumentException(ERROR_ELEMENT_FACTORY_IS_NOT_SET);</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>60</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l60s0'>		net.htmlparser.jericho.Source element = new net.htmlparser.jericho.Source(elementStr); </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>61</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l61s0'>		this.element  = element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>62</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l62s0'>		this.startTag = element.getFirstStartTag();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>63</td><td class='count'>7</td>
+      <td><pre class='prettyprint jmp'>		<span id='l63s0' title='Executions: 7' class='covered'>if (this.startTag == null)</span> <span id='l63s1' title='Executions: 2' class='covered'>throw new HtmlDocumentException(ERROR_ELEMENT_STRING_CONVERT);</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>64</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l64s0'>		this.elementFactory = elementFactory;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>65</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l65s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ
+	 * 
+	 * HTMLの要素のインスタンスを生成する。
+	 * 
+	 * @param element HTMLパーサの要素インスタンス
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>74</td><td class='count'>27342</td>
+      <td><pre class='prettyprint covered' id='l74s0'>	protected HtmlElement(net.htmlparser.jericho.Segment element, HtmlElementFactory elementFactory) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>75</td><td class='count'>27342</td>
+      <td><pre class='prettyprint covered' id='l75s0'>		this.element  = element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>76</td><td class='count'>27342</td>
+      <td><pre class='prettyprint covered' id='l76s0'>		this.startTag = element.getFirstStartTag();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>77</td><td class='count'>27342</td>
+      <td><pre class='prettyprint covered' id='l77s0'>		this.elementFactory = elementFactory;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>78</td><td class='count'>27342</td>
+      <td><pre class='prettyprint covered' id='l78s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ
+	 * 
+	 * 指定のHTML要素から新しいHTMLの要素のインスタンスを生成する。
+	 * 
+	 * @param element HTML要素インスタンス
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>87</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected HtmlElement(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>88</td><td class='count'>6912</td>
+      <td><pre class='prettyprint covered' id='l88s0'>		this(htmlElement.element, htmlElement.elementFactory);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>89</td><td class='count'>6912</td>
+      <td><pre class='prettyprint covered' id='l89s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>91</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>92</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;jp.co.dk.document.Element> getElement() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>93</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l93s0'>		List&lt;net.htmlparser.jericho.Element> elementList = this.element.getAllElements();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>94</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l94s0'>		return this.convertList(elementList);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>95</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>97</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>98</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;jp.co.dk.document.Element> getElement(jp.co.dk.document.ElementName elementName) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>99</td><td class='count'>284</td>
+      <td><pre class='prettyprint covered' id='l99s0'>		List&lt;net.htmlparser.jericho.Element> elementList = this.element.getAllElements(elementName.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>100</td><td class='count'>284</td>
+      <td><pre class='prettyprint covered' id='l100s0'>		return this.convertList(elementList);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>101</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>103</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>104</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;jp.co.dk.document.Element> getElement(jp.co.dk.document.ElementSelector elementSelector) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l105s0 l108s0 l112s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l105s0 l108s0 l109s0 l112s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>105</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l105s0'>		List&lt;jp.co.dk.document.Element> returnList  = new ArrayList&lt;jp.co.dk.document.Element>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>106</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l106s0'>		List&lt;jp.co.dk.document.Element> elementList = this.getElement();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>107</td><td class='count'>3170</td>
+      <td><pre class='prettyprint covered' id='l107s0'>		for (jp.co.dk.document.Element element : elementList) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>108</td><td class='count'>3166</td>
+      <td><pre class='prettyprint jmp'>			<span id='l108s0' title='Executions: 3166' class='covered'>if (elementSelector.judgment(element)) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>109</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l109s0'>				returnList.add(element);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>110</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>111</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>112</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l112s0'>		return returnList;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>113</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>115</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>116</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean hasElement(jp.co.dk.document.ElementName elementName) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l117s0 l120s0 l121s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l117s0 l120s0 l124s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>117</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l117s0'>		List&lt;jp.co.dk.document.Element> elementList = this.getElement();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>118</td><td class='count'>9</td>
+      <td><pre class='prettyprint covered' id='l118s0'>		for (jp.co.dk.document.Element element : elementList) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>119</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l119s0'>			HtmlElement htmlElement = (HtmlElement) element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>120</td><td class='count'>5</td>
+      <td><pre class='prettyprint jmp'>			<span id='l120s0' title='Executions: 5' class='covered'>if (elementName.getName().equals(htmlElement.getElementType().getName())) {</span> </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>121</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l121s0'>				return true;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>122</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>123</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>124</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l124s0'>		return false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>125</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>127</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>128</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;jp.co.dk.document.Element> getChildElement() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>1048</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l129s0 l130s0')">A: 45</span>
+        <span class='covered' onclick="showPath(this,'l129s0 l132s0')">B: 1003</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>129</td><td class='count'>1048</td>
+      <td><pre class='prettyprint jmp'>		<span id='l129s0' title='Executions: 1048' class='covered'>if (this.element.getChildElements().size() == 1) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>130</td><td class='count'>45</td>
+      <td><pre class='prettyprint covered' id='l130s0'>			return this.convertList(this.element.getChildElements().get(0).getChildElements());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>131</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>132</td><td class='count'>1003</td>
+      <td><pre class='prettyprint covered' id='l132s0'>			return this.convertList(this.element.getChildElements());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>133</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>134</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>136</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>137</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;jp.co.dk.document.Element> getChildElement(jp.co.dk.document.ElementName elementName) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l138s0 l141s0 l145s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l138s0 l141s0 l142s0 l145s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>138</td><td class='count'>121</td>
+      <td><pre class='prettyprint covered' id='l138s0'>		List&lt;jp.co.dk.document.Element> returnList = new ArrayList&lt;jp.co.dk.document.Element>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>139</td><td class='count'>121</td>
+      <td><pre class='prettyprint covered' id='l139s0'>		List&lt;jp.co.dk.document.Element> list = this.getChildElement(); </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>140</td><td class='count'>484</td>
+      <td><pre class='prettyprint covered' id='l140s0'>		for (jp.co.dk.document.Element element : list) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>141</td><td class='count'>242</td>
+      <td><pre class='prettyprint jmp'>			<span id='l141s0' title='Executions: 242' class='covered'>if (element.isElement(elementName)) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>142</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l142s0'>				returnList.add(element);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>143</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>144</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>145</td><td class='count'>121</td>
+      <td><pre class='prettyprint covered' id='l145s0'>		return returnList;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>146</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>148</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>149</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;jp.co.dk.document.Element> getChildElement(jp.co.dk.document.ElementSelector elementSelector) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l157s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l157s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>150</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l150s0'>		List&lt;jp.co.dk.document.Element> returnList  = new ArrayList&lt;jp.co.dk.document.Element>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>151</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l151s0'>		List&lt;jp.co.dk.document.Element> elementList = this.getChildElement();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>152</td><td class='count'>8</td>
+      <td><pre class='prettyprint covered' id='l152s0'>		for (jp.co.dk.document.Element element : elementList) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>153</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>			<span id='l153s0' title='Executions: 4' class='covered'>if (elementSelector.judgment(element)) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>154</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l154s0'>				returnList.add(element);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>155</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>156</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>157</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l157s0'>		return returnList;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>158</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>160</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>161</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean hasChildElement() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>12</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l162s0 l163s0 l164s0')">A: 6</span>
+        <span class='covered' onclick="showPath(this,'l162s0 l163s0 l166s0')">B: 6</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>162</td><td class='count'>12</td>
+      <td><pre class='prettyprint covered' id='l162s0'>		List&lt;jp.co.dk.document.Element> list = this.getChildElement();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>163</td><td class='count'>12</td>
+      <td><pre class='prettyprint jmp'>		<span id='l163s0' title='Executions: 12' class='covered'>if (list.size()==0) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>164</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l164s0'>			return false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>165</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>166</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l166s0'>			return true;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>167</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>168</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>170</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>171</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean isElement(ElementName elementName){</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>1248414</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l172s0 l174s0 l177s0')">A: 1227713</span>
+        <span class='covered' onclick="showPath(this,'l172s0 l174s0 l175s0 l177s0')">B: 20701</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>172</td><td class='count'>1248414</td>
+      <td><pre class='prettyprint covered' id='l172s0'>		boolean isElement = false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>173</td><td class='count'>1248414</td>
+      <td><pre class='prettyprint covered' id='l173s0'>		String tagName = this.startTag.getName();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>174</td><td class='count'>1248414</td>
+      <td><pre class='prettyprint jmp'>		<span id='l174s0' title='Executions: 1248414' class='covered'>if (tagName.equals(elementName.getName())) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>175</td><td class='count'>20701</td>
+      <td><pre class='prettyprint covered' id='l175s0'>			isElement = true;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>176</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>177</td><td class='count'>1248414</td>
+      <td><pre class='prettyprint covered' id='l177s0'>		return isElement;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>178</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>180</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>181</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getAttribute(String name) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>182</td><td class='count'>9738</td>
+      <td><pre class='prettyprint covered' id='l182s0'>		return this.element.getFirstElement().getAttributeValue(name);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>183</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>185</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>186</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean hasAttribute(String attributeName) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>9643</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l187s0 l189s0 l190s0')">A: 354</span>
+        <span class='covered' onclick="showPath(this,'l187s0 l189s0 l192s0 l198s0')">B: 9289</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>187</td><td class='count'>9643</td>
+      <td><pre class='prettyprint covered' id='l187s0'>		boolean hasAttribute = false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>188</td><td class='count'>9643</td>
+      <td><pre class='prettyprint covered' id='l188s0'>		net.htmlparser.jericho.Attributes attributes = this.element.getFirstElement().getAttributes();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>189</td><td class='count'>9643</td>
+      <td><pre class='prettyprint jmp'>		<span id='l189s0' title='Executions: 9643' class='covered'>if (attributes == null)</span> <span id='l189s1' title='Executions: 354' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>190</td><td class='count'>354</td>
+      <td><pre class='prettyprint covered' id='l190s0'>			return false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>191</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>192</td><td class='count'>30329</td>
+      <td><pre class='prettyprint covered' id='l192s0'>		for (net.htmlparser.jericho.Attribute attribute : attributes) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>193</td><td class='count'>13102</td>
+      <td><pre class='prettyprint jmp'>			<span id='l193s0' title='Executions: 13102' class='covered'>if (attribute.getName().equals(attributeName)) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>194</td><td class='count'>1351</td>
+      <td><pre class='prettyprint covered' id='l194s0'>				hasAttribute = true;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>195</td><td class='count'>1351</td>
+      <td><pre class='prettyprint covered' id='l195s0'>				break;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>196</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>197</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>198</td><td class='count'>9289</td>
+      <td><pre class='prettyprint covered' id='l198s0'>		return hasAttribute;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>199</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>201</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>202</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getTagName() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>203</td><td class='count'>1555</td>
+      <td><pre class='prettyprint covered' id='l203s0'>		return this.startTag.getName();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>204</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>206</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>207</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getContent() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>17</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 3/3</span>
+        <span class='covered' onclick="showPath(this,'l208s0 l209s0 l212s0 l213s0 l214s0')">A: 13</span>
+        <span class='covered' onclick="showPath(this,'l208s0 l221s0')">B: 2</span>
+        <span class='covered' onclick="showPath(this,'l208s0 l209s0 l212s0 l216s0 l221s0')">C: 2</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>208</td><td class='count'>17</td>
+      <td><pre class='prettyprint jmp'>		<span id='l208s0' title='Executions: 17' class='covered'>if (this.cache_content == null)</span> <span id='l208s1' title='Executions: 15' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>209</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l209s0'>			String content = "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>210</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l210s0'>			net.htmlparser.jericho.Segment segment = this.startTag.getElement().getContent();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>211</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l211s0'>			List&lt;net.htmlparser.jericho.Element> chileList = segment.getChildElements();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>212</td><td class='count'>15</td>
+      <td><pre class='prettyprint jmp'>			<span id='l212s0' title='Executions: 15' class='covered'>if (chileList.size() == 0) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>213</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l213s0'>				this.cache_content = segment.toString();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>214</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l214s0'>				return this.cache_content;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>215</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>216</td><td class='count'>9</td>
+      <td><pre class='prettyprint covered' id='l216s0'> 			for (net.htmlparser.jericho.Element element : chileList) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>217</td><td class='count'>5</td>
+      <td><pre class='prettyprint jmp'> 				<span id='l217s0' title='Executions: 5' class='covered'>if (element.getStartTag() == null) content = element.toString();</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>218</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'> 			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>219</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l219s0'> 			this.cache_content = content;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>220</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>221</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l221s0'>		return this.cache_content;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>222</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * IDの取得
+	 * 要素に設定されているID名を取得する。
+	 * 
+	 * IDが指定されていなかった場合、空文字が返却されます。
+	 * 
+	 * @return 要素に指定されているID
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>232</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getId() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>3166</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#55aa00' onclick='hidePath()'>Path coverage: 2/3</span>
+        <span class='uncovered' onclick="showPath(this,'l233s0 l240s0')">A: 0</span>
+        <span class='covered' onclick="showPath(this,'l233s0 l234s0 l235s0 l238s0 l240s0')">B: 210</span>
+        <span class='covered' onclick="showPath(this,'l233s0 l234s0 l235s0 l236s0 l238s0 l240s0')">C: 2956</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>233</td><td class='count'>3166</td>
+      <td><pre class='prettyprint jmp'>		<span id='l233s0' title='Executions: 3166' class='covered'>if (this.cache_id == null)</span> <span id='l233s1' title='Executions: 3166' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>234</td><td class='count'>3166</td>
+      <td><pre class='prettyprint covered' id='l234s0'>			String getId = this.getAttribute(HtmlAttributeName.ID.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>235</td><td class='count'>3166</td>
+      <td><pre class='prettyprint jmp'>			<span id='l235s0' title='Executions: 3166' class='covered'>if (getId == null)</span> <span id='l235s1' title='Executions: 2956' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>236</td><td class='count'>2956</td>
+      <td><pre class='prettyprint covered' id='l236s0'>				getId = "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>237</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>238</td><td class='count'>3166</td>
+      <td><pre class='prettyprint covered' id='l238s0'>			this.cache_id = getId;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>239</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>240</td><td class='count'>3166</td>
+      <td><pre class='prettyprint covered' id='l240s0'>		return this.cache_id;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>241</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Nameの取得
+	 * 要素に設定されているName名を取得する。
+	 * 
+	 * Nameが指定されていなかった場合、空文字が返却されます。
+	 * 
+	 * @return 要素に指定されているName
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>251</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getName() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>3166</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#55aa00' onclick='hidePath()'>Path coverage: 2/3</span>
+        <span class='uncovered' onclick="showPath(this,'l252s0 l259s0')">A: 0</span>
+        <span class='covered' onclick="showPath(this,'l252s0 l253s0 l254s0 l257s0 l259s0')">B: 36</span>
+        <span class='covered' onclick="showPath(this,'l252s0 l253s0 l254s0 l255s0 l257s0 l259s0')">C: 3130</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>252</td><td class='count'>3166</td>
+      <td><pre class='prettyprint jmp'>		<span id='l252s0' title='Executions: 3166' class='covered'>if (this.cache_name == null)</span> <span id='l252s1' title='Executions: 3166' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>253</td><td class='count'>3166</td>
+      <td><pre class='prettyprint covered' id='l253s0'>			String getName = this.getAttribute(HtmlAttributeName.NAME.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>254</td><td class='count'>3166</td>
+      <td><pre class='prettyprint jmp'>			<span id='l254s0' title='Executions: 3166' class='covered'>if (getName == null)</span> <span id='l254s1' title='Executions: 3130' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>255</td><td class='count'>3130</td>
+      <td><pre class='prettyprint covered' id='l255s0'>				getName = "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>256</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>257</td><td class='count'>3166</td>
+      <td><pre class='prettyprint covered' id='l257s0'>			this.cache_name = getName;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>258</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>259</td><td class='count'>3166</td>
+      <td><pre class='prettyprint covered' id='l259s0'>		return this.cache_name;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>260</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Classの取得
+	 * 要素に設定されているClassの一覧を取得する。
+	 * 
+	 * Classが指定されていなかった場合、空のリストインスタンスが返却されます。
+	 * 
+	 * @return 要素に指定されているClass一覧
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>270</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;String> getClassList() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>3166</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 2/4</span>
+        <span class='uncovered' onclick="showPath(this,'l271s0 l273s0 l280s0')">A: 0</span>
+        <span class='covered' onclick="showPath(this,'l271s0 l273s0 l274s0 l275s0 l278s0 l280s0')">B: 2108</span>
+        <span class='uncovered' onclick="showPath(this,'l271s0 l273s0 l274s0 l275s0 l275s1 l278s0 l280s0')">C: 0</span>
+        <span class='covered' onclick="showPath(this,'l271s0 l273s0 l274s0 l275s0 l275s1 l276s0 l278s0 l280s0')">D: 1058</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>271</td><td class='count'>3166</td>
+      <td><pre class='prettyprint covered' id='l271s0'>		List&lt;String> classList = new ArrayList&lt;String>();</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>273</td><td class='count'>3166</td>
+      <td><pre class='prettyprint jmp'>		<span id='l273s0' title='Executions: 3166' class='covered'>if (this.cache_class == null)</span> <span id='l273s1' title='Executions: 3166' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>274</td><td class='count'>3166</td>
+      <td><pre class='prettyprint covered' id='l274s0'>			String getClass = this.getAttribute(HtmlAttributeName.CLASS.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>275</td><td class='count'>3166</td>
+      <td><pre class='prettyprint jmp'>			<span id='l275s0' title='Executions: 3166' class='covered'>if (getClass != null</span> && <span id='l275s1' title='Executions: 1058' class='covered'>!getClass.equals("")) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>276</td><td class='count'>1058</td>
+      <td><pre class='prettyprint covered' id='l276s0'>				classList = Arrays.asList(getClass.split(" "));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>277</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>278</td><td class='count'>3166</td>
+      <td><pre class='prettyprint covered' id='l278s0'>			this.cache_class = classList;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>279</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>280</td><td class='count'>3166</td>
+      <td><pre class='prettyprint covered' id='l280s0'>		return this.cache_class;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>281</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定IDの要素を取得
+	 * 
+	 * 本要素内に保持する全子要素から指定のIDと一致する要素の一覧を返却する。
+	 * 
+	 * @param id 取得対象ID
+	 * @return 要素一覧
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>291</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;HtmlElement> getElementById(String id) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/4</span>
+        <span class='uncovered' onclick="showPath(this,'l292s0 l296s0 l300s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l292s0 l296s0 l296s1 l300s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l292s0 l296s0 l296s1 l296s2 l300s0')">C: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l292s0 l296s0 l296s1 l296s2 l297s0 l300s0')">D: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>292</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l292s0'>		List&lt;HtmlElement> httpElementList = new ArrayList&lt;HtmlElement>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>293</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l293s0'>		List&lt;net.htmlparser.jericho.Element> allElement = this.element.getAllElements();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>294</td><td class='count'>6336</td>
+      <td><pre class='prettyprint covered' id='l294s0'>		for (net.htmlparser.jericho.Element element : allElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>295</td><td class='count'>6328</td>
+      <td><pre class='prettyprint covered' id='l295s0'>			String elementId = this.getAttributeValue(element, HtmlAttributeName.ID.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>296</td><td class='count'>6328</td>
+      <td><pre class='prettyprint jmp'>			<span id='l296s0' title='Executions: 6328' class='covered'>if (elementId!=null</span> && <span id='l296s1' title='Executions: 420' class='covered'>!elementId.equals("")</span> && <span id='l296s2' title='Executions: 420' class='covered'>elementId.equals(id)) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>297</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l297s0'>				httpElementList.add(this.createHtmlElement(element));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>298</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>299</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>300</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l300s0'>		return httpElementList;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>301</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定Nameの要素を取得
+	 * 
+	 * 本要素内に保持する全子要素から指定のNameと一致する要素の一覧を返却する。
+	 * 
+	 * @param name 取得対象Name
+	 * @return 要素一覧
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>311</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;HtmlElement> getElementsByName(String name) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/4</span>
+        <span class='uncovered' onclick="showPath(this,'l312s0 l316s0 l320s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l312s0 l316s0 l316s1 l320s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l312s0 l316s0 l316s1 l316s2 l320s0')">C: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l312s0 l316s0 l316s1 l316s2 l317s0 l320s0')">D: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>312</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l312s0'>		List&lt;HtmlElement> httpElementList = new ArrayList&lt;HtmlElement>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>313</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l313s0'>		List&lt;net.htmlparser.jericho.Element> allElement = this.element.getAllElements();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>314</td><td class='count'>6336</td>
+      <td><pre class='prettyprint covered' id='l314s0'>		for (net.htmlparser.jericho.Element element : allElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>315</td><td class='count'>6328</td>
+      <td><pre class='prettyprint covered' id='l315s0'>			String elementName = this.getAttributeValue(element, HtmlAttributeName.NAME.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>316</td><td class='count'>6328</td>
+      <td><pre class='prettyprint jmp'>			<span id='l316s0' title='Executions: 6328' class='covered'>if (elementName!=null</span> && <span id='l316s1' title='Executions: 72' class='covered'>!elementName.equals("")</span> && <span id='l316s2' title='Executions: 72' class='covered'>elementName.equals(name) ) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>317</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l317s0'>				httpElementList.add(this.createHtmlElement(element));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>318</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>319</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>320</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l320s0'>		return httpElementList;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>321</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 要素タイプ返却
+	 * 本要素のタイプを返却する。
+	 * 
+	 * 該当する要素がない場合、nullが返却される
+	 * 
+	 * @return 該当のHTMLタグ
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>331</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public HtmlElementName getElementType(){</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>23828</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l332s0 l333s0 l333s1 l339s0')">A: 21533</span>
+        <span class='covered' onclick="showPath(this,'l332s0 l341s0')">B: 2295</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>332</td><td class='count'>23828</td>
+      <td><pre class='prettyprint jmp'>		<span id='l332s0' title='Executions: 23828' class='covered'>if (this.cache_elementName == null)</span> <span id='l332s1' title='Executions: 21533' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>333</td><td class='count'>1249006</td>
+      <td><pre class='prettyprint covered' id='l333s0'>			for (HtmlElementName element : HtmlElementName.values()) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>334</td><td class='count'>1248167</td>
+      <td><pre class='prettyprint jmp'>				<span id='l334s0' title='Executions: 1248167' class='covered'>if (this.isElement(element)){</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>335</td><td class='count'>20694</td>
+      <td><pre class='prettyprint covered' id='l335s0'>					this.cache_elementName = element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>336</td><td class='count'>20694</td>
+      <td><pre class='prettyprint covered' id='l336s0'>					break;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>337</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>338</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>339</td><td class='count'>21533</td>
+      <td><pre class='prettyprint covered' id='l339s0'>			return this.cache_elementName;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>340</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>341</td><td class='count'>2295</td>
+      <td><pre class='prettyprint covered' id='l341s0'>		return this.cache_elementName;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>342</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Href要素の取得
+	 * 
+	 * 本要素に保持するHref要素の一覧を取得する。
+	 * 
+	 * @return Href要素一覧
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>351</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public List&lt;HtmlElement> getHrefList(){</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>2</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#aa5500' onclick='hidePath()'>Path coverage: 1/3</span>
+        <span class='uncovered' onclick="showPath(this,'l352s0 l354s0 l360s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l352s0 l354s0 l354s1 l360s0')">B: 0</span>
+        <span class='covered' onclick="showPath(this,'l352s0 l354s0 l354s1 l355s0 l355s1 l360s0')">C: 2</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>352</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l352s0'>		List&lt;HtmlElement> urlList = new ArrayList&lt;HtmlElement>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>353</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l353s0'>		List&lt;net.htmlparser.jericho.Element> hrefList = this.element.getAllElements(net.htmlparser.jericho.HTMLElementName.A);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>354</td><td class='count'>2</td>
+      <td><pre class='prettyprint jmp'>		<span id='l354s0' title='Executions: 2' class='covered'>if (hrefList!=null</span> && <span id='l354s1' title='Executions: 2' class='covered'>hrefList.size()!=0) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>355</td><td class='count'>878</td>
+      <td><pre class='prettyprint covered' id='l355s0'>			for (net.htmlparser.jericho.Element element: hrefList) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>356</td><td class='count'>874</td>
+      <td><pre class='prettyprint covered' id='l356s0'>				urlList.add(this.createHtmlElement(element));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>357</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>359</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>360</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l360s0'>		return urlList;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>361</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>363</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>364</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean equals(Object object) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>4</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 4/4</span>
+        <span class='covered' onclick="showPath(this,'l365s0 l365s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l365s0 l366s0 l366s2')">B: 1</span>
+        <span class='covered' onclick="showPath(this,'l365s0 l366s0 l366s1 l366s2')">C: 1</span>
+        <span class='covered' onclick="showPath(this,'l365s0 l366s0 l366s1 l367s0 l368s0')">D: 1</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>365</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>		<span id='l365s0' title='Executions: 4' class='covered'>if (this == object)</span> <span id='l365s1' title='Executions: 1' class='covered'>return true;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>366</td><td class='count'>3</td>
+      <td><pre class='prettyprint jmp'>		<span id='l366s0' title='Executions: 3' class='covered'>if (object == null</span> || <span id='l366s1' title='Executions: 2' class='covered'>!(object instanceof HtmlElement)) return false;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>367</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l367s0'>		HtmlElement htmlElment = (HtmlElement)object;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>368</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l368s0'>		return this.element.toString().equals(htmlElment.element.toString());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>369</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>371</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>372</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String toString() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>373</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l373s0'>		return this.element.toString();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>374</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>376</td><td>&nbsp;</td>
+      <td><pre class='comment'>	//-------------------------------------------------------------------------------------------------------------</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * FORM要素取得
+	 * 指定されたFORM要素からFORM要素一覧を取得する
+	 * 
+	 * @return FORM要素一覧
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>384</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected List&lt;HtmlElement> getFormElementList() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>385</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l385s0'>		List&lt;HtmlElement> list = new ArrayList&lt;HtmlElement>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>386</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l386s0' title='Executions: 0' class='uncovered'>for (FormControl formControl</span> : <span id='l386s1' title='Executions: 0' class='uncovered'>this.element.getFormControls()) list.add(this.createHtmlElement(formControl));</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>387</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l387s0'>		return list;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>388</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>390</td><td>&nbsp;</td>
+      <td><pre class='comment'>	//-------------------------------------------------------------------------------------------------------------</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/** 
+	 * 指定のElementオブジェクトのタグ名称からHTML要素名称を取得する。&lt;br/>
+	 * 該当のHTML要素がない場合、nullを返却する。
+	 * 
+	 * @return HTML要素名称
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>398</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private HtmlElementName cornvertHttpElementName(net.htmlparser.jericho.Segment element) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l399s0 l401s0 l401s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l399s0 l401s0 l400s1 l403s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>399</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l399s0'>		String tagStr = element.getFirstStartTag().getName();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>400</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l400s0'>		for (HtmlElementName htmlElementName: HtmlElementName.values()) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>401</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l401s0' title='Executions: 0' class='uncovered'>if (htmlElementName.getName().equals(tagStr)) return htmlElementName;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>402</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>403</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l403s0'>		return null;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>404</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 要素の指定属性取得&lt;br/>
+	 * 
+	 * 本要素に設定されている指定の属性を取得します。
+	 * 
+	 * @param name 属性名
+	 * @return 属性値
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>414</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private String getAttributeValue(net.htmlparser.jericho.Segment element, String name) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>415</td><td class='count'>12656</td>
+      <td><pre class='prettyprint covered' id='l415s0'>		return element.getFirstElement().getAttributeValue(name);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>416</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTMLパーサの要素インスタンスリスト変換
+	 * HTMLパーサの要素インスタンスを本クラスのインスタンスでラップしたリストを返却する。
+	 * 
+	 * @param elementList HTMLパーサ一覧
+	 * @return 本インスタンス一覧
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>425</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private List&lt;jp.co.dk.document.Element> convertList(List&lt;net.htmlparser.jericho.Element> elementList) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>1357</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#55aa00' onclick='hidePath()'>Path coverage: 2/3</span>
+        <span class='uncovered' onclick="showPath(this,'l426s0 l427s0 l432s0')">A: 0</span>
+        <span class='covered' onclick="showPath(this,'l426s0 l427s0 l427s1 l432s0')">B: 1007</span>
+        <span class='covered' onclick="showPath(this,'l426s0 l427s0 l427s1 l428s0 l428s1 l432s0')">C: 350</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>426</td><td class='count'>1357</td>
+      <td><pre class='prettyprint covered' id='l426s0'>		List&lt;jp.co.dk.document.Element> httpElementList = new ArrayList&lt;jp.co.dk.document.Element>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>427</td><td class='count'>1357</td>
+      <td><pre class='prettyprint jmp'>		<span id='l427s0' title='Executions: 1357' class='covered'>if (elementList != null</span> && <span id='l427s1' title='Executions: 1357' class='covered'>elementList.size() > 0) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>428</td><td class='count'>20207</td>
+      <td><pre class='prettyprint covered' id='l428s0'>			for (net.htmlparser.jericho.Element element : elementList) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>429</td><td class='count'>19507</td>
+      <td><pre class='prettyprint covered' id='l429s0'>				httpElementList.add(this.createHtmlElement(element));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>430</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>431</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>432</td><td class='count'>1357</td>
+      <td><pre class='prettyprint covered' id='l432s0'>		return httpElementList;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>433</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 要素オブジェクトを元にHTML要素を生成します。
+	 * 
+	 * @param element 要素オブジェクト
+	 * @return 生成された要素オブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>441</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private HtmlElement createHtmlElement(net.htmlparser.jericho.Segment element) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>442</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>443</td><td class='count'>20387</td>
+      <td><pre class='prettyprint covered' id='l443s0'>			return (HtmlElement)this.elementFactory.convert(new HtmlElement(element, this.elementFactory));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>444</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l444s0'>		} catch (DocumentException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>445</td><td>&nbsp;</td>
+      <td><pre class='comment'>			// TODO 要素生成に失敗したのにデフォルト要素を返却？</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>446</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l446s0'>			return new HtmlElement(element, this.elementFactory);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>447</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>448</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>450</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

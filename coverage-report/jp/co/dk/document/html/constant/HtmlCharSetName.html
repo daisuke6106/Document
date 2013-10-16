@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - HtmlCharSetName.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/constant/HtmlCharSetName.java</caption>
+    <tr>
+      <td class='line'>1</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l1s0'>package jp.co.dk.document.html.constant;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * HtmlCharSetNameは、HTTPヘッダに含まれるコンテンツタイプに設定されているキャラクタセットを表す定数クラス。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>9</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public enum HtmlCharSetName {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>11</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ISO-8859-1 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>12</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	ISO_8859_1("ISO-8859-1"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>14</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ISO_2002_JP */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>15</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	ISO_2002_JP("ISO-2022-JP"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>17</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** Shift_JIS */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>18</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	SHIFT_JIS("Shift_JIS"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>20</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** EUC_JP */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>21</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	EUC_JP("EUC-JP"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>23</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** UTF_8 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>24</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	UTF_8("UTF-8"),</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>26</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** UTF_8 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>27</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	UTF_16("UTF-16"),</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>28</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>30</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private String charset;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>32</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l32s0'>	private HtmlCharSetName(String charset) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>33</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l33s0'>		this.charset = charset;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>34</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l34s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 引数に渡された文字列とこのキャラクタセットを比較し、一致するかを判定します。&lt;p/>
+	 * 比較する際は、文字列の大文字小文字は差異の対象としない。
+	 * 
+	 * @param contentType コンテンツタイプ
+	 * @return 判定結果（true=, false=）
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>43</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean isEncording(String contentType) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>37</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 3/3</span>
+        <span class='covered' onclick="showPath(this,'l44s0 l44s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l44s0 l45s0 l45s1')">B: 8</span>
+        <span class='covered' onclick="showPath(this,'l44s0 l45s0 l46s0')">C: 28</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>44</td><td class='count'>37</td>
+      <td><pre class='prettyprint jmp'>		<span id='l44s0' title='Executions: 37' class='covered'>if (contentType == null)</span> <span id='l44s1' title='Executions: 1' class='covered'>return false;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>45</td><td class='count'>36</td>
+      <td><pre class='prettyprint jmp'>		<span id='l45s0' title='Executions: 36' class='covered'>if (contentType.toUpperCase().indexOf(this.charset.toUpperCase()) != -1) return true;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>46</td><td class='count'>28</td>
+      <td><pre class='prettyprint covered' id='l46s0'>		return false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>47</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * キャラクターセット文字列を取得する。
+	 * 
+	 * @return キャラクターセット文字列
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>54</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getEncoding() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>55</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l55s0'>		return this.charset;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>56</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>58</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

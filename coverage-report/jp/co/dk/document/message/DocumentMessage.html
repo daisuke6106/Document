@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - DocumentMessage.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/message/DocumentMessage.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.document.message;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import jp.co.dk.message.AbstractMessage;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * DocumentMessageは、HTML要素の操作にて使用するメッセージを定義する定数クラスです。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>11</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l11s0'>public class DocumentMessage extends AbstractMessage{</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>13</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** HTML解析に失敗しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>14</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l14s0'>	public static final DocumentMessage ERROR_FAILED_TO_PARSE_HTML = new DocumentMessage("E001");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>16</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** URIインスタンスの生成に失敗しました。URI=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>17</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l17s0'>	public static final DocumentMessage ERROR_FALLED_TO_CREATE_URI_INSTANCE = new DocumentMessage("E002");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>19</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 不正なURLが指定されました。URI=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>20</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l20s0'>	public static final DocumentMessage ERROR_AN_INVALID_URL_WAS_SPECIFIED = new DocumentMessage("E003");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>22</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ダウンロードディレクトリが存在しません。PATH=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>23</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l23s0'>	public static final DocumentMessage ERROR_DOWNLOAD_DIR_IS_NOT_FOUND = new DocumentMessage("E004");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>25</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 指定のパスはディレクトリではありません。PATH=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>26</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l26s0'>	public static final DocumentMessage ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY = new DocumentMessage("E005");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>28</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 指定のパスにすでにファイルが存在します。PATH=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>29</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l29s0'>	public static final DocumentMessage ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH = new DocumentMessage("E006");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>31</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ダウンロードに失敗しました。URL=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>32</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l32s0'>	public static final DocumentMessage ERROR_FAILED_TO_DOWNLOAD = new DocumentMessage("E007");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>34</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** XMLインスタンスの生成に失敗しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>35</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l35s0'>	public static final DocumentMessage FAILED_TO_GENERATE_THE_XML_INSTANCE = new DocumentMessage("E008");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>37</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** XMLインスタンスの生成に失敗しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>38</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l38s0'>	public static final DocumentMessage PARSE_CONFIGURATION_ERROR = new DocumentMessage("E009");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>40</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** SAXの一般的なエラーまたは警告を検出しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>41</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l41s0'>	public static final DocumentMessage SAX_WARNING_OR_ERROR = new DocumentMessage("E010");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>43</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ファイル入出力にて例外が発生しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>44</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l44s0'>	public static final DocumentMessage FILE_INPUT_OUTPUT_ERROR = new DocumentMessage("E011");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>46</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** XMLファイルが既に存在します。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>47</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l47s0'>	public static final DocumentMessage ERROR_XML_FILE_ALREADY_EXISTS = new DocumentMessage("E012");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>49</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ファイルの保存に失敗しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>50</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l50s0'>	public static final DocumentMessage ERROR_FAILED_TO_SAVE_FILE = new DocumentMessage("E013");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>52</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ファイルの保存に失敗しました。パラメータが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>53</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l53s0'>	public static final DocumentMessage ERROR_FAILED_TO_SAVE_FILE_PARAM_IS_NOT_SET = new DocumentMessage("E014");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>55</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 要素の変換処理に失敗しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>56</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l56s0'>	public static final DocumentMessage ERROR_ELEMENT_CONVERT = new DocumentMessage("E014");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>58</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 要素文字列の変換処理に失敗しました。要素文字列=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>59</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l59s0'>	public static final DocumentMessage ERROR_ELEMENT_STRING_CONVERT = new DocumentMessage("E015");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>61</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 要素の変換処理ファクトリが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>62</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l62s0'>	public static final DocumentMessage ERROR_ELEMENT_FACTORY_IS_NOT_SET = new DocumentMessage("E016");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>64</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 要素文字列の変換処理に失敗しました。要素文字列が設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>65</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l65s0'>	public static final DocumentMessage ERROR_ELEMENT_STRING_IS_NOT_SET = new DocumentMessage("E017");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>67</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ファイル読み込みに失敗しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>68</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l68s0'>	public static final DocumentMessage ERROR_FILE_READ = new DocumentMessage("E018");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>71</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected DocumentMessage(String messageId) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>72</td><td class='count'>19</td>
+      <td><pre class='prettyprint covered' id='l72s0'>		super(messageId);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>73</td><td class='count'>19</td>
+      <td><pre class='prettyprint covered' id='l73s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>75</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

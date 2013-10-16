@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - HtmlElementFactory.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/HtmlElementFactory.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.document.html;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import jp.co.dk.document.Element;
+import jp.co.dk.document.ElementFactory;
+import jp.co.dk.document.exception.DocumentException;
+import jp.co.dk.document.html.constant.HtmlAttributeName;
+import jp.co.dk.document.html.constant.HtmlElementName;
+import jp.co.dk.document.html.constant.InputTypeName;
+import jp.co.dk.document.html.element.A;
+import jp.co.dk.document.html.element.CheckBox;
+import jp.co.dk.document.html.element.File;
+import jp.co.dk.document.html.element.Form;
+import jp.co.dk.document.html.element.Hidden;
+import jp.co.dk.document.html.element.Image;
+import jp.co.dk.document.html.element.Meta;
+import jp.co.dk.document.html.element.Option;
+import jp.co.dk.document.html.element.Password;
+import jp.co.dk.document.html.element.Radio;
+import jp.co.dk.document.html.element.Reset;
+import jp.co.dk.document.html.element.Select;
+import jp.co.dk.document.html.element.Submit;
+import jp.co.dk.document.html.element.Text;
+import jp.co.dk.document.message.DocumentMessage;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * HtmlElementFactoryは、HTML要素の生成を行うファクトリクラスです。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>31</td><td class='count'>103</td>
+      <td><pre class='prettyprint covered' id='l31s0'>public class HtmlElementFactory implements ElementFactory {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>33</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>34</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Element convert(Element element) throws DocumentException {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/19</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l43s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l46s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l48s0')">C: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l50s0')">D: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l52s0')">E: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l54s0 l55s0 l55s1')">F: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l54s0 l55s0 l56s0 l58s0')">G: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l54s0 l55s0 l56s0 l60s0')">H: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l54s0 l55s0 l56s0 l62s0')">I: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l54s0 l55s0 l56s0 l64s0')">J: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l54s0 l55s0 l56s0 l66s0')">K: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l54s0 l55s0 l56s0 l68s0')">L: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l54s0 l55s0 l56s0 l70s0')">M: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l54s0 l55s0 l56s0 l72s0')">N: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l54s0 l55s0 l56s0 l74s0')">O: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l54s0 l55s0 l56s0 l76s0')">P: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l79s0')">Q: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l81s0')">R: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l35s0 l43s0 l44s0 l83s0')">S: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>35</td><td class='count'>20403</td>
+      <td><pre class='prettyprint covered' id='l35s0'>		HtmlElement htmlElement = null;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>36</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>38</td><td class='count'>20403</td>
+      <td><pre class='prettyprint covered' id='l38s0'>			htmlElement = (HtmlElement)element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>39</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l39s0'>		} catch (ClassCastException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>40</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l40s0'>			throw new DocumentException(DocumentMessage.ERROR_ELEMENT_CONVERT, e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>41</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>42</td><td class='count'>20402</td>
+      <td><pre class='prettyprint covered' id='l42s0'>		HtmlElementName name = htmlElement.getElementType();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>43</td><td class='count'>20402</td>
+      <td><pre class='prettyprint jmp'>		<span id='l43s0' title='Executions: 20402' class='covered'>if (name == null)</span> <span id='l43s1' title='Executions: 720' class='covered'>return htmlElement;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>44</td><td class='count'>39364</td>
+      <td><pre class='prettyprint covered' id='l44s0'>		switch (name) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>45</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			case A:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>46</td><td class='count'>6125</td>
+      <td><pre class='prettyprint covered' id='l46s0'>				return createAnchor(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>47</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			case IMG:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>48</td><td class='count'>221</td>
+      <td><pre class='prettyprint covered' id='l48s0'>				return createImage(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>49</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			case META:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>50</td><td class='count'>74</td>
+      <td><pre class='prettyprint covered' id='l50s0'>				return createMeta(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>51</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			case FORM:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>52</td><td class='count'>43</td>
+      <td><pre class='prettyprint covered' id='l52s0'>				return createForm(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>53</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			case INPUT:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>54</td><td class='count'>199</td>
+      <td><pre class='prettyprint covered' id='l54s0'>				InputTypeName inputTypeName = getInpuTypeName(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>55</td><td class='count'>199</td>
+      <td><pre class='prettyprint jmp'>				<span id='l55s0' title='Executions: 199' class='covered'>if (inputTypeName == null)</span> <span id='l55s1' title='Executions: 6' class='covered'>return createText(htmlElement);</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>56</td><td class='count'>386</td>
+      <td><pre class='prettyprint covered' id='l56s0'>				switch(inputTypeName) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>57</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>					case TEXT:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>58</td><td class='count'>41</td>
+      <td><pre class='prettyprint covered' id='l58s0'>						return createText(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>59</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>					case PASSWORD:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>60</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l60s0'>						return createPassword(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>61</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>					case CHECKBOX:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>62</td><td class='count'>37</td>
+      <td><pre class='prettyprint covered' id='l62s0'>						return createCheckbox(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>63</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>					case RADIO:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>64</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l64s0'>						return createRadioButton(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>65</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>					case SUBMIT:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>66</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l66s0'>						return createSubmit(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>67</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>					case IMAGE:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>68</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l68s0'>						return createImage(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>69</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>					case RESET:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>70</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l70s0'>						return createReset(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>71</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>					case FILE:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>72</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l72s0'>						return createFile(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>73</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>					case HIDDEN:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>74</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l74s0'>						return createHidden(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>75</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>					default:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>76</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l76s0'>						return element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>77</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>78</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			case SELECT:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>79</td><td class='count'>22</td>
+      <td><pre class='prettyprint covered' id='l79s0'>				return createSelect(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>80</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			case OPTION:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>81</td><td class='count'>168</td>
+      <td><pre class='prettyprint covered' id='l81s0'>				return createOption(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>82</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			default:</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>83</td><td class='count'>12830</td>
+      <td><pre class='prettyprint covered' id='l83s0'>				return htmlElement;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>84</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>85</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にアンカーオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return アンカーオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>93</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected A createAnchor(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>94</td><td class='count'>6125</td>
+      <td><pre class='prettyprint covered' id='l94s0'>		return new A(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>95</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にMETAオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return METAオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>103</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Meta createMeta(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>104</td><td class='count'>74</td>
+      <td><pre class='prettyprint covered' id='l104s0'>		return new Meta(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>105</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にFormオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return Formオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>113</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Form createForm(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>114</td><td class='count'>43</td>
+      <td><pre class='prettyprint covered' id='l114s0'>		return new Form(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>115</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にCheckBoxオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return CheckBoxオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>123</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected CheckBox createCheckbox(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>124</td><td class='count'>37</td>
+      <td><pre class='prettyprint covered' id='l124s0'>		return new CheckBox(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>125</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にFileオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return Fileオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>133</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected File createFile(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>134</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l134s0'>		return new File(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>135</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にHiddenオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return Hiddenオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>143</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Hidden createHidden(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>144</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l144s0'>		return new Hidden(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>145</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にImageオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return Imageオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>153</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Image createImage(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>154</td><td class='count'>234</td>
+      <td><pre class='prettyprint covered' id='l154s0'>		return new Image(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>155</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にPasswordオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return Passwordオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>163</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Password createPassword(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>164</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l164s0'>		return new Password(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>165</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にRadioButtonオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return RadioButtonオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>173</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Radio createRadioButton(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>174</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l174s0'>		return new Radio(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>175</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にResetオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return Resetオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>183</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Reset createReset(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>184</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l184s0'>		return new Reset(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>185</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にSelectオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return Selectオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>193</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Select createSelect(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>194</td><td class='count'>22</td>
+      <td><pre class='prettyprint covered' id='l194s0'>		return new Select(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>195</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にSubmitオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return Submitオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>203</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Submit createSubmit(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>204</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l204s0'>		return new Submit(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>205</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にOptionオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return Optionオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>213</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Option createOption(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>214</td><td class='count'>168</td>
+      <td><pre class='prettyprint covered' id='l214s0'>		return new Option(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>215</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * HTML要素オブジェクトを元にSubmitオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return Submitオブジェクト
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>223</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Text createText(HtmlElement htmlElement) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>224</td><td class='count'>47</td>
+      <td><pre class='prettyprint covered' id='l224s0'>		return new Text(htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>225</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Input種別取得&lt;p/>
+	 * テキストボックス、ラジオボタン、チェックボックス等、Input要素に属する種別を取得します。&lt;br/>
+	 * 設定された要素がINPUTでない場合、または該当の種別がない場合、nullを返却する。
+	 * 
+	 * @param element Input要素取得対象要素
+	 * @return Input要素
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>235</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private InputTypeName getInpuTypeName(HtmlElement element){</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>8</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l236s0 l236s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l236s0 l237s0 l238s1 l241s0')">B: 7</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>236</td><td class='count'>202</td>
+      <td><pre class='prettyprint jmp'>		<span id='l236s0' title='Executions: 202' class='covered'>if (HtmlElementName.INPUT != element.getElementType() ) return null;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>237</td><td class='count'>201</td>
+      <td><pre class='prettyprint covered' id='l237s0'>		String type = element.getAttribute(HtmlAttributeName.TYPE.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>238</td><td class='count'>912</td>
+      <td><pre class='prettyprint covered' id='l238s0'>		for (InputTypeName inputTypeName : InputTypeName.values()) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>239</td><td class='count'>905</td>
+      <td><pre class='prettyprint jmp'>			<span id='l239s0' title='Executions: 905' class='covered'>if (inputTypeName.getName().equals(type)) return inputTypeName ;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>240</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>241</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l241s0'>		return null;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>242</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>243</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>
