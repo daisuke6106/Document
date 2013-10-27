@@ -150,14 +150,14 @@ public class XmlDocument extends File implements Document {
 		try {
 			builder = factory.newDocumentBuilder();
 		} catch (ParserConfigurationException e) {
-			throw new XmlDocumentException(DocumentMessage.FAILED_TO_GENERATE_THE_XML_INSTANCE);
+			throw new XmlDocumentException(DocumentMessage.FAILED_TO_GENERATE_THE_XML_INSTANCE, e);
 		}
 		try {
 			return builder.parse(inputStream);
 		} catch (SAXException e) {
-			throw new XmlDocumentException(DocumentMessage.SAX_WARNING_OR_ERROR);
+			throw new XmlDocumentException(DocumentMessage.SAX_WARNING_OR_ERROR, e);
 		} catch (IOException e) {
-			throw new XmlDocumentException(DocumentMessage.FILE_INPUT_OUTPUT_ERROR);
+			throw new XmlDocumentException(DocumentMessage.FILE_INPUT_OUTPUT_ERROR, e);
 		}
 	}
 }
