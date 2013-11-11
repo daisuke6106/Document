@@ -12,11 +12,13 @@ import jp.co.dk.document.html.element.File;
 import jp.co.dk.document.html.element.Form;
 import jp.co.dk.document.html.element.Hidden;
 import jp.co.dk.document.html.element.Image;
+import jp.co.dk.document.html.element.Link;
 import jp.co.dk.document.html.element.Meta;
 import jp.co.dk.document.html.element.Option;
 import jp.co.dk.document.html.element.Password;
 import jp.co.dk.document.html.element.Radio;
 import jp.co.dk.document.html.element.Reset;
+import jp.co.dk.document.html.element.Script;
 import jp.co.dk.document.html.element.Select;
 import jp.co.dk.document.html.element.Submit;
 import jp.co.dk.document.html.element.Text;
@@ -45,6 +47,10 @@ public class HtmlElementFactory implements ElementFactory {
 			case A:
 				return createAnchor(htmlElement);
 			case IMG:
+				return createImage(htmlElement);
+			case SCRIPT:
+				return createImage(htmlElement);
+			case LINK:
 				return createImage(htmlElement);
 			case META:
 				return createMeta(htmlElement);
@@ -92,6 +98,26 @@ public class HtmlElementFactory implements ElementFactory {
 	 */
 	protected A createAnchor(HtmlElement htmlElement) {
 		return new A(htmlElement);
+	}
+	
+	/**
+	 * HTML要素オブジェクトを元にスクリプトオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return スクリプトオブジェクト
+	 */
+	protected Script createScript(HtmlElement htmlElement) {
+		return new Script(htmlElement);
+	}
+	
+	/**
+	 * HTML要素オブジェクトを元にスクリプトオブジェクトを生成します。
+	 * 
+	 * @param htmlElement HTML要素オブジェクト
+	 * @return スクリプトオブジェクト
+	 */
+	protected Link createLink(HtmlElement htmlElement) {
+		return new Link(htmlElement);
 	}
 	
 	/**
