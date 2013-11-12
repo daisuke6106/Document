@@ -49,9 +49,9 @@ public class HtmlElementFactory implements ElementFactory {
 			case IMG:
 				return createImage(htmlElement);
 			case SCRIPT:
-				return createImage(htmlElement);
+				return createScript(htmlElement);
 			case LINK:
-				return createImage(htmlElement);
+				return createLink(htmlElement);
 			case META:
 				return createMeta(htmlElement);
 			case FORM:
