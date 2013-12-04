@@ -9,7 +9,7 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
  * @version 1.0
  * @author D.Kanno
  */
-public class Script extends HtmlElement {
+public class Script extends AbstractMovableHtmlElement {
 
 	/**
 	 * コンストラクタ
@@ -36,6 +36,11 @@ public class Script extends HtmlElement {
 		} else {
 			return src;
 		}
+	}
+
+	@Override
+	public String getUrl() {
+		return this.getSrc();
 	}
 	
 }

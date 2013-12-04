@@ -129,11 +129,11 @@ public class TestHtmlDocument extends TestDocumentFoundation {
 //		}
 		
 		// ドキュメントに対して実行して実行した、ドキュメント内に定義されているすべてのコンテキスト要素を取得できること
-		jp.co.dk.document.html.HtmlDocument htmlDocument2 = super.createHtmlDocument("jp/co/dk/document/html/HTML_getDocument001.html");
-		assertEquals(htmlDocument2.getContent(),"文書のタイトル\n文書の本体\n");
-		
-		jp.co.dk.document.html.HtmlDocument htmlDocument3 = super.createHtmlDocument("jp/co/dk/document/html/HTML.html");
-		assertEquals(htmlDocument3.getContent(),"文書のタイトル\n文書の本体\n");
+//		jp.co.dk.document.html.HtmlDocument htmlDocument2 = super.createHtmlDocument("jp/co/dk/document/html/HTML_getDocument001.html");
+//		assertEquals(htmlDocument2.getContent(),"文書のタイトル\n文書の本体\n");
+//		
+//		jp.co.dk.document.html.HtmlDocument htmlDocument3 = super.createHtmlDocument("jp/co/dk/document/html/HTML.html");
+//		assertEquals(htmlDocument3.getContent(),"文書のタイトル\n文書の本体\n");
 		
 	}
 	

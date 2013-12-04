@@ -2,7 +2,6 @@ package jp.co.dk.document.html.element;
 
 import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
-import jp.co.dk.message.exception.AbstractMessageException;
 
 /**
  * Aは、HTMLのアンカー要素を表す要素クラス。
@@ -10,7 +9,7 @@ import jp.co.dk.message.exception.AbstractMessageException;
  * @version 1.0
  * @author D.Kanno
  */
-public class A extends HtmlElement {
+public class A extends AbstractMovableHtmlElement {
 
 	/**
 	 * コンストラクタ
@@ -37,6 +36,12 @@ public class A extends HtmlElement {
 		} else {
 			return href;
 		}
+	}
+	
+
+	@Override
+	public String getUrl() {
+		return this.getHref();
 	}
 	
 	/**

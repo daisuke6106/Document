@@ -9,7 +9,7 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
  * @version 1.0
  * @author D.Kanno
  */
-public class Image extends Input{
+public class Image extends AbstractMovableHtmlElement{
 	
 	public Image(HtmlElement element) {
 		super(element);
@@ -22,5 +22,10 @@ public class Image extends Input{
 		} else {
 			return src;
 		}
+	}
+
+	@Override
+	public String getUrl() {
+		return this.getSrc();
 	}
 }
