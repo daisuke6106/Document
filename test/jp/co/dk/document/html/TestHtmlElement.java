@@ -289,6 +289,20 @@ public class TestHtmlElement extends TestDocumentFoundation {
 		if (!element.getContent().equals("検索")) {
 			fail();
 		}
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("<select name=\"example\">");
+		sb.append("<option value=\"サンプル1\">サンプル1</option>");
+		sb.append("<option value=\"サンプル2\">サンプル2</option>");
+		sb.append("<option value=\"サンプル3\">サンプル3</option>");
+		sb.append("</select>");
+
+		try {
+			HtmlElement htmlElement = new HtmlElement(sb.toString(), new HtmlElementFactory());
+			assertEquals(htmlElement.getContent(),"サンプル1サンプル2サンプル3");
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 	}
 	
 	@Test

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.FormControl;
 
 import jp.co.dk.document.ElementName;
@@ -206,17 +205,13 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	@Override
 	public String getContent() {
 		if (this.cache_content == null) {
-			String content = "";
-			net.htmlparser.jericho.Segment segment = this.startTag.getElement().getContent();
-			List<net.htmlparser.jericho.Element> chileList = segment.getChildElements();
-			if (chileList.size() == 0) {
-				this.cache_content = segment.toString();
-				return this.cache_content;
-			}
- 			for (net.htmlparser.jericho.Element element : chileList) {
- 				if (element.getStartTag() == null) content = element.toString();
+			StringBuilder contents = new StringBuilder();
+			net.htmlparser.jericho.Element element = this.startTag.getElement();
+			contents.append(element.getContent());
+ 			for (net.htmlparser.jericho.Element childElement : element.getChildElements()) {
+ 				contents.append(childElement.getStartTag().getElement().getContent());
  			}
- 			this.cache_content = content;
+ 			this.cache_content = contents.toString();
 		}
 		return this.cache_content;
 	}
