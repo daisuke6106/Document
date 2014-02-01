@@ -283,23 +283,40 @@ public class TestHtmlElement extends TestDocumentFoundation {
 	
 	@Test
 	public void getContent() throws DocumentException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		List<Element> elementList = htmlDocument.getElement(HtmlElementName.LABEL);
-		Element element = elementList.get(0);
-		if (!element.getContent().equals("検索")) {
-			fail();
+//		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
+//		List<Element> elementList = htmlDocument.getElement(HtmlElementName.LABEL);
+//		Element element = elementList.get(0);
+//		if (!element.getContent().equals("検索")) {
+//			fail();
+//		}
+		
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<input type=\"text\" name=\"example\"/>");
+			HtmlElement htmlElement = new HtmlElement(sb.toString(), new HtmlElementFactory());
+			assertEquals(htmlElement.getContent(),"");
+		} catch (HtmlDocumentException e) {
+			fail(e);
 		}
 		
-		StringBuilder sb = new StringBuilder();
-		sb.append("<select name=\"example\">");
-		sb.append("<option value=\"サンプル1\">サンプル1</option>");
-		sb.append("<option value=\"サンプル2\">サンプル2</option>");
-		sb.append("<option value=\"サンプル3\">サンプル3</option>");
-		sb.append("</select>");
-
 		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("<option value=\"サンプル1\">サンプル1</option>");
+			sb.append("<option value=\"サンプル2\">サンプル2</option>");
+			sb.append("<option value=\"サンプル3\">サンプル3</option>");
+			sb.append("</select>");
 			HtmlElement htmlElement = new HtmlElement(sb.toString(), new HtmlElementFactory());
-			assertEquals(htmlElement.getContent(),"サンプル1サンプル2サンプル3");
+			assertEquals(htmlElement.getContent(),"");
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+		
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<a href=\"text\" name=\"example\">test</a>");
+			HtmlElement htmlElement = new HtmlElement(sb.toString(), new HtmlElementFactory());
+			assertEquals(htmlElement.getContent(),"test");
 		} catch (HtmlDocumentException e) {
 			fail(e);
 		}
