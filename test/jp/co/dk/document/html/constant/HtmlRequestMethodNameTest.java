@@ -5,7 +5,7 @@ import jp.co.dk.document.foundation.TestDocumentFoundation;
 
 import org.junit.Test;
 
-public class TestHtmlRequestMethodName extends TestDocumentFoundation {
+public class HtmlRequestMethodNameTest extends TestDocumentFoundation {
 
 	@Test
 	public void isMethod() {

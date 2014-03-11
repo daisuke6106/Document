@@ -10,7 +10,7 @@ import mockit.NonStrictExpectations;
 
 import org.junit.Test;
 
-public class TestCheckBox extends TestDocumentFoundation {
+public class CheckBoxTest extends TestDocumentFoundation {
 	
 	@Mocked
 	private HtmlElement htmlElement;
@@ -21,7 +21,7 @@ public class TestCheckBox extends TestDocumentFoundation {
 		// Html要素にchecked属性が設定されていた場合、trueが返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = true;
+			result = new Boolean(true);
 		}};
 		CheckBox checkbox1 = new CheckBox(htmlElement);
 		assertTrue(checkbox1.isChecked());
@@ -29,7 +29,7 @@ public class TestCheckBox extends TestDocumentFoundation {
 		// Html要素にchecked属性が設定されていた場合、falseが返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = false;
+			result = new Boolean(false);
 		}};
 		CheckBox checkbox2 = new CheckBox(htmlElement);
 		assertFalse(checkbox2.isChecked());
@@ -43,7 +43,7 @@ public class TestCheckBox extends TestDocumentFoundation {
 		// チェック状態がfalse、デフォルトのチェック状態がtrueであること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = true;
+			result = new Boolean(true);
 		}};
 		CheckBox checkbox1 = new CheckBox(htmlElement);
 		checkbox1.checked(false);
@@ -54,7 +54,7 @@ public class TestCheckBox extends TestDocumentFoundation {
 		// チェック状態がtrue、デフォルトのチェック状態がfalseであること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = false;
+			result = new Boolean(false);
 		}};
 		CheckBox checkbox2 = new CheckBox(htmlElement);
 		checkbox2.checked(true);

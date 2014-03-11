@@ -11,7 +11,7 @@ import mockit.NonStrictExpectations;
 
 import org.junit.Test;
 
-public class TestMeta extends TestDocumentFoundation{
+public class MetaTest extends TestDocumentFoundation{
 	
 	@Mocked
 	private HtmlElement htmlElement;

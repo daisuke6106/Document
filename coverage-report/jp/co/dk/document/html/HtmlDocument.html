@@ -55,12 +55,12 @@ import jp.co.dk.document.message.DocumentMessage;
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>31</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private HtmlElement <span class='instance covered' title='Reads: 413 Writes: 44'>htmlElement</span>;</pre></td>
+      <td><pre class='prettyprint'>	private HtmlElement <span class='instance covered' title='Reads: 413 Writes: 42'>htmlElement</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>33</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private ElementFactory <span class='instance uncovered' title='Reads: 0 Writes: 44'>elementFactory</span>;</pre></td>
+      <td><pre class='prettyprint'>	private ElementFactory <span class='instance uncovered' title='Reads: 0 Writes: 42'>elementFactory</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -78,11 +78,11 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public HtmlDocument(InputStream inputStream) throws DocumentException{</pre></td>
     </tr>
     <tr>
-      <td class='line'>43</td><td class='count'>44</td>
+      <td class='line'>43</td><td class='count'>42</td>
       <td><pre class='prettyprint covered' id='l43s0'>		this(inputStream, new HtmlElementFactory());</pre></td>
     </tr>
     <tr>
-      <td class='line'>44</td><td class='count'>44</td>
+      <td class='line'>44</td><td class='count'>42</td>
       <td><pre class='prettyprint covered' id='l44s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -102,7 +102,7 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public HtmlDocument(InputStream inputStream, HtmlElementFactory elementFactory) throws DocumentException{</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td class='count'>44</td>
+      <td class='line'>55</td><td class='count'>42</td>
       <td><pre class='prettyprint covered' id='l55s0'>		super(inputStream);</pre></td>
     </tr>
     <tr>
@@ -110,11 +110,11 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>57</td><td class='count'>44</td>
+      <td class='line'>57</td><td class='count'>42</td>
       <td><pre class='prettyprint covered' id='l57s0'>			this.htmlElement    = new HtmlElement(new net.htmlparser.jericho.Source(super.fileData.getStream()), elementFactory);</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td class='count'>44</td>
+      <td class='line'>58</td><td class='count'>42</td>
       <td><pre class='prettyprint covered' id='l58s0'>			this.elementFactory = elementFactory;</pre></td>
     </tr>
     <tr>
@@ -130,7 +130,7 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>62</td><td class='count'>44</td>
+      <td class='line'>62</td><td class='count'>42</td>
       <td><pre class='prettyprint covered' id='l62s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -208,32 +208,32 @@ import jp.co.dk.document.message.DocumentMessage;
       </td>
     </tr>
     <tr>
-      <td class='line'>87</td><td class='count'>6</td>
+      <td class='line'>87</td><td class='count'>7</td>
       <td><pre class='prettyprint covered' id='l87s0'>		List&lt;Element> elementList = this.htmlElement.getElement(HtmlElementName.META);</pre></td>
     </tr>
     <tr>
-      <td class='line'>88</td><td class='count'>12</td>
+      <td class='line'>88</td><td class='count'>14</td>
       <td><pre class='prettyprint covered' id='l88s0'>		for (Element element : elementList) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>89</td><td class='count'>6</td>
+      <td class='line'>89</td><td class='count'>7</td>
       <td><pre class='prettyprint covered' id='l89s0'>			Meta meta = (Meta) element;</pre></td>
     </tr>
     <tr>
-      <td class='line'>90</td><td class='count'>6</td>
+      <td class='line'>90</td><td class='count'>7</td>
       <td><pre class='prettyprint covered' id='l90s0'>			HttpEquivName httpEquiv = meta.getHttpEquiv();</pre></td>
     </tr>
     <tr>
-      <td class='line'>91</td><td class='count'>6</td>
-      <td><pre class='prettyprint jmp'>			<span id='l91s0' title='Executions: 6' class='covered'>if (HttpEquivName.CONTENT_TYPE == httpEquiv)</span> <span id='l91s1' title='Executions: 6' class='covered'>{</span></pre></td>
+      <td class='line'>91</td><td class='count'>7</td>
+      <td><pre class='prettyprint jmp'>			<span id='l91s0' title='Executions: 7' class='covered'>if (HttpEquivName.CONTENT_TYPE == httpEquiv)</span> <span id='l91s1' title='Executions: 7' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>92</td><td class='count'>30</td>
+      <td class='line'>92</td><td class='count'>35</td>
       <td><pre class='prettyprint covered' id='l92s0'>				for (HtmlCharSetName charset :HtmlCharSetName.values()) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>93</td><td class='count'>30</td>
-      <td><pre class='prettyprint jmp'>					<span id='l93s0' title='Executions: 30' class='covered'>if (charset.isEncording(meta.getMetaContent())) return charset;</span></pre></td>
+      <td class='line'>93</td><td class='count'>35</td>
+      <td><pre class='prettyprint jmp'>					<span id='l93s0' title='Executions: 35' class='covered'>if (charset.isEncording(meta.getMetaContent())) return charset;</span></pre></td>
     </tr>
     <tr>
       <td class='line'>94</td><td>&nbsp;</td>
@@ -282,7 +282,7 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public List&lt;Element> getElement(ElementName elementName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>107</td><td class='count'>265</td>
+      <td class='line'>107</td><td class='count'>264</td>
       <td><pre class='prettyprint covered' id='l107s0'>		return this.htmlElement.getElement(elementName);</pre></td>
     </tr>
     <tr>
@@ -469,16 +469,16 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public String getContent() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>162</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l162s0'>		StringBuilder sb = new StringBuilder();</pre></td>
+      <td class='line'>162</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l162s0'>		StringBuilder sb = new StringBuilder();</pre></td>
     </tr>
     <tr>
-      <td class='line'>163</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l163s0'>		this.getContect(sb, this.htmlElement);</pre></td>
+      <td class='line'>163</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l163s0'>		this.getContect(sb, this.htmlElement);</pre></td>
     </tr>
     <tr>
-      <td class='line'>164</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l164s0'>		return sb.toString();</pre></td>
+      <td class='line'>164</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l164s0'>		return sb.toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>165</td><td>&nbsp;</td>
@@ -490,28 +490,28 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	private void getContect(StringBuilder sb, HtmlElement element) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>168</td><td class='count'>14</td>
-      <td><pre class='prettyprint covered' id='l168s0'>		for (jp.co.dk.document.Element childElement : element.getChildElement()){</pre></td>
+      <td class='line'>168</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l168s0'>		for (jp.co.dk.document.Element childElement : element.getChildElement()){</pre></td>
     </tr>
     <tr>
-      <td class='line'>169</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l169s0'>			HtmlElement htmlElement = (HtmlElement)childElement;</pre></td>
+      <td class='line'>169</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l169s0'>			HtmlElement htmlElement = (HtmlElement)childElement;</pre></td>
     </tr>
     <tr>
-      <td class='line'>170</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l170s0'>			sb.append(htmlElement.getContent());</pre></td>
+      <td class='line'>170</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l170s0'>			sb.append(htmlElement.getContent());</pre></td>
     </tr>
     <tr>
-      <td class='line'>171</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l171s0'>			getContect(sb, htmlElement);</pre></td>
+      <td class='line'>171</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l171s0'>			getContect(sb, htmlElement);</pre></td>
     </tr>
     <tr>
       <td class='line'>172</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>173</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l173s0'>	}</pre></td>
+      <td class='line'>173</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l173s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -523,23 +523,23 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public java.io.File save (java.io.File dir, String filename ) throws DocumentException {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>1</td>
+      <td></td><td class='count'>2</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
-        <span class='covered' onclick="showPath(this,'l177s0 l178s0 l179s0')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l177s0 l178s0 l179s0')">A: 2</span>
         <span class='uncovered' onclick="showPath(this,'l177s0 l178s0 l181s0')">B: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>177</td><td class='count'>4</td>
+      <td class='line'>177</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l177s0'>		HtmlCharSetName charset = this.getEncode();</pre></td>
     </tr>
     <tr>
-      <td class='line'>178</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>		<span id='l178s0' title='Executions: 4' class='covered'>if (charset != null)</span> <span id='l178s1' title='Executions: 4' class='covered'>{</span></pre></td>
+      <td class='line'>178</td><td class='count'>5</td>
+      <td><pre class='prettyprint jmp'>		<span id='l178s0' title='Executions: 5' class='covered'>if (charset != null)</span> <span id='l178s1' title='Executions: 5' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>179</td><td class='count'>4</td>
+      <td class='line'>179</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l179s0'>			return this.save(dir, filename, charset.getEncoding());</pre></td>
     </tr>
     <tr>
@@ -583,7 +583,7 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public java.io.File save (java.io.File dir, String filename, String charset) throws DocumentException {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>4</td>
+      <td></td><td class='count'>5</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#6d9200' onclick='hidePath()'>Path coverage: 4/7</span>
         <span class='uncovered' onclick="showPath(this,'l202s0 l202s3')">A: 0</span>
@@ -592,48 +592,48 @@ import jp.co.dk.document.message.DocumentMessage;
         <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l203s1')">D: 1</span>
         <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l204s0 l204s1')">E: 1</span>
         <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l204s0 l206s0 l207s0 l207s1')">F: 1</span>
-        <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l204s0 l206s0 l207s0 l209s0 l218s0')">G: 1</span>
+        <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l204s0 l206s0 l207s0 l209s0 l218s0')">G: 2</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>202</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>		<span id='l202s0' title='Executions: 4' class='covered'>if (dir == null</span> || <span id='l202s1' title='Executions: 4' class='covered'>filename == null</span> || <span id='l202s2' title='Executions: 4' class='covered'>charset == null)</span> <span id='l202s3' title='Executions: 0' class='uncovered'>throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE_PARAM_IS_NOT_SET);</span></pre></td>
+      <td class='line'>202</td><td class='count'>5</td>
+      <td><pre class='prettyprint jmp'>		<span id='l202s0' title='Executions: 5' class='covered'>if (dir == null</span> || <span id='l202s1' title='Executions: 5' class='covered'>filename == null</span> || <span id='l202s2' title='Executions: 5' class='covered'>charset == null)</span> <span id='l202s3' title='Executions: 0' class='uncovered'>throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE_PARAM_IS_NOT_SET);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>203</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>		<span id='l203s0' title='Executions: 4' class='covered'>if (!dir.exists()) throw new DocumentException(DocumentMessage.ERROR_DOWNLOAD_DIR_IS_NOT_FOUND, dir.getAbsolutePath());</span></pre></td>
+      <td class='line'>203</td><td class='count'>5</td>
+      <td><pre class='prettyprint jmp'>		<span id='l203s0' title='Executions: 5' class='covered'>if (!dir.exists()) throw new DocumentException(DocumentMessage.ERROR_DOWNLOAD_DIR_IS_NOT_FOUND, dir.getAbsolutePath());</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>204</td><td class='count'>3</td>
-      <td><pre class='prettyprint jmp'>		<span id='l204s0' title='Executions: 3' class='covered'>if (!dir.isDirectory()) throw new DocumentException(DocumentMessage.ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY, dir.getAbsolutePath());</span></pre></td>
+      <td class='line'>204</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>		<span id='l204s0' title='Executions: 4' class='covered'>if (!dir.isDirectory()) throw new DocumentException(DocumentMessage.ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY, dir.getAbsolutePath());</span></pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>206</td><td class='count'>2</td>
+      <td class='line'>206</td><td class='count'>3</td>
       <td><pre class='prettyprint covered' id='l206s0'>		java.io.File path = new java.io.File(new StringBuilder(dir.getAbsolutePath()).append('/').append(filename).toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>207</td><td class='count'>2</td>
-      <td><pre class='prettyprint jmp'>		<span id='l207s0' title='Executions: 2' class='covered'>if (path.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH, dir.getAbsolutePath());</span></pre></td>
+      <td class='line'>207</td><td class='count'>3</td>
+      <td><pre class='prettyprint jmp'>		<span id='l207s0' title='Executions: 3' class='covered'>if (path.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH, dir.getAbsolutePath());</span></pre></td>
     </tr>
     <tr>
       <td class='line'>208</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>209</td><td class='count'>1</td>
+      <td class='line'>209</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l209s0'>			FileOutputStream fos = new FileOutputStream(path);</pre></td>
     </tr>
     <tr>
-      <td class='line'>210</td><td class='count'>1</td>
+      <td class='line'>210</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l210s0'>			 byte [] byteArray = this.htmlElement.toString().getBytes(charset);</pre></td>
     </tr>
     <tr>
-      <td class='line'>211</td><td class='count'>1</td>
+      <td class='line'>211</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l211s0'>			fos.write(byteArray);</pre></td>
     </tr>
     <tr>
-      <td class='line'>212</td><td class='count'>1</td>
+      <td class='line'>212</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l212s0'>			fos.close();</pre></td>
     </tr>
     <tr>
@@ -657,7 +657,7 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>218</td><td class='count'>1</td>
+      <td class='line'>218</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l218s0'>		return path;</pre></td>
     </tr>
     <tr>

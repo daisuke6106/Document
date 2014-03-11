@@ -93,7 +93,7 @@ public class DocumentException extends AbstractMessageException{
 	 * @since 1.0
 	 */
 	public DocumentException(MessageInterface msg, String str, Throwable throwable){
-		super(msg, throwable);
+		super(msg, str, throwable);
 	}
 	
 	/**
@@ -106,8 +106,8 @@ public class DocumentException extends AbstractMessageException{
 	 * @param throwable 例外インスタンス
 	 * @since 1.0
 	 */
-	public DocumentException(MessageInterface msg, List<String> list,Throwable throwable){
-		super(msg, throwable);
+	public DocumentException(MessageInterface msg, List<String> list, Throwable throwable){
+		super(msg, list, throwable);
 	}
 	
 	/**
@@ -121,6 +121,6 @@ public class DocumentException extends AbstractMessageException{
 	 * @since 1.0
 	 */
 	public DocumentException(MessageInterface msg, String[] str, Throwable throwable){
-		super(msg, throwable);
+		super(msg, str, throwable);
 	}
 }

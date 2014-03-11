@@ -5,7 +5,7 @@ import jp.co.dk.document.foundation.TestDocumentFoundation;
 
 import org.junit.Test;
 
-public class TestReset extends TestDocumentFoundation {
+public class ResetTest extends TestDocumentFoundation {
 
 	@Test
 	public void empty() {

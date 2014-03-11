@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import net.htmlparser.jericho.CharacterReference;
+import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.FormControl;
-import net.htmlparser.jericho.TextExtractor;
 
 import jp.co.dk.document.ElementName;
 import jp.co.dk.document.exception.DocumentException;
@@ -207,22 +206,20 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	@Override
 	public String getContent() {
 		if (this.cache_content == null) {
-//			System.out.println(this.startTag.getElement().getTextExtractor());
-//			System.out.println(this.startTag.getTextExtractor());
-//			System.out.println(this.startTag.getSource().getParseText());
-			this.cache_content = this.startTag.getSource().getParseText().toString();
+			String content = "";
+			net.htmlparser.jericho.Segment segment = this.startTag.getElement().getContent();
+			List<net.htmlparser.jericho.Element> chileList = segment.getChildElements();
+			if (chileList.size() == 0) {
+				this.cache_content = segment.toString();
+				return this.cache_content;
+			}
+ 			for (net.htmlparser.jericho.Element element : chileList) {
+ 				if (element.getStartTag() == null) content = element.toString();
+ 			}
+ 			this.cache_content = content;
 		}
 		return this.cache_content;
 	}
-	
-	/**
-	 * 要素の内容取得
-	 * 本要素に保持する内容を取得する。 内容が指定されていなかった場合、空文字が返却される。
-	 * @return 
-	 */
-//	public String getContentAll() {
-//		StringBuilder sb = new StringBuilder();
-//	}
 	
 	/**
 	 * IDの取得

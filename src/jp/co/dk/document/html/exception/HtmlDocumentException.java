@@ -67,7 +67,7 @@ public class HtmlDocumentException extends DocumentException{
 	 * @since 1.0
 	 */
 	public HtmlDocumentException(MessageInterface msg, String str, Throwable throwable){
-		super(msg, throwable);
+		super(msg, str, throwable);
 	}
 	
 	/**
@@ -80,8 +80,8 @@ public class HtmlDocumentException extends DocumentException{
 	 * @param throwable 例外インスタンス
 	 * @since 1.0
 	 */
-	public HtmlDocumentException(MessageInterface msg, List<String> list,Throwable throwable){
-		super(msg, throwable);
+	public HtmlDocumentException(MessageInterface msg, List<String> list, Throwable throwable){
+		super(msg, list, throwable);
 	}
 	
 	/**
@@ -90,11 +90,11 @@ public class HtmlDocumentException extends DocumentException{
 	 * 指定のメッセージ、埋め込み文字列一覧、例外で例外を生成します。
 	 * 
 	 * @param msg メッセージ定数インスタンス
-	 * @param embeddedStrList メッセージ埋め込み文字列一覧
+	 * @param str メッセージ埋め込み文字列一覧
 	 * @param throwable 例外インスタンス
 	 * @since 1.0
 	 */
 	public HtmlDocumentException(MessageInterface msg, String[] str, Throwable throwable){
-		super(msg, throwable);
+		super(msg, str, throwable);
 	}
 }

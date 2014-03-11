@@ -1,10 +1,9 @@
 package jp.co.dk.document;
 
-import java.io.FileOutputStream;
+import java.io.FileOutputStream;	
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
 
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.message.DocumentMessage;
@@ -50,13 +49,9 @@ public class File {
 		if (!dir.isDirectory()) throw new DocumentException(DocumentMessage.ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY, dir.getAbsolutePath());
 		
 		java.io.File path = new java.io.File(new StringBuilder(dir.getAbsolutePath()).append('/').append(filename).toString());
-		if (path.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH, dir.getAbsolutePath());
-		try {
-			OutputStream outputStream = new FileOutputStream(path);
+		if (path.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH, path.getAbsolutePath());
+		try (OutputStream outputStream = new FileOutputStream(path)) {
 			outputStream.write(this.fileData.getBytes());
-			outputStream.close();
-		} catch (MalformedURLException e) {
-			throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE, path.getPath(), e);
 		} catch (IOException e) {
 			throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE, path.getPath(), e);
 		}

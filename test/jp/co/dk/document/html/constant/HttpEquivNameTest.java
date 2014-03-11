@@ -5,7 +5,7 @@ import jp.co.dk.document.foundation.TestDocumentFoundation;
 
 import org.junit.Test;
 
-public class TestHttpEquivName extends TestDocumentFoundation{
+public class HttpEquivNameTest extends TestDocumentFoundation{
 
 	@Test
 	public void match() {

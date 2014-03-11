@@ -1,6 +1,7 @@
 package jp.co.dk.document.html.element;
 
 import static org.junit.Assert.*;
+import jp.co.dk.document.foundation.TestDocumentFoundation;
 import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 
@@ -9,7 +10,7 @@ import mockit.NonStrictExpectations;
 
 import org.junit.Test;
 
-public class TestRadio {
+public class RadioTest extends TestDocumentFoundation{
 	
 	@Mocked
 	private HtmlElement htmlElement;
@@ -19,7 +20,7 @@ public class TestRadio {
 		// Html要素にchecked属性が設定されていた場合、falseが返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = false;
+			result = new Boolean(false);
 		}};
 		Radio radio1 = new Radio(htmlElement);
 		assertFalse(radio1.isChecked());
@@ -28,7 +29,7 @@ public class TestRadio {
 		// Html要素にchecked属性が設定されていた場合、trueが返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = true;
+			result = new Boolean(true);
 		}};
 		Radio radio2 = new Radio(htmlElement);
 		assertTrue(radio2.isChecked());
@@ -40,7 +41,7 @@ public class TestRadio {
 		// Html要素にchecked属性が設定されていた場合、falseが返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = false;
+			result = new Boolean(false);
 		}};
 		Radio radio1 = new Radio(htmlElement);
 		radio1.checked(true);
@@ -50,7 +51,7 @@ public class TestRadio {
 		// Html要素にchecked属性が設定されていた場合、trueが返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = true;
+			result = new Boolean(true);
 		}};
 		Radio radio2 = new Radio(htmlElement);
 		radio2.checked(false);
@@ -64,7 +65,7 @@ public class TestRadio {
 		// Html要素にchecked属性がfalseの場合、nameとvalueに設定されていた場合でも空文字が返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = false;
+			result = new Boolean(false);
 			htmlElement.getName();
 			result = "name";
 			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
@@ -76,7 +77,7 @@ public class TestRadio {
 		// Html要素にchecked属性がtrue、かつnameとvalueに値が設定されていた場合、"name=value"が返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = true;
+			result = new Boolean(true);
 			htmlElement.getName();
 			result = "name";
 			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
@@ -88,7 +89,7 @@ public class TestRadio {
 		// Html要素にchecked属性がtrue、かつvalueに値が設定されていた場合でも、nameには空文字の場合""が返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = true;
+			result = new Boolean(true);
 			htmlElement.getName();
 			result = "";
 			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());

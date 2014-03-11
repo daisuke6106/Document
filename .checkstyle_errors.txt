@@ -219,9 +219,8 @@ Starting audit...
 /home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:109: 行が 80 文字を超えています。
 /home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:109:34: Parameter msg should be final.
 /home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:109:56: Parameter list should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:109:74: ',' の後にホワイトスペースがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:109:74: Parameter throwable should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:109:94: '{' の前にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:109:75: Parameter throwable should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:109:95: '{' の前にホワイトスペースがありません。
 /home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:112: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:113: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:115: Line has trailing spaces.
@@ -1832,18 +1831,15 @@ Starting audit...
 /home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:83: 行が 80 文字を超えています。
 /home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:83:38: Parameter msg should be final.
 /home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:83:60: Parameter list should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:83:78: ',' の後にホワイトスペースがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:83:78: Parameter throwable should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:83:98: '{' の前にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:83:79: Parameter throwable should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:83:99: '{' の前にホワイトスペースがありません。
 /home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:86: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:87: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:89: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:91: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:93:12: 'embeddedStrList' に対する使用されない @param タグです。
 /home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:97: 行が 80 文字を超えています。
 /home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:97:38: Parameter msg should be final.
 /home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:97:60: Parameter str should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:97:69: 'str' には @param タグが必要です。
 /home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:97:74: Parameter throwable should be final.
 /home/dk/projects/Document/src/jp/co/dk/document/html/exception/HtmlDocumentException.java:97:94: '{' の前にホワイトスペースがありません。
 /home/dk/projects/Document/src/jp/co/dk/document/message/DocumentMessage.java:0: Missing package-info.java file.
@@ -2141,9 +2137,8 @@ Starting audit...
 /home/dk/projects/Document/src/jp/co/dk/document/xml/exception/XmlDocumentException.java:70: 行が 80 文字を超えています。
 /home/dk/projects/Document/src/jp/co/dk/document/xml/exception/XmlDocumentException.java:70:37: Parameter msg should be final.
 /home/dk/projects/Document/src/jp/co/dk/document/xml/exception/XmlDocumentException.java:70:59: Parameter list should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/exception/XmlDocumentException.java:70:77: ',' の後にホワイトスペースがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/xml/exception/XmlDocumentException.java:70:77: Parameter throwable should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/xml/exception/XmlDocumentException.java:70:97: '{' の前にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/xml/exception/XmlDocumentException.java:70:78: Parameter throwable should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/xml/exception/XmlDocumentException.java:70:98: '{' の前にホワイトスペースがありません。
 /home/dk/projects/Document/src/jp/co/dk/document/xml/exception/XmlDocumentException.java:73: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/xml/exception/XmlDocumentException.java:74: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/xml/exception/XmlDocumentException.java:76: Line has trailing spaces.

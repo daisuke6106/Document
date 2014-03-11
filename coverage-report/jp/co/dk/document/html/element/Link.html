@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - Link.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>Document/src/jp/co/dk/document/html/element/Link.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.document.html.element;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import jp.co.dk.document.html.HtmlElement;
+import jp.co.dk.document.html.constant.HtmlAttributeName;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * Linkは、HTMLのリンク要素を表す要素クラス。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>12</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class Link extends AbstractMovableHtmlElement {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ
+	 * 
+	 * HTMLの要素のインスタンスを生成する。
+	 * 
+	 * @param element HTMLパーサの要素インスタンス
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>21</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Link(HtmlElement element) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>22</td><td class='count'>120</td>
+      <td><pre class='prettyprint covered' id='l22s0'>		super(element);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>23</td><td class='count'>120</td>
+      <td><pre class='prettyprint covered' id='l23s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * このアンカーが示すHREF属性の設定値を取得する。&lt;br/>
+	 * 
+	 * HREFが設定されていない場合、空文字を返却する。
+	 * 
+	 * @return href設定値
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>32</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getHref() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/3</span>
+        <span class='uncovered' onclick="showPath(this,'l33s0 l34s0 l35s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l33s0 l34s0 l34s1 l35s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l33s0 l34s0 l34s1 l37s0')">C: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>33</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l33s0'>		String href = super.getAttribute(HtmlAttributeName.HREF.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>34</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l34s0' title='Executions: 0' class='uncovered'>if (href == null</span> || <span id='l34s1' title='Executions: 0' class='uncovered'>href.equals("")) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>35</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l35s0'>			return "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>36</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>37</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l37s0'>			return href;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>38</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>39</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>41</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>42</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getUrl() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>43</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l43s0'>		return this.getHref();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>44</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>45</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

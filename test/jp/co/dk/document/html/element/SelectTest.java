@@ -13,7 +13,7 @@ import mockit.Mocked;
 
 import org.junit.Test;
 
-public class TestSelect extends TestDocumentFoundation {
+public class SelectTest extends TestDocumentFoundation {
 
 	@Test
 	public void getOption() {

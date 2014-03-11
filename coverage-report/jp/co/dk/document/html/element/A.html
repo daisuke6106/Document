@@ -19,7 +19,6 @@
       <td class='line'></td><td>&nbsp;</td>
       <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
-import jp.co.dk.message.exception.AbstractMessageException;
 </div><span>import ...</span></pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -33,8 +32,8 @@ import jp.co.dk.message.exception.AbstractMessageException;
  */</div><span>/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>13</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>public class A extends HtmlElement {</pre></td>
+      <td class='line'>12</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class A extends AbstractMovableHtmlElement {</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -48,16 +47,16 @@ import jp.co.dk.message.exception.AbstractMessageException;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>22</td><td>&nbsp;</td>
+      <td class='line'>21</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public A(HtmlElement element) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>23</td><td class='count'>6128</td>
-      <td><pre class='prettyprint covered' id='l23s0'>		super(element);</pre></td>
+      <td class='line'>22</td><td class='count'>6128</td>
+      <td><pre class='prettyprint covered' id='l22s0'>		super(element);</pre></td>
     </tr>
     <tr>
-      <td class='line'>24</td><td class='count'>6128</td>
-      <td><pre class='prettyprint covered' id='l24s0'>	}</pre></td>
+      <td class='line'>23</td><td class='count'>6128</td>
+      <td><pre class='prettyprint covered' id='l23s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -71,44 +70,61 @@ import jp.co.dk.message.exception.AbstractMessageException;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>33</td><td>&nbsp;</td>
+      <td class='line'>32</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public String getHref() {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>3</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 3/3</span>
-        <span class='covered' onclick="showPath(this,'l34s0 l35s0 l36s0')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l34s0 l35s0 l35s1 l36s0')">B: 1</span>
-        <span class='covered' onclick="showPath(this,'l34s0 l35s0 l35s1 l38s0')">C: 1</span>
+        <span class='covered' onclick="showPath(this,'l33s0 l34s0 l35s0')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l33s0 l34s0 l34s1 l35s0')">B: 1</span>
+        <span class='covered' onclick="showPath(this,'l33s0 l34s0 l34s1 l37s0')">C: 1</span>
       </td>
     </tr>
     <tr>
+      <td class='line'>33</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l33s0'>		String href = super.getAttribute(HtmlAttributeName.HREF.getName());</pre></td>
+    </tr>
+    <tr>
       <td class='line'>34</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l34s0'>		String href = super.getAttribute(HtmlAttributeName.HREF.getName());</pre></td>
+      <td><pre class='prettyprint jmp'>		<span id='l34s0' title='Executions: 3' class='covered'>if (href == null</span> || <span id='l34s1' title='Executions: 2' class='covered'>href.equals("")) {</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>35</td><td class='count'>3</td>
-      <td><pre class='prettyprint jmp'>		<span id='l35s0' title='Executions: 3' class='covered'>if (href == null</span> || <span id='l35s1' title='Executions: 2' class='covered'>href.equals("")) {</span></pre></td>
+      <td class='line'>35</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l35s0'>			return "";</pre></td>
     </tr>
     <tr>
-      <td class='line'>36</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l36s0'>			return "";</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>37</td><td>&nbsp;</td>
+      <td class='line'>36</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		} else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l38s0'>			return href;</pre></td>
+      <td class='line'>37</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l37s0'>			return href;</pre></td>
     </tr>
     <tr>
-      <td class='line'>39</td><td>&nbsp;</td>
+      <td class='line'>38</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>40</td><td>&nbsp;</td>
+      <td class='line'>39</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>42</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>43</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getUrl() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>44</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l44s0'>		return this.getHref();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>45</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -124,15 +140,15 @@ import jp.co.dk.message.exception.AbstractMessageException;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>50</td><td>&nbsp;</td>
+      <td class='line'>55</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	private String getFileName(String url) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>51</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l51s0'>		return url.substring(url.lastIndexOf('/') + 1);</pre></td>
+      <td class='line'>56</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l56s0'>		return url.substring(url.lastIndexOf('/') + 1);</pre></td>
     </tr>
     <tr>
-      <td class='line'>52</td><td>&nbsp;</td>
+      <td class='line'>57</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -146,57 +162,57 @@ import jp.co.dk.message.exception.AbstractMessageException;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>60</td><td>&nbsp;</td>
+      <td class='line'>65</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	private String getExtension(String fileName) {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/4</span>
-        <span class='uncovered' onclick="showPath(this,'l61s0 l62s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l61s0 l61s1 l62s0')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l61s0 l61s1 l64s0 l65s0 l66s0')">C: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l61s0 l61s1 l64s0 l65s0 l68s0')">D: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l66s0 l67s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l66s0 l66s1 l67s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l66s0 l66s1 l69s0 l70s0 l71s0')">C: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l66s0 l66s1 l69s0 l70s0 l73s0')">D: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>61</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l61s0' title='Executions: 0' class='uncovered'>if (fileName == null</span> || <span id='l61s1' title='Executions: 0' class='uncovered'>fileName.equals("")) {</span></pre></td>
-    </tr>
-    <tr>
-      <td class='line'>62</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l62s0'>			return "";</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>63</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>64</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l64s0'>		int index = fileName.indexOf('.');</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>65</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l65s0' title='Executions: 0' class='uncovered'>if (index == -1)</span> <span id='l65s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
-    </tr>
-    <tr>
       <td class='line'>66</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l66s0'>			return "";</pre></td>
+      <td><pre class='prettyprint jmp'>		<span id='l66s0' title='Executions: 0' class='uncovered'>if (fileName == null</span> || <span id='l66s1' title='Executions: 0' class='uncovered'>fileName.equals("")) {</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>67</td><td>&nbsp;</td>
+      <td class='line'>67</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l67s0'>			return "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>68</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>68</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l68s0'>		return fileName.substring(index+1);</pre></td>
+      <td class='line'>69</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l69s0'>		int index = fileName.indexOf('.');</pre></td>
     </tr>
     <tr>
-      <td class='line'>69</td><td>&nbsp;</td>
+      <td class='line'>70</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l70s0' title='Executions: 0' class='uncovered'>if (index == -1)</span> <span id='l70s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>71</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l71s0'>			return "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>72</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>73</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l73s0'>		return fileName.substring(index+1);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>74</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr>
-      <td class='line'>70</td><td>&nbsp;</td>
+      <td class='line'>75</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>

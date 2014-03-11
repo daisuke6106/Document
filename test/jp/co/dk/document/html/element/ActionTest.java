@@ -14,7 +14,7 @@ import mockit.NonStrictExpectations;
 
 import org.junit.Test;
 
-public class TestAction extends TestDocumentFoundation{
+public class ActionTest extends TestDocumentFoundation{
 	
 	@Mocked
 	private Form form;

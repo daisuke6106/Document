@@ -1,7 +1,5 @@
 package jp.co.dk.document.html.element;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import jp.co.dk.document.foundation.TestDocumentFoundation;
@@ -14,7 +12,7 @@ import mockit.NonStrictExpectations;
 
 import org.junit.Test;
 
-public class TestForm extends TestDocumentFoundation{
+public class FormTest extends TestDocumentFoundation{
 	
 	@Mocked
 	private HtmlElement htmlElement;

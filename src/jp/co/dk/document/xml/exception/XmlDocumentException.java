@@ -54,7 +54,7 @@ public class XmlDocumentException extends DocumentException{
 	 * @since 1.0
 	 */
 	public XmlDocumentException(MessageInterface msg, String str, Throwable throwable){
-		super(msg, throwable);
+		super(msg, str, throwable);
 	}
 	
 	/**
@@ -67,8 +67,8 @@ public class XmlDocumentException extends DocumentException{
 	 * @param throwable 例外インスタンス
 	 * @since 1.0
 	 */
-	public XmlDocumentException(MessageInterface msg, List<String> list,Throwable throwable){
-		super(msg, throwable);
+	public XmlDocumentException(MessageInterface msg, List<String> list, Throwable throwable){
+		super(msg, list, throwable);
 	}
 	
 	/**
@@ -82,6 +82,6 @@ public class XmlDocumentException extends DocumentException{
 	 * @since 1.0
 	 */
 	public XmlDocumentException(MessageInterface msg, String[] str, Throwable throwable){
-		super(msg, throwable);
+		super(msg, str, throwable);
 	}
 }

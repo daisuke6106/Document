@@ -27,7 +27,7 @@ import jp.co.dk.document.html.element.Reset;
 import jp.co.dk.document.html.element.Submit;
 import jp.co.dk.document.message.DocumentMessage;
 
-public class TestHtmlElementFactory extends TestDocumentFoundation {
+public class HtmlElementFactoryTest extends TestDocumentFoundation {
 	
 	@Mocked
 	private jp.co.dk.document.html.HtmlElement mockHtmlElement;
@@ -137,7 +137,7 @@ public class TestHtmlElementFactory extends TestDocumentFoundation {
 			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
 			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
 			mockHtmlElement.getAttribute("type");result = "checkbox";
-			mockHtmlElement.hasAttribute("checked");result = true;
+			mockHtmlElement.hasAttribute("checked");result = new Boolean(true);
 		}};
 		try {
 			Element returnElement = factory.convert(mockHtmlElement);
@@ -151,7 +151,7 @@ public class TestHtmlElementFactory extends TestDocumentFoundation {
 			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
 			mockHtmlElement.getElementType();result = HtmlElementName.INPUT;
 			mockHtmlElement.getAttribute("type");result = "radio";
-			mockHtmlElement.hasAttribute("checked");result = true;
+			mockHtmlElement.hasAttribute("checked");result = new Boolean(true);
 		}};
 		try {
 			Element returnElement = factory.convert(mockHtmlElement);

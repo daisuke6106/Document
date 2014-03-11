@@ -18,7 +18,7 @@ import jp.co.dk.document.html.constant.HtmlElementName;
 import jp.co.dk.document.html.element.selector.AnchorHasImage;
 import jp.co.dk.document.message.DocumentMessage;
 
-public class TestHtmlDocument extends TestDocumentFoundation {
+public class HtmlDocumentTest extends TestDocumentFoundation {
 	
 	@Test
 	public void getTitle() throws DocumentException {
@@ -295,7 +295,8 @@ public class TestHtmlDocument extends TestDocumentFoundation {
 		
 		try {
 			jp.co.dk.document.html.HtmlDocument file = super.createHtmlDocument();
-			file.save(super.getTestTmpDir(), super.getTestTmpFile().getName());
+			file.save(super.getTestTmpDir(), "HTML1.html");
+			file.save(super.getTestTmpDir(), "HTML1.html");
 			fail();
 		} catch (DocumentException e) {
 			if (e.getMessageObj() != DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH) {

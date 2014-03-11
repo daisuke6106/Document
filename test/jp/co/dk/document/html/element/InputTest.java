@@ -10,7 +10,7 @@ import mockit.NonStrictExpectations;
 
 import org.junit.Test;
 
-public class TestInput extends TestDocumentFoundation{
+public class InputTest extends TestDocumentFoundation{
 	
 	@Mocked
 	private HtmlElement htmlElement;
@@ -55,14 +55,14 @@ public class TestInput extends TestDocumentFoundation{
 	public void isDisabled() {
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.DISABLED.getName());
-			result = true;
+			result = new Boolean(true);
 		}};
 		Input input1 = new Input(htmlElement);
 		assertTrue(input1.isDisabled());
 		
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.DISABLED.getName());
-			result = false;
+			result = new Boolean(false);
 		}};
 		Input input2 = new Input(htmlElement);
 		assertFalse(input2.isDisabled());
@@ -73,7 +73,7 @@ public class TestInput extends TestDocumentFoundation{
 		// INPUT要素がdisable状態の場合、空文字が返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.DISABLED.getName());
-			result = true;
+			result = new Boolean(true);
 		}};
 		Input input1 = new Input(htmlElement);
 		assertEquals(input1.getMessage(), "");
@@ -81,7 +81,7 @@ public class TestInput extends TestDocumentFoundation{
 		// INPUT要素がdisable状態でない場合、かつnameとvalueの値が空の場合、空文字が返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.DISABLED.getName());
-			result = false;
+			result = new Boolean(false);
 			htmlElement.getName();
 			result = "";
 			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
@@ -93,7 +93,7 @@ public class TestInput extends TestDocumentFoundation{
 		// INPUT要素がdisable状態でない場合、かつnameとvalueの値が空でない場合、"name=value"が返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.DISABLED.getName());
-			result = false;
+			result = new Boolean(false);
 			htmlElement.getName();
 			result = "name";
 			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
@@ -105,7 +105,7 @@ public class TestInput extends TestDocumentFoundation{
 		// INPUT要素がdisable状態でない場合、かつnameが空、valueの値が空でない場合、空文字が返却されること
 		new NonStrictExpectations() {{
 			htmlElement.hasAttribute(HtmlAttributeName.DISABLED.getName());
-			result = false;
+			result = new Boolean(false);
 			htmlElement.getName();
 			result = "";
 			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());

@@ -17,7 +17,7 @@ import jp.co.dk.document.html.constant.HtmlElementName;
 import jp.co.dk.document.html.element.selector.AnchorHasImage;
 import jp.co.dk.document.html.exception.HtmlDocumentException;
 
-public class TestHtmlElement extends TestDocumentFoundation {
+public class HtmlElementTest extends TestDocumentFoundation {
 	
 	@Test
 	public void constractor() throws DocumentException {

@@ -16,7 +16,7 @@ import jp.co.dk.document.html.element.Form;
 import jp.co.dk.document.html.element.selector.AnchorHasImage;
 import jp.co.dk.document.message.DocumentMessage;
 
-public class TestXmlDocument extends TestDocumentFoundation {
+public class XmlDocumentTest extends TestDocumentFoundation {
 	
 //	@Test
 //	public void getElement() {

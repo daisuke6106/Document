@@ -10,7 +10,7 @@ import mockit.NonStrictExpectations;
 
 import org.junit.Test;
 
-public class TestImage extends TestDocumentFoundation{
+public class ImageTest extends TestDocumentFoundation{
 	
 	@Mocked
 	private HtmlElement htmlElement;

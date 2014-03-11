@@ -10,7 +10,7 @@ import mockit.Mocked;
 
 import org.junit.Test;
 
-public class TestA extends TestDocumentFoundation {
+public class ATest extends TestDocumentFoundation {
 	
 	@Mocked
 	private HtmlElement htmlElement;

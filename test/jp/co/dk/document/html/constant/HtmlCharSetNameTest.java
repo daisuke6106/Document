@@ -5,7 +5,7 @@ import jp.co.dk.document.foundation.TestDocumentFoundation;
 
 import org.junit.Test;
 
-public class TestHtmlCharSetName extends TestDocumentFoundation {
+public class HtmlCharSetNameTest extends TestDocumentFoundation {
 
 	@Test
 	public void isEncording() {

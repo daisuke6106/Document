@@ -11,7 +11,7 @@ import mockit.Expectations;
 
 import org.junit.Test;
 
-public class TestByteDump extends TestDocumentFoundation {
+public class ByteDumpTest extends TestDocumentFoundation {
 
 	@Test
 	public void constractor() throws IOException {

@@ -52,11 +52,11 @@ import jp.co.dk.document.html.constant.HttpEquivName;
       <td><pre class='prettyprint'>	public Meta(HtmlElement element) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>23</td><td class='count'>81</td>
+      <td class='line'>23</td><td class='count'>84</td>
       <td><pre class='prettyprint covered' id='l23s0'>		super(element);</pre></td>
     </tr>
     <tr>
-      <td class='line'>24</td><td class='count'>81</td>
+      <td class='line'>24</td><td class='count'>84</td>
       <td><pre class='prettyprint covered' id='l24s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -82,16 +82,16 @@ import jp.co.dk.document.html.constant.HttpEquivName;
       </td>
     </tr>
     <tr>
-      <td class='line'>33</td><td class='count'>10</td>
+      <td class='line'>33</td><td class='count'>11</td>
       <td><pre class='prettyprint covered' id='l33s0'>		String httpEquiv = super.getAttribute(HtmlAttributeName.HTTP_EQUIV.getName());</pre></td>
     </tr>
     <tr>
-      <td class='line'>34</td><td class='count'>18</td>
+      <td class='line'>34</td><td class='count'>19</td>
       <td><pre class='prettyprint covered' id='l34s0'>		for (HttpEquivName httpEquivName : HttpEquivName.values()) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>35</td><td class='count'>16</td>
-      <td><pre class='prettyprint jmp'>			<span id='l35s0' title='Executions: 16' class='covered'>if (httpEquivName.match(httpEquiv)) return httpEquivName;</span></pre></td>
+      <td class='line'>35</td><td class='count'>17</td>
+      <td><pre class='prettyprint jmp'>			<span id='l35s0' title='Executions: 17' class='covered'>if (httpEquivName.match(httpEquiv)) return httpEquivName;</span></pre></td>
     </tr>
     <tr>
       <td class='line'>36</td><td>&nbsp;</td>
@@ -120,21 +120,21 @@ import jp.co.dk.document.html.constant.HttpEquivName;
       <td><pre class='prettyprint'>	public String getMetaContent() {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>33</td>
+      <td></td><td class='count'>38</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 3/3</span>
         <span class='covered' onclick="showPath(this,'l47s0 l48s0 l49s0')">A: 1</span>
         <span class='covered' onclick="showPath(this,'l47s0 l48s0 l48s1 l49s0')">B: 1</span>
-        <span class='covered' onclick="showPath(this,'l47s0 l48s0 l48s1 l51s0')">C: 31</span>
+        <span class='covered' onclick="showPath(this,'l47s0 l48s0 l48s1 l51s0')">C: 36</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>47</td><td class='count'>33</td>
+      <td class='line'>47</td><td class='count'>38</td>
       <td><pre class='prettyprint covered' id='l47s0'>		String content = super.getAttribute(HtmlAttributeName.CONTENT.getName());</pre></td>
     </tr>
     <tr>
-      <td class='line'>48</td><td class='count'>33</td>
-      <td><pre class='prettyprint jmp'>		<span id='l48s0' title='Executions: 33' class='covered'>if (content == null</span> || <span id='l48s1' title='Executions: 32' class='covered'>content.equals("")) {</span></pre></td>
+      <td class='line'>48</td><td class='count'>38</td>
+      <td><pre class='prettyprint jmp'>		<span id='l48s0' title='Executions: 38' class='covered'>if (content == null</span> || <span id='l48s1' title='Executions: 37' class='covered'>content.equals("")) {</span></pre></td>
     </tr>
     <tr>
       <td class='line'>49</td><td class='count'>2</td>
@@ -145,7 +145,7 @@ import jp.co.dk.document.html.constant.HttpEquivName;
       <td><pre class='prettyprint'>		} else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>51</td><td class='count'>31</td>
+      <td class='line'>51</td><td class='count'>36</td>
       <td><pre class='prettyprint covered' id='l51s0'>			return content;</pre></td>
     </tr>
     <tr>

@@ -9,7 +9,7 @@ import jp.co.dk.document.message.DocumentMessage;
 
 import org.junit.Test;
 
-public class TestFile extends TestDocumentFoundation{
+public class FileTest extends TestDocumentFoundation{
 	
 	@Test
 	public void save() throws DocumentException {
@@ -24,7 +24,7 @@ public class TestFile extends TestDocumentFoundation{
 		 * 保存したファイルがコピー元と一致すること。
 		 */
 		try {
-			java.io.File saveFile = file.save(saveTmpDir, "JPEG.jpg");
+			java.io.File saveFile = file.save(saveTmpDir, "JPEG1.jpg");
 			super.assertStreamEquals(new FileInputStream(saveFile), super.getInputStreamBySystemResource("jp/co/dk/document/JPEG.jpg"));
 		} catch (DocumentException | FileNotFoundException e) {
 			fail(e);
@@ -36,7 +36,7 @@ public class TestFile extends TestDocumentFoundation{
 		 * 例外メッセージが ERROR_DOWNLOAD_DIR_IS_NOT_FOUND であること。
 		 */
 		try {
-			file.save(fraudTestTmpDir, "JPEG.jpg");
+			java.io.File saveFile = file.save(fraudTestTmpDir, "JPEG2.jpg");
 			fail();
 		} catch (DocumentException e) {
 			if (e.getMessageObj() != DocumentMessage.ERROR_DOWNLOAD_DIR_IS_NOT_FOUND) {
@@ -50,7 +50,7 @@ public class TestFile extends TestDocumentFoundation{
 		 * 例外メッセージが ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY であること。
 		 */
 		try {
-			file.save(saveTmpFile, "JPEG.jpg");
+			java.io.File saveFile = file.save(saveTmpFile, "JPEG3.jpg");
 			fail();
 		} catch (DocumentException e) {
 			if (e.getMessageObj() != DocumentMessage.ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY) {
@@ -60,14 +60,29 @@ public class TestFile extends TestDocumentFoundation{
 		
 		/**
 		 * 保存に失敗すること。
-		 * 保存先にすでにファイルが存在する場合、DocumentExceptionが発生すること。
+		 * 保存先パスがすでに存在し、それがディレクトリでない場合、DocumentExceptionが発生すること。
 		 * 例外メッセージが ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY であること。
 		 */
 		try {
-			file.save(super.getTestTmpDir(), super.getTestTmpFile().getName());
+			java.io.File saveFile = file.save(saveTmpDir, "JPEG3.jpg");
+			file.save(saveTmpDir, "JPEG3.jpg");
 			fail();
 		} catch (DocumentException e) {
 			if (e.getMessageObj() != DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH) {
+				fail(e);
+			}
+		}
+		
+		/**
+		 * 保存に失敗すること。
+		 * 保存先のディレクトリに書き込み権限がない場合、DocumentExceptionが発生すること。
+		 * 例外メッセージが ERROR_FAILED_TO_SAVE_FILE であること。
+		 */
+		try {
+			java.io.File saveFile = file.save(super.getTestTmpDirReadOnly(), "JPEG4.jpg");
+			fail();
+		} catch (DocumentException e) {
+			if (e.getMessageObj() != DocumentMessage.ERROR_FAILED_TO_SAVE_FILE) {
 				fail(e);
 			}
 		}
