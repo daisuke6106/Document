@@ -9,15 +9,15 @@ import java.util.List;
 import org.junit.Test;
 
 import jp.co.dk.document.Element;
+import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.exception.DocumentException;
-import jp.co.dk.document.foundation.TestDocumentFoundation;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HtmlCharSetName;
 import jp.co.dk.document.html.constant.HtmlElementName;
 import jp.co.dk.document.html.element.selector.AnchorHasImage;
 import jp.co.dk.document.html.exception.HtmlDocumentException;
 
-public class HtmlElementTest extends TestDocumentFoundation {
+public class HtmlElementTest extends DocumentFoundationTest {
 	
 	@Test
 	public void constractor() throws DocumentException {

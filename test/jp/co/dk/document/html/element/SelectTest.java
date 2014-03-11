@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
-import jp.co.dk.document.foundation.TestDocumentFoundation;
+import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.HtmlElementFactory;
 import jp.co.dk.document.html.exception.HtmlDocumentException;
@@ -13,7 +13,7 @@ import mockit.Mocked;
 
 import org.junit.Test;
 
-public class SelectTest extends TestDocumentFoundation {
+public class SelectTest extends DocumentFoundationTest {
 
 	@Test
 	public void getOption() {

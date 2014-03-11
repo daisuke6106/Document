@@ -4,14 +4,13 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import jp.co.dk.document.exception.DocumentException;
-import jp.co.dk.document.foundation.TestDocumentFoundation;
 import jp.co.dk.document.message.DocumentMessage;
 
 import mockit.Expectations;
 
 import org.junit.Test;
 
-public class ByteDumpTest extends TestDocumentFoundation {
+public class ByteDumpTest extends DocumentFoundationTest {
 
 	@Test
 	public void constractor() throws IOException {

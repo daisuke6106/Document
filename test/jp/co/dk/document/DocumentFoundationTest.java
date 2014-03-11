@@ -1,11 +1,11 @@
-package jp.co.dk.document.foundation;
+package jp.co.dk.document;
 
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.html.exception.HtmlDocumentException;
 import jp.co.dk.document.xml.exception.XmlDocumentException;
 import jp.co.dk.test.template.TestCaseTemplate;
 
-public class TestDocumentFoundation extends TestCaseTemplate {
+public class DocumentFoundationTest extends TestCaseTemplate {
 	
 	protected jp.co.dk.document.File createFileDocument() throws DocumentException {
 		return new jp.co.dk.document.File(super.getInputStreamBySystemResource("jp/co/dk/document/JPEG.jpg"));

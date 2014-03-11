@@ -1,11 +1,11 @@
 package jp.co.dk.document.html.constant;
 
 import static org.junit.Assert.*;
-import jp.co.dk.document.foundation.TestDocumentFoundation;
+import jp.co.dk.document.DocumentFoundationTest;
 
 import org.junit.Test;
 
-public class HttpEquivNameTest extends TestDocumentFoundation{
+public class HttpEquivNameTest extends DocumentFoundationTest{
 
 	@Test
 	public void match() {

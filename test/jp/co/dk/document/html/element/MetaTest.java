@@ -1,7 +1,7 @@
 package jp.co.dk.document.html.element;
 
 import static org.junit.Assert.*;
-import jp.co.dk.document.foundation.TestDocumentFoundation;
+import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HttpEquivName;
@@ -11,7 +11,7 @@ import mockit.NonStrictExpectations;
 
 import org.junit.Test;
 
-public class MetaTest extends TestDocumentFoundation{
+public class MetaTest extends DocumentFoundationTest{
 	
 	@Mocked
 	private HtmlElement htmlElement;

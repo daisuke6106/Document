@@ -1,11 +1,11 @@
 package jp.co.dk.document.html.constant;
 
 import static org.junit.Assert.*;
-import jp.co.dk.document.foundation.TestDocumentFoundation;
+import jp.co.dk.document.DocumentFoundationTest;
 
 import org.junit.Test;
 
-public class HtmlRequestMethodNameTest extends TestDocumentFoundation {
+public class HtmlRequestMethodNameTest extends DocumentFoundationTest {
 
 	@Test
 	public void isMethod() {

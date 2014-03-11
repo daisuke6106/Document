@@ -9,8 +9,8 @@ import mockit.Mocked;
 import org.junit.Test;
 
 import jp.co.dk.document.Element;
+import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.exception.DocumentException;
-import jp.co.dk.document.foundation.TestDocumentFoundation;
 import jp.co.dk.document.html.constant.HtmlElementName;
 import jp.co.dk.document.html.constant.InputTypeName;
 import jp.co.dk.document.html.element.A;
@@ -27,7 +27,7 @@ import jp.co.dk.document.html.element.Reset;
 import jp.co.dk.document.html.element.Submit;
 import jp.co.dk.document.message.DocumentMessage;
 
-public class HtmlElementFactoryTest extends TestDocumentFoundation {
+public class HtmlElementFactoryTest extends DocumentFoundationTest {
 	
 	@Mocked
 	private jp.co.dk.document.html.HtmlElement mockHtmlElement;

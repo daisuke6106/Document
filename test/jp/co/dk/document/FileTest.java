@@ -4,12 +4,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import jp.co.dk.document.exception.DocumentException;
-import jp.co.dk.document.foundation.TestDocumentFoundation;
 import jp.co.dk.document.message.DocumentMessage;
 
 import org.junit.Test;
 
-public class FileTest extends TestDocumentFoundation{
+public class FileTest extends DocumentFoundationTest{
 	
 	@Test
 	public void save() throws DocumentException {

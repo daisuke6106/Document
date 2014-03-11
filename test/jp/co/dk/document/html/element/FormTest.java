@@ -2,7 +2,7 @@ package jp.co.dk.document.html.element;
 
 import java.util.List;
 
-import jp.co.dk.document.foundation.TestDocumentFoundation;
+import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HtmlRequestMethodName;
@@ -12,7 +12,7 @@ import mockit.NonStrictExpectations;
 
 import org.junit.Test;
 
-public class FormTest extends TestDocumentFoundation{
+public class FormTest extends DocumentFoundationTest{
 	
 	@Mocked
 	private HtmlElement htmlElement;

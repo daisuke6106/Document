@@ -1,7 +1,7 @@
 package jp.co.dk.document.html.element;
 
 import static org.junit.Assert.*;
-import jp.co.dk.document.foundation.TestDocumentFoundation;
+import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 
@@ -10,7 +10,7 @@ import mockit.NonStrictExpectations;
 
 import org.junit.Test;
 
-public class OptionTest extends TestDocumentFoundation{
+public class OptionTest extends DocumentFoundationTest{
 	
 	@Mocked
 	private HtmlElement htmlElement;

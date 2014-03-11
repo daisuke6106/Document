@@ -131,38 +131,38 @@ Starting audit...
 /home/dk/projects/Document/src/jp/co/dk/document/ElementSelector.java:12: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/ElementSelector.java:14: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/ElementSelector.java:18:9: 冗長な 'public' 修飾子です。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:12: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:14: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:19: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:19:1: File contains tab characters (this is the first instance).
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:20:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:20:28: 変数 'fileData' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:21: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:22: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:24: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:26: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:30:21: Parameter inputStream should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:30:53: DocumentException のクラス情報が取得できません。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:33: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:34: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:42: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:3: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:3:33: File contains tab characters (this is the first instance).
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:11: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:13: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:18: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:19:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:19:28: 変数 'fileData' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:20: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:21: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:23: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:25: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:29:21: Parameter inputStream should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:29:53: DocumentException のクラス情報が取得できません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:32: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:33: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:41: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:47: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:47:9: メソッド 'save' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:47:34: '(' の前にホワイトスペースがあります。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:47:35: Parameter dir should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:47:53: Parameter filename should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:47:68: ')' の前にホワイトスペースがあります。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:47:78: DocumentException のクラス情報が取得できません。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:48: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:48: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:48:9: メソッド 'save' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:48:34: '(' の前にホワイトスペースがあります。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:48:35: Parameter dir should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:48:53: Parameter filename should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:48:68: ')' の前にホワイトスペースがあります。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:48:78: DocumentException のクラス情報が取得できません。
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:49: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:49: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:50: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:50: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:51: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:50: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:51: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:52: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/File.java:52: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:53: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:53: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:59: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/File.java:61: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/File.java:56: 行が 80 文字を超えています。
 /home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:0: Missing package-info.java file.
 /home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:8: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/exception/DocumentException.java:10: Line has trailing spaces.

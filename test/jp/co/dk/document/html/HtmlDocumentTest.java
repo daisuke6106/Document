@@ -9,8 +9,8 @@ import java.util.List;
 import org.junit.Test;
 
 import jp.co.dk.document.Element;
+import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.exception.DocumentException;
-import jp.co.dk.document.foundation.TestDocumentFoundation;
 import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HtmlCharSetName;
@@ -18,7 +18,7 @@ import jp.co.dk.document.html.constant.HtmlElementName;
 import jp.co.dk.document.html.element.selector.AnchorHasImage;
 import jp.co.dk.document.message.DocumentMessage;
 
-public class HtmlDocumentTest extends TestDocumentFoundation {
+public class HtmlDocumentTest extends DocumentFoundationTest {
 	
 	@Test
 	public void getTitle() throws DocumentException {

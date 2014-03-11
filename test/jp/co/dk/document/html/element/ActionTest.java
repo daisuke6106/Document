@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.net.URL;
 
-import jp.co.dk.document.foundation.TestDocumentFoundation;
+import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.exception.HtmlDocumentException;
 import jp.co.dk.document.message.DocumentMessage;
@@ -14,7 +14,7 @@ import mockit.NonStrictExpectations;
 
 import org.junit.Test;
 
-public class ActionTest extends TestDocumentFoundation{
+public class ActionTest extends DocumentFoundationTest{
 	
 	@Mocked
 	private Form form;
