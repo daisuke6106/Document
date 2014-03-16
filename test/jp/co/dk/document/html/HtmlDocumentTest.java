@@ -410,90 +410,287 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			fail(e);
 		}
 		
+		// HTML内に存在する子要素を取得できること
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p>");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			List<Element> htmlElements = htmlDocument.getChildElement(new ElementSelector() {
+				@Override
+				public boolean judgment(Element element) {
+					if (element.getTagName().equals("head")) return true; 
+					return false;
+				}
+			});
+			assertThat(htmlElements.size(), is(1));
+			assertThat(htmlElements.get(0).getTagName(), is("head"));
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// HTML内に存在する子要素を取得できること
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p>");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			List<Element> htmlElements = htmlDocument.getChildElement(new ElementSelector() {
+				@Override
+				public boolean judgment(Element element) {
+					if (element.getTagName().equals("p")) return true; 
+					return false;
+				}
+			});
+			assertThat(htmlElements.size(), is(0));
+		} catch (DocumentException e) {
+			fail(e);
+		}
 	}
 	
 	@Test
 	public void hasChildElement() throws DocumentException {
-			jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-			if (!htmlDocument.hasChildElement()) {
-				fail();
-			}
-			if (htmlDocument.getElement(HtmlElementName.IMG).get(0).hasChildElement()) {
-				fail();
-			}
+		// HTML内に子要素が存在した場合、trueを返却されること。
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<body>");
+			html.append("<p>");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.hasChildElement(), is(true));
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// HTML内に子要素が存在しなかった場合、falseを返却されること。
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<body>");
+			html.append("</body>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.hasChildElement(), is(false));
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// HTML内のcontentのみしかなかった場合、falseが返却されること
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<body>");
+			html.append("this is test.");
+			html.append("</body>"); 
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.hasChildElement(), is(false));
+		} catch (DocumentException e) {
+			fail(e);
+		}
 	}
 	
 	@Test
 	public void isElement() throws DocumentException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		boolean trueHtml = htmlDocument.getElement(HtmlElementName.HTML).get(0).isElement(HtmlElementName.HTML);
-		if (!trueHtml) {
-			fail();
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<body>");
+			html.append("this is test.");
+			html.append("</body>"); 
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.isElement(HtmlElementName.BODY), is(true));
+			assertThat(htmlDocument.isElement(HtmlElementName.P), is(false));
+		} catch (DocumentException e) {
+			fail(e);
 		}
 	}
 	
 	@Test
 	public void hasElement() throws DocumentException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		assertThat(htmlDocument.hasChildElement(), is (true) );
-		assertThat(htmlDocument.getElement(HtmlElementName.IMG).get(0).hasChildElement(), is (false));
+		// 指定の子要素が存在した場合、trueが返却されていること、存在しない要素を指定した場合、falseが返却されること
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p>");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			// 最上位要素の場合
+			assertThat(htmlDocument.hasElement(HtmlElementName.HTML), is(true));
+			// 最上位要素直下の場合
+			assertThat(htmlDocument.hasElement(HtmlElementName.HEAD), is(true));
+			// 最上位要素直下より更に深い場合
+			assertThat(htmlDocument.hasElement(HtmlElementName.P),    is(true));
+			// 存在しない要素の場合
+			assertThat(htmlDocument.hasElement(HtmlElementName.AUDIO),is(false));
+		} catch (DocumentException e) {
+			fail(e);
+		}
 	}
 	
 	@Test
 	public void getAttribute() throws DocumentException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		Element element = htmlDocument.getElement(HtmlElementName.IMG).get(0);
-		
-		assertThat(element.getAttribute(HtmlAttributeName.ALT.getName()), is ("ウィキペディア"));
-		assertThat(element.getAttribute("test"), nullValue());
-		
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p id=\"test\">");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			// タグに属性が存在する場合、且つ存在する属性を取得した場合、正常に取得できること
+			assertThat(htmlDocument.getElement(HtmlElementName.P).get(0).getAttribute("id"), is("test"));
+			// タグに属性が存在する場合、且つ存在しない属性を取得した場合、空文字が取得できること
+			assertThat(htmlDocument.getElement(HtmlElementName.P).get(0).getAttribute("name"), nullValue());
+			// タグに属性が存在しない場合、空文字が取得できること
+			assertThat(htmlDocument.getElement(HtmlElementName.BODY).get(0).getAttribute("id"), nullValue());
+		} catch (DocumentException e) {
+			fail(e);
+		}
 	}
 	
 	@Test
 	public void hasAttribute() throws DocumentException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		List<Element> elementList = htmlDocument.getElement(HtmlElementName.IMG);
-		Element element = elementList.get(0);
-		if( !element.hasAttribute("src") ) {
-			fail();
-		}
-		if( !element.hasAttribute("width")) {
-			fail();
-		}
-		if( !element.hasAttribute("height")) {
-			fail();
-		}
-		if( element.hasAttribute("test")) {
-			fail();
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p id=\"test\">");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			// タグに属性が存在する場合、且つ存在する属性を指定した場合、trueが返却されること
+			assertThat(htmlDocument.getElement(HtmlElementName.P).get(0).hasAttribute("id"), is(true));
+			// タグに属性が存在する場合、且つ存在しない属性を指定した場合、falseが返却されること
+			assertThat(htmlDocument.getElement(HtmlElementName.P).get(0).hasAttribute("name"), is(false));
+			// タグに属性が存在しない場合、falseが返却されること
+			assertThat(htmlDocument.getElement(HtmlElementName.BODY).get(0).hasAttribute("id"), is(false));
+		} catch (DocumentException e) {
+			fail(e);
 		}
 	}
 	
 	@Test
 	public void getTagName() throws DocumentException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		List<Element> elementList = htmlDocument.getElement(HtmlElementName.IMG);
-		String name = elementList.get(0).getTagName();
-		if (!name.equals("img")) {
-			fail();
+		// 要素のタグ名称を取得した場合、正常に取得できること
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p id=\"test\">");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.getTagName(), is("html"));
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// 要素のタグ名称を取得した場合、正常に取得できること
+		// 大文字でも小文字として取得できること
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<HTML>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p id=\"test\">");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</HTML>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.getTagName(), is("html"));
+		} catch (DocumentException e) {
+			fail(e);
 		}
 	}
 	
 	@Test
 	public void getContent() throws DocumentException {
-//		jp.co.dk.document.html.HtmlDocument htmlDocument1 = super.createHtmlDocument();
-//		List<Element> elementList = htmlDocument1.getElement(HtmlElementName.LABEL);
-//		Element element = elementList.get(0);
-//		if (!element.getContent().equals("検索")) {
-//			fail();
-//		}
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html>");
+			html.append("this is test.");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.getContent(), is("this is test."));
+		} catch (DocumentException e) {
+			fail(e);
+		}
 		
-		// ドキュメントに対して実行して実行した、ドキュメント内に定義されているすべてのコンテキスト要素を取得できること
-//		jp.co.dk.document.html.HtmlDocument htmlDocument2 = super.createHtmlDocument("jp/co/dk/document/html/HTML_getDocument001.html");
-//		assertEquals(htmlDocument2.getContent(),"文書のタイトル\n文書の本体\n");
-//		
-//		jp.co.dk.document.html.HtmlDocument htmlDocument3 = super.createHtmlDocument("jp/co/dk/document/html/HTML.html");
-//		assertEquals(htmlDocument3.getContent(),"文書のタイトル\n文書の本体\n");
-		
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("this is line 1.");
+			html.append("<p>");
+			html.append("this is line 2.");
+			html.append("</p>");
+			html.append("<p>");
+			html.append("this is line 3.");
+			html.append("</p>");
+			html.append("this is line 4.");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			StringBuilder result = new StringBuilder();
+			result.append("this is title");
+			result.append("this is line 1.");
+			result.append("this is line 2.");
+			result.append("this is line 3.");
+			result.append("this is line 4.");
+			assertThat(htmlDocument.getContent(), is(result.toString()));
+		} catch (DocumentException e) {
+			fail(e);
+		}
 	}
 	
 	@Test
