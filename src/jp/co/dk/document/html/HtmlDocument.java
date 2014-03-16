@@ -165,6 +165,7 @@ public class HtmlDocument extends File implements Document{
 	}
 	
 	private void getContect(StringBuilder sb, HtmlElement element) {
+		sb.append(htmlElement.getContent());
 		for (jp.co.dk.document.Element childElement : element.getChildElement()){
 			HtmlElement htmlElement = (HtmlElement)childElement;
 			sb.append(htmlElement.getContent());
