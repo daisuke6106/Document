@@ -70,7 +70,7 @@ public class HtmlDocument extends File implements Document{
 	 */
 	public String getTitle() {
 		List<jp.co.dk.document.Element> title = this.htmlElement.getElement(HtmlElementName.TITLE);
-		if (title == null || title.size() == 0) {
+		if (title.size() == 0) {
 			return "";
 		} else {
 			return title.get(0).getContent().toString();

@@ -46,32 +46,6 @@ public class DocumentException extends AbstractMessageException{
 	/**
 	 * コンストラクタ<p>
 	 * 
-	 * 指定のメッセージ、埋め込み文字列一覧で例外を生成します。
-	 * 
-	 * @param msg メッセージ定数インスタンス
-	 * @param list メッセージ埋め込み文字列一覧
-	 * @since 1.0
-	 */
-	public DocumentException(MessageInterface msg, List<String> list){
-		super(msg, list);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定のメッセージ、埋め込み文字列一覧で例外を生成します。
-	 * 
-	 * @param msg メッセージ定数インスタンス
-	 * @param str メッセージ埋め込み文字列一覧
-	 * @since 1.0
-	 */
-	public DocumentException(MessageInterface msg, String[] str){
-		super(msg, str);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
 	 * 指定のメッセージ、例外で例外を生成します。
 	 * 
 	 * @param msg メッセージ定数インスタンス

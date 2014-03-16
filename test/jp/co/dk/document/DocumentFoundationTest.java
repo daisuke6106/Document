@@ -11,15 +11,6 @@ public class DocumentFoundationTest extends TestCaseTemplate {
 		return new jp.co.dk.document.File(super.getInputStreamBySystemResource("jp/co/dk/document/JPEG.jpg"));
 	}
 	
-	protected jp.co.dk.document.html.HtmlDocument createHtmlDocument(String path) throws DocumentException {
-		try {
-			return new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource(path));
-		} catch (HtmlDocumentException e) {
-			fail(e);
-		}
-		return null;
-	}
-	
 	protected jp.co.dk.document.html.HtmlDocument createHtmlDocument() throws DocumentException {
 		try {
 			return new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/html/HTML.html"));

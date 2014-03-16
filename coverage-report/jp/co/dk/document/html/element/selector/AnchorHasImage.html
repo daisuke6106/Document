@@ -36,7 +36,7 @@ import jp.co.dk.document.html.constant.HtmlElementName;
  */</div><span>/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>16</td><td class='count'>4</td>
+      <td class='line'>16</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l16s0'>public class AnchorHasImage implements ElementSelector {</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -49,30 +49,30 @@ import jp.co.dk.document.html.constant.HtmlElementName;
       <td><pre class='prettyprint'>	public boolean judgment(Element element) {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>3170</td>
+      <td></td><td class='count'>2</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 2/4</span>
+        <span style='cursor:default; background-color:#bf4000' onclick='hidePath()'>Path coverage: 1/4</span>
         <span class='uncovered' onclick="showPath(this,'l20s0 l21s0 l22s0 l23s0 l24s0 l25s0 l26s0')">A: 0</span>
-        <span class='covered' onclick="showPath(this,'l20s0 l21s0 l22s0 l23s0 l29s0')">B: 874</span>
-        <span class='covered' onclick="showPath(this,'l20s0 l21s0 l32s0')">C: 2296</span>
+        <span class='uncovered' onclick="showPath(this,'l20s0 l21s0 l22s0 l23s0 l29s0')">B: 0</span>
+        <span class='covered' onclick="showPath(this,'l20s0 l21s0 l32s0')">C: 2</span>
         <span class='uncovered' onclick="showPath(this,'l20s0 l21s0 l22s0 l23s0 l24s0 l25s0 l32s0')">D: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>20</td><td class='count'>3170</td>
+      <td class='line'>20</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l20s0'>		HtmlElement htmlElement = (HtmlElement)element;</pre></td>
     </tr>
     <tr>
-      <td class='line'>21</td><td class='count'>3170</td>
-      <td><pre class='prettyprint jmp'>		<span id='l21s0' title='Executions: 3170' class='covered'>if (HtmlElementName.A == htmlElement.getElementType() ) {</span></pre></td>
+      <td class='line'>21</td><td class='count'>2</td>
+      <td><pre class='prettyprint jmp'>		<span id='l21s0' title='Executions: 2' class='covered'>if (HtmlElementName.A == htmlElement.getElementType() ) {</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>22</td><td class='count'>874</td>
-      <td><pre class='prettyprint covered' id='l22s0'>			List&lt;Element> childElementList = element.getChildElement();</pre></td>
+      <td class='line'>22</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l22s0'>			List&lt;Element> childElementList = element.getChildElement();</pre></td>
     </tr>
     <tr>
-      <td class='line'>23</td><td class='count'>874</td>
-      <td><pre class='prettyprint jmp'>			<span id='l23s0' title='Executions: 874' class='covered'>if (childElementList.size() == 1) {</span></pre></td>
+      <td class='line'>23</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l23s0' title='Executions: 0' class='uncovered'>if (childElementList.size() == 1) {</span></pre></td>
     </tr>
     <tr>
       <td class='line'>24</td><td class='count'>0</td>
@@ -95,8 +95,8 @@ import jp.co.dk.document.html.constant.HtmlElementName;
       <td><pre class='prettyprint'>			} else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>29</td><td class='count'>874</td>
-      <td><pre class='prettyprint covered' id='l29s0'>				return false;</pre></td>
+      <td class='line'>29</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l29s0'>				return false;</pre></td>
     </tr>
     <tr>
       <td class='line'>30</td><td>&nbsp;</td>
@@ -107,7 +107,7 @@ import jp.co.dk.document.html.constant.HtmlElementName;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>32</td><td class='count'>2296</td>
+      <td class='line'>32</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l32s0'>		return false;</pre></td>
     </tr>
     <tr>

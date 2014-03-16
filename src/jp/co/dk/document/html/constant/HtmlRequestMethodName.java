@@ -27,15 +27,6 @@ public enum HtmlRequestMethodName {
 	}
 	
 	/**
-	 * このHTMLの送信メソッド名称を返却する。
-	 * 
-	 * @return 送信メソッド名称
-	 */
-	public String getMethod() {
-		return this.method;
-	}
-	
-	/**
 	 * 指定された文字列がこのメソッド名称と一致するか判定する。<p/>
 	 * 判定する際に文字列の大文字小文字は差異の対象としない。
 	 * 

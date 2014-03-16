@@ -1,5 +1,6 @@
 package jp.co.dk.document;
 
+import jp.co.dk.document.exception.DocumentExceptionTest;
 import jp.co.dk.document.html.HtmlDocumentTest;
 import jp.co.dk.document.html.HtmlElementTest;
 import jp.co.dk.document.html.HtmlElementFactoryTest;
@@ -25,10 +26,19 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ ByteDumpTest.class, FileTest.class, HtmlDocumentTest.class, HtmlElementTest.class, HtmlElementFactoryTest.class, HtmlCharSetNameTest.class,
-	HtmlRequestMethodNameTest.class, HttpEquivNameTest.class, 
-	ATest.class, ActionTest.class, CheckBoxTest.class, FormTest.class, ImageTest.class, InputTest.class, MetaTest.class,
+@SuiteClasses({ 
+	/* jp.co.dk.document */
+	ByteDumpTest.class, FileTest.class, 
+	/* jp.co.dk.document.exception */
+	DocumentExceptionTest.class,
+	/* jp.co.dk.document.html */
+	HtmlDocumentTest.class, HtmlElementTest.class, HtmlElementFactoryTest.class,  
+	/* jp.co.dk.document.html.constant */
+	HtmlCharSetNameTest.class, HtmlRequestMethodNameTest.class, HttpEquivNameTest.class,
+	/* jp.co.dk.document.html.element */
+	ActionTest.class, ATest.class, CheckBoxTest.class, FormTest.class, ImageTest.class, InputTest.class, MetaTest.class,
 	OptionTest.class, PasswordTest.class, RadioTest.class, ResetTest.class, SelectTest.class,
+	/* jp.co.dk.document.xml */
 	XmlDocumentTest.class
 })
 public class AllTest {}
