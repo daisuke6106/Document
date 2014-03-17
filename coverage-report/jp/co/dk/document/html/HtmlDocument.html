@@ -55,12 +55,12 @@ import jp.co.dk.document.message.DocumentMessage;
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>31</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private HtmlElement <span class='instance covered' title='Reads: 41 Writes: 35'>htmlElement</span>;</pre></td>
+      <td><pre class='prettyprint'>	private HtmlElement <span class='instance covered' title='Reads: 55 Writes: 45'>htmlElement</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>33</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private ElementFactory <span class='instance uncovered' title='Reads: 0 Writes: 35'>elementFactory</span>;</pre></td>
+      <td><pre class='prettyprint'>	private ElementFactory <span class='instance uncovered' title='Reads: 0 Writes: 45'>elementFactory</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -78,11 +78,11 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public HtmlDocument(InputStream inputStream) throws DocumentException{</pre></td>
     </tr>
     <tr>
-      <td class='line'>43</td><td class='count'>35</td>
+      <td class='line'>43</td><td class='count'>45</td>
       <td><pre class='prettyprint covered' id='l43s0'>		this(inputStream, new HtmlElementFactory());</pre></td>
     </tr>
     <tr>
-      <td class='line'>44</td><td class='count'>35</td>
+      <td class='line'>44</td><td class='count'>45</td>
       <td><pre class='prettyprint covered' id='l44s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -102,7 +102,7 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public HtmlDocument(InputStream inputStream, HtmlElementFactory elementFactory) throws DocumentException{</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td class='count'>35</td>
+      <td class='line'>55</td><td class='count'>45</td>
       <td><pre class='prettyprint covered' id='l55s0'>		super(inputStream);</pre></td>
     </tr>
     <tr>
@@ -110,11 +110,11 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>57</td><td class='count'>35</td>
+      <td class='line'>57</td><td class='count'>45</td>
       <td><pre class='prettyprint covered' id='l57s0'>			this.htmlElement    = new HtmlElement(new net.htmlparser.jericho.Source(super.fileData.getStream()), elementFactory);</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td class='count'>35</td>
+      <td class='line'>58</td><td class='count'>45</td>
       <td><pre class='prettyprint covered' id='l58s0'>			this.elementFactory = elementFactory;</pre></td>
     </tr>
     <tr>
@@ -130,7 +130,7 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>62</td><td class='count'>35</td>
+      <td class='line'>62</td><td class='count'>45</td>
       <td><pre class='prettyprint covered' id='l62s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -207,32 +207,32 @@ import jp.co.dk.document.message.DocumentMessage;
       </td>
     </tr>
     <tr>
-      <td class='line'>87</td><td class='count'>11</td>
+      <td class='line'>87</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l87s0'>		List&lt;Element> elementList = this.htmlElement.getElement(HtmlElementName.META);</pre></td>
     </tr>
     <tr>
-      <td class='line'>88</td><td class='count'>26</td>
+      <td class='line'>88</td><td class='count'>16</td>
       <td><pre class='prettyprint covered' id='l88s0'>		for (Element element : elementList) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>89</td><td class='count'>10</td>
+      <td class='line'>89</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l89s0'>			Meta meta = (Meta) element;</pre></td>
     </tr>
     <tr>
-      <td class='line'>90</td><td class='count'>10</td>
+      <td class='line'>90</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l90s0'>			HttpEquivName httpEquiv = meta.getHttpEquiv();</pre></td>
     </tr>
     <tr>
-      <td class='line'>91</td><td class='count'>10</td>
-      <td><pre class='prettyprint jmp'>			<span id='l91s0' title='Executions: 10' class='covered'>if (HttpEquivName.CONTENT_TYPE == httpEquiv)</span> <span id='l91s1' title='Executions: 8' class='covered'>{</span></pre></td>
+      <td class='line'>91</td><td class='count'>5</td>
+      <td><pre class='prettyprint jmp'>			<span id='l91s0' title='Executions: 5' class='covered'>if (HttpEquivName.CONTENT_TYPE == httpEquiv)</span> <span id='l91s1' title='Executions: 3' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>92</td><td class='count'>44</td>
+      <td class='line'>92</td><td class='count'>19</td>
       <td><pre class='prettyprint covered' id='l92s0'>				for (HtmlCharSetName charset :HtmlCharSetName.values()) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>93</td><td class='count'>42</td>
-      <td><pre class='prettyprint jmp'>					<span id='l93s0' title='Executions: 42' class='covered'>if (charset.isEncording(meta.getMetaContent())) return charset;</span></pre></td>
+      <td class='line'>93</td><td class='count'>17</td>
+      <td><pre class='prettyprint jmp'>					<span id='l93s0' title='Executions: 17' class='covered'>if (charset.isEncording(meta.getMetaContent())) return charset;</span></pre></td>
     </tr>
     <tr>
       <td class='line'>94</td><td>&nbsp;</td>
@@ -349,8 +349,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public List&lt;Element> getChildElement(ElementSelector elementSelector) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>127</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l127s0'>		return this.htmlElement.getChildElement(elementSelector);</pre></td>
+      <td class='line'>127</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l127s0'>		return this.htmlElement.getChildElement(elementSelector);</pre></td>
     </tr>
     <tr>
       <td class='line'>128</td><td>&nbsp;</td>
@@ -366,7 +366,7 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public boolean hasChildElement() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>132</td><td class='count'>2</td>
+      <td class='line'>132</td><td class='count'>3</td>
       <td><pre class='prettyprint covered' id='l132s0'>		return this.htmlElement.hasChildElement();</pre></td>
     </tr>
     <tr>
@@ -383,8 +383,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public boolean isElement(ElementName elementName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>137</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l137s0'>		return this.htmlElement.isElement(elementName);</pre></td>
+      <td class='line'>137</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l137s0'>		return this.htmlElement.isElement(elementName);</pre></td>
     </tr>
     <tr>
       <td class='line'>138</td><td>&nbsp;</td>
@@ -400,8 +400,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public boolean hasElement(ElementName elementName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>142</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l142s0'>		return this.htmlElement.hasElement(elementName);</pre></td>
+      <td class='line'>142</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l142s0'>		return this.htmlElement.hasElement(elementName);</pre></td>
     </tr>
     <tr>
       <td class='line'>143</td><td>&nbsp;</td>
@@ -451,8 +451,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public String getTagName() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>157</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l157s0'>		return this.htmlElement.getTagName();</pre></td>
+      <td class='line'>157</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l157s0'>		return this.htmlElement.getTagName();</pre></td>
     </tr>
     <tr>
       <td class='line'>158</td><td>&nbsp;</td>
@@ -468,16 +468,16 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public String getContent() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>162</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l162s0'>		StringBuilder sb = new StringBuilder();</pre></td>
+      <td class='line'>162</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l162s0'>		StringBuilder sb = new StringBuilder();</pre></td>
     </tr>
     <tr>
-      <td class='line'>163</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l163s0'>		this.getContect(sb, this.htmlElement);</pre></td>
+      <td class='line'>163</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l163s0'>		this.getContect(sb, this.htmlElement);</pre></td>
     </tr>
     <tr>
-      <td class='line'>164</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l164s0'>		return sb.toString();</pre></td>
+      <td class='line'>164</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l164s0'>		return sb.toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>165</td><td>&nbsp;</td>
@@ -489,199 +489,236 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	private void getContect(StringBuilder sb, HtmlElement element) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>168</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l168s0'>		for (jp.co.dk.document.Element childElement : element.getChildElement()){</pre></td>
+      <td class='line'>168</td><td class='count'>8</td>
+      <td><pre class='prettyprint covered' id='l168s0'>		sb.append(htmlElement.getContent());</pre></td>
     </tr>
     <tr>
-      <td class='line'>169</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l169s0'>			HtmlElement htmlElement = (HtmlElement)childElement;</pre></td>
+      <td class='line'>169</td><td class='count'>22</td>
+      <td><pre class='prettyprint covered' id='l169s0'>		for (jp.co.dk.document.Element childElement : element.getChildElement()){</pre></td>
     </tr>
     <tr>
-      <td class='line'>170</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l170s0'>			sb.append(htmlElement.getContent());</pre></td>
+      <td class='line'>170</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l170s0'>			HtmlElement htmlElement = (HtmlElement)childElement;</pre></td>
     </tr>
     <tr>
-      <td class='line'>171</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l171s0'>			getContect(sb, htmlElement);</pre></td>
+      <td class='line'>171</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l171s0'>			sb.append(htmlElement.getContent());</pre></td>
     </tr>
     <tr>
-      <td class='line'>172</td><td>&nbsp;</td>
+      <td class='line'>172</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l172s0'>			getContect(sb, htmlElement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>173</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>173</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l173s0'>	}</pre></td>
+      <td class='line'>174</td><td class='count'>8</td>
+      <td><pre class='prettyprint covered' id='l174s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>175</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	@Override</pre></td>
-    </tr>
-    <tr>
       <td class='line'>176</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public java.io.File save (java.io.File dir, String filename ) throws DocumentException {</pre></td>
+      <td><pre class='comment'>//	@Override</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>2</td>
-      <td class='paths'>
-        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
-        <span class='covered' onclick="showPath(this,'l177s0 l178s0 l179s0')">A: 2</span>
-        <span class='uncovered' onclick="showPath(this,'l177s0 l178s0 l181s0')">B: 0</span>
-      </td>
+      <td class='line'>177</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	public java.io.File save (java.io.File dir, String filename ) throws DocumentException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>177</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l177s0'>		HtmlCharSetName charset = this.getEncode();</pre></td>
+      <td class='line'>178</td><td>&nbsp;</td>
+      <td><pre class='comment'>//		HtmlCharSetName charset = this.getEncode();</pre></td>
     </tr>
     <tr>
-      <td class='line'>178</td><td class='count'>5</td>
-      <td><pre class='prettyprint jmp'>		<span id='l178s0' title='Executions: 5' class='covered'>if (charset != null)</span> <span id='l178s1' title='Executions: 5' class='covered'>{</span></pre></td>
-    </tr>
-    <tr>
-      <td class='line'>179</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l179s0'>			return this.save(dir, filename, charset.getEncoding());</pre></td>
+      <td class='line'>179</td><td>&nbsp;</td>
+      <td><pre class='comment'>//		if (charset != null) {</pre></td>
     </tr>
     <tr>
       <td class='line'>180</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		} else {</pre></td>
+      <td><pre class='comment'>//			return this.save(dir, filename, charset.getEncoding());</pre></td>
     </tr>
     <tr>
-      <td class='line'>181</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l181s0'>			return this.save(dir, filename, HtmlCharSetName.UTF_8.getEncoding());</pre></td>
+      <td class='line'>181</td><td>&nbsp;</td>
+      <td><pre class='comment'>//		} else {</pre></td>
     </tr>
     <tr>
       <td class='line'>182</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		}</pre></td>
+      <td><pre class='comment'>//			return this.save(dir, filename, HtmlCharSetName.UTF_8.getEncoding());</pre></td>
     </tr>
     <tr>
       <td class='line'>183</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
+      <td><pre class='comment'>//		}</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'></td><td>&nbsp;</td>
-      <td class='comment' onclick='showHideLines(this)'><div>	/**
-	 * このオブジェクトが表すファイルを指定のディレクトリへ指定のファイル名、指定の文字コードにて保存する。&lt;p>
-	 * 正常に保存した場合、保存したファイルオブジェクトを返却する。
-	 * &lt;br/>
-	 * 以下の条件の場合、例外を発生する。&lt;br/>
-	 * ・引数が設定されていない場合&lt;br/>
-	 * ・指定された保存先ディレクトリが存在しない場合&lt;br/>
-	 * ・保存先のファイルがすでに存在する場合&lt;br/>
-	 * ・その他の理由で保存に失敗した場合&lt;br/>
-	 * 
-	 * @param dir 保存先ディレクトリ
-	 * @param filename ファイル名
-	 * @param charset 文字コード
-	 * @return 保存したファイル
-	 * @throws DocumentException 保存に失敗した場合
-	 */</div><span>	/*...*/</span></td>
+      <td class='line'>184</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>185</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>186</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	/**</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>187</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * このオブジェクトが表すファイルを指定のディレクトリへ指定のファイル名、指定の文字コードにて保存する。&lt;p></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>188</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * 正常に保存した場合、保存したファイルオブジェクトを返却する。</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>189</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * &lt;br/></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>190</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * 以下の条件の場合、例外を発生する。&lt;br/></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>191</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * ・引数が設定されていない場合&lt;br/></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>192</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * ・指定された保存先ディレクトリが存在しない場合&lt;br/></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>193</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * ・保存先のファイルがすでに存在する場合&lt;br/></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>194</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * ・その他の理由で保存に失敗した場合&lt;br/></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>195</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>196</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * @param dir 保存先ディレクトリ</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>197</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * @param filename ファイル名</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>198</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * @param charset 文字コード</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>199</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * @return 保存したファイル</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>200</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	 * @throws DocumentException 保存に失敗した場合</pre></td>
     </tr>
     <tr>
       <td class='line'>201</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public java.io.File save (java.io.File dir, String filename, String charset) throws DocumentException {</pre></td>
+      <td><pre class='comment'>//	 */</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>5</td>
-      <td class='paths'>
-        <span style='cursor:default; background-color:#6d9200' onclick='hidePath()'>Path coverage: 4/7</span>
-        <span class='uncovered' onclick="showPath(this,'l202s0 l202s3')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l202s0 l202s1 l202s3')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l202s0 l202s1 l202s2 l202s3')">C: 0</span>
-        <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l203s1')">D: 1</span>
-        <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l204s0 l204s1')">E: 1</span>
-        <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l204s0 l206s0 l207s0 l207s1')">F: 1</span>
-        <span class='covered' onclick="showPath(this,'l202s0 l202s1 l202s2 l203s0 l204s0 l206s0 l207s0 l209s0 l218s0')">G: 2</span>
-      </td>
+      <td class='line'>202</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	public java.io.File save (java.io.File dir, String filename, String charset) throws DocumentException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>202</td><td class='count'>5</td>
-      <td><pre class='prettyprint jmp'>		<span id='l202s0' title='Executions: 5' class='covered'>if (dir == null</span> || <span id='l202s1' title='Executions: 5' class='covered'>filename == null</span> || <span id='l202s2' title='Executions: 5' class='covered'>charset == null)</span> <span id='l202s3' title='Executions: 0' class='uncovered'>throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE_PARAM_IS_NOT_SET);</span></pre></td>
+      <td class='line'>203</td><td>&nbsp;</td>
+      <td><pre class='comment'>//		if (dir == null || filename == null || charset == null) throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE_PARAM_IS_NOT_SET);</pre></td>
     </tr>
     <tr>
-      <td class='line'>203</td><td class='count'>5</td>
-      <td><pre class='prettyprint jmp'>		<span id='l203s0' title='Executions: 5' class='covered'>if (!dir.exists()) throw new DocumentException(DocumentMessage.ERROR_DOWNLOAD_DIR_IS_NOT_FOUND, dir.getAbsolutePath());</span></pre></td>
+      <td class='line'>204</td><td>&nbsp;</td>
+      <td><pre class='comment'>//		if (!dir.exists()) throw new DocumentException(DocumentMessage.ERROR_DOWNLOAD_DIR_IS_NOT_FOUND, dir.getAbsolutePath());</pre></td>
     </tr>
     <tr>
-      <td class='line'>204</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>		<span id='l204s0' title='Executions: 4' class='covered'>if (!dir.isDirectory()) throw new DocumentException(DocumentMessage.ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY, dir.getAbsolutePath());</span></pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>206</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l206s0'>		java.io.File path = new java.io.File(new StringBuilder(dir.getAbsolutePath()).append('/').append(filename).toString());</pre></td>
+      <td class='line'>205</td><td>&nbsp;</td>
+      <td><pre class='comment'>//		if (!dir.isDirectory()) throw new DocumentException(DocumentMessage.ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY, dir.getAbsolutePath());</pre></td>
     </tr>
     <tr>
-      <td class='line'>207</td><td class='count'>3</td>
-      <td><pre class='prettyprint jmp'>		<span id='l207s0' title='Executions: 3' class='covered'>if (path.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH, dir.getAbsolutePath());</span></pre></td>
+      <td class='line'>206</td><td>&nbsp;</td>
+      <td><pre class='comment'>//		</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>207</td><td>&nbsp;</td>
+      <td><pre class='comment'>//		java.io.File path = new java.io.File(new StringBuilder(dir.getAbsolutePath()).append('/').append(filename).toString());</pre></td>
     </tr>
     <tr>
       <td class='line'>208</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		try {</pre></td>
+      <td><pre class='comment'>//		if (path.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH, dir.getAbsolutePath());</pre></td>
     </tr>
     <tr>
-      <td class='line'>209</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l209s0'>			FileOutputStream fos = new FileOutputStream(path);</pre></td>
+      <td class='line'>209</td><td>&nbsp;</td>
+      <td><pre class='comment'>//		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>210</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l210s0'>			 byte [] byteArray = this.htmlElement.toString().getBytes(charset);</pre></td>
+      <td class='line'>210</td><td>&nbsp;</td>
+      <td><pre class='comment'>//			FileOutputStream fos = new FileOutputStream(path);</pre></td>
     </tr>
     <tr>
-      <td class='line'>211</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l211s0'>			fos.write(byteArray);</pre></td>
+      <td class='line'>211</td><td>&nbsp;</td>
+      <td><pre class='comment'>//			 byte [] byteArray = this.htmlElement.toString().getBytes(charset);</pre></td>
     </tr>
     <tr>
-      <td class='line'>212</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l212s0'>			fos.close();</pre></td>
+      <td class='line'>212</td><td>&nbsp;</td>
+      <td><pre class='comment'>//			fos.write(byteArray);</pre></td>
     </tr>
     <tr>
-      <td class='line'>213</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l213s0'>		} catch (UnsupportedEncodingException e) {</pre></td>
+      <td class='line'>213</td><td>&nbsp;</td>
+      <td><pre class='comment'>//			fos.close();</pre></td>
     </tr>
     <tr>
-      <td class='line'>214</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l214s0'>			throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE, path.getPath(), e);</pre></td>
+      <td class='line'>214</td><td>&nbsp;</td>
+      <td><pre class='comment'>//		} catch (UnsupportedEncodingException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>215</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l215s0'>		} catch (IOException e) {</pre></td>
+      <td class='line'>215</td><td>&nbsp;</td>
+      <td><pre class='comment'>//			throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE, path.getPath(), e);</pre></td>
     </tr>
     <tr>
-      <td class='line'>216</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l216s0'>			throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE, path.getPath(), e);</pre></td>
+      <td class='line'>216</td><td>&nbsp;</td>
+      <td><pre class='comment'>//		} catch (IOException e) {</pre></td>
     </tr>
     <tr>
       <td class='line'>217</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		}</pre></td>
+      <td><pre class='comment'>//			throw new DocumentException(DocumentMessage.ERROR_FAILED_TO_SAVE_FILE, path.getPath(), e);</pre></td>
     </tr>
     <tr>
-      <td class='line'>218</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l218s0'>		return path;</pre></td>
+      <td class='line'>218</td><td>&nbsp;</td>
+      <td><pre class='comment'>//		}</pre></td>
     </tr>
     <tr>
       <td class='line'>219</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
+      <td><pre class='comment'>//		return path;</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>220</td><td>&nbsp;</td>
+      <td><pre class='comment'>//	}</pre></td>
+    </tr>
     <tr>
       <td class='line'>221</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	@Override</pre></td>
+      <td><pre class='comment'>//	</pre></td>
     </tr>
     <tr>
       <td class='line'>222</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>223</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public String toString() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>223</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l223s0'>		return this.htmlElement.toString();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>224</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
+      <td class='line'>224</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l224s0'>		return this.htmlElement.toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>225</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>226</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>

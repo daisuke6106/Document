@@ -43,7 +43,7 @@ import jp.co.dk.document.message.DocumentMessage;
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>19</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected ByteDump <span class='instance uncovered' title='Reads: 0 Writes: 35'>fileData</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected ByteDump <span class='instance uncovered' title='Reads: 4 Writes: 45'>fileData</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -58,15 +58,15 @@ import jp.co.dk.document.message.DocumentMessage;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>29</td><td class='count'>35</td>
+      <td class='line'>29</td><td class='count'>45</td>
       <td><pre class='prettyprint covered' id='l29s0'>	public File(InputStream inputStream) throws DocumentException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>30</td><td class='count'>35</td>
+      <td class='line'>30</td><td class='count'>45</td>
       <td><pre class='prettyprint covered' id='l30s0'>		this.fileData = new ByteDump(inputStream);</pre></td>
     </tr>
     <tr>
-      <td class='line'>31</td><td class='count'>35</td>
+      <td class='line'>31</td><td class='count'>45</td>
       <td><pre class='prettyprint covered' id='l31s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -92,44 +92,44 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public java.io.File save (java.io.File dir, String filename ) throws DocumentException {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>0</td>
+      <td></td><td class='count'>8</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/5</span>
-        <span class='uncovered' onclick="showPath(this,'l48s0 l48s1')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l48s0 l49s0 l49s1')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l48s0 l49s0 l51s0 l52s0 l52s1')">C: 0</span>
+        <span style='cursor:default; background-color:#33cc00' onclick='hidePath()'>Path coverage: 4/5</span>
+        <span class='covered' onclick="showPath(this,'l48s0 l48s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l48s0 l49s0 l49s1')">B: 1</span>
+        <span class='covered' onclick="showPath(this,'l48s0 l49s0 l51s0 l52s0 l52s1')">C: 2</span>
         <span class='uncovered' onclick="showPath(this,'l48s0 l49s0 l51s0 l52s0 l53s0 l55s0 l58s0')">D: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l48s0 l49s0 l51s0 l52s0 l53s0 l55s0 l55s1 l58s0')">E: 0</span>
+        <span class='covered' onclick="showPath(this,'l48s0 l49s0 l51s0 l52s0 l53s0 l55s0 l55s1 l58s0')">E: 4</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>48</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l48s0' title='Executions: 0' class='uncovered'>if (!dir.exists()) throw new DocumentException(DocumentMessage.ERROR_DOWNLOAD_DIR_IS_NOT_FOUND, dir.getAbsolutePath());</span></pre></td>
+      <td class='line'>48</td><td class='count'>8</td>
+      <td><pre class='prettyprint jmp'>		<span id='l48s0' title='Executions: 8' class='covered'>if (!dir.exists()) throw new DocumentException(DocumentMessage.ERROR_DOWNLOAD_DIR_IS_NOT_FOUND, dir.getAbsolutePath());</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>49</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l49s0' title='Executions: 0' class='uncovered'>if (!dir.isDirectory()) throw new DocumentException(DocumentMessage.ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY, dir.getAbsolutePath());</span></pre></td>
+      <td class='line'>49</td><td class='count'>7</td>
+      <td><pre class='prettyprint jmp'>		<span id='l49s0' title='Executions: 7' class='covered'>if (!dir.isDirectory()) throw new DocumentException(DocumentMessage.ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY, dir.getAbsolutePath());</span></pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>51</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l51s0'>		java.io.File path = new java.io.File(new StringBuilder(dir.getAbsolutePath()).append('/').append(filename).toString());</pre></td>
+      <td class='line'>51</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l51s0'>		java.io.File path = new java.io.File(new StringBuilder(dir.getAbsolutePath()).append('/').append(filename).toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>52</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l52s0' title='Executions: 0' class='uncovered'>if (path.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH, path.getAbsolutePath());</span></pre></td>
+      <td class='line'>52</td><td class='count'>6</td>
+      <td><pre class='prettyprint jmp'>		<span id='l52s0' title='Executions: 6' class='covered'>if (path.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH, path.getAbsolutePath());</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>53</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l53s0'>		try (OutputStream outputStream = new FileOutputStream(path)) {</pre></td>
+      <td class='line'>53</td><td class='count'>8</td>
+      <td><pre class='prettyprint covered' id='l53s0'>		try (OutputStream outputStream = new FileOutputStream(path)) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>54</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l54s0'>			outputStream.write(this.fileData.getBytes());</pre></td>
+      <td class='line'>54</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l54s0'>			outputStream.write(this.fileData.getBytes());</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l55s0' title='Executions: 0' class='uncovered'>} catch (IOException e) {</span></pre></td>
+      <td class='line'>55</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>		<span id='l55s0' title='Executions: 4' class='covered'>} catch (IOException e) {</span></pre></td>
     </tr>
     <tr>
       <td class='line'>56</td><td class='count'>0</td>
@@ -140,8 +140,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l58s0'>		return path;</pre></td>
+      <td class='line'>58</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l58s0'>		return path;</pre></td>
     </tr>
     <tr>
       <td class='line'>59</td><td>&nbsp;</td>

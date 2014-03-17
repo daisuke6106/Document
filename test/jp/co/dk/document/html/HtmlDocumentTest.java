@@ -693,6 +693,114 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		}
 	}
 	
+
+	@Test
+	public void save() throws DocumentException {
+		// 存在するディレクトリに保存した場合、正常に保存できること。
+		try {
+			jp.co.dk.document.html.HtmlDocument file = super.createHtmlDocument();
+			java.io.File saveFile = file.save(super.getTestTmpDir(), "HTML.html");
+			super.assertStreamEquals(new FileInputStream(saveFile), super.getInputStreamBySystemResource("jp/co/dk/document/html/HTML.html"));
+		} catch (DocumentException | FileNotFoundException e) {
+			fail(e);
+		}
+		
+		// 存在しないディレクトリに保存した場合、例外が発生すること
+		try {
+			jp.co.dk.document.html.HtmlDocument file = super.createHtmlDocument();
+			file.save(super.getFraudTestTmpDir(), "HTML.html");
+			fail();
+		} catch (DocumentException e) {
+			if (e.getMessageObj() != DocumentMessage.ERROR_DOWNLOAD_DIR_IS_NOT_FOUND) {
+				fail(e);
+			}
+		}
+		
+		// 保存先にファイルを指定した場合、例外が発生すること。
+		try {
+			jp.co.dk.document.html.HtmlDocument file = super.createHtmlDocument();
+			file.save(super.getTestTmpFile(), "HTML.html");
+			fail();
+		} catch (DocumentException e) {
+			if (e.getMessageObj() != DocumentMessage.ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY) {
+				fail(e);
+			}
+		}
+		
+		// 保存先に同じ名前のファイルが存在した場合、例外が発生すること。
+		try {
+			jp.co.dk.document.html.HtmlDocument file = super.createHtmlDocument();
+			file.save(super.getTestTmpDir(), "HTML1.html");
+			file.save(super.getTestTmpDir(), "HTML1.html");
+			fail();
+		} catch (DocumentException e) {
+			if (e.getMessageObj() != DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH) {
+				fail(e);
+			}
+		}
+		
+		// HtmlDocumentから文字コードを取得出来なかった場合、UTF8で保存されること。
+		try {
+			jp.co.dk.document.html.HtmlDocument file = super.createHtmlDocument();
+			file.save(super.getTestTmpDir(), "HTML1.html");
+			file.save(super.getTestTmpDir(), "HTML1.html");
+			fail();
+		} catch (DocumentException e) {
+			if (e.getMessageObj() != DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH) {
+				fail(e);
+			}
+		}
+		
+		// 日本語を含む文字列で保存した場合（metaヘッダあり）
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<HTML>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>タイトル</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p>");
+			html.append("これは本文です。");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</HTML>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(new ByteArrayInputStream(html.toString().getBytes("UTF-8")));
+			htmlDocument.save(super.getTestTmpDir(), "HTML2.html");
+			assertStreamEquals(new FileInputStream (getTestFileInstance("HTML2.html")), new ByteArrayInputStream(html.toString().getBytes("UTF-8")));
+		} catch (UnsupportedEncodingException e) {
+			fail(e);
+		} catch (DocumentException e) {
+			fail(e);
+		} catch (FileNotFoundException e) {
+			fail(e);
+		}
+		
+		// 日本語を含む文字列で保存した場合（metaヘッダなし）
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<HTML>");
+			html.append("<head>");
+			html.append("<title>タイトル</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p>");
+			html.append("これは本文です。");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</HTML>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(new ByteArrayInputStream(html.toString().getBytes("UTF-8")));
+			htmlDocument.save(super.getTestTmpDir(), "HTML3.html");
+			assertStreamEquals(new FileInputStream (getTestFileInstance("HTML3.html")), new ByteArrayInputStream(html.toString().getBytes("UTF-8")));
+		} catch (UnsupportedEncodingException e) {
+			fail(e);
+		} catch (DocumentException e) {
+			fail(e);
+		} catch (FileNotFoundException e) {
+			fail(e);
+		}
+	}
+	
 	@Test
 	public void getId() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
@@ -819,47 +927,6 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		}
 	}
 	
-	@Test
-	public void save() throws DocumentException {
-		try {
-			jp.co.dk.document.html.HtmlDocument file = super.createHtmlDocument();
-			java.io.File saveFile = file.save(super.getTestTmpDir(), "HTML.html");
-			super.assertStreamEquals(new FileInputStream(saveFile), super.getInputStreamBySystemResource("jp/co/dk/document/html/HTML.html"));
-		} catch (DocumentException | FileNotFoundException e) {
-			fail(e);
-		}
-		
-		try {
-			jp.co.dk.document.html.HtmlDocument file = super.createHtmlDocument();
-			file.save(super.getFraudTestTmpDir(), "HTML.html");
-			fail();
-		} catch (DocumentException e) {
-			if (e.getMessageObj() != DocumentMessage.ERROR_DOWNLOAD_DIR_IS_NOT_FOUND) {
-				fail(e);
-			}
-		}
-		
-		try {
-			jp.co.dk.document.html.HtmlDocument file = super.createHtmlDocument();
-			file.save(super.getTestTmpFile(), "HTML.html");
-			fail();
-		} catch (DocumentException e) {
-			if (e.getMessageObj() != DocumentMessage.ERROR_SPECIFIED_PATH_IS_NOT_DIRECTORY) {
-				fail(e);
-			}
-		}
-		
-		try {
-			jp.co.dk.document.html.HtmlDocument file = super.createHtmlDocument();
-			file.save(super.getTestTmpDir(), "HTML1.html");
-			file.save(super.getTestTmpDir(), "HTML1.html");
-			fail();
-		} catch (DocumentException e) {
-			if (e.getMessageObj() != DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH) {
-				fail(e);
-			}
-		}
-	}
 	
 	private InputStream createHtmlDocument(String htmlStr) {
 		try {
