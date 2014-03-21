@@ -46,7 +46,7 @@ import jp.co.dk.document.html.constant.HtmlElementName;
     </tr>
     <tr>
       <td class='line'>19</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private List&lt;Option> <span class='instance covered' title='Reads: 3 Writes: 3'>option</span>;</pre></td>
+      <td><pre class='prettyprint'>	private List&lt;Option> <span class='instance covered' title='Reads: 10 Writes: 10'>option</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -55,7 +55,7 @@ import jp.co.dk.document.html.constant.HtmlElementName;
     </tr>
     <tr>
       <td class='line'>22</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private Option <span class='instance covered' title='Reads: 3 Writes: 3'>defaltSelected</span>;</pre></td>
+      <td><pre class='prettyprint'>	private Option <span class='instance covered' title='Reads: 10 Writes: 10'>defaltSelected</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -64,7 +64,7 @@ import jp.co.dk.document.html.constant.HtmlElementName;
     </tr>
     <tr>
       <td class='line'>25</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private Option <span class='instance uncovered' title='Reads: 0 Writes: 3'>selected</span>;</pre></td>
+      <td><pre class='prettyprint'>	private Option <span class='instance uncovered' title='Reads: 0 Writes: 10'>selected</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -83,23 +83,23 @@ import jp.co.dk.document.html.constant.HtmlElementName;
       <td><pre class='prettyprint'>	public Select(HtmlElement element) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>36</td><td class='count'>3</td>
+      <td class='line'>36</td><td class='count'>10</td>
       <td><pre class='prettyprint covered' id='l36s0'>		super(element);</pre></td>
     </tr>
     <tr>
-      <td class='line'>37</td><td class='count'>3</td>
+      <td class='line'>37</td><td class='count'>10</td>
       <td><pre class='prettyprint covered' id='l37s0'>		this.option         = this.getOptionList();</pre></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td class='count'>3</td>
+      <td class='line'>38</td><td class='count'>10</td>
       <td><pre class='prettyprint covered' id='l38s0'>		this.defaltSelected = this.selectedOption(this.option);</pre></td>
     </tr>
     <tr>
-      <td class='line'>39</td><td class='count'>3</td>
+      <td class='line'>39</td><td class='count'>10</td>
       <td><pre class='prettyprint covered' id='l39s0'>		this.selected       = this.defaltSelected;</pre></td>
     </tr>
     <tr>
-      <td class='line'>40</td><td class='count'>3</td>
+      <td class='line'>40</td><td class='count'>10</td>
       <td><pre class='prettyprint covered' id='l40s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -429,47 +429,47 @@ import jp.co.dk.document.html.constant.HtmlElementName;
       <td><pre class='prettyprint'>	private List&lt;Option> getOptionList() {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>3</td>
+      <td></td><td class='count'>10</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
         <span class='uncovered' onclick="showPath(this,'l169s0 l171s0 l171s1')">A: 0</span>
-        <span class='covered' onclick="showPath(this,'l169s0 l171s0 l172s0 l177s0')">B: 3</span>
+        <span class='covered' onclick="showPath(this,'l169s0 l171s0 l172s0 l177s0')">B: 10</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>169</td><td class='count'>3</td>
+      <td class='line'>169</td><td class='count'>10</td>
       <td><pre class='prettyprint covered' id='l169s0'>		List&lt;Option> optionList = new ArrayList&lt;Option>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>170</td><td class='count'>3</td>
+      <td class='line'>170</td><td class='count'>10</td>
       <td><pre class='prettyprint covered' id='l170s0'>		List&lt;jp.co.dk.document.Element> childElementList = super.getChildElement();</pre></td>
     </tr>
     <tr>
-      <td class='line'>171</td><td class='count'>3</td>
-      <td><pre class='prettyprint jmp'>		<span id='l171s0' title='Executions: 3' class='covered'>if (childElementList == null)</span> <span id='l171s1' title='Executions: 0' class='uncovered'>return optionList;</span></pre></td>
+      <td class='line'>171</td><td class='count'>10</td>
+      <td><pre class='prettyprint jmp'>		<span id='l171s0' title='Executions: 10' class='covered'>if (childElementList == null)</span> <span id='l171s1' title='Executions: 0' class='uncovered'>return optionList;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>172</td><td class='count'>15</td>
+      <td class='line'>172</td><td class='count'>50</td>
       <td><pre class='prettyprint covered' id='l172s0'>		for (jp.co.dk.document.Element element : childElementList) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>173</td><td class='count'>9</td>
+      <td class='line'>173</td><td class='count'>30</td>
       <td><pre class='prettyprint covered' id='l173s0'>			HtmlElement htmlElement = (HtmlElement)element;</pre></td>
     </tr>
     <tr>
-      <td class='line'>174</td><td class='count'>9</td>
+      <td class='line'>174</td><td class='count'>30</td>
       <td><pre class='prettyprint covered' id='l174s0'>			HtmlElementName elementName = htmlElement.getElementType();</pre></td>
     </tr>
     <tr>
-      <td class='line'>175</td><td class='count'>9</td>
-      <td><pre class='prettyprint jmp'>			<span id='l175s0' title='Executions: 9' class='covered'>if (HtmlElementName.OPTION == elementName)</span> <span id='l175s1' title='Executions: 9' class='covered'>optionList.add(new Option(htmlElement));</span></pre></td>
+      <td class='line'>175</td><td class='count'>30</td>
+      <td><pre class='prettyprint jmp'>			<span id='l175s0' title='Executions: 30' class='covered'>if (HtmlElementName.OPTION == elementName)</span> <span id='l175s1' title='Executions: 30' class='covered'>optionList.add(new Option(htmlElement));</span></pre></td>
     </tr>
     <tr>
       <td class='line'>176</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>177</td><td class='count'>3</td>
+      <td class='line'>177</td><td class='count'>10</td>
       <td><pre class='prettyprint covered' id='l177s0'>		return optionList;</pre></td>
     </tr>
     <tr>
@@ -500,16 +500,16 @@ import jp.co.dk.document.html.constant.HtmlElementName;
       </td>
     </tr>
     <tr>
-      <td class='line'>188</td><td class='count'>3</td>
+      <td class='line'>188</td><td class='count'>10</td>
       <td><pre class='prettyprint covered' id='l188s0'>		Option selectedOption = null;</pre></td>
     </tr>
     <tr>
-      <td class='line'>189</td><td class='count'>15</td>
+      <td class='line'>189</td><td class='count'>50</td>
       <td><pre class='prettyprint covered' id='l189s0'>		for (Option option : optionList) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>190</td><td class='count'>9</td>
-      <td><pre class='prettyprint jmp'>			<span id='l190s0' title='Executions: 9' class='covered'>if (option.hasAttribute(HtmlAttributeName.SELECTED.getName())) {</span></pre></td>
+      <td class='line'>190</td><td class='count'>30</td>
+      <td><pre class='prettyprint jmp'>			<span id='l190s0' title='Executions: 30' class='covered'>if (option.hasAttribute(HtmlAttributeName.SELECTED.getName())) {</span></pre></td>
     </tr>
     <tr>
       <td class='line'>191</td><td class='count'>0</td>
@@ -524,7 +524,7 @@ import jp.co.dk.document.html.constant.HtmlElementName;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>194</td><td class='count'>3</td>
+      <td class='line'>194</td><td class='count'>10</td>
       <td><pre class='prettyprint covered' id='l194s0'>		return selectedOption;</pre></td>
     </tr>
     <tr>

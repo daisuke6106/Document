@@ -25,34 +25,34 @@ import static jp.co.dk.document.message.DocumentMessage.*;
 public class HtmlElement implements jp.co.dk.document.Element{
 	
 	/** 要素インスタンス */
-	private net.htmlparser.jericho.Segment element;
+	protected net.htmlparser.jericho.Segment element;
 	
 	/** 要素生成ファクトリ */
-	private HtmlElementFactory elementFactory;
+	protected HtmlElementFactory elementFactory;
 	
 	/** 本要素のタグインスタンス */
-	private net.htmlparser.jericho.StartTag startTag;
+	protected net.htmlparser.jericho.StartTag startTag;
 	
 	/** 本要素のタグ */
-	private HtmlElementName cache_elementName;
+	protected HtmlElementName cache_elementName;
 	
 	/** 全要素キャッシュ */
-	private List<jp.co.dk.document.Element> cache_allElement;
+	protected List<jp.co.dk.document.Element> cache_allElement;
 	
 	/** 全子要素キャッシュ */
-	private List<jp.co.dk.document.Element> cache_childElement;
+	protected List<jp.co.dk.document.Element> cache_childElement;
 	
 	/** IDのキャッシュ */
-	private String cache_id;
+	protected String cache_id;
 	
 	/** Nameのキャッシュ */
-	private String cache_name;
+	protected String cache_name;
 	
 	/** Classのキャッシュ */
-	private List<String> cache_class;
+	protected List<String> cache_class;
 	
 	/** Contentのキャッシュ */
-	private String cache_content;
+	protected String cache_content;
 	
 	public HtmlElement(String elementStr, HtmlElementFactory elementFactory) throws HtmlDocumentException {
 		if (elementStr == null || elementStr.equals("")) throw new HtmlDocumentException(ERROR_ELEMENT_STRING_IS_NOT_SET);
@@ -272,7 +272,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 		
 		if (this.cache_class == null) {
 			String getClass = this.getAttribute(HtmlAttributeName.CLASS.getName());
-			if (getClass != null && !getClass.equals("")) {
+			if (getClass != null ) {
 				classList = Arrays.asList(getClass.split(" "));
 			}
 			this.cache_class = classList;
@@ -293,7 +293,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 		List<net.htmlparser.jericho.Element> allElement = this.element.getAllElements();
 		for (net.htmlparser.jericho.Element element : allElement) {
 			String elementId = this.getAttributeValue(element, HtmlAttributeName.ID.getName());
-			if (elementId!=null && !elementId.equals("") && elementId.equals(id)) {
+			if (elementId!=null && elementId.equals(id)) {
 				httpElementList.add(this.createHtmlElement(element));
 			}
 		}
@@ -313,7 +313,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 		List<net.htmlparser.jericho.Element> allElement = this.element.getAllElements();
 		for (net.htmlparser.jericho.Element element : allElement) {
 			String elementName = this.getAttributeValue(element, HtmlAttributeName.NAME.getName());
-			if (elementName!=null && !elementName.equals("") && elementName.equals(name) ) {
+			if (elementName!=null && elementName.equals(name) ) {
 				httpElementList.add(this.createHtmlElement(element));
 			}
 		}
@@ -351,7 +351,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	public List<HtmlElement> getHrefList(){
 		List<HtmlElement> urlList = new ArrayList<HtmlElement>();
 		List<net.htmlparser.jericho.Element> hrefList = this.element.getAllElements(net.htmlparser.jericho.HTMLElementName.A);
-		if (hrefList!=null && hrefList.size()!=0) {
+		if (hrefList.size() != 0) {
 			for (net.htmlparser.jericho.Element element: hrefList) {
 				urlList.add(this.createHtmlElement(element));
 			}
@@ -361,9 +361,14 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	}
 	
 	@Override
+	public int hashCode() {
+		return this.element.toString().hashCode() * 17;
+	}
+	
+	@Override
 	public boolean equals(Object object) {
-		if (this == object) return true;
 		if (object == null || !(object instanceof HtmlElement)) return false;
+		if (this == object) return true;
 		HtmlElement htmlElment = (HtmlElement)object;
 		return this.element.toString().equals(htmlElment.element.toString());
 	}
@@ -389,20 +394,6 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	
 	//-------------------------------------------------------------------------------------------------------------
 	
-	/** 
-	 * 指定のElementオブジェクトのタグ名称からHTML要素名称を取得する。<br/>
-	 * 該当のHTML要素がない場合、nullを返却する。
-	 * 
-	 * @return HTML要素名称
-	 */
-	private HtmlElementName cornvertHttpElementName(net.htmlparser.jericho.Segment element) {
-		String tagStr = element.getFirstStartTag().getName();
-		for (HtmlElementName htmlElementName: HtmlElementName.values()) {
-			if (htmlElementName.getName().equals(tagStr)) return htmlElementName;
-		}
-		return null;
-	}
-	
 	/**
 	 * 要素の指定属性取得<br/>
 	 * 
@@ -424,7 +415,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 */
 	private List<jp.co.dk.document.Element> convertList(List<net.htmlparser.jericho.Element> elementList) {
 		List<jp.co.dk.document.Element> httpElementList = new ArrayList<jp.co.dk.document.Element>();
-		if (elementList != null && elementList.size() > 0) {
+		if (elementList.size() > 0) {
 			for (net.htmlparser.jericho.Element element : elementList) {
 				httpElementList.add(this.createHtmlElement(element));
 			}

@@ -1,16 +1,14 @@
 package jp.co.dk.document.html;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
+
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
-
-import mockit.Expectations;
 
 import org.junit.Test;
 
@@ -19,14 +17,71 @@ import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.ElementSelector;
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.html.HtmlElement;
-import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HtmlCharSetName;
 import jp.co.dk.document.html.constant.HtmlElementName;
-import jp.co.dk.document.html.element.selector.AnchorHasImage;
 import jp.co.dk.document.message.DocumentMessage;
 import jp.co.dk.message.MessageInterface;
 
 public class HtmlDocumentTest extends DocumentFoundationTest {
+	
+	@Test
+	public void constractor() {
+		// 読み込み可能なInputStreamを渡した場合、正常にインスタンス作成が行われているかを確認
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p>");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.htmlElement, notNullValue());
+			assertThat(htmlDocument.elementFactory, notNullValue());
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// 読み込み不可能なInputStreamを渡した場合、例外が発生することを確認
+		try {
+			InputStream dummyInputStream = new InputStream() {
+				@Override
+				public int read() throws IOException {
+					throw new IOException("dummy io exception");
+				}
+			};
+			new jp.co.dk.document.html.HtmlDocument(dummyInputStream);
+			fail();
+		} catch (DocumentException e) {
+			assertThat(e.getMessageObj(), is((MessageInterface)DocumentMessage.ERROR_FILE_READ));
+			assertThat(e.getThrowable(), instanceOf(IOException.class));
+			assertThat(e.getThrowable().getMessage(), is("dummy io exception"));
+		}
+		
+		// HTML要素でないテキストを読み込んだとしても、正常にインスタンス作成が行われているかを確認
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("not html text.");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.htmlElement, notNullValue());
+			assertThat(htmlDocument.elementFactory, notNullValue());
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// バイナリデータを読み込んだ場合、正常にインスタンス作成が行われているかを確認
+		try {
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/JPEG.jpg"));
+			assertThat(htmlDocument.htmlElement, notNullValue());
+			assertThat(htmlDocument.elementFactory, notNullValue());
+		} catch (DocumentException e) {
+			fail(e);
+		}
+	}
 	
 	@Test
 	public void getTitle() {
@@ -553,6 +608,48 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 	
 	@Test
 	public void getAttribute() throws DocumentException {
+		// タグに属性が存在する場合、且つ存在する属性を取得した場合、正常に取得できること
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html id=\"test\">");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p id=\"test\">");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.getAttribute("id"), is("test"));
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+			
+		// タグに属性が存在する場合、且つ存在しない属性を取得した場合、nullが取得できること
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html id=\"test\">");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p id=\"test\">");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.getAttribute("name"), nullValue());
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// タグに属性が存在しない場合、nullが取得できること
 		try {
 			StringBuilder html = new StringBuilder();
 			html.append("<html>");
@@ -567,12 +664,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</body>");
 			html.append("</html>");
 			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
-			// タグに属性が存在する場合、且つ存在する属性を取得した場合、正常に取得できること
-			assertThat(htmlDocument.getElement(HtmlElementName.P).get(0).getAttribute("id"), is("test"));
-			// タグに属性が存在する場合、且つ存在しない属性を取得した場合、空文字が取得できること
-			assertThat(htmlDocument.getElement(HtmlElementName.P).get(0).getAttribute("name"), nullValue());
-			// タグに属性が存在しない場合、空文字が取得できること
-			assertThat(htmlDocument.getElement(HtmlElementName.BODY).get(0).getAttribute("id"), nullValue());
+			assertThat(htmlDocument.getAttribute("id"), nullValue());
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -580,6 +672,48 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 	
 	@Test
 	public void hasAttribute() throws DocumentException {
+		// タグに属性が存在する場合、且つ存在する属性を取得した場合、正常に取得できること
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html id=\"test\">");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p id=\"test\">");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.hasAttribute("id"), is(true));
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+			
+		// タグに属性が存在する場合、且つ存在しない属性を取得した場合、nullが取得できること
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<html id=\"test\">");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p id=\"test\">");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.hasAttribute("name"), is(false));
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// タグに属性が存在しない場合、nullが取得できること
 		try {
 			StringBuilder html = new StringBuilder();
 			html.append("<html>");
@@ -594,12 +728,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</body>");
 			html.append("</html>");
 			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
-			// タグに属性が存在する場合、且つ存在する属性を指定した場合、trueが返却されること
-			assertThat(htmlDocument.getElement(HtmlElementName.P).get(0).hasAttribute("id"), is(true));
-			// タグに属性が存在する場合、且つ存在しない属性を指定した場合、falseが返却されること
-			assertThat(htmlDocument.getElement(HtmlElementName.P).get(0).hasAttribute("name"), is(false));
-			// タグに属性が存在しない場合、falseが返却されること
-			assertThat(htmlDocument.getElement(HtmlElementName.BODY).get(0).hasAttribute("id"), is(false));
+			assertThat(htmlDocument.hasAttribute("id"), is(false));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -801,6 +930,15 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		}
 	}
 	
+	private InputStream createHtmlDocument(String htmlStr) {
+		try {
+			return new ByteArrayInputStream(htmlStr.getBytes("UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			fail(e);
+		}
+		return null;
+	}
+	
 	@Test
 	public void getId() throws DocumentException {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
@@ -927,13 +1065,36 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		}
 	}
 	
-	
-	private InputStream createHtmlDocument(String htmlStr) {
+	@Test
+	public void toStringTest() {
+		// 読み込み可能なInputStreamを渡した場合、HTML文書が返却されること
 		try {
-			return new ByteArrayInputStream(htmlStr.getBytes("UTF-8"));
-		} catch (UnsupportedEncodingException e) {
+			StringBuilder html = new StringBuilder();
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("</head>");
+			html.append("<body>");
+			html.append("<p>");
+			html.append("this is test.");
+			html.append("</p>");
+			html.append("</body>");
+			html.append("</html>");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.toString(), is(html.toString()));
+		} catch (DocumentException e) {
 			fail(e);
 		}
-		return null;
+		
+		// HTML要素でないテキストを読み込んだとしても、そのテキストが返却されること
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("not html text.");
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			assertThat(htmlDocument.toString(), is(html.toString()));
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
 	}
 }

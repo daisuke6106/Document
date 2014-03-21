@@ -51,11 +51,11 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
       <td><pre class='prettyprint'>	public A(HtmlElement element) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>22</td><td class='count'>1748</td>
+      <td class='line'>22</td><td class='count'>29</td>
       <td><pre class='prettyprint covered' id='l22s0'>		super(element);</pre></td>
     </tr>
     <tr>
-      <td class='line'>23</td><td class='count'>1748</td>
+      <td class='line'>23</td><td class='count'>29</td>
       <td><pre class='prettyprint covered' id='l23s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -76,10 +76,9 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/3</span>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
         <span class='uncovered' onclick="showPath(this,'l33s0 l34s0 l35s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l33s0 l34s0 l34s1 l35s0')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l33s0 l34s0 l34s1 l37s0')">C: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l33s0 l34s0 l37s0')">B: 0</span>
       </td>
     </tr>
     <tr>
@@ -88,7 +87,7 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
     </tr>
     <tr>
       <td class='line'>34</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l34s0' title='Executions: 0' class='uncovered'>if (href == null</span> || <span id='l34s1' title='Executions: 0' class='uncovered'>href.equals("")) {</span></pre></td>
+      <td><pre class='prettyprint jmp'>		<span id='l34s0' title='Executions: 0' class='uncovered'>if (href.equals("")) {</span></pre></td>
     </tr>
     <tr>
       <td class='line'>35</td><td class='count'>0</td>
@@ -127,92 +126,8 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
       <td class='line'>45</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'></td><td>&nbsp;</td>
-      <td class='comment' onclick='showHideLines(this)'><div>	/**
-	 * ファイル名を取得する。&lt;br/>
-	 * 
-	 * 指定のURLからファイル名称を取得する。
-	 * 
-	 * @param url
-	 * @return ファイル名
-	 */</div><span>	/*...*/</span></td>
-    </tr>
-    <tr>
-      <td class='line'>55</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private String getFileName(String url) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>56</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l56s0'>		return url.substring(url.lastIndexOf('/') + 1);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>57</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'></td><td>&nbsp;</td>
-      <td class='comment' onclick='showHideLines(this)'><div>	/**
-	 * 引数に指定されたファイル名から拡張子を取得する。&lt;br//>
-	 * 
-	 * @param ファイル名
-	 * @return 拡張子
-	 */</div><span>	/*...*/</span></td>
-    </tr>
-    <tr>
-      <td class='line'>65</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private String getExtension(String fileName) {</pre></td>
-    </tr>
-    <tr>
-      <td></td><td class='count'>0</td>
-      <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/4</span>
-        <span class='uncovered' onclick="showPath(this,'l66s0 l67s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l66s0 l66s1 l67s0')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l66s0 l66s1 l69s0 l70s0 l71s0')">C: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l66s0 l66s1 l69s0 l70s0 l73s0')">D: 0</span>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>66</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l66s0' title='Executions: 0' class='uncovered'>if (fileName == null</span> || <span id='l66s1' title='Executions: 0' class='uncovered'>fileName.equals("")) {</span></pre></td>
-    </tr>
-    <tr>
-      <td class='line'>67</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l67s0'>			return "";</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>68</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>69</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l69s0'>		int index = fileName.indexOf('.');</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>70</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l70s0' title='Executions: 0' class='uncovered'>if (index == -1)</span> <span id='l70s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
-    </tr>
-    <tr>
-      <td class='line'>71</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l71s0'>			return "";</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>72</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>73</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l73s0'>		return fileName.substring(index+1);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>74</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>75</td><td>&nbsp;</td>
+      <td class='line'>46</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>

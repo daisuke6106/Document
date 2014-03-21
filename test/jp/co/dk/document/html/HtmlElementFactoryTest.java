@@ -18,8 +18,10 @@ import jp.co.dk.document.html.element.CheckBox;
 import jp.co.dk.document.html.element.Form;
 import jp.co.dk.document.html.element.Image;
 import jp.co.dk.document.html.element.Meta;
+import jp.co.dk.document.html.element.Option;
 import jp.co.dk.document.html.element.Password;
 import jp.co.dk.document.html.element.Radio;
+import jp.co.dk.document.html.element.Select;
 import jp.co.dk.document.html.element.Text;
 import jp.co.dk.document.html.element.File;
 import jp.co.dk.document.html.element.Hidden;
@@ -41,6 +43,7 @@ public class HtmlElementFactoryTest extends DocumentFoundationTest {
 		// HTML要素以外を渡した場合、例外が発生すること。
 		try {
 			factory.convert(xmlDocument.getElement().get(0));
+			fail();
 		} catch (DocumentException e) {
 			if (e.getMessageObj() != DocumentMessage.ERROR_ELEMENT_CONVERT) {
 				fail(e);
@@ -221,6 +224,24 @@ public class HtmlElementFactoryTest extends DocumentFoundationTest {
 		try {
 			Element returnElement = factory.convert(mockHtmlElement);
 			assertTrue(returnElement instanceof Hidden);
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// アンカー要素を変換した場合、セレクトオブジェクトが返却されること。
+		new Expectations() {{mockHtmlElement.getElementType();result = HtmlElementName.SELECT;}};
+		try {
+			Element returnElement = factory.convert(mockHtmlElement);
+			assertTrue(returnElement instanceof Select);
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		// アンカー要素を変換した場合、オプションオブジェクトが返却されること。
+		new Expectations() {{mockHtmlElement.getElementType();result = HtmlElementName.OPTION;}};
+		try {
+			Element returnElement = factory.convert(mockHtmlElement);
+			assertTrue(returnElement instanceof Option);
 		} catch (DocumentException e) {
 			fail(e);
 		}

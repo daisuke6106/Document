@@ -28,9 +28,9 @@ import jp.co.dk.document.message.DocumentMessage;
  */
 public class HtmlDocument extends File implements Document{
 	
-	private HtmlElement htmlElement;
+	protected HtmlElement htmlElement;
 	
-	private ElementFactory elementFactory;
+	protected ElementFactory elementFactory;
 	
 	/**
 	 * コンストラクタ<p/>

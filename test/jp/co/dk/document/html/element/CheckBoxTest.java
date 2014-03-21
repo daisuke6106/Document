@@ -2,7 +2,9 @@ package jp.co.dk.document.html.element;
 
 import static org.junit.Assert.*;
 import jp.co.dk.document.DocumentFoundationTest;
+import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.html.HtmlElement;
+import jp.co.dk.document.html.HtmlElementFactory;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 
 import mockit.Mocked;
@@ -62,5 +64,37 @@ public class CheckBoxTest extends DocumentFoundationTest {
 		assertFalse(checkbox2.getDefaltChecked());
 		
 	}
-
+	
+	@Test
+	public void getMessage() {
+		// checkedが設定されていなかった場合、空文字列が返却されること。
+		try {
+			String tag = "<input type=\"checkbox\" name=\"test\" value=\"checkboxvalue\"/>";
+			CheckBox checkBox = new CheckBox(new jp.co.dk.document.html.HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(checkBox.getMessage(), is(""));
+		} catch (DocumentException e) {
+			fail(e);
+		}
+				
+		// checkedが設定されていた場合、nameとvalueを=で結合した文字列が返却されること。
+		try {
+			String tag = "<input type=\"checkbox\" name=\"test\" value=\"checkboxvalue\" checked />";
+			CheckBox checkBox = new CheckBox(new jp.co.dk.document.html.HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(checkBox.getMessage(), is("test=checkboxvalue"));
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
+		
+		// checkedが設定されていなかった場合、且つcheckedを実行した場合、nameとvalueを=で結合した文字列が返却されること。
+		try {
+			String tag = "<input type=\"checkbox\" name=\"test\" value=\"checkboxvalue\"/>";
+			CheckBox checkBox = new CheckBox(new jp.co.dk.document.html.HtmlElement(tag, new HtmlElementFactory()));
+			checkBox.checked(true);
+			assertThat(checkBox.getMessage(), is("test=checkboxvalue"));
+		} catch (DocumentException e) {
+			fail(e);
+		}
+	}
+	
 }

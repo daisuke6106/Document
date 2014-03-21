@@ -54,45 +54,7 @@ public class Action {
 	public String toString(){
 		return this.form.getAttribute(HtmlAttributeName.ACTION.getName());
 	}
-	
-	//-------------------------------------------------------------------------------------------------------------
-	
-	/**
-	 * URIタイプ取得
-	 * 
-	 * 指定URI文字列が表すURIタイプを返却する。
-	 * 合致するタイプがない場合、nullを返却する。
-	 * 
-	 * @param url URI文字列
-	 * @return URIタイプ
-	 */
-	 private ActionType getActionType(String url) {
-		for (ActionType type : ActionType.values()) {
-			Pattern pattern = type.getPattern();
-			Matcher matcher = pattern.matcher(url);
-			if (matcher.find()) {
-				return type;
-			}
-		}
-		return null;
-	}
-	
-	/**
-	 * URIインスタンス生成
-	 * 
-	 * 指定のURI文字列からURIインスタンスを生成する。
-	 * 
-	 * @param uri URI文字列
-	 * @return URIインスタンス
-	 * @throws HttpConnectException 生成不可能なURI文字列の場合
-	 */
-	private URI createURI(String uri) throws HtmlDocumentException{
-		try {
-			return new URI(uri);
-		} catch (URISyntaxException e) {
-			throw new HtmlDocumentException(DocumentMessage.ERROR_FALLED_TO_CREATE_URI_INSTANCE, uri, e);
-		}
-	}
+
 }
 
 enum ActionType {
