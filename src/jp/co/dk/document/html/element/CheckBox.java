@@ -66,7 +66,7 @@ public class CheckBox extends Input{
 	 * この要素から送信メッセージを生成します。<br/>
 	 * <br/>
 	 * 以下の場合、"name1=value1" が文字列として返却されます。<br/>
-	 * 例：&lt;input tyoe="text" name="name1" value="value1"/&gt;<br/>
+	 * 例：&lt;input type="text" name="name1" value="value1"/&gt;<br/>
 	 * 
 	 * 本要素がdisabled、またはチェック状態でない場合、空文字が返却されます。
 	 * 

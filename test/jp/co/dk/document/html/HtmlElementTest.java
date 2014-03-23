@@ -4,9 +4,6 @@ import static jp.co.dk.document.message.DocumentMessage.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +14,7 @@ import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.ElementSelector;
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
-import jp.co.dk.document.html.constant.HtmlCharSetName;
 import jp.co.dk.document.html.constant.HtmlElementName;
-import jp.co.dk.document.html.element.selector.AnchorHasImage;
 import jp.co.dk.document.html.exception.HtmlDocumentException;
 
 public class HtmlElementTest extends DocumentFoundationTest {
@@ -550,17 +545,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// タグに属性が存在する場合、且つ存在する属性を取得した場合、正常に取得できること
 		try {
 			StringBuilder html = new StringBuilder();
-			html.append("<html id=\"test\">");
-			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
-			html.append("<title>this is title</title>");
-			html.append("</head>");
-			html.append("<body>");
-			html.append("<p id=\"test\">");
-			html.append("this is test.");
-			html.append("</p>");
-			html.append("</body>");
-			html.append("</html>");
+			html.append("<a id=\"test\">");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			assertThat(htmlElement.hasAttribute("id"), is(true));
 		} catch (DocumentException e) {
@@ -571,17 +556,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// タグに属性が存在する場合、且つ存在しない属性を取得した場合、nullが取得できること
 		try {
 			StringBuilder html = new StringBuilder();
-			html.append("<html id=\"test\">");
-			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
-			html.append("<title>this is title</title>");
-			html.append("</head>");
-			html.append("<body>");
-			html.append("<p id=\"test\">");
-			html.append("this is test.");
-			html.append("</p>");
-			html.append("</body>");
-			html.append("</html>");
+			html.append("<a id=\"test\">");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			assertThat(htmlElement.hasAttribute("name"), is(false));
 		} catch (DocumentException e) {
@@ -591,17 +566,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// タグに属性が存在しない場合、nullが取得できること
 		try {
 			StringBuilder html = new StringBuilder();
-			html.append("<html>");
-			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
-			html.append("<title>this is title</title>");
-			html.append("</head>");
-			html.append("<body>");
-			html.append("<p id=\"test\">");
-			html.append("this is test.");
-			html.append("</p>");
-			html.append("</body>");
-			html.append("</html>");
+			html.append("<a/>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			assertThat(htmlElement.hasAttribute("id"), is(false));
 		} catch (DocumentException e) {
@@ -611,22 +576,23 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// 属性があるが値が設定されていない場合でもtrueが返却されること
 		try {
 			StringBuilder html = new StringBuilder();
-			html.append("<html test>");
-			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
-			html.append("<title>this is title</title>");
-			html.append("</head>");
-			html.append("<body>");
-			html.append("<p id=\"test\">");
-			html.append("this is test.");
-			html.append("</p>");
-			html.append("</body>");
-			html.append("</html>");
+			html.append("<a test/>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			assertThat(htmlElement.hasAttribute("test"), is(true));
 		} catch (DocumentException e) {
 			fail(e);
 		}
+		
+		// 属性があるが値が設定されていない場合でもtrueが返却されること（属性が複数の場合）
+		try {
+			StringBuilder html = new StringBuilder();
+			html.append("<input type=\"checkbox\" name=\"test\" value=\"checkboxvalue\" checked />");
+			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
+			assertThat(htmlElement.hasAttribute("checked"), is(true));
+		} catch (DocumentException e) {
+			fail(e);
+		}
+		
 	}
 	
 	@Test
@@ -897,7 +863,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 	
 	@Test
 	public void getElementByName() throws DocumentException {
-		// 要素にIDが存在しない場合、空のリストが返却されること
+		// 要素にNAMEが存在しない場合、空のリストが返却されること
 		try {
 			StringBuilder html = new StringBuilder();
 			html.append("<p>");
@@ -909,7 +875,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			fail(e);
 		}
 		
-		// 要素に指定のIDが存在する場合、指定の要素が取得できること
+		// 要素に指定のNAMEが存在する場合、指定の要素が取得できること
 		try {
 			StringBuilder html = new StringBuilder();
 			html.append("<p>");
@@ -922,7 +888,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			fail(e);
 		}
 		
-		// 要素に指定のIDが存在しない場合、空のリストが返却されること
+		// 要素に指定のNAMEが存在しない場合、空のリストが返却されること
 		try {
 			StringBuilder html = new StringBuilder();
 			html.append("<p>");
@@ -934,7 +900,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			fail(e);
 		}
 		
-		// 要素に指定のIDが存在する場合、指定の要素が取得できること（複数）
+		// 要素に指定のNAMEが存在する場合、指定の要素が取得できること（複数）
 		try {
 			StringBuilder html = new StringBuilder();
 			html.append("<p>");
@@ -951,7 +917,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			fail(e);
 		}
 		
-		// 要素に指定のIDが存在する場合、指定の要素が取得できること（複数）
+		// 要素に指定のNAMEが存在する場合、指定の要素が取得できること（複数）
 		try {
 			StringBuilder html = new StringBuilder();
 			html.append("<p name=\"test\">");

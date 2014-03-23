@@ -78,8 +78,8 @@ public class CheckBoxTest extends DocumentFoundationTest {
 				
 		// checkedが設定されていた場合、nameとvalueを=で結合した文字列が返却されること。
 		try {
-			String tag = "<input type=\"checkbox\" name=\"test\" value=\"checkboxvalue\" checked />";
-			CheckBox checkBox = new CheckBox(new jp.co.dk.document.html.HtmlElement(tag, new HtmlElementFactory()));
+			String tag = "<input type=\"checkbox\" name=\"test\" value=\"checkboxvalue\" checked/>";
+			CheckBox checkBox = new CheckBox(new jp.co.dk.document.html.HtmlElement(tag, new HtmlElementFactory()));  
 			assertThat(checkBox.getMessage(), is("test=checkboxvalue"));
 		} catch (DocumentException e) {
 			fail(e);

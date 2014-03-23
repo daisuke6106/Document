@@ -190,7 +190,9 @@ public class HtmlElement implements jp.co.dk.document.Element{
 			return false;
 		}
 		for (net.htmlparser.jericho.Attribute attribute : attributes) {
-			if (attribute.getName().equals(attributeName)) {
+			String tmpAttributeName = attribute.getName();
+			if (tmpAttributeName.endsWith("/")) tmpAttributeName = tmpAttributeName.substring(0, tmpAttributeName.length()-1);
+			if (tmpAttributeName.equals(attributeName)) {
 				hasAttribute = true;
 				break;
 			}
