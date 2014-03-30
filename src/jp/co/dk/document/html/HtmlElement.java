@@ -85,7 +85,9 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @param element HTML要素インスタンス
 	 */
 	protected HtmlElement(HtmlElement htmlElement) {
-		this(htmlElement.element, htmlElement.elementFactory);
+		this.element  = htmlElement.element;
+		this.startTag = this.element.getFirstStartTag();
+		this.elementFactory = htmlElement.elementFactory;
 	}
 	
 	@Override
@@ -439,5 +441,4 @@ public class HtmlElement implements jp.co.dk.document.Element{
 			return new HtmlElement(element, this.elementFactory);
 		}
 	}
-	
 }

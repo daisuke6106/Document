@@ -52,7 +52,12 @@ public class Action {
 	 */
 	@Override
 	public String toString(){
-		return this.form.getAttribute(HtmlAttributeName.ACTION.getName());
+		String action = this.form.getAttribute(HtmlAttributeName.ACTION.getName());
+		if (action == null) {
+			return "";
+		} else {
+			return action;
+		}
 	}
 
 }

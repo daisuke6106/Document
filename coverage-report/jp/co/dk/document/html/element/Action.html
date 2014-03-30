@@ -46,7 +46,7 @@ import jp.co.dk.document.message.DocumentMessage;
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>22</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected Form <span class='instance covered' title='Reads: 3 Writes: 3'>form</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected Form <span class='instance covered' title='Reads: 2 Writes: 2'>form</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -57,15 +57,15 @@ import jp.co.dk.document.message.DocumentMessage;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>28</td><td class='count'>3</td>
+      <td class='line'>28</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l28s0'>	protected Action(Form form){</pre></td>
     </tr>
     <tr>
-      <td class='line'>29</td><td class='count'>3</td>
+      <td class='line'>29</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l29s0'>		this.form = form;</pre></td>
     </tr>
     <tr>
-      <td class='line'>30</td><td class='count'>3</td>
+      <td class='line'>30</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l30s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -83,24 +83,24 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public URL getURL() throws HtmlDocumentException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>39</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l39s0'>		String url = this.toString();</pre></td>
+      <td class='line'>39</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l39s0'>		String url = this.toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>40</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>41</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l41s0'>			return new URL(url);</pre></td>
+      <td class='line'>41</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l41s0'>			return new URL(url);</pre></td>
     </tr>
     <tr>
-      <td class='line'>42</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l42s0'>		} catch (MalformedURLException e) {</pre></td>
+      <td class='line'>42</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l42s0'>		} catch (MalformedURLException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>43</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l43s0'>			throw new HtmlDocumentException(DocumentMessage.ERROR_AN_INVALID_URL_WAS_SPECIFIED, url, e);</pre></td>
+      <td class='line'>43</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l43s0'>			throw new HtmlDocumentException(DocumentMessage.ERROR_AN_INVALID_URL_WAS_SPECIFIED, url, e);</pre></td>
     </tr>
     <tr>
       <td class='line'>44</td><td>&nbsp;</td>
@@ -129,54 +129,82 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public String toString(){</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l55s0'>		return this.form.getAttribute(HtmlAttributeName.ACTION.getName());</pre></td>
+      <td></td><td class='count'>2</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l55s0 l56s0 l57s0')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l55s0 l56s0 l59s0')">B: 1</span>
+      </td>
     </tr>
     <tr>
-      <td class='line'>56</td><td>&nbsp;</td>
+      <td class='line'>55</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l55s0'>		String action = this.form.getAttribute(HtmlAttributeName.ACTION.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>56</td><td class='count'>2</td>
+      <td><pre class='prettyprint jmp'>		<span id='l56s0' title='Executions: 2' class='covered'>if (action == null)</span> <span id='l56s1' title='Executions: 1' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>57</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l57s0'>			return "";</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>58</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>59</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l59s0'>			return action;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>60</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>61</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>58</td><td>&nbsp;</td>
+      <td class='line'>63</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>60</td><td>&nbsp;</td>
+      <td class='line'>65</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>enum ActionType {</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>62</td><td>&nbsp;</td>
+      <td class='line'>67</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	HTTP("http:.*"),</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>64</td><td>&nbsp;</td>
+      <td class='line'>69</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	HTTPS("https:.*"),</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>66</td><td>&nbsp;</td>
+      <td class='line'>71</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	MAILTO("mailto:.*"),</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>68</td><td>&nbsp;</td>
+      <td class='line'>73</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	FTP("ftp:.*"),</pre></td>
     </tr>
     <tr>
-      <td class='line'>69</td><td>&nbsp;</td>
+      <td class='line'>74</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>71</td><td>&nbsp;</td>
+      <td class='line'>76</td><td>&nbsp;</td>
       <td><pre class='comment'>	/** 各URIを表すURIパターン */</pre></td>
     </tr>
     <tr>
-      <td class='line'>72</td><td>&nbsp;</td>
+      <td class='line'>77</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	private Pattern pattern;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -188,15 +216,15 @@ import jp.co.dk.document.message.DocumentMessage;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>78</td><td>&nbsp;</td>
+      <td class='line'>83</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	private ActionType(String pattern){</pre></td>
     </tr>
     <tr>
-      <td class='line'>79</td><td>&nbsp;</td>
+      <td class='line'>84</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		this.pattern = Pattern.compile(pattern);</pre></td>
     </tr>
     <tr>
-      <td class='line'>80</td><td>&nbsp;</td>
+      <td class='line'>85</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -210,19 +238,19 @@ import jp.co.dk.document.message.DocumentMessage;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>88</td><td>&nbsp;</td>
+      <td class='line'>93</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	Pattern getPattern() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>89</td><td>&nbsp;</td>
+      <td class='line'>94</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		return this.pattern;</pre></td>
     </tr>
     <tr>
-      <td class='line'>90</td><td>&nbsp;</td>
+      <td class='line'>95</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr>
-      <td class='line'>91</td><td>&nbsp;</td>
+      <td class='line'>96</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>
