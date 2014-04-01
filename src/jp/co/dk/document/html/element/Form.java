@@ -21,9 +21,9 @@ import jp.co.dk.document.html.constant.InputTypeName;
  */
 public class Form extends HtmlElement{
 	
-	private FormElemenetFactory formElementFactory;
+	protected FormElemenetFactory formElementFactory;
 	
-	private List<HtmlElement> cache_formElementList;
+	protected List<HtmlElement> cache_formElementList;
 	
 	/**
 	 * コンストラクタ

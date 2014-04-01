@@ -55,7 +55,7 @@ import static jp.co.dk.document.message.DocumentMessage.*;
     </tr>
     <tr>
       <td class='line'>28</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected net.htmlparser.jericho.Segment <span class='instance covered' title='Reads: 6 Writes: 4'>element</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected net.htmlparser.jericho.Segment <span class='instance covered' title='Reads: 17 Writes: 12'>element</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -64,7 +64,7 @@ import static jp.co.dk.document.message.DocumentMessage.*;
     </tr>
     <tr>
       <td class='line'>31</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected HtmlElementFactory <span class='instance uncovered' title='Reads: 2 Writes: 4'>elementFactory</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected HtmlElementFactory <span class='instance uncovered' title='Reads: 6 Writes: 12'>elementFactory</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -73,7 +73,7 @@ import static jp.co.dk.document.message.DocumentMessage.*;
     </tr>
     <tr>
       <td class='line'>34</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected net.htmlparser.jericho.StartTag <span class='instance uncovered' title='Reads: 2 Writes: 4'>startTag</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected net.htmlparser.jericho.StartTag <span class='instance uncovered' title='Reads: 6 Writes: 12'>startTag</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -139,51 +139,51 @@ import static jp.co.dk.document.message.DocumentMessage.*;
       <td><pre class='prettyprint'>	protected String <span class='instance uncovered' title='Reads: 0 Writes: 0'>cache_content</span>;</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>2</td>
+      <td></td><td class='count'>6</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#cc3300' onclick='hidePath()'>Path coverage: 1/5</span>
         <span class='uncovered' onclick="showPath(this,'l57s0 l58s0 l58s2')">A: 0</span>
         <span class='uncovered' onclick="showPath(this,'l57s0 l58s0 l58s1 l58s2')">B: 0</span>
         <span class='uncovered' onclick="showPath(this,'l57s0 l58s0 l58s1 l59s0 l59s1')">C: 0</span>
         <span class='uncovered' onclick="showPath(this,'l57s0 l58s0 l58s1 l59s0 l60s0 l63s0 l63s1')">D: 0</span>
-        <span class='covered' onclick="showPath(this,'l57s0 l58s0 l58s1 l59s0 l60s0 l63s0 l64s0 l65s0')">E: 2</span>
+        <span class='covered' onclick="showPath(this,'l57s0 l58s0 l58s1 l59s0 l60s0 l63s0 l64s0 l65s0')">E: 6</span>
       </td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>57</td><td class='count'>2</td>
+      <td class='line'>57</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l57s0'>	public HtmlElement(String elementStr, HtmlElementFactory elementFactory) throws HtmlDocumentException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td class='count'>2</td>
-      <td><pre class='prettyprint jmp'>		<span id='l58s0' title='Executions: 2' class='covered'>if (elementStr == null</span> || <span id='l58s1' title='Executions: 2' class='covered'>elementStr.equals("")) throw new HtmlDocumentException(ERROR_ELEMENT_STRING_IS_NOT_SET);</span></pre></td>
+      <td class='line'>58</td><td class='count'>6</td>
+      <td><pre class='prettyprint jmp'>		<span id='l58s0' title='Executions: 6' class='covered'>if (elementStr == null</span> || <span id='l58s1' title='Executions: 6' class='covered'>elementStr.equals("")) throw new HtmlDocumentException(ERROR_ELEMENT_STRING_IS_NOT_SET);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>59</td><td class='count'>2</td>
-      <td><pre class='prettyprint jmp'>		<span id='l59s0' title='Executions: 2' class='covered'>if (elementFactory == null)</span> <span id='l59s1' title='Executions: 0' class='uncovered'>throw new HtmlDocumentException(ERROR_ELEMENT_FACTORY_IS_NOT_SET);</span></pre></td>
+      <td class='line'>59</td><td class='count'>6</td>
+      <td><pre class='prettyprint jmp'>		<span id='l59s0' title='Executions: 6' class='covered'>if (elementFactory == null)</span> <span id='l59s1' title='Executions: 0' class='uncovered'>throw new HtmlDocumentException(ERROR_ELEMENT_FACTORY_IS_NOT_SET);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>60</td><td class='count'>2</td>
+      <td class='line'>60</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l60s0'>		net.htmlparser.jericho.Source element = new net.htmlparser.jericho.Source(elementStr); </pre></td>
     </tr>
     <tr>
-      <td class='line'>61</td><td class='count'>2</td>
+      <td class='line'>61</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l61s0'>		this.element  = element;</pre></td>
     </tr>
     <tr>
-      <td class='line'>62</td><td class='count'>2</td>
+      <td class='line'>62</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l62s0'>		this.startTag = element.getFirstStartTag();</pre></td>
     </tr>
     <tr>
-      <td class='line'>63</td><td class='count'>2</td>
-      <td><pre class='prettyprint jmp'>		<span id='l63s0' title='Executions: 2' class='covered'>if (this.startTag == null)</span> <span id='l63s1' title='Executions: 0' class='uncovered'>throw new HtmlDocumentException(ERROR_ELEMENT_STRING_CONVERT);</span></pre></td>
+      <td class='line'>63</td><td class='count'>6</td>
+      <td><pre class='prettyprint jmp'>		<span id='l63s0' title='Executions: 6' class='covered'>if (this.startTag == null)</span> <span id='l63s1' title='Executions: 0' class='uncovered'>throw new HtmlDocumentException(ERROR_ELEMENT_STRING_CONVERT);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>64</td><td class='count'>2</td>
+      <td class='line'>64</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l64s0'>		this.elementFactory = elementFactory;</pre></td>
     </tr>
     <tr>
-      <td class='line'>65</td><td class='count'>2</td>
+      <td class='line'>65</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l65s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -229,23 +229,23 @@ import static jp.co.dk.document.message.DocumentMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>87</td><td class='count'>2</td>
+      <td class='line'>87</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l87s0'>	protected HtmlElement(HtmlElement htmlElement) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>88</td><td class='count'>2</td>
+      <td class='line'>88</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l88s0'>		this.element  = htmlElement.element;</pre></td>
     </tr>
     <tr>
-      <td class='line'>89</td><td class='count'>2</td>
+      <td class='line'>89</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l89s0'>		this.startTag = this.element.getFirstStartTag();</pre></td>
     </tr>
     <tr>
-      <td class='line'>90</td><td class='count'>2</td>
+      <td class='line'>90</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l90s0'>		this.elementFactory = htmlElement.elementFactory;</pre></td>
     </tr>
     <tr>
-      <td class='line'>91</td><td class='count'>2</td>
+      <td class='line'>91</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l91s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -643,7 +643,7 @@ import static jp.co.dk.document.message.DocumentMessage.*;
       <td><pre class='prettyprint'>	public String getAttribute(String name) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>184</td><td class='count'>2</td>
+      <td class='line'>184</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l184s0'>		return this.element.getFirstElement().getAttributeValue(name);</pre></td>
     </tr>
     <tr>
@@ -1295,22 +1295,22 @@ import static jp.co.dk.document.message.DocumentMessage.*;
       <td><pre class='prettyprint'>	public boolean equals(Object object) {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>0</td>
+      <td></td><td class='count'>1</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/4</span>
+        <span style='cursor:default; background-color:#bf4000' onclick='hidePath()'>Path coverage: 1/4</span>
         <span class='uncovered' onclick="showPath(this,'l374s0 l374s2')">A: 0</span>
         <span class='uncovered' onclick="showPath(this,'l374s0 l374s1 l374s2')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l374s0 l374s1 l375s0 l375s1')">C: 0</span>
+        <span class='covered' onclick="showPath(this,'l374s0 l374s1 l375s0 l375s1')">C: 1</span>
         <span class='uncovered' onclick="showPath(this,'l374s0 l374s1 l375s0 l376s0 l377s0')">D: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>374</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l374s0' title='Executions: 0' class='uncovered'>if (object == null</span> || <span id='l374s1' title='Executions: 0' class='uncovered'>!(object instanceof HtmlElement)) return false;</span></pre></td>
+      <td class='line'>374</td><td class='count'>1</td>
+      <td><pre class='prettyprint jmp'>		<span id='l374s0' title='Executions: 1' class='covered'>if (object == null</span> || <span id='l374s1' title='Executions: 1' class='covered'>!(object instanceof HtmlElement)) return false;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>375</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l375s0' title='Executions: 0' class='uncovered'>if (this == object)</span> <span id='l375s1' title='Executions: 0' class='uncovered'>return true;</span></pre></td>
+      <td class='line'>375</td><td class='count'>1</td>
+      <td><pre class='prettyprint jmp'>		<span id='l375s0' title='Executions: 1' class='covered'>if (this == object)</span> <span id='l375s1' title='Executions: 1' class='covered'>return true;</span></pre></td>
     </tr>
     <tr>
       <td class='line'>376</td><td class='count'>0</td>
@@ -1361,16 +1361,16 @@ import static jp.co.dk.document.message.DocumentMessage.*;
       <td><pre class='prettyprint'>	protected List&lt;HtmlElement> getFormElementList() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>394</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l394s0'>		List&lt;HtmlElement> list = new ArrayList&lt;HtmlElement>();</pre></td>
+      <td class='line'>394</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l394s0'>		List&lt;HtmlElement> list = new ArrayList&lt;HtmlElement>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>395</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l395s0' title='Executions: 0' class='uncovered'>for (FormControl formControl</span> : <span id='l395s1' title='Executions: 0' class='uncovered'>this.element.getFormControls()) list.add(this.createHtmlElement(formControl));</span></pre></td>
+      <td class='line'>395</td><td class='count'>1</td>
+      <td><pre class='prettyprint jmp'>		<span id='l395s0' title='Executions: 1' class='covered'>for (FormControl formControl</span> : <span id='l395s1' title='Executions: 1' class='covered'>this.element.getFormControls()) list.add(this.createHtmlElement(formControl));</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>396</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l396s0'>		return list;</pre></td>
+      <td class='line'>396</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l396s0'>		return list;</pre></td>
     </tr>
     <tr>
       <td class='line'>397</td><td>&nbsp;</td>

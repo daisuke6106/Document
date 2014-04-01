@@ -21,37 +21,30 @@ public class ActionTest extends DocumentFoundationTest{
 	@Test
 	public void getUrl() {
 		// Formタグにアクションが設定されていない場合、例外を返却すること。
-		
-		
 		try {
-			Action action = new Action(form);
-			action1.getURL();
+			String tag = "<form><input type=\"text\" name=\"test\" value=\"test\"/></form>";
+			Action sut = new Action(new Form(new HtmlElement(tag, new HtmlElementFactory())));
+			sut.getURL();
 			fail();
 		} catch (HtmlDocumentException e) {
 			if (e.getMessageObj() != DocumentMessage.ERROR_AN_INVALID_URL_WAS_SPECIFIED) fail(e);
 		}
 		
 		// Formタグにアクションが設定されていない場合、例外を返却すること。
-		new NonStrictExpectations(){{
-				form.getAttribute(HtmlAttributeName.ACTION.getName());
-				result = "";
-		}};
-		Action action2 = new Action(form);
 		try {
-			action2.getURL();
+			String tag = "<form action=\"\"><input type=\"text\" name=\"test\" value=\"test\"/></form>";
+			Action sut = new Action(new Form(new HtmlElement(tag, new HtmlElementFactory())));
+			sut.getURL();
 			fail();
 		} catch (HtmlDocumentException e) {
 			if (e.getMessageObj() != DocumentMessage.ERROR_AN_INVALID_URL_WAS_SPECIFIED) fail(e);
 		}
 		
 		// Formタグにアクションが設定されていない場合、正常に値を取得できること。
-		new NonStrictExpectations(){{
-				form.getAttribute(HtmlAttributeName.ACTION.getName());
-				result = "http://www.google.com";
-		}};
-		Action action3 = new Action(form);
 		try {
-			URL url = action3.getURL();
+			String tag = "<form action=\"http://www.google.com\"><input type=\"text\" name=\"test\" value=\"test\"/></form>";
+			Action sut = new Action(new Form(new HtmlElement(tag, new HtmlElementFactory())));
+			URL url = sut.getURL();
 			assertEquals(url.toString(), "http://www.google.com");
 		} catch (HtmlDocumentException e) {
 			fail(e);

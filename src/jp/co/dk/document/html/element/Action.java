@@ -33,7 +33,7 @@ public class Action {
 	 * URL取得
 	 * 本FORM要素のactionが示すURLを返却する。
 	 * 
-	 * @return url 本FORM要素が表すURL
+	 * @return 本FORM要素が表すURL
 	 */
 	public URL getURL() throws HtmlDocumentException {
 		String url = this.toString();
