@@ -15,6 +15,7 @@ import org.junit.Test;
 
 public class ImageTest extends DocumentFoundationTest{
 	
+	
 	@Test
 	public void getSrc() {
 		// srcタグが設定されている場合、その値を取得できること
