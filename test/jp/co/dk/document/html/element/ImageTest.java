@@ -3,7 +3,10 @@ package jp.co.dk.document.html.element;
 import static org.junit.Assert.*;
 import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.html.HtmlElement;
+import jp.co.dk.document.html.HtmlElementFactory;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
+import jp.co.dk.document.html.constant.HtmlRequestMethodName;
+import jp.co.dk.document.html.exception.HtmlDocumentException;
 
 import mockit.Mocked;
 import mockit.NonStrictExpectations;
@@ -12,31 +15,63 @@ import org.junit.Test;
 
 public class ImageTest extends DocumentFoundationTest{
 	
-	@Mocked
-	private HtmlElement htmlElement;
-	
 	@Test
 	public void getSrc() {
-		new NonStrictExpectations() {{
-			htmlElement.getAttribute(HtmlAttributeName.SRC.getName());
-			result = null;
-		}};
-		Image image1 = new Image(htmlElement);
-		assertEquals(image1.getSrc(), "");
+		// srcタグが設定されている場合、その値を取得できること
+		try {
+			String tag = "<img src=\"text\">";
+			Image sut = new Image(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getSrc(), is ("text"));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
-		new NonStrictExpectations() {{
-			htmlElement.getAttribute(HtmlAttributeName.SRC.getName());
-			result = "";
-		}};
-		Image image2 = new Image(htmlElement);
-		assertEquals(image2.getSrc(), "");
+		// srcタグが設定されていない場合、空文字を取得できること
+		try {
+			String tag = "<img>";
+			Image sut = new Image(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getSrc(), is (""));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
-		new NonStrictExpectations() {{
-			htmlElement.getAttribute(HtmlAttributeName.SRC.getName());
-			result = "test";
-		}};
-		Image image3 = new Image(htmlElement);
-		assertEquals(image3.getSrc(), "test");
+		// srcタグが設定されているが、値が空文字である場合、空文字が取得できること
+		try {
+			String tag = "<img src=\"\">";
+			Image sut = new Image(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getSrc(), is (""));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 	}
-
+	
+	@Test
+	public void getUrl() {
+		// srcタグが設定されている場合、その値を取得できること
+		try {
+			String tag = "<img src=\"text\">";
+			Image sut = new Image(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getUrl(), is ("text"));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+		
+		// srcタグが設定されていない場合、空文字を取得できること
+		try {
+			String tag = "<img>";
+			Image sut = new Image(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getUrl(), is (""));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+		
+		// srcタグが設定されているが、値が空文字である場合、空文字が取得できること
+		try {
+			String tag = "<img src=\"\">";
+			Image sut = new Image(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getUrl(), is (""));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+	}
 }
