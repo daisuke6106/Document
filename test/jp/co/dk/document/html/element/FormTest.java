@@ -81,5 +81,57 @@ public class FormTest extends DocumentFoundationTest{
 		} catch (HtmlDocumentException e) {
 			fail(e);
 		}
+		
+		// Form要素内に <input>、<select>、<textarea> などのフォーム部品が存在した場合
+		// のリストを返却すること。
+		// キャッシュされていること
+		// 再度getFormElementListを実行した際に、キャッシュされているリストが返却されていること
+		try {
+			String tag = 
+					"<form>" +
+						"<input type=\"text\"     name=\"textname\"/>" +
+						"<input type=\"password\" name=\"passwordname\"/>" +
+						"<input type=\"file\"     name=\"filename\"/>" +
+						"<input type=\"checkbox\" name=\"checkboxname\"/>" +
+						"<input type=\"radio\"    name=\"radioname\"/>" +
+						"<input type=\"hidden\"   name=\"hiddenname\"/>" +
+						"<input type=\"submit\"   name=\"submitname\"/>" +
+						"<input type=\"reset\"    name=\"resetname\"/>" +
+						"<input type=\"button\"   name=\"buttonname\"/>" +
+						"<input type=\"image\"    name=\"imagename\"/>" +
+						"<select name=\"selectname\">" +
+							"<option value=\"option1\">オプション１" +
+							"<option value=\"option2\">オプション２" +
+							"<option value=\"option3\">オプション３" +
+						"</select>" +
+						"<form>" +
+					"</form>";
+			Form sut = new Form(new HtmlElement(tag, new HtmlElementFactory()));
+			List<HtmlElement> result = sut.getFormElementList();
+			assertThat(result.size(), is(9));
+			
+			checkElement(result.get(0), "input", "text", "textname");
+			checkElement(result.get(1), "input", "password", "passwordname");
+			checkElement(result.get(2), "input", "file", "filename");
+			checkElement(result.get(3), "input", "checkbox", "checkboxname");
+			checkElement(result.get(4), "input", "radio", "radioname");
+			checkElement(result.get(5), "input", "hidden", "hiddenname");
+			checkElement(result.get(6), "input", "submit", "submitname");
+			checkElement(result.get(7), "input", "image", "imagename");
+			checkElement(result.get(8), "select", null, "selectname");
+			
+
+			assertThat(sut.cache_formElementList, is (result));
+			assertThat(sut.getFormElementList(), is (result));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 	}
+	
+	private void checkElement(HtmlElement htmlElement, String tagName, String type, String name) {
+		assertThat(htmlElement.getTagName(), is(tagName));
+		assertThat(htmlElement.getAttribute("type"), is(type));
+		assertThat(htmlElement.getAttribute("name"), is(name));
+	}
+	
 }
