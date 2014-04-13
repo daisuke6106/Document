@@ -13,6 +13,7 @@ import jp.co.dk.document.html.element.CheckBoxTest;
 import jp.co.dk.document.html.element.FormTest;
 import jp.co.dk.document.html.element.ImageTest;
 import jp.co.dk.document.html.element.InputTest;
+import jp.co.dk.document.html.element.LinkTest;
 import jp.co.dk.document.html.element.MetaTest;
 import jp.co.dk.document.html.element.OptionTest;
 import jp.co.dk.document.html.element.PasswordTest;
@@ -36,7 +37,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	/* jp.co.dk.document.html.constant */
 	HtmlCharSetNameTest.class, HtmlRequestMethodNameTest.class, HttpEquivNameTest.class,
 	/* jp.co.dk.document.html.element */
-	ActionTest.class, ATest.class, CheckBoxTest.class, FormTest.class, ImageTest.class, InputTest.class, MetaTest.class,
+	ActionTest.class, ATest.class, CheckBoxTest.class, FormTest.class, ImageTest.class, InputTest.class, LinkTest.class, MetaTest.class,
 	OptionTest.class, PasswordTest.class, RadioTest.class, ResetTest.class, SelectTest.class,
 	/* jp.co.dk.document.xml */
 	XmlDocumentTest.class

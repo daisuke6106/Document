@@ -1,117 +1,125 @@
 package jp.co.dk.document.html.element;
 
-import static org.junit.Assert.*;
 import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.html.HtmlElement;
-import jp.co.dk.document.html.constant.HtmlAttributeName;
-
-import mockit.Mocked;
-import mockit.NonStrictExpectations;
+import jp.co.dk.document.html.HtmlElementFactory;
+import jp.co.dk.document.html.exception.HtmlDocumentException;
 
 import org.junit.Test;
 
 public class InputTest extends DocumentFoundationTest{
 	
-	@Mocked
-	private HtmlElement htmlElement;
-	
 	@Test
 	public void getValue() {
-		new NonStrictExpectations() {{
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = null;
-		}};
-		Input input1 = new Input(htmlElement);
-		assertEquals(input1.getValue(), "");
+		// value属性が設定されている場合、その値を取得できること
+		try {
+			String tag = "<input type=\"text\" value=\"test\">";
+			Input sut = new Input(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.cache_value, nullValue());
+			assertThat(sut.getValue(),  is ("test"));
+			assertThat(sut.cache_value, is ("test"));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
-		new NonStrictExpectations() {{
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = "";
-		}};
-		Input input2 = new Input(htmlElement);
-		assertEquals(input2.getValue(), "");
+		// value属性が設定されていない場合、空文字を取得できること。
+		try {
+			String tag = "<input type=\"text\">";
+			Input sut = new Input(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.cache_value, nullValue());
+			assertThat(sut.getValue(),  is (""));
+			assertThat(sut.cache_value, is (""));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
-		new NonStrictExpectations() {{
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = "test";
-		}};
-		Input input3 = new Input(htmlElement);
-		assertEquals(input3.getValue(), "test");
+		// value属性が設定されているかつ、空文字である場合、その値を取得できること
+		try {
+			String tag = "<input type=\"text\" value=\"\">";
+			Input sut = new Input(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.cache_value, nullValue());
+			assertThat(sut.getValue(),  is (""));
+			assertThat(sut.cache_value, is (""));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 	}
 	
 	@Test
 	public void setValue() {
-		new NonStrictExpectations() {{
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = "test";
-		}};
-		Input input3 = new Input(htmlElement);
-		assertEquals(input3.getValue(), "test");
-		input3.setValue("test2");
-		assertEquals(input3.getValue(), "test2");
+		// value属性が設定されている場合でその値を上書きした場合、その値を取得できること
+		try {
+			String tag = "<input type=\"text\" value=\"test\">";
+			Input sut = new Input(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.cache_value, nullValue());
+			assertThat(sut.getValue(),  is ("test"));
+			assertThat(sut.cache_value, is ("test"));
+			sut.setValue("override");
+			assertThat(sut.cache_value, is ("override"));
+			assertThat(sut.getValue(),  is ("override"));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+		
 	}
 	
 	@Test
 	public void isDisabled() {
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.DISABLED.getName());
-			result = new Boolean(true);
-		}};
-		Input input1 = new Input(htmlElement);
-		assertTrue(input1.isDisabled());
+		// disabled属性が設定されていない場合、falseが返却されること
+		try {
+			String tag = "<input type=\"text\" value=\"value\">";
+			Input sut = new Input(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.isDisabled(), is(false));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.DISABLED.getName());
-			result = new Boolean(false);
-		}};
-		Input input2 = new Input(htmlElement);
-		assertFalse(input2.isDisabled());
+		// disabled属性が設定されていた場合、trueが返却されること
+		try {
+			String tag = "<input type=\"text\" value=\"value\" disabled>";
+			Input sut = new Input(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.isDisabled(), is(true));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 	}
 	
 	@Test
 	public void getMessage(){
-		// INPUT要素がdisable状態の場合、空文字が返却されること
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.DISABLED.getName());
-			result = new Boolean(true);
-		}};
-		Input input1 = new Input(htmlElement);
-		assertEquals(input1.getMessage(), "");
+		// disabled属性が設定されていた場合、空文字が返却されること
+		try {
+			String tag = "<input type=\"text\" name=\"sendname\" value=\"sendvalue\" disabled>";
+			Input sut = new Input(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getMessage(), is(""));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
-		// INPUT要素がdisable状態でない場合、かつnameとvalueの値が空の場合、空文字が返却されること
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.DISABLED.getName());
-			result = new Boolean(false);
-			htmlElement.getName();
-			result = "";
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = "";
-		}};
-		Input input2 = new Input(htmlElement);
-		assertEquals(input2.getMessage(), "");
+		// name属性が設定されていなかった場合、空文字が返却されること
+		try {
+			String tag = "<input type=\"text\" value=\"sendvalue\">";
+			Input sut = new Input(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getMessage(), is(""));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
-		// INPUT要素がdisable状態でない場合、かつnameとvalueの値が空でない場合、"name=value"が返却されること
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.DISABLED.getName());
-			result = new Boolean(false);
-			htmlElement.getName();
-			result = "name";
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = "value";
-		}};
-		Input input3 = new Input(htmlElement);
-		assertEquals(input3.getMessage(), "name=value");
-		
-		// INPUT要素がdisable状態でない場合、かつnameが空、valueの値が空でない場合、空文字が返却されること
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.DISABLED.getName());
-			result = new Boolean(false);
-			htmlElement.getName();
-			result = "";
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = "value";
-		}};
-		Input input4 = new Input(htmlElement);
-		assertEquals(input4.getMessage(), "");
+		// name属性が設定され、value属性が設定されていなかった場合、値が入っていない送信値が取得されること
+		try {
+			String tag = "<input type=\"text\" name=\"sendname\" >";
+			Input sut = new Input(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getMessage(), is("sendname="));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+				
+		// name属性、value属性が設定されていた場合、正常に送信値が取得できること
+		try {
+			String tag = "<input type=\"text\" name=\"sendname\" value=\"sendvalue\">";
+			Input sut = new Input(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getMessage(), is("sendname=sendvalue"));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 	}
 }

@@ -12,10 +12,10 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
 public class Radio extends Input{
 	
 	/** チェックフラグ */
-	private boolean checked;
+	protected boolean checked;
 	
 	/** デフォルトチェックフラグ */
-	private boolean defaltChecked;
+	protected boolean defaltChecked;
 	
 	/**
 	 * コンストラクタ

@@ -31,7 +31,7 @@ public class Link extends AbstractMovableHtmlElement {
 	 */
 	public String getHref() {
 		String href = super.getAttribute(HtmlAttributeName.HREF.getName());
-		if (href == null || href.equals("")) {
+		if (href == null) {
 			return "";
 		} else {
 			return href;

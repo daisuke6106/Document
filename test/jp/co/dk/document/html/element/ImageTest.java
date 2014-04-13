@@ -1,15 +1,9 @@
 package jp.co.dk.document.html.element;
 
-import static org.junit.Assert.*;
 import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.HtmlElementFactory;
-import jp.co.dk.document.html.constant.HtmlAttributeName;
-import jp.co.dk.document.html.constant.HtmlRequestMethodName;
 import jp.co.dk.document.html.exception.HtmlDocumentException;
-
-import mockit.Mocked;
-import mockit.NonStrictExpectations;
 
 import org.junit.Test;
 

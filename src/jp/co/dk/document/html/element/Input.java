@@ -11,7 +11,7 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
  */
 class Input extends HtmlElement{
 	
-	private String cache_value;
+	protected String cache_value;
 	
 	Input(HtmlElement element) {
 		super(element);
@@ -74,7 +74,7 @@ class Input extends HtmlElement{
 		if (this.isDisabled()) 	return "";
 		String name  = this.getName();
 		String value = this.getValue();
-		if (name == null || name.equals("")) return "";
+		if (name.equals("")) return "";
 		StringBuilder sb = new StringBuilder(name).append('=').append(value);
 		return sb.toString();
 	}

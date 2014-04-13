@@ -1,45 +1,48 @@
 package jp.co.dk.document.html.element;
 
-import static org.junit.Assert.*;
 import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.html.HtmlElement;
-import jp.co.dk.document.html.constant.HtmlAttributeName;
-
-import mockit.Mocked;
-import mockit.NonStrictExpectations;
+import jp.co.dk.document.html.HtmlElementFactory;
+import jp.co.dk.document.html.exception.HtmlDocumentException;
 
 import org.junit.Test;
 
 public class OptionTest extends DocumentFoundationTest{
 	
-	@Mocked
-	private HtmlElement htmlElement;
-	
 	@Test
 	public void getValue() {
 		// Option要素に"value"の属性が設定されていない場合、空文字を返却すること。
-		new NonStrictExpectations() {{
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = null;
-		}};
-		Option option1 = new Option(htmlElement);
-		assertEquals(option1.getValue(), "");
+		try {
+			String tag = "<option>";
+			Option sut = new Option(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.cache_value, nullValue());
+			assertThat(sut.getValue(), is (""));
+			assertThat(sut.cache_value, is (""));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
 		// Option要素に"value"の属性が設定されていない場合、空文字を返却すること。
-		new NonStrictExpectations() {{
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = "";
-		}};
-		Option option2 = new Option(htmlElement);
-		assertEquals(option2.getValue(), "");
+		try {
+			String tag = "<option value=\"\">";
+			Option sut = new Option(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.cache_value, nullValue());
+			assertThat(sut.getValue(), is (""));
+			assertThat(sut.cache_value, is (""));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
 		// Option要素に"value"の属性が設定されていた場合、その文字列を返却すること。
-		new NonStrictExpectations() {{
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = "test";
-		}};
-		Option option3 = new Option(htmlElement);
-		assertEquals(option3.getValue(), "test");
+		try {
+			String tag = "<option value=\"text\">";
+			Option sut = new Option(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.cache_value, nullValue());
+			assertThat(sut.getValue(), is ("text"));
+			assertThat(sut.cache_value, is ("text"));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 	}
 
 }

@@ -3,7 +3,9 @@ package jp.co.dk.document.html.element;
 import static org.junit.Assert.*;
 import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.html.HtmlElement;
+import jp.co.dk.document.html.HtmlElementFactory;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
+import jp.co.dk.document.html.exception.HtmlDocumentException;
 
 import mockit.Mocked;
 import mockit.NonStrictExpectations;
@@ -12,90 +14,124 @@ import org.junit.Test;
 
 public class RadioTest extends DocumentFoundationTest{
 	
-	@Mocked
-	private HtmlElement htmlElement;
+	@Test
+	public void constractor() {
+		// Html要素にchecked属性が設定されていた場合
+		try {
+			String tag = "<input type=\"radio\" name=\"sendname\" value=\"sendvalue\">";
+			Radio sut = new Radio(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.defaltChecked, is (false));
+			assertThat(sut.checked      , is (false));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+		
+		// Html要素にchecked属性が設定されていた場合
+		try {
+			String tag = "<input type=\"radio\" name=\"sendname\" value=\"sendvalue\" checked>";
+			Radio sut = new Radio(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.defaltChecked, is (true));
+			assertThat(sut.checked      , is (true));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+	}
 	
 	@Test
 	public void isChecked() {
 		// Html要素にchecked属性が設定されていた場合、falseが返却されること
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = new Boolean(false);
-		}};
-		Radio radio1 = new Radio(htmlElement);
-		assertFalse(radio1.isChecked());
-		assertFalse(radio1.getDefaltChecked());
+		try {
+			String tag = "<input type=\"radio\" name=\"sendname\" value=\"sendvalue\">";
+			Radio sut = new Radio(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.isChecked(), is (false));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
 		// Html要素にchecked属性が設定されていた場合、trueが返却されること
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = new Boolean(true);
-		}};
-		Radio radio2 = new Radio(htmlElement);
-		assertTrue(radio2.isChecked());
-		assertTrue(radio2.getDefaltChecked());
+		try {
+			String tag = "<input type=\"radio\" name=\"sendname\" value=\"sendvalue\" checked>";
+			Radio sut = new Radio(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.isChecked(), is (true));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 	}
 	
 	@Test
 	public void checked() {
 		// Html要素にchecked属性が設定されていた場合、falseが返却されること
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = new Boolean(false);
-		}};
-		Radio radio1 = new Radio(htmlElement);
-		radio1.checked(true);
-		assertTrue(radio1.isChecked());
-		assertFalse(radio1.getDefaltChecked());
+		try {
+			String tag = "<input type=\"radio\" name=\"sendname\" value=\"sendvalue\" checked>";
+			Radio sut = new Radio(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.isChecked(), is (true));
+			sut.checked(false);
+			assertThat(sut.isChecked(), is (false));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
 		// Html要素にchecked属性が設定されていた場合、trueが返却されること
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = new Boolean(true);
-		}};
-		Radio radio2 = new Radio(htmlElement);
-		radio2.checked(false);
-		assertFalse(radio2.isChecked());
-		assertTrue(radio2.getDefaltChecked());
+		try {
+			String tag = "<input type=\"radio\" name=\"sendname\" value=\"sendvalue\">";
+			Radio sut = new Radio(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.isChecked(), is (false));
+			sut.checked(true);
+			assertThat(sut.isChecked(), is (true));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 	}
 	
+	@Test
+	public void getDefaltChecked() {
+		// Html要素にchecked属性が設定されていた場合、falseが返却されること
+		try {
+			String tag = "<input type=\"radio\" name=\"sendname\" value=\"sendvalue\">";
+			Radio sut = new Radio(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getDefaltChecked(), is (false));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+		
+		// Html要素にchecked属性が設定されていた場合、trueが返却されること
+		try {
+			String tag = "<input type=\"radio\" name=\"sendname\" value=\"sendvalue\" checked>";
+			Radio sut = new Radio(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getDefaltChecked(), is (true));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+	}
 	
 	@Test
 	public void getMessage() {
 		// Html要素にchecked属性がfalseの場合、nameとvalueに設定されていた場合でも空文字が返却されること
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = new Boolean(false);
-			htmlElement.getName();
-			result = "name";
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = "value";
-		}};
-		Radio radio1 = new Radio(htmlElement);
-		assertEquals(radio1.getMessage(), "");
+		try {
+			String tag = "<input type=\"radio\" name=\"sendname\" value=\"sendvalue\">";
+			Radio sut = new Radio(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getMessage(), is (""));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
 		// Html要素にchecked属性がtrue、かつnameとvalueに値が設定されていた場合、"name=value"が返却されること
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = new Boolean(true);
-			htmlElement.getName();
-			result = "name";
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = "value";
-		}};
-		Radio radio2 = new Radio(htmlElement);
-		assertEquals(radio2.getMessage(), "name=value");
+		try {
+			String tag = "<input type=\"radio\" name=\"sendname\" value=\"sendvalue\" checked>";
+			Radio sut = new Radio(new HtmlElement(tag, new HtmlElementFactory()));
+			assertThat(sut.getMessage(), is ("sendname=sendvalue"));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
 		
-		// Html要素にchecked属性がtrue、かつvalueに値が設定されていた場合でも、nameには空文字の場合""が返却されること
-		new NonStrictExpectations() {{
-			htmlElement.hasAttribute(HtmlAttributeName.CHECKED.getName());
-			result = new Boolean(true);
-			htmlElement.getName();
-			result = "";
-			htmlElement.getAttribute(HtmlAttributeName.VALUE.getName());
-			result = "value";
-		}};
-		Radio radio3 = new Radio(htmlElement);
-		assertEquals(radio3.getMessage(), "");
+		try {
+			String tag = "<input type=\"radio\" name=\"sendname\" value=\"sendvalue\">";
+			Radio sut = new Radio(new HtmlElement(tag, new HtmlElementFactory()));
+			sut.checked(true);
+			assertThat(sut.getMessage(), is ("sendname=sendvalue"));
+		} catch (HtmlDocumentException e) {
+			fail(e);
+		}
+		
 	}
 }

@@ -12,7 +12,7 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
 public class Option extends HtmlElement{
 	
 	/** Valueのキャッシュ */
-	private String cache_value;
+	protected String cache_value;
 	
 	/**
 	 * コンストラクタ
