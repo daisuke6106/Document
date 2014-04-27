@@ -31,7 +31,7 @@ public class Script extends AbstractMovableHtmlElement {
 	 */
 	public String getSrc() {
 		String src = super.getAttribute(HtmlAttributeName.SRC.getName());
-		if (src == null || src.equals("")) {
+		if (src == null) {
 			return "";
 		} else {
 			return src;

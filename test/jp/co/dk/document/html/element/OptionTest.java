@@ -40,6 +40,7 @@ public class OptionTest extends DocumentFoundationTest{
 			assertThat(sut.cache_value, nullValue());
 			assertThat(sut.getValue(), is ("text"));
 			assertThat(sut.cache_value, is ("text"));
+			assertThat(sut.getValue(), is ("text"));
 		} catch (HtmlDocumentException e) {
 			fail(e);
 		}

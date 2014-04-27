@@ -68,7 +68,21 @@ public class Form extends HtmlElement{
 
 	/**
 	 * FORM要素取得
-	 * このFORM要素からFORM一覧を取得する
+	 * このFORM要素からFORM一覧を取得する。
+	 * 
+	 * 取得されるFORMに属する要素として以下の要素を取得する。<br/>
+	 * <br/>
+	 * ・TEXT要素<br/>
+	 * ・PASSWORD要素<br/>
+	 * ・FILE要素<br/>
+	 * ・CHECKBOX要素<br/>
+	 * ・RADIO要素<br/>
+	 * ・HIDDEN要素<br/>
+	 * ・SUBMIT要素<br/>
+	 * ・RESET要素<br/>
+	 * ・BUTTON要素<br/>
+	 * ・IMAGE要素<br/>
+	 * ・SELECT要素<br/>
 	 * 
 	 * @return FORM要素一覧
 	 */
@@ -89,15 +103,26 @@ public class Form extends HtmlElement{
 	 * FORM要素取得
 	 * 指定されたFORMの要素内から送信用要素の一覧をマップ形式で返却します。
 	 * 
-	 * key=nameの名称
-	 * value=nameを保持する要素の一覧
+	 * 取得されるFORMに属する要素として以下の要素を取得する。<br/>
+	 * <br/>
+	 * ・TEXT要素<br/>
+	 * ・PASSWORD要素<br/>
+	 * ・FILE要素<br/>
+	 * ・CHECKBOX要素<br/>
+	 * ・RADIO要素<br/>
+	 * ・HIDDEN要素<br/>
+	 * ・SUBMIT要素<br/>
+	 * ・IMAGE要素<br/>
+	 * ・SELECT要素<br/>
+	 * 
+	 * @return 送信用要素一覧のマップ形式（key=nameの名称、value=nameを保持する要素の一覧）
 	 */
 	public Map<String, List<HtmlElement>> getFormElementMap() {
 		List<HtmlElement> formElementList = this.getFormElementList();
 		Map<String, List<HtmlElement>> map = new HashMap<String, List<HtmlElement>>();
 		for (HtmlElement formElement : formElementList) {
 			String name = formElement.getName();
-			if (name == null || name.equals("")) continue;
+			if (name.equals("")) continue;
 			List<HtmlElement> addedList = map.get(name);
 			if (addedList == null) {
 				List<HtmlElement> addList = new ArrayList<HtmlElement>();
