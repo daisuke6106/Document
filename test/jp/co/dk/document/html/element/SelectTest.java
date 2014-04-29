@@ -1,15 +1,11 @@
 package jp.co.dk.document.html.element;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.HtmlElementFactory;
 import jp.co.dk.document.html.exception.HtmlDocumentException;
-
-import mockit.Mocked;
 
 import org.junit.Test;
 
@@ -138,6 +134,59 @@ public class SelectTest extends DocumentFoundationTest {
 	}
 	
 	@Test
+	public void getValue() {
+		// OPTIONタグが設定されていない場合、空文字が返却されること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			assertThat(select.getValue(), is(""));
+		} catch (HtmlDocumentException e) {	fail(e);}
+		
+		// OPTIONタグが設定されている、且つ、selectメソッドにて、指定の要素が選択状態で合った場合、
+		// その指定の要素のvalueが返却されること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("<option value=\"サンプル1\">サンプル1</option>");
+			sb.append("<option value=\"サンプル2\">サンプル2</option>");
+			sb.append("<option value=\"サンプル3\">サンプル3</option>");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			select.select(0);
+			assertThat(select.getValue(), is("サンプル1"));
+		} catch (HtmlDocumentException e) {	fail(e);}
+		
+		// OPTIONタグが設定されている、且つ、selected属性が付与されている場合、
+		// その要素のvalueが返却されること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("<option value=\"サンプル1\" selected>サンプル1</option>");
+			sb.append("<option value=\"サンプル2\">サンプル2</option>");
+			sb.append("<option value=\"サンプル3\">サンプル3</option>");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			assertThat(select.getValue(), is("サンプル1"));
+		} catch (HtmlDocumentException e) {	fail(e);}
+		
+		// OPTIONタグが設定されている、且つselected属性、またはselectメソッドが実施されていない場合、
+		// OPTIONの最初の属性のvalueが返却されること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("<option value=\"サンプル1\" selected>サンプル1</option>");
+			sb.append("<option value=\"サンプル2\">サンプル2</option>");
+			sb.append("<option value=\"サンプル3\">サンプル3</option>");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			assertThat(select.getValue(), is("サンプル1"));
+		} catch (HtmlDocumentException e) {	fail(e);}
+		
+	}
+	
+	@Test
 	public void isDisabled() {
 		// disabledタグが設定されていない場合、falseが返却されること
 		try {
@@ -166,6 +215,39 @@ public class SelectTest extends DocumentFoundationTest {
 	
 	@Test
 	public void getMessage() {
+		// OPTIONが存在しない且つ、nameが存在しないselect要素で合った場合、空のメッセージが返却されること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select>");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			assertThat(select.getMessage(), is(""));
+		} catch (HtmlDocumentException e) {fail(e);}
+				
+		// OPTIONが存在しない且つ、nameが存在するselect要素で合った場合、nameのみのメッセージが返却されること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			assertThat(select.getMessage(), is("example="));
+		} catch (HtmlDocumentException e) {fail(e);}
+		
+		// OPTIONが存在する且つ、selectedが存在しない、且つ、何も選択していない場合、
+		// 最初の要素が選択状態としてメッセージが生成されること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("<option value=\"サンプル1\">サンプル1</option>");
+			sb.append("<option value=\"サンプル2\">サンプル2</option>");
+			sb.append("<option value=\"サンプル3\">サンプル3</option>");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			assertThat(select.getMessage(), is("example=サンプル1"));
+		} catch (HtmlDocumentException e) {fail(e);}
+		
+		// OPTIONが存在する且つ、selectedが存在する、且つ、何も選択していない場合、
+		// selectedの要素が選択状態としてメッセージが生成されること。
 		try {
 			StringBuilder sb = new StringBuilder();
 			sb.append("<select name=\"example\">");
@@ -174,7 +256,36 @@ public class SelectTest extends DocumentFoundationTest {
 			sb.append("<option value=\"サンプル3\">サンプル3</option>");
 			sb.append("</select>");
 			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
-			assertThat(select.getMessage(), is("example="));
+			assertThat(select.getMessage(), is("example=サンプル2"));
 		} catch (HtmlDocumentException e) {fail(e);}
+		
+		// OPTIONが存在する且つ、selectedが存在しない、且つ、要素を選択した場合、
+		// 選択した要素が選択状態としてメッセージが生成されること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("<option value=\"サンプル1\">サンプル1</option>");
+			sb.append("<option value=\"サンプル2\">サンプル2</option>");
+			sb.append("<option value=\"サンプル3\">サンプル3</option>");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			select.select(2);
+			assertThat(select.getMessage(), is("example=サンプル3"));
+		} catch (HtmlDocumentException e) {fail(e);}
+		
+		// OPTIONが存在する且つ、selectedが存在する、且つ、要素を選択した場合、
+		// 選択した要素が選択状態としてメッセージが生成されること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("<option value=\"サンプル1\">サンプル1</option>");
+			sb.append("<option value=\"サンプル2\" selected>サンプル2</option>");
+			sb.append("<option value=\"サンプル3\">サンプル3</option>");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			select.select(2);
+			assertThat(select.getMessage(), is("example=サンプル3"));
+		} catch (HtmlDocumentException e) {fail(e);}
+		
 	}
 }

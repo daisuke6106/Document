@@ -99,6 +99,7 @@ public class Select extends HtmlElement{
 	 * @return 設定判定 true=正常に設定 false=設定を失敗
 	 *         (指定の文字列をOPTIONが保持していない等の場合)
 	 */
+	/* 現在不要で有るため、除外、使用する際にはテストを記載すること
 	public boolean select(String value) {
 		for (Option option : this.option) {
 			String optionValue = option.getValue();
@@ -109,6 +110,7 @@ public class Select extends HtmlElement{
 		}
 		return false;
 	}
+	*/
 	
 	/**
 	 * 値を取得する。<p/>
@@ -119,7 +121,7 @@ public class Select extends HtmlElement{
 	 * @return オプション値
 	 */
 	public String getValue() {
-		if (this.option == null || this.option.size() == 0) return "";
+		if (this.option.size() == 0) return "";
 		if (this.selected != null ) return this.selected.getValue();
 		if (this.defaltSelected != null) return this.defaltSelected.getValue();
 		return this.option.get(0).getValue();
@@ -151,6 +153,7 @@ public class Select extends HtmlElement{
 	protected String getMessage() {
 		if (this.isDisabled()) return "";
 		String name  = this.getName();
+		if (name.equals("")) return "";
 		String value = this.getValue();
 		StringBuilder sb = new StringBuilder(name).append('=').append(value);
 		return sb.toString();
@@ -168,7 +171,6 @@ public class Select extends HtmlElement{
 	private List<Option> getOptionList() {
 		List<Option> optionList = new ArrayList<Option>();
 		List<jp.co.dk.document.Element> childElementList = super.getChildElement();
-		if (childElementList == null) return optionList;
 		for (jp.co.dk.document.Element element : childElementList) {
 			HtmlElement htmlElement = (HtmlElement)element;
 			HtmlElementName elementName = htmlElement.getElementType();
@@ -188,7 +190,7 @@ public class Select extends HtmlElement{
 		Option selectedOption = null;
 		for (Option option : optionList) {
 			if (option.hasAttribute(HtmlAttributeName.SELECTED.getName())) {
-				selectedOption = option;
+				return option;
 			}
 		}
 		return selectedOption;
