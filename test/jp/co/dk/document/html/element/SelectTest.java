@@ -10,16 +10,73 @@ import jp.co.dk.document.html.exception.HtmlDocumentException;
 import org.junit.Test;
 
 public class SelectTest extends DocumentFoundationTest {
-
+	
+	@Test
+	public void constractor() {
+		// OPTION要素が設定されていないSELECT要素であった場合、正常にインスタンスが生成されること。
+		// オプション一覧フィールドが期待値通りであること。
+		// デフォルトオプションフィールドが期待値通りであること。
+		// 選択オプションフィールドが期待値通りであること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			assertThat(select.option.size(), is(0));
+			assertNull(select.defaltSelected);
+			assertNull(select.selected);
+		} catch (HtmlDocumentException e) {	fail(e);}
+		
+		// OPTION要素が設定されているSELECT要素であった場合、正常にインスタンスが生成されること。
+		// オプション一覧フィールドが期待値通りであること。
+		// デフォルトオプションフィールドが期待値通りであること。
+		// 選択オプションフィールドが期待値通りであること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("<option value=\"サンプル1\">サンプル1</option>");
+			sb.append("<option value=\"サンプル2\">サンプル2</option>");
+			sb.append("<option value=\"サンプル3\">サンプル3</option>");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			assertThat(select.option.size(), is(3));
+			assertThat(select.option.get(0).getValue(), is("サンプル1"));
+			assertThat(select.option.get(1).getValue(), is("サンプル2"));
+			assertThat(select.option.get(2).getValue(), is("サンプル3"));
+			assertNull(select.defaltSelected);
+			assertNull(select.selected);
+		} catch (HtmlDocumentException e) {	fail(e);}
+		
+		// selected属性を保持するOPTION要素が設定されているSELECT要素であった場合、正常にインスタンスが生成されること。
+		// オプション一覧フィールドが期待値通りであること。
+		// デフォルトオプションフィールドが期待値通りであること。
+		// 選択オプションフィールドが期待値通りであること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("<option value=\"サンプル1\" selected>サンプル1</option>");
+			sb.append("<option value=\"サンプル2\">サンプル2</option>");
+			sb.append("<option value=\"サンプル3\">サンプル3</option>");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			assertThat(select.option.size(), is(3));
+			assertThat(select.option.get(0).getValue() , is("サンプル1"));
+			assertThat(select.option.get(1).getValue() , is("サンプル2"));
+			assertThat(select.option.get(2).getValue() , is("サンプル3"));
+			assertThat(select.defaltSelected.getValue(), is("サンプル1"));
+			assertThat(select.selected.getValue()      , is("サンプル1"));
+		} catch (HtmlDocumentException e) {	fail(e);}
+	}
+	
 	@Test
 	public void getOption() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("<select name=\"example\">");
-		sb.append("<option value=\"サンプル1\">サンプル1</option>");
-		sb.append("<option value=\"サンプル2\">サンプル2</option>");
-		sb.append("<option value=\"サンプル3\">サンプル3</option>");
-		sb.append("</select>");
 		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\">");
+			sb.append("<option value=\"サンプル1\">サンプル1</option>");
+			sb.append("<option value=\"サンプル2\">サンプル2</option>");
+			sb.append("<option value=\"サンプル3\">サンプル3</option>");
+			sb.append("</select>");
 			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
 			List<Option> optionList = select.getOption();
 			assertEquals(optionList.size(), 3);
@@ -233,6 +290,19 @@ public class SelectTest extends DocumentFoundationTest {
 			assertThat(select.getMessage(), is("example="));
 		} catch (HtmlDocumentException e) {fail(e);}
 		
+		// OPTIONが存在しない且つ、nameが存在するselect要素で合った場合、nameのみのメッセージが返却されること。
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<select name=\"example\" disabled>");
+			sb.append("<option value=\"サンプル1\">サンプル1</option>");
+			sb.append("<option value=\"サンプル2\">サンプル2</option>");
+			sb.append("<option value=\"サンプル3\">サンプル3</option>");
+			sb.append("</select>");
+			Select select = new Select(new HtmlElement(sb.toString(), new HtmlElementFactory()));
+			assertThat(select.getMessage(), is(""));
+		} catch (HtmlDocumentException e) {fail(e);}
+		
+				
 		// OPTIONが存在する且つ、selectedが存在しない、且つ、何も選択していない場合、
 		// 最初の要素が選択状態としてメッセージが生成されること。
 		try {

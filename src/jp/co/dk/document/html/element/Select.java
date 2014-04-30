@@ -16,13 +16,13 @@ import jp.co.dk.document.html.constant.HtmlElementName;
 public class Select extends HtmlElement{
 	
 	/** オプション一覧 */
-	private List<Option> option;
+	protected List<Option> option;
 	
 	/** デフォルト選択オプション */
-	private Option defaltSelected;
+	protected Option defaltSelected;
 	
 	/** 選択オプション */
-	private Option selected;
+	protected Option selected;
 	
 	/**
 	 * コンストラクタ
@@ -123,7 +123,6 @@ public class Select extends HtmlElement{
 	public String getValue() {
 		if (this.option.size() == 0) return "";
 		if (this.selected != null ) return this.selected.getValue();
-		if (this.defaltSelected != null) return this.defaltSelected.getValue();
 		return this.option.get(0).getValue();
 		
 	}
@@ -168,7 +167,7 @@ public class Select extends HtmlElement{
 	 * 
 	 * @return OPTION要素一覧
 	 */
-	private List<Option> getOptionList() {
+	protected List<Option> getOptionList() {
 		List<Option> optionList = new ArrayList<Option>();
 		List<jp.co.dk.document.Element> childElementList = super.getChildElement();
 		for (jp.co.dk.document.Element element : childElementList) {
@@ -181,12 +180,11 @@ public class Select extends HtmlElement{
 	
 	/**
 	 * デフォルト選択済みオプション取得
-	 * 
-	 * 本SELECT要素に保持しているOPTION要素から選択済みのオプションを返却する。
+	 * 本SELECT要素に保持しているOPTION要素からSELECTED属性が定義されている選択済みのオプションを返却する。
 	 * 
 	 * @return 選択済みOPTION要素
 	 */
-	private Option selectedOption(List<Option> optionList ) {
+	protected Option selectedOption(List<Option> optionList ) {
 		Option selectedOption = null;
 		for (Option option : optionList) {
 			if (option.hasAttribute(HtmlAttributeName.SELECTED.getName())) {
