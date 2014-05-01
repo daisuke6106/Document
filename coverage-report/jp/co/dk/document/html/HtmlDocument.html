@@ -55,12 +55,12 @@ import jp.co.dk.document.message.DocumentMessage;
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>31</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected HtmlElement <span class='instance uncovered' title='Reads: 0 Writes: 0'>htmlElement</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected HtmlElement <span class='instance covered' title='Reads: 57 Writes: 55'>htmlElement</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>33</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected ElementFactory <span class='instance uncovered' title='Reads: 0 Writes: 0'>elementFactory</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected ElementFactory <span class='instance uncovered' title='Reads: 0 Writes: 55'>elementFactory</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -78,12 +78,12 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public HtmlDocument(InputStream inputStream) throws DocumentException{</pre></td>
     </tr>
     <tr>
-      <td class='line'>43</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l43s0'>		this(inputStream, new HtmlElementFactory());</pre></td>
+      <td class='line'>43</td><td class='count'>56</td>
+      <td><pre class='prettyprint covered' id='l43s0'>		this(inputStream, new HtmlElementFactory());</pre></td>
     </tr>
     <tr>
-      <td class='line'>44</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l44s0'>	}</pre></td>
+      <td class='line'>44</td><td class='count'>55</td>
+      <td><pre class='prettyprint covered' id='l44s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -102,20 +102,20 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public HtmlDocument(InputStream inputStream, HtmlElementFactory elementFactory) throws DocumentException{</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l55s0'>		super(inputStream);</pre></td>
+      <td class='line'>55</td><td class='count'>56</td>
+      <td><pre class='prettyprint covered' id='l55s0'>		super(inputStream);</pre></td>
     </tr>
     <tr>
       <td class='line'>56</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>57</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l57s0'>			this.htmlElement    = new HtmlElement(new net.htmlparser.jericho.Source(super.fileData.getStream()), elementFactory);</pre></td>
+      <td class='line'>57</td><td class='count'>55</td>
+      <td><pre class='prettyprint covered' id='l57s0'>			this.htmlElement    = new HtmlElement(new net.htmlparser.jericho.Source(super.fileData.getStream()), elementFactory);</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l58s0'>			this.elementFactory = elementFactory;</pre></td>
+      <td class='line'>58</td><td class='count'>55</td>
+      <td><pre class='prettyprint covered' id='l58s0'>			this.elementFactory = elementFactory;</pre></td>
     </tr>
     <tr>
       <td class='line'>59</td><td class='count'>0</td>
@@ -130,8 +130,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>62</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l62s0'>	}</pre></td>
+      <td class='line'>62</td><td class='count'>55</td>
+      <td><pre class='prettyprint covered' id='l62s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -149,32 +149,32 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public String getTitle() {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>0</td>
+      <td></td><td class='count'>5</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
-        <span class='uncovered' onclick="showPath(this,'l72s0 l73s0 l74s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l72s0 l73s0 l76s0')">B: 0</span>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l72s0 l73s0 l74s0')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l72s0 l73s0 l76s0')">B: 4</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>72</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l72s0'>		List&lt;jp.co.dk.document.Element> title = this.htmlElement.getElement(HtmlElementName.TITLE);</pre></td>
+      <td class='line'>72</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l72s0'>		List&lt;jp.co.dk.document.Element> title = this.htmlElement.getElement(HtmlElementName.TITLE);</pre></td>
     </tr>
     <tr>
-      <td class='line'>73</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l73s0' title='Executions: 0' class='uncovered'>if (title.size() == 0) {</span></pre></td>
+      <td class='line'>73</td><td class='count'>5</td>
+      <td><pre class='prettyprint jmp'>		<span id='l73s0' title='Executions: 5' class='covered'>if (title.size() == 0) {</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>74</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l74s0'>			return "";</pre></td>
+      <td class='line'>74</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l74s0'>			return "";</pre></td>
     </tr>
     <tr>
       <td class='line'>75</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		} else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>76</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l76s0'>			return title.get(0).getContent().toString();</pre></td>
+      <td class='line'>76</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l76s0'>			return title.get(0).getContent().toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>77</td><td>&nbsp;</td>
@@ -207,32 +207,32 @@ import jp.co.dk.document.message.DocumentMessage;
       </td>
     </tr>
     <tr>
-      <td class='line'>87</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l87s0'>		List&lt;Element> elementList = this.htmlElement.getElement(HtmlElementName.META);</pre></td>
+      <td class='line'>87</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l87s0'>		List&lt;Element> elementList = this.htmlElement.getElement(HtmlElementName.META);</pre></td>
     </tr>
     <tr>
-      <td class='line'>88</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l88s0'>		for (Element element : elementList) {</pre></td>
+      <td class='line'>88</td><td class='count'>16</td>
+      <td><pre class='prettyprint covered' id='l88s0'>		for (Element element : elementList) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>89</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l89s0'>			Meta meta = (Meta) element;</pre></td>
+      <td class='line'>89</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l89s0'>			Meta meta = (Meta) element;</pre></td>
     </tr>
     <tr>
-      <td class='line'>90</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l90s0'>			HttpEquivName httpEquiv = meta.getHttpEquiv();</pre></td>
+      <td class='line'>90</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l90s0'>			HttpEquivName httpEquiv = meta.getHttpEquiv();</pre></td>
     </tr>
     <tr>
-      <td class='line'>91</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>			<span id='l91s0' title='Executions: 0' class='uncovered'>if (HttpEquivName.CONTENT_TYPE == httpEquiv)</span> <span id='l91s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
+      <td class='line'>91</td><td class='count'>5</td>
+      <td><pre class='prettyprint jmp'>			<span id='l91s0' title='Executions: 5' class='covered'>if (HttpEquivName.CONTENT_TYPE == httpEquiv)</span> <span id='l91s1' title='Executions: 3' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>92</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l92s0'>				for (HtmlCharSetName charset :HtmlCharSetName.values()) {</pre></td>
+      <td class='line'>92</td><td class='count'>19</td>
+      <td><pre class='prettyprint covered' id='l92s0'>				for (HtmlCharSetName charset :HtmlCharSetName.values()) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>93</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>					<span id='l93s0' title='Executions: 0' class='uncovered'>if (charset.isEncording(meta.getMetaContent())) return charset;</span></pre></td>
+      <td class='line'>93</td><td class='count'>17</td>
+      <td><pre class='prettyprint jmp'>					<span id='l93s0' title='Executions: 17' class='covered'>if (charset.isEncording(meta.getMetaContent())) return charset;</span></pre></td>
     </tr>
     <tr>
       <td class='line'>94</td><td>&nbsp;</td>
@@ -247,8 +247,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>97</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l97s0'>		return null;</pre></td>
+      <td class='line'>97</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l97s0'>		return null;</pre></td>
     </tr>
     <tr>
       <td class='line'>98</td><td>&nbsp;</td>
@@ -264,8 +264,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public List&lt;Element> getElement() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>102</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l102s0'>		return this.htmlElement.getElement();</pre></td>
+      <td class='line'>102</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l102s0'>		return this.htmlElement.getElement();</pre></td>
     </tr>
     <tr>
       <td class='line'>103</td><td>&nbsp;</td>
@@ -281,8 +281,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public List&lt;Element> getElement(ElementName elementName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>107</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l107s0'>		return this.htmlElement.getElement(elementName);</pre></td>
+      <td class='line'>107</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l107s0'>		return this.htmlElement.getElement(elementName);</pre></td>
     </tr>
     <tr>
       <td class='line'>108</td><td>&nbsp;</td>
@@ -298,8 +298,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public List&lt;Element> getElement(ElementSelector elementSelector) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>112</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l112s0'>		return this.htmlElement.getElement(elementSelector);</pre></td>
+      <td class='line'>112</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l112s0'>		return this.htmlElement.getElement(elementSelector);</pre></td>
     </tr>
     <tr>
       <td class='line'>113</td><td>&nbsp;</td>
@@ -315,8 +315,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public List&lt;Element> getChildElement() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>117</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l117s0'>		return this.htmlElement.getChildElement();</pre></td>
+      <td class='line'>117</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l117s0'>		return this.htmlElement.getChildElement();</pre></td>
     </tr>
     <tr>
       <td class='line'>118</td><td>&nbsp;</td>
@@ -332,8 +332,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public List&lt;Element> getChildElement(ElementName elementName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>122</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l122s0'>		return this.htmlElement.getChildElement(elementName);</pre></td>
+      <td class='line'>122</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l122s0'>		return this.htmlElement.getChildElement(elementName);</pre></td>
     </tr>
     <tr>
       <td class='line'>123</td><td>&nbsp;</td>
@@ -349,8 +349,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public List&lt;Element> getChildElement(ElementSelector elementSelector) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>127</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l127s0'>		return this.htmlElement.getChildElement(elementSelector);</pre></td>
+      <td class='line'>127</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l127s0'>		return this.htmlElement.getChildElement(elementSelector);</pre></td>
     </tr>
     <tr>
       <td class='line'>128</td><td>&nbsp;</td>
@@ -366,8 +366,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public boolean hasChildElement() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>132</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l132s0'>		return this.htmlElement.hasChildElement();</pre></td>
+      <td class='line'>132</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l132s0'>		return this.htmlElement.hasChildElement();</pre></td>
     </tr>
     <tr>
       <td class='line'>133</td><td>&nbsp;</td>
@@ -383,8 +383,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public boolean isElement(ElementName elementName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>137</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l137s0'>		return this.htmlElement.isElement(elementName);</pre></td>
+      <td class='line'>137</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l137s0'>		return this.htmlElement.isElement(elementName);</pre></td>
     </tr>
     <tr>
       <td class='line'>138</td><td>&nbsp;</td>
@@ -400,8 +400,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public boolean hasElement(ElementName elementName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>142</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l142s0'>		return this.htmlElement.hasElement(elementName);</pre></td>
+      <td class='line'>142</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l142s0'>		return this.htmlElement.hasElement(elementName);</pre></td>
     </tr>
     <tr>
       <td class='line'>143</td><td>&nbsp;</td>
@@ -417,8 +417,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public String getAttribute(String name) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>147</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l147s0'>		return this.htmlElement.getAttribute(name);</pre></td>
+      <td class='line'>147</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l147s0'>		return this.htmlElement.getAttribute(name);</pre></td>
     </tr>
     <tr>
       <td class='line'>148</td><td>&nbsp;</td>
@@ -434,8 +434,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public boolean hasAttribute(String attributeName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>152</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l152s0'>		return this.htmlElement.hasAttribute(attributeName);</pre></td>
+      <td class='line'>152</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l152s0'>		return this.htmlElement.hasAttribute(attributeName);</pre></td>
     </tr>
     <tr>
       <td class='line'>153</td><td>&nbsp;</td>
@@ -451,8 +451,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public String getTagName() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>157</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l157s0'>		return this.htmlElement.getTagName();</pre></td>
+      <td class='line'>157</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l157s0'>		return this.htmlElement.getTagName();</pre></td>
     </tr>
     <tr>
       <td class='line'>158</td><td>&nbsp;</td>
@@ -468,16 +468,16 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public String getContent() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>162</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l162s0'>		StringBuilder sb = new StringBuilder();</pre></td>
+      <td class='line'>162</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l162s0'>		StringBuilder sb = new StringBuilder();</pre></td>
     </tr>
     <tr>
-      <td class='line'>163</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l163s0'>		this.getContect(sb, this.htmlElement);</pre></td>
+      <td class='line'>163</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l163s0'>		this.getContect(sb, this.htmlElement);</pre></td>
     </tr>
     <tr>
-      <td class='line'>164</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l164s0'>		return sb.toString();</pre></td>
+      <td class='line'>164</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l164s0'>		return sb.toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>165</td><td>&nbsp;</td>
@@ -489,32 +489,32 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	private void getContect(StringBuilder sb, HtmlElement element) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>168</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l168s0'>		sb.append(htmlElement.getContent());</pre></td>
+      <td class='line'>168</td><td class='count'>8</td>
+      <td><pre class='prettyprint covered' id='l168s0'>		sb.append(htmlElement.getContent());</pre></td>
     </tr>
     <tr>
-      <td class='line'>169</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l169s0'>		for (jp.co.dk.document.Element childElement : element.getChildElement()){</pre></td>
+      <td class='line'>169</td><td class='count'>22</td>
+      <td><pre class='prettyprint covered' id='l169s0'>		for (jp.co.dk.document.Element childElement : element.getChildElement()){</pre></td>
     </tr>
     <tr>
-      <td class='line'>170</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l170s0'>			HtmlElement htmlElement = (HtmlElement)childElement;</pre></td>
+      <td class='line'>170</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l170s0'>			HtmlElement htmlElement = (HtmlElement)childElement;</pre></td>
     </tr>
     <tr>
-      <td class='line'>171</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l171s0'>			sb.append(htmlElement.getContent());</pre></td>
+      <td class='line'>171</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l171s0'>			sb.append(htmlElement.getContent());</pre></td>
     </tr>
     <tr>
-      <td class='line'>172</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l172s0'>			getContect(sb, htmlElement);</pre></td>
+      <td class='line'>172</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l172s0'>			getContect(sb, htmlElement);</pre></td>
     </tr>
     <tr>
       <td class='line'>173</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>174</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l174s0'>	}</pre></td>
+      <td class='line'>174</td><td class='count'>8</td>
+      <td><pre class='prettyprint covered' id='l174s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -526,8 +526,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public String toString() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>178</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l178s0'>		return this.htmlElement.toString();</pre></td>
+      <td class='line'>178</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l178s0'>		return this.htmlElement.toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>179</td><td>&nbsp;</td>

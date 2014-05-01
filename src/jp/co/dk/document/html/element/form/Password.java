@@ -5,7 +5,7 @@ import jp.co.dk.document.html.element.Form;
 
 public class Password extends jp.co.dk.document.html.element.Password {
 	
-	private Form form;
+	protected Form form;
 	
 	public Password(HtmlElement element, Form form) {
 		super(element);

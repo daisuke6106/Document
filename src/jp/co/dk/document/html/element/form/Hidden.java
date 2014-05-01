@@ -5,7 +5,7 @@ import jp.co.dk.document.html.element.Form;
 
 public class Hidden extends jp.co.dk.document.html.element.Hidden {
 
-	private Form form;
+	protected Form form;
 	
 	public Hidden(HtmlElement element, Form form) {
 		super(element);

@@ -5,7 +5,7 @@ import jp.co.dk.document.html.element.Form;
 
 public class Radio extends jp.co.dk.document.html.element.Radio {
 	
-	private Form form;
+	protected Form form;
 	
 	public Radio(HtmlElement element, Form form) {
 		super(element);

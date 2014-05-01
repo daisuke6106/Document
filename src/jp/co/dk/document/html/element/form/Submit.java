@@ -5,7 +5,7 @@ import jp.co.dk.document.html.element.Form;
 
 public class Submit extends jp.co.dk.document.html.element.Submit {
 
-	private Form form;
+	protected Form form;
 	
 	public Submit(HtmlElement element, Form form) {
 		super(element);

@@ -5,7 +5,7 @@ import jp.co.dk.document.html.element.Form;
 
 public class Select extends jp.co.dk.document.html.element.Select {
 
-	private Form form;
+	protected Form form;
 	
 	public Select(HtmlElement element, Form form) {
 		super(element);

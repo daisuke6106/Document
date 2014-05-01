@@ -180,7 +180,7 @@ class FormElemenetFactory extends HtmlElementFactory {
 			if (input == null) return new jp.co.dk.document.html.element.form.Text(htmlElement, this.form);;
 			switch (input) {
 				case CHECKBOX:
-					return new jp.co.dk.document.html.element.form.Checkbox(htmlElement, this.form);
+					return new jp.co.dk.document.html.element.form.CheckBox(htmlElement, this.form);
 				case FILE:
 					return new jp.co.dk.document.html.element.form.File(htmlElement, this.form);
 				case HIDDEN:

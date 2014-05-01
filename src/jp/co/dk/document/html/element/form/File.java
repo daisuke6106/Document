@@ -5,7 +5,7 @@ import jp.co.dk.document.html.element.Form;
 
 public class File extends jp.co.dk.document.html.element.File {
 	
-	private Form form;
+	protected Form form;
 	
 	public File(HtmlElement element, Form form) {
 		super(element);

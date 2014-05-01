@@ -42,7 +42,7 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
     </tr>
     <tr>
       <td class='line'>15</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private String <span class='instance uncovered' title='Reads: 0 Writes: 0'>cache_value</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected String <span class='instance covered' title='Reads: 46 Writes: 18'>cache_value</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -60,11 +60,11 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
       <td><pre class='prettyprint'>	public Option(HtmlElement element) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>25</td><td class='count'>120</td>
+      <td class='line'>25</td><td class='count'>290</td>
       <td><pre class='prettyprint covered' id='l25s0'>		super(element);</pre></td>
     </tr>
     <tr>
-      <td class='line'>26</td><td class='count'>120</td>
+      <td class='line'>26</td><td class='count'>290</td>
       <td><pre class='prettyprint covered' id='l26s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -84,45 +84,45 @@ import jp.co.dk.document.html.constant.HtmlAttributeName;
       <td><pre class='prettyprint'>	public String getValue() {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>0</td>
+      <td></td><td class='count'>23</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/3</span>
-        <span class='uncovered' onclick="showPath(this,'l37s0 l44s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l37s0 l38s0 l39s0 l42s0 l44s0')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l37s0 l38s0 l39s0 l40s0 l42s0 l44s0')">C: 0</span>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 3/3</span>
+        <span class='covered' onclick="showPath(this,'l37s0 l44s0')">A: 5</span>
+        <span class='covered' onclick="showPath(this,'l37s0 l38s0 l39s0 l42s0 l44s0')">B: 17</span>
+        <span class='covered' onclick="showPath(this,'l37s0 l38s0 l39s0 l40s0 l42s0 l44s0')">C: 1</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>37</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l37s0' title='Executions: 0' class='uncovered'>if (this.cache_value == null)</span> <span id='l37s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
+      <td class='line'>37</td><td class='count'>23</td>
+      <td><pre class='prettyprint jmp'>		<span id='l37s0' title='Executions: 23' class='covered'>if (this.cache_value == null)</span> <span id='l37s1' title='Executions: 18' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l38s0'>			String getValue = super.getAttribute(HtmlAttributeName.VALUE.getName());</pre></td>
+      <td class='line'>38</td><td class='count'>18</td>
+      <td><pre class='prettyprint covered' id='l38s0'>			String getValue = super.getAttribute(HtmlAttributeName.VALUE.getName());</pre></td>
     </tr>
     <tr>
-      <td class='line'>39</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>			<span id='l39s0' title='Executions: 0' class='uncovered'>if (getValue == null)</span> <span id='l39s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
+      <td class='line'>39</td><td class='count'>18</td>
+      <td><pre class='prettyprint jmp'>			<span id='l39s0' title='Executions: 18' class='covered'>if (getValue == null)</span> <span id='l39s1' title='Executions: 1' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>40</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l40s0'>				getValue = "";</pre></td>
+      <td class='line'>40</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l40s0'>				getValue = "";</pre></td>
     </tr>
     <tr>
       <td class='line'>41</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>42</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l42s0'>			this.cache_value = getValue;</pre></td>
+      <td class='line'>42</td><td class='count'>18</td>
+      <td><pre class='prettyprint covered' id='l42s0'>			this.cache_value = getValue;</pre></td>
     </tr>
     <tr>
       <td class='line'>43</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>44</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l44s0'>		return this.cache_value;</pre></td>
+      <td class='line'>44</td><td class='count'>23</td>
+      <td><pre class='prettyprint covered' id='l44s0'>		return this.cache_value;</pre></td>
     </tr>
     <tr>
       <td class='line'>45</td><td>&nbsp;</td>

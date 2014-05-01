@@ -8,9 +8,9 @@ public enum DocumentPropertyType {
 	
 	UTF_8(OutputKeys.ENCODING, "UTF-8");
 	
-	private String key;
+	protected String key;
 	
-	private String type;
+	protected String type;
 	
 	private DocumentPropertyType(String key, String type) {
 		this.key  = key;

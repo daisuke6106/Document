@@ -48,12 +48,12 @@ import jp.co.dk.document.html.constant.InputTypeName;
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>24</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected FormElemenetFactory <span class='instance uncovered' title='Reads: 0 Writes: 6'>formElementFactory</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected FormElemenetFactory <span class='instance covered' title='Reads: 28 Writes: 37'>formElementFactory</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>26</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected List&lt;HtmlElement> <span class='instance covered' title='Reads: 4 Writes: 1'>cache_formElementList</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected List&lt;HtmlElement> <span class='instance covered' title='Reads: 14 Writes: 5'>cache_formElementList</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -72,15 +72,15 @@ import jp.co.dk.document.html.constant.InputTypeName;
       <td><pre class='prettyprint'>	public Form(HtmlElement element) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>37</td><td class='count'>6</td>
+      <td class='line'>37</td><td class='count'>37</td>
       <td><pre class='prettyprint covered' id='l37s0'>		super(element);</pre></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td class='count'>6</td>
+      <td class='line'>38</td><td class='count'>37</td>
       <td><pre class='prettyprint covered' id='l38s0'>		this.formElementFactory = new FormElemenetFactory(this);</pre></td>
     </tr>
     <tr>
-      <td class='line'>39</td><td class='count'>6</td>
+      <td class='line'>39</td><td class='count'>37</td>
       <td><pre class='prettyprint covered' id='l39s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -166,65 +166,79 @@ import jp.co.dk.document.html.constant.InputTypeName;
       <td class='line'></td><td>&nbsp;</td>
       <td class='comment' onclick='showHideLines(this)'><div>	/**
 	 * FORM要素取得
-	 * このFORM要素からFORM一覧を取得する
+	 * このFORM要素からFORM一覧を取得する。
+	 * 
+	 * 取得されるFORMに属する要素として以下の要素を取得する。&lt;br/>
+	 * &lt;br/>
+	 * ・TEXT要素&lt;br/>
+	 * ・PASSWORD要素&lt;br/>
+	 * ・FILE要素&lt;br/>
+	 * ・CHECKBOX要素&lt;br/>
+	 * ・RADIO要素&lt;br/>
+	 * ・HIDDEN要素&lt;br/>
+	 * ・SUBMIT要素&lt;br/>
+	 * ・RESET要素&lt;br/>
+	 * ・BUTTON要素&lt;br/>
+	 * ・IMAGE要素&lt;br/>
+	 * ・SELECT要素&lt;br/>
 	 * 
 	 * @return FORM要素一覧
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>75</td><td>&nbsp;</td>
+      <td class='line'>89</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public List&lt;HtmlElement> getFormElementList() {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>2</td>
+      <td></td><td class='count'>7</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l76s0 l85s0')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l76s0 l77s0 l79s0 l85s0')">B: 1</span>
+        <span class='covered' onclick="showPath(this,'l90s0 l99s0')">A: 2</span>
+        <span class='covered' onclick="showPath(this,'l90s0 l91s0 l93s0 l99s0')">B: 5</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>76</td><td class='count'>2</td>
-      <td><pre class='prettyprint jmp'>		<span id='l76s0' title='Executions: 2' class='covered'>if (this.cache_formElementList == null)</span> <span id='l76s1' title='Executions: 1' class='covered'>{</span></pre></td>
+      <td class='line'>90</td><td class='count'>7</td>
+      <td><pre class='prettyprint jmp'>		<span id='l90s0' title='Executions: 7' class='covered'>if (this.cache_formElementList == null)</span> <span id='l90s1' title='Executions: 5' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>77</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l77s0'>			List&lt;HtmlElement> list = new ArrayList&lt;HtmlElement>();</pre></td>
+      <td class='line'>91</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l91s0'>			List&lt;HtmlElement> list = new ArrayList&lt;HtmlElement>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>78</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l78s0'>			List&lt;HtmlElement> form = super.getFormElementList();</pre></td>
+      <td class='line'>92</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l92s0'>			List&lt;HtmlElement> form = super.getFormElementList();</pre></td>
     </tr>
     <tr>
-      <td class='line'>79</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l79s0'>			for (HtmlElement htmlElement : form) {</pre></td>
+      <td class='line'>93</td><td class='count'>38</td>
+      <td><pre class='prettyprint covered' id='l93s0'>			for (HtmlElement htmlElement : form) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>80</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l80s0'>				HtmlElement formElement = (HtmlElement) this.formElementFactory.convert(htmlElement);</pre></td>
+      <td class='line'>94</td><td class='count'>28</td>
+      <td><pre class='prettyprint covered' id='l94s0'>				HtmlElement formElement = (HtmlElement) this.formElementFactory.convert(htmlElement);</pre></td>
     </tr>
     <tr>
-      <td class='line'>81</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l81s0'>				list.add(formElement);</pre></td>
+      <td class='line'>95</td><td class='count'>28</td>
+      <td><pre class='prettyprint covered' id='l95s0'>				list.add(formElement);</pre></td>
     </tr>
     <tr>
-      <td class='line'>82</td><td>&nbsp;</td>
+      <td class='line'>96</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>83</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l83s0'>			this.cache_formElementList = list;</pre></td>
+      <td class='line'>97</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l97s0'>			this.cache_formElementList = list;</pre></td>
     </tr>
     <tr>
-      <td class='line'>84</td><td>&nbsp;</td>
+      <td class='line'>98</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>85</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l85s0'>		return this.cache_formElementList;</pre></td>
+      <td class='line'>99</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l99s0'>		return this.cache_formElementList;</pre></td>
     </tr>
     <tr>
-      <td class='line'>86</td><td>&nbsp;</td>
+      <td class='line'>100</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -234,86 +248,96 @@ import jp.co.dk.document.html.constant.InputTypeName;
 	 * FORM要素取得
 	 * 指定されたFORMの要素内から送信用要素の一覧をマップ形式で返却します。
 	 * 
-	 * key=nameの名称
-	 * value=nameを保持する要素の一覧
+	 * 取得されるFORMに属する要素として以下の要素を取得する。&lt;br/>
+	 * &lt;br/>
+	 * ・TEXT要素&lt;br/>
+	 * ・PASSWORD要素&lt;br/>
+	 * ・FILE要素&lt;br/>
+	 * ・CHECKBOX要素&lt;br/>
+	 * ・RADIO要素&lt;br/>
+	 * ・HIDDEN要素&lt;br/>
+	 * ・SUBMIT要素&lt;br/>
+	 * ・IMAGE要素&lt;br/>
+	 * ・SELECT要素&lt;br/>
+	 * 
+	 * @return 送信用要素一覧のマップ形式（key=nameの名称、value=nameを保持する要素の一覧）
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>95</td><td>&nbsp;</td>
+      <td class='line'>120</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public Map&lt;String, List&lt;HtmlElement>> getFormElementMap() {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/4</span>
-        <span class='uncovered' onclick="showPath(this,'l96s0 l100s0 l110s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l96s0 l100s0 l100s1 l101s0 l102s0 l107s0 l110s0')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l96s0 l100s0 l100s1 l101s0 l102s0 l103s0 l110s0')">C: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l96s0 l100s0 l100s1 l100s2 l110s0')">D: 0</span>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/3</span>
+        <span class='uncovered' onclick="showPath(this,'l121s0 l125s0 l126s0 l127s0 l132s0 l135s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l121s0 l125s0 l126s0 l127s0 l128s0 l135s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l121s0 l125s0 l125s1 l135s0')">C: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>96</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l96s0'>		List&lt;HtmlElement> formElementList = this.getFormElementList();</pre></td>
+      <td class='line'>121</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l121s0'>		List&lt;HtmlElement> formElementList = this.getFormElementList();</pre></td>
     </tr>
     <tr>
-      <td class='line'>97</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l97s0'>		Map&lt;String, List&lt;HtmlElement>> map = new HashMap&lt;String, List&lt;HtmlElement>>();</pre></td>
+      <td class='line'>122</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l122s0'>		Map&lt;String, List&lt;HtmlElement>> map = new HashMap&lt;String, List&lt;HtmlElement>>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>98</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l98s0'>		for (HtmlElement formElement : formElementList) {</pre></td>
+      <td class='line'>123</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l123s0'>		for (HtmlElement formElement : formElementList) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>99</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l99s0'>			String name = formElement.getName();</pre></td>
+      <td class='line'>124</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l124s0'>			String name = formElement.getName();</pre></td>
     </tr>
     <tr>
-      <td class='line'>100</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>			<span id='l100s0' title='Executions: 0' class='uncovered'>if (name == null</span> || <span id='l100s1' title='Executions: 0' class='uncovered'>name.equals("")) continue;</span></pre></td>
+      <td class='line'>125</td><td class='count'>13</td>
+      <td><pre class='prettyprint jmp'>			<span id='l125s0' title='Executions: 13' class='covered'>if (name.equals("")) continue;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>101</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l101s0'>			List&lt;HtmlElement> addedList = map.get(name);</pre></td>
+      <td class='line'>126</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l126s0'>			List&lt;HtmlElement> addedList = map.get(name);</pre></td>
     </tr>
     <tr>
-      <td class='line'>102</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>			<span id='l102s0' title='Executions: 0' class='uncovered'>if (addedList == null)</span> <span id='l102s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
+      <td class='line'>127</td><td class='count'>13</td>
+      <td><pre class='prettyprint jmp'>			<span id='l127s0' title='Executions: 13' class='covered'>if (addedList == null)</span> <span id='l127s1' title='Executions: 9' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>103</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l103s0'>				List&lt;HtmlElement> addList = new ArrayList&lt;HtmlElement>();</pre></td>
+      <td class='line'>128</td><td class='count'>9</td>
+      <td><pre class='prettyprint covered' id='l128s0'>				List&lt;HtmlElement> addList = new ArrayList&lt;HtmlElement>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>104</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l104s0'>				addList.add(formElement);</pre></td>
+      <td class='line'>129</td><td class='count'>9</td>
+      <td><pre class='prettyprint covered' id='l129s0'>				addList.add(formElement);</pre></td>
     </tr>
     <tr>
-      <td class='line'>105</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l105s0'>				map.put(name, addList);</pre></td>
+      <td class='line'>130</td><td class='count'>9</td>
+      <td><pre class='prettyprint covered' id='l130s0'>				map.put(name, addList);</pre></td>
     </tr>
     <tr>
-      <td class='line'>106</td><td>&nbsp;</td>
+      <td class='line'>131</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			} else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>107</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l107s0'>				addedList.add(formElement);</pre></td>
+      <td class='line'>132</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l132s0'>				addedList.add(formElement);</pre></td>
     </tr>
     <tr>
-      <td class='line'>108</td><td>&nbsp;</td>
+      <td class='line'>133</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>109</td><td>&nbsp;</td>
+      <td class='line'>134</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>110</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l110s0'>		return map;</pre></td>
+      <td class='line'>135</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l135s0'>		return map;</pre></td>
     </tr>
     <tr>
-      <td class='line'>111</td><td>&nbsp;</td>
+      <td class='line'>136</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -327,277 +351,277 @@ import jp.co.dk.document.html.constant.InputTypeName;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>119</td><td>&nbsp;</td>
+      <td class='line'>144</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public String createMessage () {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/18</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l131s0 l133s0 l133s1')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l131s0 l131s1 l133s0 l133s1')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l131s0 l131s1 l131s2 l133s0 l133s1')">C: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l128s0 l131s0 l133s0 l133s1')">D: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l128s0 l131s0 l131s1 l133s0 l133s1')">E: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l128s0 l131s0 l131s1 l131s2 l133s0 l133s1')">F: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l125s0 l131s0 l133s0 l133s1')">G: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l125s0 l131s0 l131s1 l133s0 l133s1')">H: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l125s0 l131s0 l131s1 l131s2 l133s0 l133s1')">I: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l131s0 l133s0 l134s0')">J: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l131s0 l131s1 l133s0 l134s0')">K: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l131s0 l131s1 l131s2 l133s0 l134s0')">L: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l128s0 l131s0 l133s0 l134s0')">M: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l128s0 l131s0 l131s1 l133s0 l134s0')">N: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l127s0 l128s0 l131s0 l131s1 l131s2 l133s0 l134s0')">O: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l125s0 l131s0 l133s0 l134s0')">P: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l125s0 l131s0 l131s1 l133s0 l134s0')">Q: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l120s0 l124s0 l125s0 l131s0 l131s1 l131s2 l133s0 l134s0')">R: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l152s0 l156s0 l158s0 l158s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l152s0 l156s0 l156s1 l158s0 l158s1')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l152s0 l156s0 l156s1 l156s2 l158s0 l158s1')">C: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l152s0 l153s0 l156s0 l158s0 l158s1')">D: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l152s0 l153s0 l156s0 l156s1 l158s0 l158s1')">E: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l152s0 l153s0 l156s0 l156s1 l156s2 l158s0 l158s1')">F: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l150s0 l156s0 l158s0 l158s1')">G: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l150s0 l156s0 l156s1 l158s0 l158s1')">H: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l150s0 l156s0 l156s1 l156s2 l158s0 l158s1')">I: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l152s0 l156s0 l158s0 l159s0')">J: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l152s0 l156s0 l156s1 l158s0 l159s0')">K: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l152s0 l156s0 l156s1 l156s2 l158s0 l159s0')">L: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l152s0 l153s0 l156s0 l158s0 l159s0')">M: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l152s0 l153s0 l156s0 l156s1 l158s0 l159s0')">N: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l152s0 l153s0 l156s0 l156s1 l156s2 l158s0 l159s0')">O: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l150s0 l156s0 l158s0 l159s0')">P: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l150s0 l156s0 l156s1 l158s0 l159s0')">Q: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l145s0 l149s0 l150s0 l156s0 l156s1 l156s2 l158s0 l159s0')">R: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>120</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l120s0'>		List&lt;HtmlElement> formElementList = this.getFormElementList();</pre></td>
+      <td class='line'>145</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l145s0'>		List&lt;HtmlElement> formElementList = this.getFormElementList();</pre></td>
     </tr>
     <tr>
-      <td class='line'>121</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l121s0'>		StringBuilder sb = new StringBuilder();</pre></td>
+      <td class='line'>146</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l146s0'>		StringBuilder sb = new StringBuilder();</pre></td>
     </tr>
     <tr>
-      <td class='line'>122</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l122s0'>		for (HtmlElement formElement : formElementList) {</pre></td>
+      <td class='line'>147</td><td class='count'>10</td>
+      <td><pre class='prettyprint covered' id='l147s0'>		for (HtmlElement formElement : formElementList) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>123</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l123s0'>			String message = null;</pre></td>
+      <td class='line'>148</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l148s0'>			String message = null;</pre></td>
     </tr>
     <tr>
-      <td class='line'>124</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>			<span id='l124s0' title='Executions: 0' class='uncovered'>if (formElement instanceof Input)</span> <span id='l124s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
+      <td class='line'>149</td><td class='count'>6</td>
+      <td><pre class='prettyprint jmp'>			<span id='l149s0' title='Executions: 6' class='covered'>if (formElement instanceof Input)</span> <span id='l149s1' title='Executions: 5' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>125</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l125s0'>				Input input = (Input)formElement;</pre></td>
+      <td class='line'>150</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l150s0'>				Input input = (Input)formElement;</pre></td>
     </tr>
     <tr>
-      <td class='line'>126</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l126s0'>				message = input.getMessage();</pre></td>
+      <td class='line'>151</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l151s0'>				message = input.getMessage();</pre></td>
     </tr>
     <tr>
-      <td class='line'>127</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>			<span id='l127s0' title='Executions: 0' class='uncovered'>}</span> else <span id='l127s1' title='Executions: 0' class='uncovered'>if (formElement instanceof Select)</span> </pre></td>
+      <td class='line'>152</td><td class='count'>1</td>
+      <td><pre class='prettyprint jmp'>			<span id='l152s0' title='Executions: 1' class='covered'>}</span> else <span id='l152s1' title='Executions: 0' class='uncovered'>if (formElement instanceof Select)</span> </pre></td>
     </tr>
     <tr>
-      <td class='line'>128</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l128s0'>				Select select = (Select)formElement;</pre></td>
+      <td class='line'>153</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l153s0'>				Select select = (Select)formElement;</pre></td>
     </tr>
     <tr>
-      <td class='line'>129</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l129s0'>				message = select.getMessage();</pre></td>
+      <td class='line'>154</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l154s0'>				message = select.getMessage();</pre></td>
     </tr>
     <tr>
-      <td class='line'>130</td><td>&nbsp;</td>
+      <td class='line'>155</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>131</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>			<span id='l131s0' title='Executions: 0' class='uncovered'>if (message != null</span> && <span id='l131s1' title='Executions: 0' class='uncovered'>!message.equals("")) sb.append(message).append('&');</span></pre></td>
+      <td class='line'>156</td><td class='count'>6</td>
+      <td><pre class='prettyprint jmp'>			<span id='l156s0' title='Executions: 6' class='covered'>if (message != null</span> && <span id='l156s1' title='Executions: 5' class='covered'>!message.equals("")) sb.append(message).append('&');</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>132</td><td>&nbsp;</td>
+      <td class='line'>157</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>133</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l133s0' title='Executions: 0' class='uncovered'>if (sb.length() == 0) return "";</span></pre></td>
+      <td class='line'>158</td><td class='count'>2</td>
+      <td><pre class='prettyprint jmp'>		<span id='l158s0' title='Executions: 2' class='covered'>if (sb.length() == 0) return "";</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>134</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l134s0'>		return sb.substring(0, sb.length()-1);</pre></td>
+      <td class='line'>159</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l159s0'>		return sb.substring(0, sb.length()-1);</pre></td>
     </tr>
     <tr>
-      <td class='line'>135</td><td>&nbsp;</td>
+      <td class='line'>160</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>137</td><td>&nbsp;</td>
+      <td class='line'>162</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>139</td><td>&nbsp;</td>
+      <td class='line'>164</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>class FormElemenetFactory extends HtmlElementFactory {</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>141</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private Form <span class='instance uncovered' title='Reads: 0 Writes: 6'>form</span>;</pre></td>
+      <td class='line'>166</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private Form <span class='instance covered' title='Reads: 25 Writes: 37'>form</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>143</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l143s0'>	FormElemenetFactory(Form form) {</pre></td>
+      <td class='line'>168</td><td class='count'>37</td>
+      <td><pre class='prettyprint covered' id='l168s0'>	FormElemenetFactory(Form form) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>144</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l144s0'>		this.form = form;</pre></td>
+      <td class='line'>169</td><td class='count'>37</td>
+      <td><pre class='prettyprint covered' id='l169s0'>		this.form = form;</pre></td>
     </tr>
     <tr>
-      <td class='line'>145</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l145s0'>	}</pre></td>
+      <td class='line'>170</td><td class='count'>37</td>
+      <td><pre class='prettyprint covered' id='l170s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>147</td><td>&nbsp;</td>
+      <td class='line'>172</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>148</td><td>&nbsp;</td>
+      <td class='line'>173</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public Element convert(Element element) {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>0</td>
+      <td></td><td class='count'>28</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/12</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l155s1')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l158s0')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l160s0')">C: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l162s0')">D: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l164s0')">E: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l166s0')">F: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l168s0')">G: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l170s0')">H: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l172s0')">I: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l154s0 l155s0 l156s0 l174s0')">J: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l176s0 l177s0')">K: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l153s0 l176s0 l179s0')">L: 0</span>
+        <span style='cursor:default; background-color:#40bf00' onclick='hidePath()'>Path coverage: 9/12</span>
+        <span class='uncovered' onclick="showPath(this,'l175s0 l178s0 l179s0 l180s0 l180s1')">A: 0</span>
+        <span class='covered' onclick="showPath(this,'l175s0 l178s0 l179s0 l180s0 l181s0 l183s0')">B: 4</span>
+        <span class='covered' onclick="showPath(this,'l175s0 l178s0 l179s0 l180s0 l181s0 l185s0')">C: 3</span>
+        <span class='covered' onclick="showPath(this,'l175s0 l178s0 l179s0 l180s0 l181s0 l187s0')">D: 3</span>
+        <span class='covered' onclick="showPath(this,'l175s0 l178s0 l179s0 l180s0 l181s0 l189s0')">E: 3</span>
+        <span class='covered' onclick="showPath(this,'l175s0 l178s0 l179s0 l180s0 l181s0 l191s0')">F: 4</span>
+        <span class='uncovered' onclick="showPath(this,'l175s0 l178s0 l179s0 l180s0 l181s0 l193s0')">G: 0</span>
+        <span class='covered' onclick="showPath(this,'l175s0 l178s0 l179s0 l180s0 l181s0 l195s0')">H: 3</span>
+        <span class='covered' onclick="showPath(this,'l175s0 l178s0 l179s0 l180s0 l181s0 l197s0')">I: 3</span>
+        <span class='covered' onclick="showPath(this,'l175s0 l178s0 l179s0 l180s0 l181s0 l199s0')">J: 3</span>
+        <span class='covered' onclick="showPath(this,'l175s0 l178s0 l201s0 l202s0')">K: 2</span>
+        <span class='uncovered' onclick="showPath(this,'l175s0 l178s0 l201s0 l204s0')">L: 0</span>
       </td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>150</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l150s0'>		HtmlElement htmlElement = (HtmlElement) element;</pre></td>
+      <td class='line'>175</td><td class='count'>28</td>
+      <td><pre class='prettyprint covered' id='l175s0'>		HtmlElement htmlElement = (HtmlElement) element;</pre></td>
     </tr>
     <tr>
-      <td class='line'>151</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l151s0'>		HtmlElementName htmlElementName = htmlElement.getElementType();</pre></td>
+      <td class='line'>176</td><td class='count'>28</td>
+      <td><pre class='prettyprint covered' id='l176s0'>		HtmlElementName htmlElementName = htmlElement.getElementType();</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>153</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l153s0' title='Executions: 0' class='uncovered'>if (HtmlElementName.INPUT == htmlElementName)</span> <span id='l153s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
+      <td class='line'>178</td><td class='count'>28</td>
+      <td><pre class='prettyprint jmp'>		<span id='l178s0' title='Executions: 28' class='covered'>if (HtmlElementName.INPUT == htmlElementName)</span> <span id='l178s1' title='Executions: 26' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>154</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l154s0'>			InputTypeName input = this.cornvertInputTypeName(htmlElement);</pre></td>
+      <td class='line'>179</td><td class='count'>26</td>
+      <td><pre class='prettyprint covered' id='l179s0'>			InputTypeName input = this.cornvertInputTypeName(htmlElement);</pre></td>
     </tr>
     <tr>
-      <td class='line'>155</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>			<span id='l155s0' title='Executions: 0' class='uncovered'>if (input == null)</span> <span id='l155s1' title='Executions: 0' class='uncovered'>return new jp.co.dk.document.html.element.form.Text(htmlElement, this.form);;</span></pre></td>
+      <td class='line'>180</td><td class='count'>26</td>
+      <td><pre class='prettyprint jmp'>			<span id='l180s0' title='Executions: 26' class='covered'>if (input == null)</span> <span id='l180s1' title='Executions: 0' class='uncovered'>return new jp.co.dk.document.html.element.form.Text(htmlElement, this.form);;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>156</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l156s0'>			switch (input) {</pre></td>
+      <td class='line'>181</td><td class='count'>52</td>
+      <td><pre class='prettyprint covered' id='l181s0'>			switch (input) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>157</td><td>&nbsp;</td>
+      <td class='line'>182</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>				case CHECKBOX:</pre></td>
     </tr>
     <tr>
-      <td class='line'>158</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l158s0'>					return new jp.co.dk.document.html.element.form.Checkbox(htmlElement, this.form);</pre></td>
+      <td class='line'>183</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l183s0'>					return new jp.co.dk.document.html.element.form.CheckBox(htmlElement, this.form);</pre></td>
     </tr>
     <tr>
-      <td class='line'>159</td><td>&nbsp;</td>
+      <td class='line'>184</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>				case FILE:</pre></td>
     </tr>
     <tr>
-      <td class='line'>160</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l160s0'>					return new jp.co.dk.document.html.element.form.File(htmlElement, this.form);</pre></td>
+      <td class='line'>185</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l185s0'>					return new jp.co.dk.document.html.element.form.File(htmlElement, this.form);</pre></td>
     </tr>
     <tr>
-      <td class='line'>161</td><td>&nbsp;</td>
+      <td class='line'>186</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>				case HIDDEN:</pre></td>
     </tr>
     <tr>
-      <td class='line'>162</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l162s0'>					return new jp.co.dk.document.html.element.form.Hidden(htmlElement, this.form);</pre></td>
+      <td class='line'>187</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l187s0'>					return new jp.co.dk.document.html.element.form.Hidden(htmlElement, this.form);</pre></td>
     </tr>
     <tr>
-      <td class='line'>163</td><td>&nbsp;</td>
+      <td class='line'>188</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>				case PASSWORD:</pre></td>
     </tr>
     <tr>
-      <td class='line'>164</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l164s0'>					return new jp.co.dk.document.html.element.form.Password(htmlElement, this.form);</pre></td>
+      <td class='line'>189</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l189s0'>					return new jp.co.dk.document.html.element.form.Password(htmlElement, this.form);</pre></td>
     </tr>
     <tr>
-      <td class='line'>165</td><td>&nbsp;</td>
+      <td class='line'>190</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>				case RADIO:</pre></td>
     </tr>
     <tr>
-      <td class='line'>166</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l166s0'>					return new jp.co.dk.document.html.element.form.Radio(htmlElement, this.form);</pre></td>
+      <td class='line'>191</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l191s0'>					return new jp.co.dk.document.html.element.form.Radio(htmlElement, this.form);</pre></td>
     </tr>
     <tr>
-      <td class='line'>167</td><td>&nbsp;</td>
+      <td class='line'>192</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>				case RESET:</pre></td>
     </tr>
     <tr>
-      <td class='line'>168</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l168s0'>					return new jp.co.dk.document.html.element.form.Reset(htmlElement, this.form);</pre></td>
+      <td class='line'>193</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l193s0'>					return new jp.co.dk.document.html.element.form.Reset(htmlElement, this.form);</pre></td>
     </tr>
     <tr>
-      <td class='line'>169</td><td>&nbsp;</td>
+      <td class='line'>194</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>				case SUBMIT:</pre></td>
     </tr>
     <tr>
-      <td class='line'>170</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l170s0'>					return new jp.co.dk.document.html.element.form.Submit(htmlElement, this.form);</pre></td>
+      <td class='line'>195</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l195s0'>					return new jp.co.dk.document.html.element.form.Submit(htmlElement, this.form);</pre></td>
     </tr>
     <tr>
-      <td class='line'>171</td><td>&nbsp;</td>
+      <td class='line'>196</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>				case TEXT:</pre></td>
     </tr>
     <tr>
-      <td class='line'>172</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l172s0'>					return new jp.co.dk.document.html.element.form.Text(htmlElement, this.form);</pre></td>
+      <td class='line'>197</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l197s0'>					return new jp.co.dk.document.html.element.form.Text(htmlElement, this.form);</pre></td>
     </tr>
     <tr>
-      <td class='line'>173</td><td>&nbsp;</td>
+      <td class='line'>198</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>				default:</pre></td>
     </tr>
     <tr>
-      <td class='line'>174</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l174s0'>					return element;</pre></td>
+      <td class='line'>199</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l199s0'>					return element;</pre></td>
     </tr>
     <tr>
-      <td class='line'>175</td><td>&nbsp;</td>
+      <td class='line'>200</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>176</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l176s0' title='Executions: 0' class='uncovered'>}</span> else <span id='l176s1' title='Executions: 0' class='uncovered'>if (HtmlElementName.SELECT == htmlElementName)</span> </pre></td>
+      <td class='line'>201</td><td class='count'>2</td>
+      <td><pre class='prettyprint jmp'>		<span id='l201s0' title='Executions: 2' class='covered'>}</span> else <span id='l201s1' title='Executions: 2' class='covered'>if (HtmlElementName.SELECT == htmlElementName)</span> </pre></td>
     </tr>
     <tr>
-      <td class='line'>177</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l177s0'>			return new jp.co.dk.document.html.element.form.Select(htmlElement, this.form);</pre></td>
+      <td class='line'>202</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l202s0'>			return new jp.co.dk.document.html.element.form.Select(htmlElement, this.form);</pre></td>
     </tr>
     <tr>
-      <td class='line'>178</td><td>&nbsp;</td>
+      <td class='line'>203</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		} else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>179</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l179s0'>			return element;</pre></td>
+      <td class='line'>204</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l204s0'>			return element;</pre></td>
     </tr>
     <tr>
-      <td class='line'>180</td><td>&nbsp;</td>
+      <td class='line'>205</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>182</td><td>&nbsp;</td>
+      <td class='line'>207</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -611,43 +635,43 @@ import jp.co.dk.document.html.constant.InputTypeName;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>190</td><td>&nbsp;</td>
+      <td class='line'>215</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	private InputTypeName cornvertInputTypeName(HtmlElement element) {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
-        <span class='uncovered' onclick="showPath(this,'l191s0 l193s0 l193s1')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l191s0 l193s0 l192s1 l195s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l216s0 l218s0 l218s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l216s0 l218s0 l217s1 l220s0')">B: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>191</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l191s0'>		String type = element.getAttribute(HtmlAttributeName.TYPE.getName());</pre></td>
+      <td class='line'>216</td><td class='count'>26</td>
+      <td><pre class='prettyprint covered' id='l216s0'>		String type = element.getAttribute(HtmlAttributeName.TYPE.getName());</pre></td>
     </tr>
     <tr>
-      <td class='line'>192</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l192s0'>		for (InputTypeName typeName: InputTypeName.values()) {</pre></td>
+      <td class='line'>217</td><td class='count'>121</td>
+      <td><pre class='prettyprint covered' id='l217s0'>		for (InputTypeName typeName: InputTypeName.values()) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>193</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>			<span id='l193s0' title='Executions: 0' class='uncovered'>if (typeName.getName().equals(type)) return typeName;</span></pre></td>
+      <td class='line'>218</td><td class='count'>121</td>
+      <td><pre class='prettyprint jmp'>			<span id='l218s0' title='Executions: 121' class='covered'>if (typeName.getName().equals(type)) return typeName;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>194</td><td>&nbsp;</td>
+      <td class='line'>219</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>195</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l195s0'>		return null;</pre></td>
+      <td class='line'>220</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l220s0'>		return null;</pre></td>
     </tr>
     <tr>
-      <td class='line'>196</td><td>&nbsp;</td>
+      <td class='line'>221</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr>
-      <td class='line'>197</td><td>&nbsp;</td>
+      <td class='line'>222</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>
