@@ -180,7 +180,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</body>");
 			html.append("</html>");
 			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
-			assertThat(htmlDocument.getTitle(), is (""));
+			assertThat(htmlDocument.getTitle(), is ("これはタイトルです改行"));
 		} catch (DocumentException e) {
 			fail(e);
 		}

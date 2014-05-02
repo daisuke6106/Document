@@ -142,10 +142,10 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			assertTrue(htmlElement.hasChildElement());
 			assertTrue(htmlElement.isElement(HtmlElementName.SELECT));
 			assertEquals(htmlElement.getAttribute("name"), "example");
-			assertEquals(htmlElement.getContent(), "");
+			assertEquals(htmlElement.getContent(), "サンプル1サンプル2サンプル3");
 			assertTrue(htmlElement.hasAttribute(HtmlAttributeName.NAME.getName()));
 			assertEquals(htmlElement.getTagName(),"select");
-			assertEquals(htmlElement.getContent(), "");
+			assertEquals(htmlElement.getContent(), "サンプル1サンプル2サンプル3");
 			assertEquals(htmlElement.getElementType(), HtmlElementName.SELECT);
 			List<jp.co.dk.document.Element> elements = htmlElement.getChildElement();
 			assertEquals(elements.get(0).getTagName(), "option");
@@ -1083,7 +1083,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			html.append("</html>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			assertThat(htmlElement.getFormElementList().size() , is(1));
-			assertThat(htmlElement.getFormElementList().get(0).getTagName() , is("form"));
+			assertThat(htmlElement.getFormElementList().get(0).getTagName() , is("input"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -1101,14 +1101,14 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			html.append("<input type=\"text\"/>");
 			html.append("</form>");
 			html.append("<form>");
-			html.append("<input type=\"text\"/>");
+			html.append("<select><option value=\"\">test</option></select>");
 			html.append("</form>");
 			html.append("</body>");
 			html.append("</html>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			assertThat(htmlElement.getFormElementList().size() , is(2));
-			assertThat(htmlElement.getFormElementList().get(0).getTagName() , is("form"));
-			assertThat(htmlElement.getFormElementList().get(1).getTagName() , is("form"));
+			assertThat(htmlElement.getFormElementList().get(0).getTagName() , is("input"));
+			assertThat(htmlElement.getFormElementList().get(1).getTagName() , is("select"));
 		} catch (DocumentException e) {
 			fail(e);
 		}

@@ -229,7 +229,9 @@ public class HtmlElementFactoryTest extends DocumentFoundationTest {
 		}
 		
 		// アンカー要素を変換した場合、セレクトオブジェクトが返却されること。
-		new Expectations() {{mockHtmlElement.getElementType();result = HtmlElementName.SELECT;}};
+		new Expectations() {{
+			mockHtmlElement.getElementType();result = HtmlElementName.SELECT;
+		}};
 		try {
 			Element returnElement = factory.convert(mockHtmlElement);
 			assertTrue(returnElement instanceof Select);

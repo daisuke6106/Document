@@ -3,8 +3,9 @@ package jp.co.dk.document.html;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.FormControl;
 
 import jp.co.dk.document.ElementName;
@@ -53,6 +54,9 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	
 	/** Contentのキャッシュ */
 	protected String cache_content;
+	
+	/** タグパターン */
+	private static Pattern tagPattern = Pattern.compile("<.*?>");
 	
 	public HtmlElement(String elementStr, HtmlElementFactory elementFactory) throws HtmlDocumentException {
 		if (elementStr == null || elementStr.equals("")) throw new HtmlDocumentException(ERROR_ELEMENT_STRING_IS_NOT_SET);
@@ -210,17 +214,8 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	@Override
 	public String getContent() {
 		if (this.cache_content == null) {
-			String content = "";
-			net.htmlparser.jericho.Segment segment = this.startTag.getElement().getContent();
-			List<net.htmlparser.jericho.Element> chileList = segment.getChildElements();
-			if (chileList.size() == 0) {
-				this.cache_content = segment.toString();
-				return this.cache_content;
-			}
- 			for (net.htmlparser.jericho.Element element : chileList) {
- 				if (element.getStartTag() == null) content = element.toString();
- 			}
- 			this.cache_content = content;
+			Matcher matcher = HtmlElement.tagPattern.matcher(this.toString());
+			this.cache_content = matcher.replaceAll("");
 		}
 		return this.cache_content;
 	}

@@ -159,18 +159,7 @@ public class HtmlDocument extends File implements Document{
 
 	@Override
 	public String getContent() {
-		StringBuilder sb = new StringBuilder();
-		this.getContect(sb, this.htmlElement);
-		return sb.toString();
-	}
-	
-	private void getContect(StringBuilder sb, HtmlElement element) {
-		sb.append(htmlElement.getContent());
-		for (jp.co.dk.document.Element childElement : element.getChildElement()){
-			HtmlElement htmlElement = (HtmlElement)childElement;
-			sb.append(htmlElement.getContent());
-			getContect(sb, htmlElement);
-		}
+		return this.htmlElement.getContent();
 	}
 	
 	@Override

@@ -3,6 +3,7 @@ package jp.co.dk.document.html.element;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.co.dk.document.Element;
 import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HtmlElementName;
@@ -169,11 +170,9 @@ public class Select extends HtmlElement{
 	 */
 	protected List<Option> getOptionList() {
 		List<Option> optionList = new ArrayList<Option>();
-		List<jp.co.dk.document.Element> childElementList = super.getChildElement();
-		for (jp.co.dk.document.Element element : childElementList) {
-			HtmlElement htmlElement = (HtmlElement)element;
-			HtmlElementName elementName = htmlElement.getElementType();
-			if (HtmlElementName.OPTION == elementName) optionList.add(new Option(htmlElement));
+		List<Element> childElements = this.getChildElement();
+		for (Element element : childElements) {
+			if (element instanceof Option) optionList.add((Option)element);
 		}
 		return optionList;
 	}
