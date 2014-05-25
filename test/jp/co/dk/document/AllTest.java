@@ -20,7 +20,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	
 	/* jp.co.dk.document.html.constant */
 	jp.co.dk.document.html.constant.HtmlCharSetNameTest.class, 
-	jp.co.dk.document.html.constant.HtmlRequestMethodNameTest.class, 
+ 	jp.co.dk.document.html.constant.HtmlRequestMethodNameTest.class, 
 	jp.co.dk.document.html.constant.HttpEquivNameTest.class,
 	
 	/* jp.co.dk.document.html.element */
@@ -42,7 +42,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	
 	/* jp.co.dk.document.html.element.form */
 	jp.co.dk.document.html.element.form.CheckBoxTest.class,
-	jp.co.dk.document.html.element.form.FileTest.class,
+	jp.co.dk.document.html.element.form.FileTest.class, 
 	jp.co.dk.document.html.element.form.HiddenTest.class,
 	jp.co.dk.document.html.element.form.PasswordTest.class, 
 	jp.co.dk.document.html.element.form.RadioTest.class, 
