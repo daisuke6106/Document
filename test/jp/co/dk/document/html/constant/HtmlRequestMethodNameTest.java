@@ -24,5 +24,10 @@ public class HtmlRequestMethodNameTest extends DocumentFoundationTest {
 		// "post"を渡した場合、falseが返却されること。
 		assertTrue(HtmlRequestMethodName.GET.isMethod("GET"));
 	}
-
+	
+	
+	@Test
+	public void getMethod() {
+		assertThat(HtmlRequestMethodName.GET.getMethod(), is("GET"));
+	}
 }

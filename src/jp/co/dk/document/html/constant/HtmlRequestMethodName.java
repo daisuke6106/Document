@@ -47,4 +47,13 @@ public enum HtmlRequestMethodName {
 		}
 	}
 	
+	/**
+	 * このHTMLの送信メソッド名称を返却する。
+	 * 
+	 * @return 送信メソッド名称
+	 */
+	public String getMethod() {
+		return this.method;
+	}
+	
 }

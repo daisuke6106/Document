@@ -966,6 +966,9 @@ Starting audit...
 /home/dk/projects/Document/src/jp/co/dk/document/html/constant/HtmlRequestMethodName.java:43:17: 条件ロジックはなくせます。
 /home/dk/projects/Document/src/jp/co/dk/document/html/constant/HtmlRequestMethodName.java:43:79: ')' の前にホワイトスペースがあります。
 /home/dk/projects/Document/src/jp/co/dk/document/html/constant/HtmlRequestMethodName.java:49: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/constant/HtmlRequestMethodName.java:50: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/constant/HtmlRequestMethodName.java:52: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/constant/HtmlRequestMethodName.java:58: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/html/constant/HttpEquivName.java:3: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/html/constant/HttpEquivName.java:5: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/html/constant/HttpEquivName.java:10: 最初の一文はピリオドで終わらなければなりません。
