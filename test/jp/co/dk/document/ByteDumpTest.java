@@ -26,7 +26,7 @@ public class ByteDumpTest extends DocumentFoundationTest {
 			new Expectations(inputStream) {{
 				inputStream.read(new byte[1024]);result = new IOException("モックにより作成されたIO例外");
 			}};
-			ByteDump byteDump = new ByteDump(inputStream);
+			new ByteDump(inputStream);
 			fail();
 		} catch (DocumentException e) {
 			assertEquals(e.getMessageObj(), DocumentMessage.ERROR_FILE_READ);

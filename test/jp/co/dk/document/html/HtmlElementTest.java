@@ -24,7 +24,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// nullにてインスタンス生成した場合、例外を送出すること
 		try {
 			String elementStr = null;
-			HtmlElement htmlElement = new HtmlElement(elementStr, new HtmlElementFactory());
+			new HtmlElement(elementStr, new HtmlElementFactory());
 			fail();
 		} catch (HtmlDocumentException e) {
 			assertEquals(e.getMessageObj(), ERROR_ELEMENT_STRING_IS_NOT_SET);
@@ -32,7 +32,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		
 		// 空文字にてインスタンス生成した場合、例外を送出すること
 		try {
-			HtmlElement htmlElement = new HtmlElement("", new HtmlElementFactory());
+			new HtmlElement("", new HtmlElementFactory());
 			fail();
 		} catch (HtmlDocumentException e) {	
 			assertEquals(e.getMessageObj(), ERROR_ELEMENT_STRING_IS_NOT_SET);
@@ -40,7 +40,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 				
 		// 要素を表す文字列、ファクトリにnullが設定されていた場合、例外が送出すること
 		try {
-			HtmlElement htmlElement = new HtmlElement("<input type=\"test\" name=\"name\" value=\"value\"/>", null);
+			new HtmlElement("<input type=\"test\" name=\"name\" value=\"value\"/>", null);
 			fail();
 		} catch (HtmlDocumentException e) {	
 			assertEquals(e.getMessageObj(), ERROR_ELEMENT_FACTORY_IS_NOT_SET);
@@ -48,7 +48,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		
 		// 不正な文字列にてインスタンス生成した場合、例外を送出すること
 		try {
-			HtmlElement htmlElement = new HtmlElement("あいう", new HtmlElementFactory());
+			new HtmlElement("あいう", new HtmlElementFactory());
 			fail();
 		} catch (HtmlDocumentException e) {	
 			assertEquals(e.getMessageObj(), ERROR_ELEMENT_STRING_CONVERT);
@@ -56,7 +56,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		
 		// 不正な文字列にてインスタンス生成した場合、例外を送出すること
 		try {
-			HtmlElement htmlElement = new HtmlElement("abc", new HtmlElementFactory());
+			new HtmlElement("abc", new HtmlElementFactory());
 			fail();
 		} catch (HtmlDocumentException e) {
 			assertEquals(e.getMessageObj(), ERROR_ELEMENT_STRING_CONVERT);
