@@ -1,9 +1,7 @@
 package jp.co.dk.document.html;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import jp.co.dk.document.Document;
@@ -36,7 +34,7 @@ public class HtmlDocument extends File implements Document{
 	 * コンストラクタ<p/>
 	 * InputStreamから要素を生成します。
 	 * 
-	 * @param element HTMLパーサの要素インスタンス
+	 * @param inputStream 読み込み対象のストリーム
 	 * @throws DocumentException 
 	 */
 	public HtmlDocument(InputStream inputStream) throws DocumentException{
@@ -47,7 +45,7 @@ public class HtmlDocument extends File implements Document{
 	 * コンストラクタ<p/>
 	 * InputStreamから要素を生成します。
 	 * 
-	 * @param element HTMLパーサの要素インスタンス
+	 * @param inputStream 読み込み対象のストリーム
 	 * @param elementFactory 要素生成ファクトリ
 	 * @throws DocumentException 
 	 */
@@ -63,7 +61,6 @@ public class HtmlDocument extends File implements Document{
 	
 	/**
 	 * ページタイトル取得<p>
-	 * 
 	 * ページのタイトルを取得する。
 	 * 
 	 * @return ページタイトル
@@ -79,9 +76,10 @@ public class HtmlDocument extends File implements Document{
 	
 	/**
 	 * ページエンコード取得<p>
-	 * 
 	 * このページのエンコードを取得します。<br/>
 	 * 設定されていない場合、nullを返却します。
+	 * 
+	 * @return キャラクタセット
 	 */
 	public HtmlCharSetName getEncode() {
 		List<Element> elementList = this.htmlElement.getElement(HtmlElementName.META);

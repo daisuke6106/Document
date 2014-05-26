@@ -37,12 +37,10 @@ class Input extends HtmlElement{
 	}
 	
 	/**
-	 * Valueの取得
-	 * 要素に設定されているValueの一覧を取得します。
+	 * Valueの設定
+	 * この要素に指定の値を設定します。
 	 * 
-	 * Valueが指定されていなかった場合、空文字が返却されます。
-	 * 
-	 * @return 要素に指定されているValue
+	 * @param value この要素に指定する値
 	 */
 	public void setValue(String value) {
 		this.cache_value = value;

@@ -35,16 +35,23 @@ public enum InputTypeName {
 	/** 隠し要素 */
 	HIDDEN("hidden");
 	
+	/** HTMLのINPUT要素種別名称 */
 	private String name;
 	
+	/**
+	 * コンストラクタ<p/>
+	 * 指定のHTMLのINPUT要素種別名称を元にHTMLのINPUT要素種別名称のインスタンスを生成します。
+	 * 
+	 * @param httpEquivName HTMLのINPUT要素種別名称
+	 */
 	private InputTypeName(String name) {
 		this.name = name;
 	}
 	
 	/**
-	 * 種別名称を取得します。<br/>
+	 * HTMLのINPUT要素種別名称を取得します。<br/>
 	 * 
-	 * @return 種別名称
+	 * @return HTMLのINPUT要素種別名称
 	 */
 	public String getName() {
 		return this.name;

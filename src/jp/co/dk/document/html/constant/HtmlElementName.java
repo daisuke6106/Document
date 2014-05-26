@@ -132,12 +132,24 @@ public enum HtmlElementName implements ElementName{
 	VIDEO("video"),
 	WBR("wbr");
 	
+	/** 要素名称 */
 	private String name;
 	
-	HtmlElementName(String name){
+	/**
+	 * コンストラクタ<p/>
+	 * 指定の要素名称を元にHTMLの要素が保持する要素名称のインスタンスを生成します。
+	 * 
+	 * @param name 要素名称
+	 */
+	private HtmlElementName(String name){
 		this.name = name;
 	}
 	
+	/**
+	 * この属性名称の文字列表現を返却します。
+	 * 
+	 * @return 要素名称
+	 */
 	public String getName(){
 		return this.name;
 	}

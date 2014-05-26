@@ -36,22 +36,22 @@ import jp.co.dk.document.message.DocumentMessage;
     </tr>
     <tr>
       <td class='line'>15</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected ByteBuffer <span class='instance covered' title='Reads: 4208 Writes: 59'>buffer</span> ;</pre></td>
+      <td><pre class='prettyprint'>	protected ByteBuffer <span class='instance covered' title='Reads: 4095 Writes: 78'>buffer</span> ;</pre></td>
     </tr>
     <tr>
-      <td class='line'>16</td><td class='count'>61</td>
+      <td class='line'>16</td><td class='count'>80</td>
       <td><pre class='prettyprint covered' id='l16s0'>	public ByteDump(InputStream inputStream) throws DocumentException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>17</td><td class='count'>61</td>
+      <td class='line'>17</td><td class='count'>80</td>
       <td><pre class='prettyprint covered' id='l17s0'>		List&lt;BytesTmp> bytes = new ArrayList&lt;BytesTmp>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>18</td><td class='count'>61</td>
+      <td class='line'>18</td><td class='count'>80</td>
       <td><pre class='prettyprint covered' id='l18s0'>		byte[] buffer = new byte[1024];</pre></td>
     </tr>
     <tr>
-      <td class='line'>19</td><td class='count'>61</td>
+      <td class='line'>19</td><td class='count'>80</td>
       <td><pre class='prettyprint covered' id='l19s0'>		int len = 0;</pre></td>
     </tr>
     <tr>
@@ -59,8 +59,8 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>21</td><td class='count'>61</td>
-      <td><pre class='prettyprint jmp'>			<span id='l21s0' title='Executions: 61' class='covered'>while ((len = inputStream.read(buffer)) > 0)</span> <span id='l21s1' title='Executions: 4206' class='covered'>bytes.add(new BytesTmp(Arrays.copyOfRange(buffer, 0, len)));</span></pre></td>
+      <td class='line'>21</td><td class='count'>80</td>
+      <td><pre class='prettyprint jmp'>			<span id='l21s0' title='Executions: 80' class='covered'>while ((len = inputStream.read(buffer)) > 0)</span> <span id='l21s1' title='Executions: 4093' class='covered'>bytes.add(new BytesTmp(Arrays.copyOfRange(buffer, 0, len)));</span></pre></td>
     </tr>
     <tr>
       <td class='line'>22</td><td class='count'>2</td>
@@ -75,27 +75,27 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>25</td><td class='count'>59</td>
+      <td class='line'>25</td><td class='count'>78</td>
       <td><pre class='prettyprint covered' id='l25s0'>		int length = 0;</pre></td>
     </tr>
     <tr>
-      <td class='line'>26</td><td class='count'>59</td>
-      <td><pre class='prettyprint jmp'>		<span id='l26s0' title='Executions: 59' class='covered'>for(BytesTmp bytetmp</span> : <span id='l26s1' title='Executions: 4204' class='covered'>bytes)</span> </pre></td>
+      <td class='line'>26</td><td class='count'>78</td>
+      <td><pre class='prettyprint jmp'>		<span id='l26s0' title='Executions: 78' class='covered'>for(BytesTmp bytetmp</span> : <span id='l26s1' title='Executions: 4091' class='covered'>bytes)</span> </pre></td>
     </tr>
     <tr>
-      <td class='line'>27</td><td class='count'>59</td>
+      <td class='line'>27</td><td class='count'>78</td>
       <td><pre class='prettyprint covered' id='l27s0'>		this.buffer = ByteBuffer.allocate(length);</pre></td>
     </tr>
     <tr>
-      <td class='line'>28</td><td class='count'>59</td>
-      <td><pre class='prettyprint jmp'>		<span id='l28s0' title='Executions: 59' class='covered'>for(BytesTmp bytetmp</span> : <span id='l28s1' title='Executions: 4204' class='covered'>bytes)</span> </pre></td>
+      <td class='line'>28</td><td class='count'>78</td>
+      <td><pre class='prettyprint jmp'>		<span id='l28s0' title='Executions: 78' class='covered'>for(BytesTmp bytetmp</span> : <span id='l28s1' title='Executions: 4091' class='covered'>bytes)</span> </pre></td>
     </tr>
     <tr>
       <td class='line'>29</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>30</td><td class='count'>59</td>
+      <td class='line'>30</td><td class='count'>78</td>
       <td><pre class='prettyprint covered' id='l30s0'>			inputStream.close();</pre></td>
     </tr>
     <tr>
@@ -111,7 +111,7 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>34</td><td class='count'>59</td>
+      <td class='line'>34</td><td class='count'>78</td>
       <td><pre class='prettyprint covered' id='l34s0'>	}</pre></td>
     </tr>
     <tr>
@@ -144,7 +144,7 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	public InputStream getStream() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>43</td><td class='count'>56</td>
+      <td class='line'>43</td><td class='count'>75</td>
       <td><pre class='prettyprint covered' id='l43s0'>		return new  ByteArrayInputStream(buffer.array());</pre></td>
     </tr>
     <tr>
@@ -161,18 +161,18 @@ import jp.co.dk.document.message.DocumentMessage;
     </tr>
     <tr>
       <td class='line'>47</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private byte[] <span class='instance covered' title='Reads: 8290 Writes: 4145'>bytes</span>;</pre></td>
+      <td><pre class='prettyprint'>	private byte[] <span class='instance covered' title='Reads: 8026 Writes: 4013'>bytes</span>;</pre></td>
     </tr>
     <tr>
-      <td class='line'>48</td><td class='count'>4145</td>
+      <td class='line'>48</td><td class='count'>4013</td>
       <td><pre class='prettyprint covered' id='l48s0'>	BytesTmp(byte[] bytes) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>49</td><td class='count'>4145</td>
+      <td class='line'>49</td><td class='count'>4013</td>
       <td><pre class='prettyprint covered' id='l49s0'>		this.bytes = bytes;</pre></td>
     </tr>
     <tr>
-      <td class='line'>50</td><td class='count'>4145</td>
+      <td class='line'>50</td><td class='count'>4013</td>
       <td><pre class='prettyprint covered' id='l50s0'>	}</pre></td>
     </tr>
     <tr>
@@ -180,7 +180,7 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	int length() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>52</td><td class='count'>4145</td>
+      <td class='line'>52</td><td class='count'>4013</td>
       <td><pre class='prettyprint covered' id='l52s0'>		return this.bytes.length;</pre></td>
     </tr>
     <tr>
@@ -192,7 +192,7 @@ import jp.co.dk.document.message.DocumentMessage;
       <td><pre class='prettyprint'>	byte[] getBytes() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td class='count'>4145</td>
+      <td class='line'>55</td><td class='count'>4013</td>
       <td><pre class='prettyprint covered' id='l55s0'>		return this.bytes;</pre></td>
     </tr>
     <tr>

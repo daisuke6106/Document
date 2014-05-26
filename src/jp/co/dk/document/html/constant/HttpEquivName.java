@@ -1,7 +1,7 @@
 package jp.co.dk.document.html.constant;
 
 /**
- * HttpEquivNameは、HTTPヘッダ名を定義する定数クラス。<br/>
+ * HttpEquivNameは、HTTPヘッダ名称を定義する定数クラス。<br/>
  * 
  * @version 1.0
  * @author D.Kanno
@@ -20,8 +20,15 @@ public enum HttpEquivName {
 	REFRESH("refresh"),
 	;
 	
+	/** HTTPヘッダ名称 */
 	private String httpEquivName;
 	
+	/**
+	 * コンストラクタ<p/>
+	 * 指定のHTTPヘッダ名称を元にHTTPヘッダ名称のインスタンスを生成します。
+	 * 
+	 * @param httpEquivName HTTPヘッダ名称
+	 */
 	private HttpEquivName(String httpEquivName) {
 		this.httpEquivName = httpEquivName;
 	}

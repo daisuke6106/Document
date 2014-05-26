@@ -15,7 +15,7 @@ public class PasswordTest extends DocumentFoundationTest{
 			String             tag     = "<input type=\"password\" name=\"test\" value=\"passwordvalue\"/>";
 			HtmlElementFactory factory = new HtmlElementFactory();
 			Form               form    = new Form(new jp.co.dk.document.html.HtmlElement("<form></form>", factory));
-			Password           sut     = new Password(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
+			FormPassword           sut     = new FormPassword(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
 			assertThat(sut.form, is(form));
 		} catch (DocumentException e) {
 			fail(e);

@@ -77,7 +77,7 @@ public class XmlDocumentException extends DocumentException{
 	 * 指定のメッセージ、埋め込み文字列一覧、例外で例外を生成します。
 	 * 
 	 * @param msg メッセージ定数インスタンス
-	 * @param embeddedStrList メッセージ埋め込み文字列一覧
+	 * @param str メッセージ埋め込み文字列一覧
 	 * @param throwable 例外インスタンス
 	 * @since 1.0
 	 */

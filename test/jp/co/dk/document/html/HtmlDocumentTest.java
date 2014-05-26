@@ -39,7 +39,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.htmlElement, notNullValue());
 			assertThat(htmlDocument.elementFactory, notNullValue());
 		} catch (DocumentException e) {
@@ -66,7 +66,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		try {
 			StringBuilder html = new StringBuilder();
 			html.append("not html text.");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.htmlElement, notNullValue());
 			assertThat(htmlDocument.elementFactory, notNullValue());
 		} catch (DocumentException e) {
@@ -99,7 +99,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getTitle(), is (""));
 		} catch (DocumentException e) {
 			fail(e);
@@ -119,7 +119,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getTitle(), is ("this is title"));
 		} catch (DocumentException e) {
 			fail(e);
@@ -139,7 +139,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getTitle(), is ("これはタイトルです"));
 		} catch (DocumentException e) {
 			fail(e);
@@ -159,7 +159,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getTitle(), is ("これはタイトルです１行目"));
 		} catch (DocumentException e) {
 			fail(e);
@@ -179,7 +179,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getTitle(), is ("これはタイトルです改行"));
 		} catch (DocumentException e) {
 			fail(e);
@@ -200,7 +200,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getEncode(), nullValue());
 		} catch (DocumentException e) {
 			fail(e);
@@ -220,7 +220,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getEncode(), is (HtmlCharSetName.UTF_8));
 		} catch (DocumentException e) {
 			fail(e);
@@ -239,7 +239,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getEncode(), nullValue());
 		} catch (DocumentException e) {
 			fail(e);
@@ -258,7 +258,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getEncode(), nullValue());
 		} catch (DocumentException e) {
 			fail(e);
@@ -277,7 +277,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getEncode(), nullValue());
 		} catch (DocumentException e) {
 			fail(e);
@@ -296,7 +296,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getEncode(), nullValue());
 		} catch (DocumentException e) {
 			fail(e);
@@ -319,7 +319,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			List<Element> htmlElements = htmlDocument.getElement();
 			assertThat(htmlElements.size(), is(6));
 			assertThat(htmlElements.get(0).getTagName(), is("html"));
@@ -349,7 +349,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			List<Element> htmlElements = htmlDocument.getElement(HtmlElementName.HTML);
 			assertThat(htmlElements.size(), is(1));
 			assertThat(htmlElements.get(0).getTagName(), is("html"));
@@ -379,7 +379,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			List<Element> htmlElements = htmlDocument.getElement(new ElementSelector(){
 				@Override
 				public boolean judgment(Element element) {
@@ -413,7 +413,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			List<Element> htmlElements = htmlDocument.getChildElement();
 			assertThat(htmlElements.size(), is(2));
 			assertThat(htmlElements.get(0).getTagName(), is("head"));
@@ -436,7 +436,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			List<Element> htmlElements = htmlDocument.getChildElement(HtmlElementName.HEAD);
 			assertThat(htmlElements.size(), is(1));
 			assertThat(htmlElements.get(0).getTagName(), is("head"));
@@ -458,7 +458,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			List<Element> htmlElements = htmlDocument.getChildElement(HtmlElementName.P);
 			assertThat(htmlElements.size(), is(0));
 		} catch (DocumentException e) {
@@ -479,7 +479,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			List<Element> htmlElements = htmlDocument.getChildElement(new ElementSelector() {
 				@Override
 				public boolean judgment(Element element) {
@@ -507,7 +507,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			List<Element> htmlElements = htmlDocument.getChildElement(new ElementSelector() {
 				@Override
 				public boolean judgment(Element element) {
@@ -531,7 +531,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("this is test.");
 			html.append("</p>");
 			html.append("</body>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.hasChildElement(), is(true));
 		} catch (DocumentException e) {
 			fail(e);
@@ -542,7 +542,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<body>");
 			html.append("</body>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.hasChildElement(), is(false));
 		} catch (DocumentException e) {
 			fail(e);
@@ -554,7 +554,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("<body>");
 			html.append("this is test.");
 			html.append("</body>"); 
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.hasChildElement(), is(false));
 		} catch (DocumentException e) {
 			fail(e);
@@ -568,7 +568,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("<body>");
 			html.append("this is test.");
 			html.append("</body>"); 
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.isElement(HtmlElementName.BODY), is(true));
 			assertThat(htmlDocument.isElement(HtmlElementName.P), is(false));
 		} catch (DocumentException e) {
@@ -592,7 +592,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			// 最上位要素の場合
 			assertThat(htmlDocument.hasElement(HtmlElementName.HTML), is(true));
 			// 最上位要素直下の場合
@@ -622,7 +622,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getAttribute("id"), is("test"));
 		} catch (DocumentException e) {
 			fail(e);
@@ -643,7 +643,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getAttribute("name"), nullValue());
 		} catch (DocumentException e) {
 			fail(e);
@@ -663,7 +663,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getAttribute("id"), nullValue());
 		} catch (DocumentException e) {
 			fail(e);
@@ -686,7 +686,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.hasAttribute("id"), is(true));
 		} catch (DocumentException e) {
 			fail(e);
@@ -707,7 +707,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.hasAttribute("name"), is(false));
 		} catch (DocumentException e) {
 			fail(e);
@@ -727,7 +727,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.hasAttribute("id"), is(false));
 		} catch (DocumentException e) {
 			fail(e);
@@ -750,7 +750,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getTagName(), is("html"));
 		} catch (DocumentException e) {
 			fail(e);
@@ -771,7 +771,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</HTML>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getTagName(), is("html"));
 		} catch (DocumentException e) {
 			fail(e);
@@ -785,7 +785,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("<html>");
 			html.append("this is test.");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.getContent(), is("this is test."));
 		} catch (DocumentException e) {
 			fail(e);
@@ -809,7 +809,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("this is line 4.");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			StringBuilder result = new StringBuilder();
 			result.append("this is title");
 			result.append("this is line 1.");
@@ -928,15 +928,6 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		} catch (FileNotFoundException e) {
 			fail(e);
 		}
-	}
-	
-	private InputStream createHtmlDocument(String htmlStr) {
-		try {
-			return new ByteArrayInputStream(htmlStr.getBytes("UTF-8"));
-		} catch (UnsupportedEncodingException e) {
-			fail(e);
-		}
-		return null;
 	}
 	
 	@Test
@@ -1080,7 +1071,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</p>");
 			html.append("</body>");
 			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.toString(), is(html.toString()));
 		} catch (DocumentException e) {
 			fail(e);
@@ -1090,7 +1081,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		try {
 			StringBuilder html = new StringBuilder();
 			html.append("not html text.");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createHtmlDocument(html.toString()));
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			assertThat(htmlDocument.toString(), is(html.toString()));
 		} catch (DocumentException e) {
 			fail(e);

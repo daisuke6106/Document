@@ -15,7 +15,7 @@ public class TextTest extends DocumentFoundationTest{
 			String             tag     = "<input type=\"text\" name=\"test\" value=\"textvalue\"/>";
 			HtmlElementFactory factory = new HtmlElementFactory();
 			Form               form    = new Form(new jp.co.dk.document.html.HtmlElement("<form></form>", factory));
-			Text               sut     = new Text(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
+			FormText               sut     = new FormText(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
 			assertThat(sut.form, is(form));
 		} catch (DocumentException e) {
 			fail(e);

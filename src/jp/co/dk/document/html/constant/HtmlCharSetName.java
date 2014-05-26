@@ -27,8 +27,15 @@ public enum HtmlCharSetName {
 	UTF_16("UTF-16"),
 	;
 	
+	/** キャラクタセットを表す文字列 */
 	private String charset;
 	
+	/**
+	 * コンストラクタ<p/>
+	 * 指定のキャラクタセットを表す文字列を元にキャラクタセットのインスタンスを生成します。
+	 * 
+	 * @param charset キャラクタセットを表す文字列
+	 */
 	private HtmlCharSetName(String charset) {
 		this.charset = charset;
 	}

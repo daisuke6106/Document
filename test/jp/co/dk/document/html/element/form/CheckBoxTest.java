@@ -16,7 +16,7 @@ public class CheckBoxTest extends DocumentFoundationTest{
 			String             tag     = "<input type=\"checkbox\" name=\"test\" value=\"checkboxvalue\"/>";
 			HtmlElementFactory factory = new HtmlElementFactory();
 			Form               form    = new Form(new jp.co.dk.document.html.HtmlElement("<form></form>", factory));
-			CheckBox           sut     = new CheckBox(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
+			FormCheckBox           sut     = new FormCheckBox(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
 			assertThat(sut.form, is(form));
 		} catch (DocumentException e) {
 			fail(e);

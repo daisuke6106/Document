@@ -86,7 +86,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * 
 	 * 指定のHTML要素から新しいHTMLの要素のインスタンスを生成する。
 	 * 
-	 * @param element HTML要素インスタンス
+	 * @param htmlElement HTML要素インスタンス
 	 */
 	protected HtmlElement(HtmlElement htmlElement) {
 		this.element  = htmlElement.element;

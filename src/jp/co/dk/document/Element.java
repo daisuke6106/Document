@@ -23,7 +23,7 @@ public interface Element {
 	 * この要素が保持する指定の要素の全要素を取得する。<br/>
 	 * 要素が存在しない場合、空のリストを返却する。
 	 * 
-	 * @param 指定の要素
+	 * @param elementName 指定の要素
 	 * @return 要素一覧
 	 */
 	public List<jp.co.dk.document.Element> getElement(ElementName elementName);
@@ -32,7 +32,7 @@ public interface Element {
 	 * この要素が保持する全要素から指定の要素選択ルールに適合する要素を取得する。<br/>
 	 * 要素が存在しない場合、空のリストを返却する。
 	 * 
-	 * @param 指定の要素
+	 * @param elementSelector 指定の要素
 	 * @return 要素一覧
 	 */
 	public List<jp.co.dk.document.Element> getElement(ElementSelector elementSelector);
@@ -40,7 +40,7 @@ public interface Element {
 	/**
 	 * この要素が保持する子要素に指定の要素が存在するか判定する。<br/>
 	 * 
-	 * @param 指定の要素
+	 * @param elementName 指定の要素
 	 * @return 要素の有無(ある場合true、ない場合false)
 	 */
 	public boolean hasElement(ElementName elementName);
@@ -57,7 +57,7 @@ public interface Element {
 	 * この要素が保持する子要素から指定の要素選択ルールに適合する要素を取得する。<br/>
 	 * 要素が存在しない場合、空のリストを返却する。
 	 * 
-	 * @param 指定の要素
+	 * @param elementName 指定の要素
 	 * @return 要素一覧
 	 */
 	public List<jp.co.dk.document.Element> getChildElement(ElementName elementName);
@@ -67,7 +67,7 @@ public interface Element {
 	 * 
 	 * 要素が存在しない場合、空のリストを返却する。
 	 * 
-	 * @param 指定の要素
+	 * @param elementSelector 指定の要素
 	 * @return 要素一覧
 	 */
 	public List<jp.co.dk.document.Element> getChildElement(ElementSelector elementSelector);
@@ -85,7 +85,7 @@ public interface Element {
 	 * 
 	 * 本要素が指定された要素の場合はtrue、それ以外の場合はfalseを返却する。
 	 * 
-	 * @param elementType 確認対象要素
+	 * @param elementName 確認対象要素
 	 * @return 判定結果
 	 */
 	public boolean isElement(ElementName elementName);

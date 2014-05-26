@@ -1,5 +1,9 @@
 package jp.co.dk.document;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.html.exception.HtmlDocumentException;
 import jp.co.dk.document.xml.exception.XmlDocumentException;
@@ -24,6 +28,15 @@ public class DocumentFoundationTest extends TestCaseTemplate {
 		try {
 			return new jp.co.dk.document.xml.XmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/xml/XML.xml"));
 		} catch (XmlDocumentException e) {
+			fail(e);
+		}
+		return null;
+	}
+	
+	protected InputStream createDocumentStream(String documentStr) {
+		try {
+			return new ByteArrayInputStream(documentStr.getBytes("UTF-8"));
+		} catch (UnsupportedEncodingException e) {
 			fail(e);
 		}
 		return null;

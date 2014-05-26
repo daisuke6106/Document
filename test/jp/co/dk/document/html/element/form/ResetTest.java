@@ -15,7 +15,7 @@ public class ResetTest extends DocumentFoundationTest{
 			String             tag     = "<input type=\"reset\" name=\"test\" value=\"resetvalue\"/>";
 			HtmlElementFactory factory = new HtmlElementFactory();
 			Form               form    = new Form(new jp.co.dk.document.html.HtmlElement("<form></form>", factory));
-			Reset              sut     = new Reset(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
+			FormReset              sut     = new FormReset(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
 			assertThat(sut.form, is(form));
 		} catch (DocumentException e) {
 			fail(e);

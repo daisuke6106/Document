@@ -54,7 +54,7 @@ public class CheckBox extends Input{
 	 * デフォルトチェック状態設定
 	 * 本ラジオボタンのHTMLにデフォルトで設定されていたチェック状態を返却します。
 	 * 
-	 * @param checked チェック状態 true:チェック済み false:未チェック
+	 * @return チェック状態 true:チェック済み false:未チェック
 	 */
 	public boolean getDefaltChecked() {
 		return this.defaltChecked;

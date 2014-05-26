@@ -5,7 +5,6 @@ package jp.co.dk.document.html.constant;
  * 
  * @version 1.0
  * @author D.Kanno
- * 
  */
 public enum HtmlAttributeName {
 	ABBR("abbr"),
@@ -110,12 +109,24 @@ public enum HtmlAttributeName {
 	VSPACE("vspace"),
 	WIDTH("width");
 	
+	/** 属性名称 */
 	private String name;
 	
+	/**
+	 * コンストラクタ<p/>
+	 * 指定の属性名称を元にHTMLの要素が保持する属性名称のインスタンスを生成します。
+	 * 
+	 * @param name 属性名称
+	 */
 	private HtmlAttributeName(String name) {
 		this.name = name;
 	}
 	
+	/**
+	 * この属性名称の文字列表現を返却します。
+	 * 
+	 * @return 属性名称
+	 */
 	public String getName() {
 		return this.name;
 	}

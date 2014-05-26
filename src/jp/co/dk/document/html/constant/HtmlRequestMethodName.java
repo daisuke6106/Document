@@ -22,6 +22,12 @@ public enum HtmlRequestMethodName {
 	
 	private final String method;
 	
+	/**
+	 * コンストラクタ<p/>
+	 * 指定のHTML送信メソッド名称を元にインスタンスを生成します。
+	 * 
+	 * @param name HTML送信メソッド名称
+	 */
 	private HtmlRequestMethodName(String method){
 		this.method = method;
 	}

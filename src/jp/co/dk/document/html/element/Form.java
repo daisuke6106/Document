@@ -31,7 +31,6 @@ public class Form extends HtmlElement{
 	 * HTMLの要素のインスタンスを生成する。
 	 * 
 	 * @param element HTMLパーサの要素インスタンス
-	 * @param page 本要素を保持しているHTMLへのコネクションインスタンス
 	 */
 	public Form(HtmlElement element) {
 		super(element);
@@ -138,7 +137,6 @@ public class Form extends HtmlElement{
 	/**
 	 * 送信メッセージ生成
 	 * 
-	 * @param formElementList FORM要素一覧
 	 * @return 送信メッセージ
 	 */
 	public String createMessage () {
@@ -177,29 +175,29 @@ class FormElemenetFactory extends HtmlElementFactory {
 		
 		if (HtmlElementName.INPUT == htmlElementName) {
 			InputTypeName input = this.cornvertInputTypeName(htmlElement);
-			if (input == null) return new jp.co.dk.document.html.element.form.Text(htmlElement, this.form);;
+			if (input == null) return new jp.co.dk.document.html.element.form.FormText(htmlElement, this.form);;
 			switch (input) {
 				case CHECKBOX:
-					return new jp.co.dk.document.html.element.form.CheckBox(htmlElement, this.form);
+					return new jp.co.dk.document.html.element.form.FormCheckBox(htmlElement, this.form);
 				case FILE:
-					return new jp.co.dk.document.html.element.form.File(htmlElement, this.form);
+					return new jp.co.dk.document.html.element.form.FormFile(htmlElement, this.form);
 				case HIDDEN:
-					return new jp.co.dk.document.html.element.form.Hidden(htmlElement, this.form);
+					return new jp.co.dk.document.html.element.form.FormHidden(htmlElement, this.form);
 				case PASSWORD:
-					return new jp.co.dk.document.html.element.form.Password(htmlElement, this.form);
+					return new jp.co.dk.document.html.element.form.FormPassword(htmlElement, this.form);
 				case RADIO:
-					return new jp.co.dk.document.html.element.form.Radio(htmlElement, this.form);
+					return new jp.co.dk.document.html.element.form.FormRadio(htmlElement, this.form);
 				case RESET:
-					return new jp.co.dk.document.html.element.form.Reset(htmlElement, this.form);
+					return new jp.co.dk.document.html.element.form.FormReset(htmlElement, this.form);
 				case SUBMIT:
-					return new jp.co.dk.document.html.element.form.Submit(htmlElement, this.form);
+					return new jp.co.dk.document.html.element.form.FormSubmit(htmlElement, this.form);
 				case TEXT:
-					return new jp.co.dk.document.html.element.form.Text(htmlElement, this.form);
+					return new jp.co.dk.document.html.element.form.FormText(htmlElement, this.form);
 				default:
 					return element;
 			}
 		} else if (HtmlElementName.SELECT == htmlElementName) { 
-			return new jp.co.dk.document.html.element.form.Select(htmlElement, this.form);
+			return new jp.co.dk.document.html.element.form.FormSelect(htmlElement, this.form);
 		} else {
 			return element;
 		}

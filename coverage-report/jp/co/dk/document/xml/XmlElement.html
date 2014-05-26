@@ -46,7 +46,7 @@ import jp.co.dk.document.ElementSelector;
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>22</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private org.w3c.dom.Node <span class='instance covered' title='Reads: 62 Writes: 47'>element</span>;</pre></td>
+      <td><pre class='prettyprint'>	private org.w3c.dom.Node <span class='instance uncovered' title='Reads: 1 Writes: 5'>element</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -57,15 +57,15 @@ import jp.co.dk.document.ElementSelector;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>28</td><td class='count'>47</td>
+      <td class='line'>28</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l28s0'>	XmlElement(org.w3c.dom.Node element) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>29</td><td class='count'>47</td>
+      <td class='line'>29</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l29s0'>		this.element = element;</pre></td>
     </tr>
     <tr>
-      <td class='line'>30</td><td class='count'>47</td>
+      <td class='line'>30</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l30s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -78,16 +78,16 @@ import jp.co.dk.document.ElementSelector;
       <td><pre class='prettyprint'>	public List&lt;jp.co.dk.document.Element> getElement() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>34</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l34s0'>		List&lt;jp.co.dk.document.Element> list =  new ArrayList&lt;jp.co.dk.document.Element>();</pre></td>
+      <td class='line'>34</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l34s0'>		List&lt;jp.co.dk.document.Element> list =  new ArrayList&lt;jp.co.dk.document.Element>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>35</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l35s0'>		this.getElement(list, this);</pre></td>
+      <td class='line'>35</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l35s0'>		this.getElement(list, this);</pre></td>
     </tr>
     <tr>
-      <td class='line'>36</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l36s0'>		return list;</pre></td>
+      <td class='line'>36</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l36s0'>		return list;</pre></td>
     </tr>
     <tr>
       <td class='line'>37</td><td>&nbsp;</td>
@@ -107,24 +107,24 @@ import jp.co.dk.document.ElementSelector;
       </td>
     </tr>
     <tr>
-      <td class='line'>40</td><td class='count'>16</td>
-      <td><pre class='prettyprint covered' id='l40s0'>		List&lt;jp.co.dk.document.Element> childNodes = element.getChildElement();</pre></td>
+      <td class='line'>40</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l40s0'>		List&lt;jp.co.dk.document.Element> childNodes = element.getChildElement();</pre></td>
     </tr>
     <tr>
-      <td class='line'>41</td><td class='count'>16</td>
-      <td><pre class='prettyprint covered' id='l41s0'>		list.addAll(childNodes);</pre></td>
+      <td class='line'>41</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l41s0'>		list.addAll(childNodes);</pre></td>
     </tr>
     <tr>
-      <td class='line'>42</td><td class='count'>78</td>
-      <td><pre class='prettyprint covered' id='l42s0'>		for (jp.co.dk.document.Element childElement : childNodes) {</pre></td>
+      <td class='line'>42</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l42s0'>		for (jp.co.dk.document.Element childElement : childNodes) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>43</td><td class='count'>46</td>
-      <td><pre class='prettyprint jmp'>			<span id='l43s0' title='Executions: 46' class='covered'>if (childElement.hasChildElement()) {</span></pre></td>
+      <td class='line'>43</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l43s0' title='Executions: 0' class='uncovered'>if (childElement.hasChildElement()) {</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>44</td><td class='count'>15</td>
-      <td><pre class='prettyprint covered' id='l44s0'>				this.getElement(list, childElement);</pre></td>
+      <td class='line'>44</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l44s0'>				this.getElement(list, childElement);</pre></td>
     </tr>
     <tr>
       <td class='line'>45</td><td>&nbsp;</td>
@@ -135,8 +135,8 @@ import jp.co.dk.document.ElementSelector;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>47</td><td class='count'>16</td>
-      <td><pre class='prettyprint covered' id='l47s0'>	}</pre></td>
+      <td class='line'>47</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l47s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -254,19 +254,19 @@ import jp.co.dk.document.ElementSelector;
       <td><pre class='prettyprint'>	public List&lt;jp.co.dk.document.Element> getChildElement() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>75</td><td class='count'>16</td>
+      <td class='line'>75</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l75s0'>		List&lt;jp.co.dk.document.Element> list = new ArrayList&lt;jp.co.dk.document.Element>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>76</td><td class='count'>16</td>
+      <td class='line'>76</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l76s0'>		NodeList nodeList = this.element.getChildNodes();</pre></td>
     </tr>
     <tr>
-      <td class='line'>77</td><td class='count'>62</td>
+      <td class='line'>77</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l77s0'>		for (int i=0; i&lt;nodeList.getLength(); i++) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>78</td><td class='count'>46</td>
+      <td class='line'>78</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l78s0'>			list.add(new jp.co.dk.document.xml.XmlElement(nodeList.item(i)));</pre></td>
     </tr>
     <tr>
@@ -274,7 +274,7 @@ import jp.co.dk.document.ElementSelector;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>80</td><td class='count'>16</td>
+      <td class='line'>80</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l80s0'>		return list;</pre></td>
     </tr>
     <tr>
@@ -406,8 +406,8 @@ import jp.co.dk.document.ElementSelector;
       <td><pre class='prettyprint'>	public boolean hasChildElement() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>112</td><td class='count'>46</td>
-      <td><pre class='prettyprint covered' id='l112s0'>		return this.element.hasChildNodes();</pre></td>
+      <td class='line'>112</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l112s0'>		return this.element.hasChildNodes();</pre></td>
     </tr>
     <tr>
       <td class='line'>113</td><td>&nbsp;</td>

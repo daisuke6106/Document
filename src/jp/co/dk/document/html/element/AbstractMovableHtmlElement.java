@@ -15,7 +15,7 @@ public abstract class AbstractMovableHtmlElement extends HtmlElement{
 	 * 
 	 * 遷移可能なHTMLの要素のインスタンスを生成する。
 	 * 
-	 * @param element HTMLパーサの要素インスタンス
+	 * @param htmlElement HTMLパーサの要素インスタンス
 	 */
 	protected AbstractMovableHtmlElement(HtmlElement htmlElement) {
 		super(htmlElement);

@@ -15,7 +15,7 @@ public class RadioTest extends DocumentFoundationTest{
 			String             tag     = "<input type=\"radio\" name=\"test\" value=\"radiovalue\"/>";
 			HtmlElementFactory factory = new HtmlElementFactory();
 			Form               form    = new Form(new jp.co.dk.document.html.HtmlElement("<form></form>", factory));
-			Radio              sut     = new Radio(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
+			FormRadio              sut     = new FormRadio(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
 			assertThat(sut.form, is(form));
 		} catch (DocumentException e) {
 			fail(e);

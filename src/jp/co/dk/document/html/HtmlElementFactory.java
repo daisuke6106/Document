@@ -36,7 +36,6 @@ public class HtmlElementFactory implements ElementFactory {
 	public Element convert(Element element) throws DocumentException {
 		HtmlElement htmlElement = null;
 		try {
-
 			htmlElement = (HtmlElement)element;
 		} catch (ClassCastException e) {
 			throw new DocumentException(DocumentMessage.ERROR_ELEMENT_CONVERT, e);
@@ -258,7 +257,7 @@ public class HtmlElementFactory implements ElementFactory {
 	 * @param element Input要素取得対象要素
 	 * @return Input要素
 	 */
-	private InputTypeName getInpuTypeName(HtmlElement element){
+	protected InputTypeName getInpuTypeName(HtmlElement element){
 		if (HtmlElementName.INPUT != element.getElementType() ) return null;
 		String type = element.getAttribute(HtmlAttributeName.TYPE.getName());
 		for (InputTypeName inputTypeName : InputTypeName.values()) {

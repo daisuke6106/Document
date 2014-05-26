@@ -15,7 +15,7 @@ public class FileTest extends DocumentFoundationTest{
 			String             tag     = "<input type=\"file\" name=\"test\" value=\"filevalue\"/>";
 			HtmlElementFactory factory = new HtmlElementFactory();
 			Form               form    = new Form(new jp.co.dk.document.html.HtmlElement("<form></form>", factory));
-			File               sut     = new File(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
+			FormFile               sut     = new FormFile(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
 			assertThat(sut.form, is(form));
 		} catch (DocumentException e) {
 			fail(e);

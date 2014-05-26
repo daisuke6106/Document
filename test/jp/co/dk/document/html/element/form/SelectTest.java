@@ -15,7 +15,7 @@ public class SelectTest extends DocumentFoundationTest{
 			String             tag     = "<select name=\"selectname\"><option value=\"value1\">option1</option></select>";
 			HtmlElementFactory factory = new HtmlElementFactory();
 			Form               form    = new Form(new jp.co.dk.document.html.HtmlElement("<form></form>", factory));
-			Select             sut     = new Select(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
+			FormSelect             sut     = new FormSelect(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
 			assertThat(sut.form, is(form));
 		} catch (DocumentException e) {
 			fail(e);

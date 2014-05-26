@@ -15,7 +15,7 @@ public class HiddenTest extends DocumentFoundationTest{
 			String             tag     = "<input type=\"hidden\" name=\"test\" value=\"hiddenvalue\"/>";
 			HtmlElementFactory factory = new HtmlElementFactory();
 			Form               form    = new Form(new jp.co.dk.document.html.HtmlElement("<form></form>", factory));
-			Hidden             sut     = new Hidden(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
+			FormHidden             sut     = new FormHidden(new jp.co.dk.document.html.HtmlElement(tag, factory), form);
 			assertThat(sut.form, is(form));
 		} catch (DocumentException e) {
 			fail(e);

@@ -6,7 +6,6 @@ import java.util.List;
 import jp.co.dk.document.Element;
 import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
-import jp.co.dk.document.html.constant.HtmlElementName;
 
 /**
  * Selectは、HTMLのSelect要素を表す要素クラス。
@@ -31,7 +30,6 @@ public class Select extends HtmlElement{
 	 * HTMLの要素のインスタンスを生成する。
 	 * 
 	 * @param element HTMLパーサの要素インスタンス
-	 * @param page 本要素を保持しているHTMLへのコネクションインスタンス
 	 */
 	public Select(HtmlElement element) {
 		super(element);
@@ -79,7 +77,7 @@ public class Select extends HtmlElement{
 	 * 指定された番号のOPTIONを選択状態にする
 	 * (OPTIONの指定番号は0始り)
 	 * 
-	 * @param 選択対象とするOPTIONの番号
+	 * @param optionIndex 選択対象とするOPTIONの番号
 	 * @return 設定判定 true=正常に設定 false=設定を失敗 (指定の番号がない等で設定できなかった場合)
 	 */
 	public boolean select(int optionIndex) {
