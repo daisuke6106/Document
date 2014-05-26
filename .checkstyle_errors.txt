@@ -1054,56 +1054,53 @@ Starting audit...
 /home/dk/projects/Document/src/jp/co/dk/document/html/element/AbstractMovableHtmlElement.java:23: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/html/element/AbstractMovableHtmlElement.java:24: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/html/element/AbstractMovableHtmlElement.java:28: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:4:8: 使用されないインポートです - java.net.URI。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:5:8: 使用されないインポートです - java.net.URISyntaxException。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:7:8: 使用されないインポートです - java.util.regex.Matcher。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:14: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:16: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:21: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:21:1: File contains tab characters (this is the first instance).
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:22:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:22:24: 変数 'form' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:23: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:24: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:28:26: Parameter form should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:28:31: 'form' がフィールドを隠しています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:28:31: 'form' には @param タグが必要です。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:28:36: '{' の前にホワイトスペースがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:31: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:32: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:35: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:38:9: メソッド 'getURL' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:38:36: 'HtmlDocumentException' には @throws タグが必要です。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:38:36: HtmlDocumentException のクラス情報が取得できません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:43: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:46: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:47: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:50: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:53:9: メソッド 'toString' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:54:33: '{' の前にホワイトスペースがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:55: 行が 80 文字を超えています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:65: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:66: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:67:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:68: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:69:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:70: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:71:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:11: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:13: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:18: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:18:1: File contains tab characters (this is the first instance).
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:19:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:19:24: 変数 'form' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:20: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:21: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:25:26: Parameter form should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:25:31: 'form' がフィールドを隠しています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:25:31: 'form' には @param タグが必要です。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:25:36: '{' の前にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:28: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:29: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:32: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:35:9: メソッド 'getURL' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:35:36: 'HtmlDocumentException' には @throws タグが必要です。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:35:36: HtmlDocumentException のクラス情報が取得できません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:40: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:43: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:44: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:47: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:50:9: メソッド 'toString' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:51:33: '{' の前にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:52: 行が 80 文字を超えています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:62: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:63: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:64:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:65: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:66:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:67: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:68:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:69: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:70:9: Javadoc コメントがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:71:1: ';' の前にホワイトスペースがあります。
 /home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:72: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:73:9: Javadoc コメントがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:74:1: ';' の前にホワイトスペースがあります。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:73: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:75: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:76: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:78: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:79: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:83:28: Parameter pattern should be final.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:83:35: 'pattern' がフィールドを隠しています。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:83:43: '{' の前にホワイトスペースがありません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:86: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:87: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:90: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:91: Line has trailing spaces.
-/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:93: @return タグが必要です。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:80:28: Parameter pattern should be final.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:80:35: 'pattern' がフィールドを隠しています。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:80:43: '{' の前にホワイトスペースがありません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:83: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:84: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:87: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:88: Line has trailing spaces.
+/home/dk/projects/Document/src/jp/co/dk/document/html/element/Action.java:90: @return タグが必要です。
 /home/dk/projects/Document/src/jp/co/dk/document/html/element/CheckBox.java:6: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/Document/src/jp/co/dk/document/html/element/CheckBox.java:8: Line has trailing spaces.
 /home/dk/projects/Document/src/jp/co/dk/document/html/element/CheckBox.java:12:36: '{' の前にホワイトスペースがありません。
