@@ -45,7 +45,7 @@ public class Meta extends HtmlElement {
 	 */
 	public String getMetaContent() {
 		String content = super.getAttribute(HtmlAttributeName.CONTENT.getName());
-		if (content == null || content.equals("")) {
+		if (content == null) {
 			return "";
 		} else {
 			return content;

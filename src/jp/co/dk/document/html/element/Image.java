@@ -17,7 +17,7 @@ public class Image extends AbstractMovableHtmlElement{
 	
 	public String getSrc() {
 		String src = this.getAttribute(HtmlAttributeName.SRC.getName());
-		if (src == null || src.equals("")) {
+		if (src == null) {
 			return "";
 		} else {
 			return src;

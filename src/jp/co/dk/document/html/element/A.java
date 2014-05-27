@@ -31,7 +31,7 @@ public class A extends AbstractMovableHtmlElement {
 	 */
 	public String getHref() {
 		String href = super.getAttribute(HtmlAttributeName.HREF.getName());
-		if (href.equals("")) {
+		if (href == null) {
 			return "";
 		} else {
 			return href;
