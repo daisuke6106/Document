@@ -67,6 +67,12 @@ public class DocumentMessage extends AbstractMessage{
 	/** ファイル読み込みに失敗しました。 */
 	public static final DocumentMessage ERROR_FILE_READ = new DocumentMessage("E018");
 	
+	/** ドキュメントのバイト配列からのハッシュ値算出に失敗しました。 */
+	public static final DocumentMessage ERROR_CALCULATE_THE_HASH_FROM_BYTE_ARRAY_OF_DOCUMENT = new DocumentMessage("E019");
+	
+	/** ドキュメントのバイト配列からのハッシュ値算出に失敗しました。使用するアルゴリズムが設定されていません。 */
+	public static final DocumentMessage ERROR_CALCULATE_THE_HASH_FROM_BYTE_ARRAY_OF_DOCUMENT_ALGORITHM_NAME_IS_NOT_SET = new DocumentMessage("E020");
+	
 	
 	protected DocumentMessage(String messageId) {
 		super(messageId);

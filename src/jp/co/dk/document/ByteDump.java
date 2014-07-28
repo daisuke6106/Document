@@ -4,12 +4,16 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import jp.co.dk.document.exception.DocumentException;
+import jp.co.dk.document.exception.DocumentFatalException;
 import jp.co.dk.document.message.DocumentMessage;
+import static jp.co.dk.document.message.DocumentMessage.*;
 
 /**
  * ByteDumpは、指定のストリームから読み込んだデータ本体を保持するクラス。<br/>
@@ -72,6 +76,42 @@ public class ByteDump {
 	 */
 	public InputStream getStream() {
 		return new  ByteArrayInputStream(buffer.array());
+	}
+	
+	/**
+	 * このデータをSHA-256アルゴリズムにて暗号化した文字列を返却します。<p/>
+	 * このデータをSHA-256アルゴリズムにて暗号し、その結果を16進数の文字列にて整形した文字列を返却します。
+	 * 
+	 * @return 暗号化済みの16進数表記文字列（SHA-1）
+	 * @throws DocumentFatalException 暗号化処理にて致命的例外が発生した場合
+	 */
+	public String getHash() throws DocumentFatalException {
+		return this.getHash("SHA-256");
+	}
+	
+	/**
+	 * このデータを指定のアルゴリズムにて暗号化した文字列を返却します。<p/>
+	 * このデータを指定のアルゴリズムにて暗号し、その結果を16進数の文字列にて整形した文字列を返却します。<br/>
+	 * <br/>
+	 * 指定のアルゴリズムが指定されていなかった、または指定のアルゴリズムが不明な文字列が指定されていた場合、DocumentFatalExceptionが発生します。<br/>
+	 * 
+	 * @return 指定のアルゴリズムにて暗号化済みの16進数表記文字列
+	 * @throws DocumentFatalException 暗号化処理にて致命的例外が発生した場合
+	 */
+	public String getHash(String algorithmName) throws DocumentFatalException {
+        try {
+        	if (algorithmName == null || algorithmName.equals("")) throw new DocumentFatalException(ERROR_CALCULATE_THE_HASH_FROM_BYTE_ARRAY_OF_DOCUMENT_ALGORITHM_NAME_IS_NOT_SET);
+        	MessageDigest messageDigest = MessageDigest.getInstance(algorithmName);
+        	messageDigest.reset();
+        	byte[] hashBytes = messageDigest.digest(this.getBytes());
+        	StringBuilder hash = new StringBuilder();
+        	for (byte hashByte : hashBytes) {
+        		hash.append(String.format("%02x", hashByte));
+        	}
+        	return hash.toString();
+        } catch (NoSuchAlgorithmException na) {
+            throw new DocumentFatalException(ERROR_CALCULATE_THE_HASH_FROM_BYTE_ARRAY_OF_DOCUMENT ,na);
+        }
 	}
 }
 
