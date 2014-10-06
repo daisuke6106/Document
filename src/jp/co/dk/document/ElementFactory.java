@@ -8,6 +8,7 @@ import jp.co.dk.document.exception.DocumentException;
  * @version 1.0
  * @author D.Kanno
  */
+@FunctionalInterface
 public interface ElementFactory {
 	
 	/**

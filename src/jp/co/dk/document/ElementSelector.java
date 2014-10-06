@@ -7,6 +7,7 @@ package jp.co.dk.document;
  * @version 1.0
  * @author D.Kanno
  */
+@FunctionalInterface
 public interface ElementSelector {
 	
 	/**
