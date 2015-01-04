@@ -86,7 +86,7 @@ public class ByteDump {
 	 * @throws DocumentFatalException 暗号化処理にて致命的例外が発生した場合
 	 */
 	public String getHash() throws DocumentFatalException {
-		return this.getHash("SHA-256");
+		return this.getHash(Algorithm.SHA_256);
 	}
 	
 	/**
@@ -98,15 +98,15 @@ public class ByteDump {
 	 * @return 指定のアルゴリズムにて暗号化済みの16進数表記文字列
 	 * @throws DocumentFatalException 暗号化処理にて致命的例外が発生した場合
 	 */
-	public String getHash(String algorithmName) throws DocumentFatalException {
+	public String getHash(Algorithm algorithm) throws DocumentFatalException {
         try {
-        	if (algorithmName == null || algorithmName.equals("")) throw new DocumentFatalException(ERROR_CALCULATE_THE_HASH_FROM_BYTE_ARRAY_OF_DOCUMENT_ALGORITHM_NAME_IS_NOT_SET);
-        	MessageDigest messageDigest = MessageDigest.getInstance(algorithmName);
+        	if (algorithm == null) throw new DocumentFatalException(ERROR_CALCULATE_THE_HASH_FROM_BYTE_ARRAY_OF_DOCUMENT_ALGORITHM_NAME_IS_NOT_SET);
+        	MessageDigest messageDigest = MessageDigest.getInstance(algorithm.getAlgorithmName());
         	messageDigest.reset();
         	byte[] hashBytes = messageDigest.digest(this.getBytes());
         	StringBuilder hash = new StringBuilder();
         	for (byte hashByte : hashBytes) {
-        		hash.append(String.format("%02x", hashByte));
+        		hash.append(String.format("%02x", new Byte(hashByte)));
         	}
         	return hash.toString();
         } catch (NoSuchAlgorithmException na) {
@@ -129,4 +129,5 @@ class BytesTmp {
 		return this.bytes;
 	}
 }
+
 
