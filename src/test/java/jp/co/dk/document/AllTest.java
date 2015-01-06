@@ -8,7 +8,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({ 
 	/* jp.co.dk.document */
 	jp.co.dk.document.ByteDumpTest.class, 
-	jp.co.dk.document.FileTest.class, 
+	//jp.co.dk.document.FileTest.class, 
 	
 	/* jp.co.dk.document.exception */
 	jp.co.dk.document.exception.DocumentExceptionTest.class,

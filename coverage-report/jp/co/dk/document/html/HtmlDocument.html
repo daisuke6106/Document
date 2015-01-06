@@ -9,7 +9,7 @@
 </head>
 <body onload='prettyPrint()'>
   <table cellpadding='0' cellspacing='1'>
-    <caption>Document/src/jp/co/dk/document/html/HtmlDocument.java</caption>
+    <caption>Document/src/main/java/jp/co/dk/document/html/HtmlDocument.java</caption>
     <tr>
       <td class='line'>1</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>package jp.co.dk.document.html;</pre></td>
@@ -17,10 +17,8 @@
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'></td><td>&nbsp;</td>
-      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.io.FileOutputStream;
-import java.io.IOException;
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import jp.co.dk.document.Document;
@@ -49,17 +47,17 @@ import jp.co.dk.document.message.DocumentMessage;
  */</div><span>/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>29</td><td>&nbsp;</td>
+      <td class='line'>27</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>public class HtmlDocument extends File implements Document{</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>31</td><td>&nbsp;</td>
+      <td class='line'>29</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	protected HtmlElement <span class='instance covered' title='Reads: 69 Writes: 74'>htmlElement</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>33</td><td>&nbsp;</td>
+      <td class='line'>31</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	protected ElementFactory <span class='instance uncovered' title='Reads: 0 Writes: 74'>elementFactory</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -69,21 +67,21 @@ import jp.co.dk.document.message.DocumentMessage;
 	 * コンストラクタ&lt;p/>
 	 * InputStreamから要素を生成します。
 	 * 
-	 * @param element HTMLパーサの要素インスタンス
+	 * @param inputStream 読み込み対象のストリーム
 	 * @throws DocumentException 
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>42</td><td>&nbsp;</td>
+      <td class='line'>40</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public HtmlDocument(InputStream inputStream) throws DocumentException{</pre></td>
     </tr>
     <tr>
-      <td class='line'>43</td><td class='count'>75</td>
-      <td><pre class='prettyprint covered' id='l43s0'>		this(inputStream, new HtmlElementFactory());</pre></td>
+      <td class='line'>41</td><td class='count'>75</td>
+      <td><pre class='prettyprint covered' id='l41s0'>		this(inputStream, new HtmlElementFactory());</pre></td>
     </tr>
     <tr>
-      <td class='line'>44</td><td class='count'>74</td>
-      <td><pre class='prettyprint covered' id='l44s0'>	}</pre></td>
+      <td class='line'>42</td><td class='count'>74</td>
+      <td><pre class='prettyprint covered' id='l42s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -92,96 +90,95 @@ import jp.co.dk.document.message.DocumentMessage;
 	 * コンストラクタ&lt;p/>
 	 * InputStreamから要素を生成します。
 	 * 
-	 * @param element HTMLパーサの要素インスタンス
+	 * @param inputStream 読み込み対象のストリーム
 	 * @param elementFactory 要素生成ファクトリ
 	 * @throws DocumentException 
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>54</td><td>&nbsp;</td>
+      <td class='line'>52</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public HtmlDocument(InputStream inputStream, HtmlElementFactory elementFactory) throws DocumentException{</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td class='count'>75</td>
-      <td><pre class='prettyprint covered' id='l55s0'>		super(inputStream);</pre></td>
+      <td class='line'>53</td><td class='count'>75</td>
+      <td><pre class='prettyprint covered' id='l53s0'>		super(inputStream);</pre></td>
     </tr>
     <tr>
-      <td class='line'>56</td><td>&nbsp;</td>
+      <td class='line'>54</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
+      <td class='line'>55</td><td class='count'>74</td>
+      <td><pre class='prettyprint covered' id='l55s0'>			this.htmlElement    = new HtmlElement(new net.htmlparser.jericho.Source(super.fileData.getStream()), elementFactory);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>56</td><td class='count'>74</td>
+      <td><pre class='prettyprint covered' id='l56s0'>			this.elementFactory = elementFactory;</pre></td>
+    </tr>
+    <tr>
       <td class='line'>57</td><td class='count'>74</td>
-      <td><pre class='prettyprint covered' id='l57s0'>			this.htmlElement    = new HtmlElement(new net.htmlparser.jericho.Source(super.fileData.getStream()), elementFactory);</pre></td>
+      <td><pre class='prettyprint covered' id='l57s0'>		} catch (IOException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td class='count'>74</td>
-      <td><pre class='prettyprint covered' id='l58s0'>			this.elementFactory = elementFactory;</pre></td>
+      <td class='line'>58</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l58s0'>			throw new HtmlDocumentException(DocumentMessage.ERROR_FAILED_TO_PARSE_HTML, e);</pre></td>
     </tr>
     <tr>
-      <td class='line'>59</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l59s0'>		} catch (IOException e) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>60</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l60s0'>			throw new HtmlDocumentException(DocumentMessage.ERROR_FAILED_TO_PARSE_HTML, e);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>61</td><td>&nbsp;</td>
+      <td class='line'>59</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>62</td><td class='count'>74</td>
-      <td><pre class='prettyprint covered' id='l62s0'>	}</pre></td>
+      <td class='line'>60</td><td class='count'>74</td>
+      <td><pre class='prettyprint covered' id='l60s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'></td><td>&nbsp;</td>
       <td class='comment' onclick='showHideLines(this)'><div>	/**
 	 * ページタイトル取得&lt;p>
-	 * 
 	 * ページのタイトルを取得する。
 	 * 
 	 * @return ページタイトル
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>71</td><td>&nbsp;</td>
+      <td class='line'>68</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public String getTitle() {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>5</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l72s0 l73s0 l74s0')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l72s0 l73s0 l76s0')">B: 4</span>
+        <span class='covered' onclick="showPath(this,'l69s0 l70s0 l71s0')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l69s0 l70s0 l73s0')">B: 4</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>72</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l72s0'>		List&lt;jp.co.dk.document.Element> title = this.htmlElement.getElement(HtmlElementName.TITLE);</pre></td>
+      <td class='line'>69</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l69s0'>		List&lt;jp.co.dk.document.Element> title = this.htmlElement.getElement(HtmlElementName.TITLE);</pre></td>
     </tr>
     <tr>
-      <td class='line'>73</td><td class='count'>5</td>
-      <td><pre class='prettyprint jmp'>		<span id='l73s0' title='Executions: 5' class='covered'>if (title.size() == 0) {</span></pre></td>
+      <td class='line'>70</td><td class='count'>5</td>
+      <td><pre class='prettyprint jmp'>		<span id='l70s0' title='Executions: 5' class='covered'>if (title.size() == 0) {</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>74</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l74s0'>			return "";</pre></td>
+      <td class='line'>71</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l71s0'>			return "";</pre></td>
     </tr>
     <tr>
-      <td class='line'>75</td><td>&nbsp;</td>
+      <td class='line'>72</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		} else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>76</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l76s0'>			return title.get(0).getContent().toString();</pre></td>
+      <td class='line'>73</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l73s0'>			return title.get(0).getContent().toString();</pre></td>
     </tr>
     <tr>
-      <td class='line'>77</td><td>&nbsp;</td>
+      <td class='line'>74</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>78</td><td>&nbsp;</td>
+      <td class='line'>75</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -189,311 +186,312 @@ import jp.co.dk.document.message.DocumentMessage;
       <td class='line'></td><td>&nbsp;</td>
       <td class='comment' onclick='showHideLines(this)'><div>	/**
 	 * ページエンコード取得&lt;p>
-	 * 
 	 * このページのエンコードを取得します。&lt;br/>
 	 * 設定されていない場合、nullを返却します。
+	 * 
+	 * @return キャラクタセット
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>86</td><td>&nbsp;</td>
+      <td class='line'>84</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public HtmlCharSetName getEncode() {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
-        <span class='uncovered' onclick="showPath(this,'l87s0 l91s0 l97s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l87s0 l91s0 l92s0 l92s1 l97s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l85s0 l89s0 l95s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l85s0 l89s0 l90s0 l90s1 l95s0')">B: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>87</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l87s0'>		List&lt;Element> elementList = this.htmlElement.getElement(HtmlElementName.META);</pre></td>
+      <td class='line'>85</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l85s0'>		List&lt;Element> elementList = this.htmlElement.getElement(HtmlElementName.META);</pre></td>
     </tr>
     <tr>
-      <td class='line'>88</td><td class='count'>16</td>
-      <td><pre class='prettyprint covered' id='l88s0'>		for (Element element : elementList) {</pre></td>
+      <td class='line'>86</td><td class='count'>16</td>
+      <td><pre class='prettyprint covered' id='l86s0'>		for (Element element : elementList) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>87</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l87s0'>			Meta meta = (Meta) element;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>88</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l88s0'>			HttpEquivName httpEquiv = meta.getHttpEquiv();</pre></td>
     </tr>
     <tr>
       <td class='line'>89</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l89s0'>			Meta meta = (Meta) element;</pre></td>
+      <td><pre class='prettyprint jmp'>			<span id='l89s0' title='Executions: 5' class='covered'>if (HttpEquivName.CONTENT_TYPE == httpEquiv)</span> <span id='l89s1' title='Executions: 3' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>90</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l90s0'>			HttpEquivName httpEquiv = meta.getHttpEquiv();</pre></td>
+      <td class='line'>90</td><td class='count'>19</td>
+      <td><pre class='prettyprint covered' id='l90s0'>				for (HtmlCharSetName charset :HtmlCharSetName.values()) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>91</td><td class='count'>5</td>
-      <td><pre class='prettyprint jmp'>			<span id='l91s0' title='Executions: 5' class='covered'>if (HttpEquivName.CONTENT_TYPE == httpEquiv)</span> <span id='l91s1' title='Executions: 3' class='covered'>{</span></pre></td>
+      <td class='line'>91</td><td class='count'>17</td>
+      <td><pre class='prettyprint jmp'>					<span id='l91s0' title='Executions: 17' class='covered'>if (charset.isEncording(meta.getMetaContent())) return charset;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>92</td><td class='count'>19</td>
-      <td><pre class='prettyprint covered' id='l92s0'>				for (HtmlCharSetName charset :HtmlCharSetName.values()) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>93</td><td class='count'>17</td>
-      <td><pre class='prettyprint jmp'>					<span id='l93s0' title='Executions: 17' class='covered'>if (charset.isEncording(meta.getMetaContent())) return charset;</span></pre></td>
-    </tr>
-    <tr>
-      <td class='line'>94</td><td>&nbsp;</td>
+      <td class='line'>92</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>				}</pre></td>
     </tr>
     <tr>
-      <td class='line'>95</td><td>&nbsp;</td>
+      <td class='line'>93</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>96</td><td>&nbsp;</td>
+      <td class='line'>94</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>97</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l97s0'>		return null;</pre></td>
+      <td class='line'>95</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l95s0'>		return null;</pre></td>
     </tr>
     <tr>
-      <td class='line'>98</td><td>&nbsp;</td>
+      <td class='line'>96</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>100</td><td>&nbsp;</td>
+      <td class='line'>98</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>101</td><td>&nbsp;</td>
+      <td class='line'>99</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public List&lt;Element> getElement() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>102</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l102s0'>		return this.htmlElement.getElement();</pre></td>
+      <td class='line'>100</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l100s0'>		return this.htmlElement.getElement();</pre></td>
     </tr>
     <tr>
-      <td class='line'>103</td><td>&nbsp;</td>
+      <td class='line'>101</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>105</td><td>&nbsp;</td>
+      <td class='line'>103</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>106</td><td>&nbsp;</td>
+      <td class='line'>104</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public List&lt;Element> getElement(ElementName elementName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>107</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l107s0'>		return this.htmlElement.getElement(elementName);</pre></td>
+      <td class='line'>105</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l105s0'>		return this.htmlElement.getElement(elementName);</pre></td>
     </tr>
     <tr>
-      <td class='line'>108</td><td>&nbsp;</td>
+      <td class='line'>106</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>110</td><td>&nbsp;</td>
+      <td class='line'>108</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>111</td><td>&nbsp;</td>
+      <td class='line'>109</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public List&lt;Element> getElement(ElementSelector elementSelector) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>112</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l112s0'>		return this.htmlElement.getElement(elementSelector);</pre></td>
+      <td class='line'>110</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l110s0'>		return this.htmlElement.getElement(elementSelector);</pre></td>
     </tr>
     <tr>
-      <td class='line'>113</td><td>&nbsp;</td>
+      <td class='line'>111</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>115</td><td>&nbsp;</td>
+      <td class='line'>113</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>116</td><td>&nbsp;</td>
+      <td class='line'>114</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public List&lt;Element> getChildElement() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>117</td><td class='count'>21</td>
-      <td><pre class='prettyprint covered' id='l117s0'>		return this.htmlElement.getChildElement();</pre></td>
+      <td class='line'>115</td><td class='count'>21</td>
+      <td><pre class='prettyprint covered' id='l115s0'>		return this.htmlElement.getChildElement();</pre></td>
     </tr>
     <tr>
-      <td class='line'>118</td><td>&nbsp;</td>
+      <td class='line'>116</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>120</td><td>&nbsp;</td>
+      <td class='line'>118</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>121</td><td>&nbsp;</td>
+      <td class='line'>119</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public List&lt;Element> getChildElement(ElementName elementName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>122</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l122s0'>		return this.htmlElement.getChildElement(elementName);</pre></td>
+      <td class='line'>120</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l120s0'>		return this.htmlElement.getChildElement(elementName);</pre></td>
     </tr>
     <tr>
-      <td class='line'>123</td><td>&nbsp;</td>
+      <td class='line'>121</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>125</td><td>&nbsp;</td>
+      <td class='line'>123</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>126</td><td>&nbsp;</td>
+      <td class='line'>124</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public List&lt;Element> getChildElement(ElementSelector elementSelector) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>127</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l127s0'>		return this.htmlElement.getChildElement(elementSelector);</pre></td>
+      <td class='line'>125</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l125s0'>		return this.htmlElement.getChildElement(elementSelector);</pre></td>
     </tr>
     <tr>
-      <td class='line'>128</td><td>&nbsp;</td>
+      <td class='line'>126</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>130</td><td>&nbsp;</td>
+      <td class='line'>128</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>131</td><td>&nbsp;</td>
+      <td class='line'>129</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public boolean hasChildElement() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>132</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l132s0'>		return this.htmlElement.hasChildElement();</pre></td>
+      <td class='line'>130</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l130s0'>		return this.htmlElement.hasChildElement();</pre></td>
     </tr>
     <tr>
-      <td class='line'>133</td><td>&nbsp;</td>
+      <td class='line'>131</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>135</td><td>&nbsp;</td>
+      <td class='line'>133</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>136</td><td>&nbsp;</td>
+      <td class='line'>134</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public boolean isElement(ElementName elementName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>137</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l137s0'>		return this.htmlElement.isElement(elementName);</pre></td>
+      <td class='line'>135</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l135s0'>		return this.htmlElement.isElement(elementName);</pre></td>
     </tr>
     <tr>
-      <td class='line'>138</td><td>&nbsp;</td>
+      <td class='line'>136</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>140</td><td>&nbsp;</td>
+      <td class='line'>138</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>141</td><td>&nbsp;</td>
+      <td class='line'>139</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public boolean hasElement(ElementName elementName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>142</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l142s0'>		return this.htmlElement.hasElement(elementName);</pre></td>
+      <td class='line'>140</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l140s0'>		return this.htmlElement.hasElement(elementName);</pre></td>
     </tr>
     <tr>
-      <td class='line'>143</td><td>&nbsp;</td>
+      <td class='line'>141</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>145</td><td>&nbsp;</td>
+      <td class='line'>143</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>146</td><td>&nbsp;</td>
+      <td class='line'>144</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public String getAttribute(String name) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>147</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l147s0'>		return this.htmlElement.getAttribute(name);</pre></td>
+      <td class='line'>145</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l145s0'>		return this.htmlElement.getAttribute(name);</pre></td>
     </tr>
     <tr>
-      <td class='line'>148</td><td>&nbsp;</td>
+      <td class='line'>146</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>150</td><td>&nbsp;</td>
+      <td class='line'>148</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>151</td><td>&nbsp;</td>
+      <td class='line'>149</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public boolean hasAttribute(String attributeName) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>152</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l152s0'>		return this.htmlElement.hasAttribute(attributeName);</pre></td>
+      <td class='line'>150</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l150s0'>		return this.htmlElement.hasAttribute(attributeName);</pre></td>
     </tr>
     <tr>
-      <td class='line'>153</td><td>&nbsp;</td>
+      <td class='line'>151</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>155</td><td>&nbsp;</td>
+      <td class='line'>153</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>156</td><td>&nbsp;</td>
+      <td class='line'>154</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public String getTagName() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>157</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l157s0'>		return this.htmlElement.getTagName();</pre></td>
+      <td class='line'>155</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l155s0'>		return this.htmlElement.getTagName();</pre></td>
     </tr>
     <tr>
-      <td class='line'>158</td><td>&nbsp;</td>
+      <td class='line'>156</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>160</td><td>&nbsp;</td>
+      <td class='line'>158</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>161</td><td>&nbsp;</td>
+      <td class='line'>159</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public String getContent() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>162</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l162s0'>		return this.htmlElement.getContent();</pre></td>
+      <td class='line'>160</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l160s0'>		return this.htmlElement.getContent();</pre></td>
     </tr>
     <tr>
-      <td class='line'>163</td><td>&nbsp;</td>
+      <td class='line'>161</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>165</td><td>&nbsp;</td>
+      <td class='line'>163</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>166</td><td>&nbsp;</td>
+      <td class='line'>164</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public String toString() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>167</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l167s0'>		return this.htmlElement.toString();</pre></td>
+      <td class='line'>165</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l165s0'>		return this.htmlElement.toString();</pre></td>
     </tr>
     <tr>
-      <td class='line'>168</td><td>&nbsp;</td>
+      <td class='line'>166</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr>
-      <td class='line'>169</td><td>&nbsp;</td>
+      <td class='line'>167</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>
