@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="lib" path="messages/test"/>
+	<classpathentry kind="lib" path="properties/test"/>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="src" path="src/test/resources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="lib/jericho-html-3.2.jar"/>
 	<classpathentry kind="lib" path="lib/message_all.jar"/>
 	<classpathentry kind="lib" path="lib/property_all.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="lib/test/jmockit-coverage.jar"/>
 	<classpathentry kind="lib" path="lib/test/jmockit.jar"/>
 	<classpathentry kind="lib" path="lib/test/testtemplate_all.jar"/>
