@@ -7,6 +7,8 @@ import java.io.OutputStream;
 
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.message.DocumentMessage;
+import jp.co.dk.logger.Logger;
+import jp.co.dk.logger.LoggerFactory;
 
 /**
  * Fileは、ネットワーク上に存在するファイルを表すファイルオブジェクトです。
@@ -18,6 +20,9 @@ public class File {
 	
 	protected ByteDump fileData;
 	
+	/** ロガーインスタンス */
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	/**
 	 * コンストラクタ<br/>
 	 * 
@@ -27,6 +32,7 @@ public class File {
 	 * @throws DocumentException 読み込みストリームからの読み込みに失敗した場合
 	 */
 	public File(InputStream inputStream) throws DocumentException {
+		this.logger.constractor(this.getClass(), inputStream);
 		this.fileData = new ByteDump(inputStream);
 	}
 	
@@ -50,6 +56,9 @@ public class File {
 		
 		java.io.File path = new java.io.File(new StringBuilder(dir.getAbsolutePath()).append('/').append(filename).toString());
 		if (path.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_APLREADY_EXISTS_IN_THE_SPECIFIED_PATH, path.getAbsolutePath());
+		
+		this.logger.info("save path=[" + path.getPath() + "]");
+		
 		try (OutputStream outputStream = new FileOutputStream(path)) {
 			outputStream.write(this.fileData.getBytes());
 		} catch (IOException e) {
