@@ -8,6 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
 import jp.co.dk.document.exception.DocumentException;
@@ -81,6 +82,15 @@ public class ByteDump {
 	 */
 	public byte[] getBytes() {
 		return this.buffer.array();
+	}
+	
+	/**
+	 * 本データを「Base64」へ変換し、文字列として返却します。
+	 * 
+	 * @return 本データのBase64表現
+	 */
+	public String getBytesToBase64String() {
+		return Base64.getEncoder().encodeToString(this.getBytes());
 	}
 	
 	/**

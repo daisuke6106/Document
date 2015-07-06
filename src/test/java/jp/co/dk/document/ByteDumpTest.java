@@ -64,6 +64,11 @@ public class ByteDumpTest {
 		}
 		
 		@Test
+		public void getBytesToBase64String() {
+			assertThat(this.byteDump.getBytesToBase64String().length(), is(673416));
+		}
+		
+		@Test
 		public void getHash() {
 			
 			// 使用するアルゴリズム名称をnullで呼び出した場合、例外が発生すること

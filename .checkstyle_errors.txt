@@ -22,73 +22,77 @@ Starting audit...
 /home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/Algorithm.java:33: Line has trailing spaces.
 /home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/Algorithm.java:34: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/Algorithm.java:36: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:18: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.document.message.DocumentMessage.*。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:20: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:22: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:27: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:27:1: File contains tab characters (this is the first instance).
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:28: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:29:30: 変数 'buffer' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:29:36: ';' の前にホワイトスペースがあります。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:30: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:31: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:32:26: 変数 'logger' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:33: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:34: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:38: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:42:25: Parameter inputStream should be final.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:42:57: DocumentException のクラス情報が取得できません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:45:24: 'buffer' がフィールドを隠しています。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:45:42: '1024' はマジックナンバーです。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:51: 行が 80 文字を超えています。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:53: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:53: 行が 80 文字を超えています。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:53:48: '1024' はマジックナンバーです。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:53:87: '1024' はマジックナンバーです。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:57: 行が 80 文字を超えています。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:60: 'for' 文では '{}' を使用しなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:60:20: 'for' の後にホワイトスペースがありません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:62: 'for' 文では '{}' を使用しなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:62: 行が 80 文字を超えています。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:62:20: 'for' の後にホワイトスペースがありません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:66: 行が 80 文字を超えています。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:69: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:70: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:74:9: メソッド 'length' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:77: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:78: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:82:9: メソッド 'getBytes' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:85: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:86: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:90:9: メソッド 'getStream' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:93: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:94: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:97: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:101:9: メソッド 'getHash' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:101:40: DocumentFatalException のクラス情報が取得できません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:104: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:105: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:109: 行が 80 文字を超えています。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:110: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:114: 行が 80 文字を超えています。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:114:9: メソッド 'getHash' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:114:31: Parameter algorithm should be final.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:114:41: 'algorithm' には @param タグが必要です。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:114:59: DocumentFatalException のクラス情報が取得できません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:116: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:116: 行が 80 文字を超えています。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:117: 行が 80 文字を超えています。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:19: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.document.message.DocumentMessage.*。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:21: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:23: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:28: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:28:1: File contains tab characters (this is the first instance).
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:29: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:30:30: 変数 'buffer' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:30:36: ';' の前にホワイトスペースがあります。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:31: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:32: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:33:26: 変数 'logger' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:34: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:35: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:39: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:43:25: Parameter inputStream should be final.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:43:57: DocumentException のクラス情報が取得できません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:46:24: 'buffer' がフィールドを隠しています。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:46:42: '1024' はマジックナンバーです。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:52: 行が 80 文字を超えています。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:54: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:54: 行が 80 文字を超えています。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:54:48: '1024' はマジックナンバーです。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:54:87: '1024' はマジックナンバーです。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:58: 行が 80 文字を超えています。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:61: 'for' 文では '{}' を使用しなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:61:20: 'for' の後にホワイトスペースがありません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:63: 'for' 文では '{}' を使用しなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:63: 行が 80 文字を超えています。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:63:20: 'for' の後にホワイトスペースがありません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:67: 行が 80 文字を超えています。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:70: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:71: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:75:9: メソッド 'length' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:78: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:79: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:83:9: メソッド 'getBytes' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:86: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:87: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:89: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:92:9: メソッド 'getBytesToBase64String' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:95: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:96: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:100:9: メソッド 'getStream' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:103: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:104: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:107: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:111:9: メソッド 'getHash' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:111:40: DocumentFatalException のクラス情報が取得できません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:114: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:115: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:119: 行が 80 文字を超えています。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:120: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:124: 行が 80 文字を超えています。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:124:9: メソッド 'getHash' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:124:31: Parameter algorithm should be final.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:124:41: 'algorithm' には @param タグが必要です。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:124:59: DocumentFatalException のクラス情報が取得できません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:126: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:126: 行が 80 文字を超えています。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:126:100: ',' の後にホワイトスペースがありません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:131: Javadoc コメントがありません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:132: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:133:9: Javadoc コメントがありません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:134: Line has trailing spaces.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:135:9: Javadoc コメントがありません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:135:18: Parameter bytes should be final.
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:135:25: 'bytes' がフィールドを隠しています。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:138:9: Javadoc コメントがありません。
-/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:141:13: Javadoc コメントがありません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:127: 行が 80 文字を超えています。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:136: 行が 80 文字を超えています。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:136:100: ',' の後にホワイトスペースがありません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:141: Javadoc コメントがありません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:142: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:143:9: Javadoc コメントがありません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:144: Line has trailing spaces.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:145:9: Javadoc コメントがありません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:145:18: Parameter bytes should be final.
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:145:25: 'bytes' がフィールドを隠しています。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:148:9: Javadoc コメントがありません。
+/home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/ByteDump.java:151:13: Javadoc コメントがありません。
 /home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/Document.java:3: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/Document.java:5: Line has trailing spaces.
 /home/dk/github_workspace/Document/src/main/java/jp/co/dk/document/Document.java:9:42: '{' の前にホワイトスペースがありません。
