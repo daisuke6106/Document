@@ -175,7 +175,7 @@ class FormElemenetFactory extends HtmlElementFactory {
 		
 		if (HtmlElementName.INPUT == htmlElementName) {
 			InputTypeName input = this.cornvertInputTypeName(htmlElement);
-			if (input == null) return new jp.co.dk.document.html.element.form.FormText(htmlElement, this.form);;
+			if (input == null) return new jp.co.dk.document.html.element.form.FormText(htmlElement, this.form);
 			switch (input) {
 				case CHECKBOX:
 					return new jp.co.dk.document.html.element.form.FormCheckBox(htmlElement, this.form);
