@@ -69,6 +69,17 @@ public class ByteDump {
 	}
 	
 	/**
+	 * <p>コンストラクタ</p>
+	 * 指定のバイト配列を基にデータを保持するバイトダンプオブジェトを生成する。
+	 * 
+	 * @param data データ
+	 */
+	private ByteDump(byte[] data) {
+		this.buffer = ByteBuffer.allocate(data.length);
+		this.buffer.put(data);
+	}
+	
+	/**
 	 * 本データの長さを取得する。
 	 * @return データ長
 	 */
@@ -91,6 +102,15 @@ public class ByteDump {
 	 */
 	public String getBytesToBase64String() {
 		return Base64.getEncoder().encodeToString(this.getBytes());
+	}
+	
+	/**
+	 * 指定の「Base64」表現された文字列を基にデータを復元し、バイトダンプオブジェクトとして返却します。
+	 * @param base64String 「Base64」表現された文字列
+	 * @return バイトダンプオブジェクト
+	 */
+	public static ByteDump getByteDumpFromBase64String(String base64String) {
+		return new ByteDump(Base64.getDecoder().decode(base64String));
 	}
 	
 	/**
