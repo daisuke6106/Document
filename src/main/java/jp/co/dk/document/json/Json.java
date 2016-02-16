@@ -47,8 +47,8 @@ public class Json extends File {
 	}
 	
 	/**
-	 * JSONデータをリストとして返却します。
-	 * @return JSONデータのリスト
+	 * JSONデータをマップとして返却します。
+	 * @return JSONデータのマップ
 	 */
 	public Map getDataByMap() {
 		return new LinkedHashMap((Map)this.data);
