@@ -18,7 +18,7 @@ import static jp.co.dk.document.message.DocumentMessage.*;
  * 
  * @author D.Kanno
  */
-public class Json extends File {
+public class JsonDocument extends File {
 	
 	/** JSONデータオブジェクト */
 	protected Object data;
@@ -29,7 +29,7 @@ public class Json extends File {
 	 * @param inputStream 読み込みストリーム
 	 * @throws DocumentException 読み込みストリームからの読み込みに失敗した場合
 	 */
-	public Json(InputStream inputStream) throws DocumentException {
+	public JsonDocument(InputStream inputStream) throws DocumentException {
 		super(inputStream);
 		try {
 			this.data = JSON.decode(this.fileData.getStream());
@@ -52,5 +52,10 @@ public class Json extends File {
 	 */
 	public Map getDataByMap() {
 		return new LinkedHashMap((Map)this.data);
+	}
+	
+	@Override
+	public String toString() {
+		return JSON.encode(this.data);
 	}
 }
