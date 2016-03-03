@@ -75,7 +75,16 @@ public class DocumentMessage extends AbstractMessage{
 	
 	/** ドキュメントのJSONへの変換処理に失敗しました。 */
 	public static final DocumentMessage ERROR_DECORD_TO_JSON = new DocumentMessage("E021");
+
+	/** ファイルが指定されていません。 */
+	public static final DocumentMessage ERROR_FILE_IS_NOT_SET = new DocumentMessage("E022");
 	
+	/** 指定のパスはディレクトリです。PATH=[{0}] */
+	public static final DocumentMessage ERROR_SPECIFIED_PATH_IS_DIRECTORY = new DocumentMessage("E023");
+	
+	/** 指定のパスにファイルが存在しません。PATH=[{0}] */
+	public static final DocumentMessage ERROR_FILE_NOT_EXISTS_IN_THE_SPECIFIED_PATH = new DocumentMessage("E024");
+		
 	protected DocumentMessage(String messageId) {
 		super(messageId);
 	}

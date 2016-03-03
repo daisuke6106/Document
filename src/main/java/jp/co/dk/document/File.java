@@ -1,5 +1,7 @@
 package jp.co.dk.document;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;	
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,6 +24,26 @@ public class File {
 	
 	/** ロガーインスタンス */
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	/**
+	 * コンストラクタ<br/>
+	 * 
+	 * 読み込みファイルを元にオブジェクトを生成する。
+	 * 
+	 * @param file 読み込みファイル
+	 * @throws DocumentException 読み込みストリームからの読み込みに失敗した場合
+	 */
+	public File(java.io.File file) throws DocumentException {
+		if (file == null) throw new DocumentException(DocumentMessage.ERROR_FILE_IS_NOT_SET);
+		if (!file.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_NOT_EXISTS_IN_THE_SPECIFIED_PATH, file.toString());
+		if (file.isDirectory()) throw new DocumentException(DocumentMessage.ERROR_SPECIFIED_PATH_IS_DIRECTORY, file.toString());
+		try {
+			InputStream inputStream = new FileInputStream(file);
+			this.fileData = new ByteDump(inputStream);
+		} catch (FileNotFoundException e) {
+			throw new DocumentException(DocumentMessage.ERROR_FILE_READ, e);
+		}
+	}
 	
 	/**
 	 * コンストラクタ<br/>

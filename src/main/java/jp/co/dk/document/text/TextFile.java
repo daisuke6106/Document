@@ -13,6 +13,10 @@ import jp.co.dk.document.message.DocumentMessage;
 
 public class TextFile extends File {
 	
+	public TextFile(java.io.File file) throws DocumentException {
+		super(file);
+	}
+	
 	public TextFile(InputStream inputStream) throws DocumentException {
 		super(inputStream);
 	}
