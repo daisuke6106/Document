@@ -20,6 +20,7 @@ import jp.co.dk.logger.LoggerFactory;
  */
 public class File {
 	
+	/** 読み込んだバイトデータ */
 	protected ByteDump fileData;
 	
 	/** ロガーインスタンス */
@@ -28,14 +29,18 @@ public class File {
 	/**
 	 * コンストラクタ<br/>
 	 * 
-	 * 読み込みファイルを元にオブジェクトを生成する。
+	 * 読み込みファイルを元にオブジェクトを生成します。<br/>
+	 * 尚、指定されたファイルの存在チェックを行い、以下のような場合は例外を送出します。<br/>
+	 * ・fileオブジェクトがnullの場合
+	 * ・指定されたパスにファイルが存在しない場合
+	 * ・指定されたパスのファイルがディレクトリの場合
 	 * 
 	 * @param file 読み込みファイル
-	 * @throws DocumentException 読み込みストリームからの読み込みに失敗した場合
+	 * @throws DocumentException 上記条件にてファイルの読み込みに失敗した場合
 	 */
 	public File(java.io.File file) throws DocumentException {
-		if (file == null) throw new DocumentException(DocumentMessage.ERROR_FILE_IS_NOT_SET);
-		if (!file.exists()) throw new DocumentException(DocumentMessage.ERROR_FILE_NOT_EXISTS_IN_THE_SPECIFIED_PATH, file.toString());
+		if (file == null)       throw new DocumentException(DocumentMessage.ERROR_FILE_IS_NOT_SET);
+		if (!file.exists())     throw new DocumentException(DocumentMessage.ERROR_FILE_NOT_EXISTS_IN_THE_SPECIFIED_PATH, file.toString());
 		if (file.isDirectory()) throw new DocumentException(DocumentMessage.ERROR_SPECIFIED_PATH_IS_DIRECTORY, file.toString());
 		try {
 			InputStream inputStream = new FileInputStream(file);
