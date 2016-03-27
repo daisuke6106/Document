@@ -14,8 +14,6 @@ import java.util.List;
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.exception.DocumentFatalException;
 import jp.co.dk.document.message.DocumentMessage;
-import jp.co.dk.logger.Logger;
-import jp.co.dk.logger.LoggerFactory;
 import static jp.co.dk.document.message.DocumentMessage.*;
 
 /**
@@ -29,9 +27,6 @@ public class ByteDump {
 	/** バイトバッファ */
 	protected ByteBuffer buffer ;
 	
-	/** ロガーインスタンス */
-	protected Logger logger = LoggerFactory.getLogger(this.getClass());
-	
 	/**
 	 * コンストラクタ<br/>
 	 * 読み込み対象のストリームからデータを読み込み、本クラス内に保持し、ストリームを閉じます。<br/>
@@ -41,19 +36,11 @@ public class ByteDump {
 	 * @throws DocumentException 読み込みに失敗、もしくはクローズ処理に失敗した場合
 	 */
 	public ByteDump(InputStream inputStream) throws DocumentException {
-		this.logger.constractor(this.getClass(), inputStream);
 		List<BytesTmp> bytes = new ArrayList<BytesTmp>();
 		byte[] buffer = new byte[1024];
 		int len = 0;
 		try {
-			this.logger.info("read start");
-			long readsize = 0;
-			while ((len = inputStream.read(buffer)) > 0) {
-				bytes.add(new BytesTmp(Arrays.copyOfRange(buffer, 0, len)));
-				readsize++;
-				if (readsize % 1024 == 0) this.logger.info(readsize / 1024 + " MByte");
-			}
-			this.logger.info("read fin");
+			while ((len = inputStream.read(buffer)) > 0) bytes.add(new BytesTmp(Arrays.copyOfRange(buffer, 0, len)));
 		} catch (IOException e) {
 			throw new DocumentException(DocumentMessage.ERROR_FILE_READ, e);
 		}
