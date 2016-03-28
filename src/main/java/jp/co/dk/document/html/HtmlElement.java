@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.htmlparser.jericho.FormControl;
+import org.jsoup.nodes.Node;
 
+import net.htmlparser.jericho.FormControl;
 import jp.co.dk.document.ElementName;
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HtmlElementName;
 import jp.co.dk.document.html.exception.HtmlDocumentException;
-
 import static jp.co.dk.document.message.DocumentMessage.*;
 
 /**
@@ -26,37 +26,10 @@ import static jp.co.dk.document.message.DocumentMessage.*;
 public class HtmlElement implements jp.co.dk.document.Element{
 	
 	/** 要素インスタンス */
-	protected net.htmlparser.jericho.Segment element;
+	protected org.jsoup.nodes.Element element;
 	
 	/** 要素生成ファクトリ */
 	protected HtmlElementFactory elementFactory;
-	
-	/** 本要素のタグインスタンス */
-	protected net.htmlparser.jericho.StartTag startTag;
-	
-	/** 本要素のタグ */
-	protected HtmlElementName cache_elementName;
-	
-	/** 全要素キャッシュ */
-	protected List<jp.co.dk.document.Element> cache_allElement;
-	
-	/** 全子要素キャッシュ */
-	protected List<jp.co.dk.document.Element> cache_childElement;
-	
-	/** IDのキャッシュ */
-	protected String cache_id;
-	
-	/** Nameのキャッシュ */
-	protected String cache_name;
-	
-	/** Classのキャッシュ */
-	protected List<String> cache_class;
-	
-	/** Contentのキャッシュ */
-	protected String cache_content;
-	
-	/** タグパターン */
-	private static Pattern tagPattern = Pattern.compile("<.*?>");
 	
 	public HtmlElement(String elementStr, HtmlElementFactory elementFactory) throws HtmlDocumentException {
 		if (elementStr == null || elementStr.equals("")) throw new HtmlDocumentException(ERROR_ELEMENT_STRING_IS_NOT_SET);
@@ -75,9 +48,8 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * 
 	 * @param element HTMLパーサの要素インスタンス
 	 */
-	protected HtmlElement(net.htmlparser.jericho.Segment element, HtmlElementFactory elementFactory) {
+	protected HtmlElement(org.jsoup.nodes.Element element, HtmlElementFactory elementFactory) {
 		this.element  = element;
-		this.startTag = element.getFirstStartTag();
 		this.elementFactory = elementFactory;
 	}
 	
@@ -90,19 +62,18 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 */
 	protected HtmlElement(HtmlElement htmlElement) {
 		this.element  = htmlElement.element;
-		this.startTag = this.element.getFirstStartTag();
 		this.elementFactory = htmlElement.elementFactory;
 	}
 	
 	@Override
 	public List<jp.co.dk.document.Element> getElement() {
-		List<net.htmlparser.jericho.Element> elementList = this.element.getAllElements();
+		List<org.jsoup.nodes.Element> elementList = this.element.getAllElements();
 		return this.convertList(elementList);
 	}
 	
 	@Override
 	public List<jp.co.dk.document.Element> getElement(jp.co.dk.document.ElementName elementName) {
-		List<net.htmlparser.jericho.Element> elementList = this.element.getAllElements(elementName.getName());
+		List<org.jsoup.nodes.Element> elementList = this.element.getElementsByTag(elementName.getName());
 		return this.convertList(elementList);
 	}
 	
@@ -111,9 +82,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 		List<jp.co.dk.document.Element> returnList  = new ArrayList<jp.co.dk.document.Element>();
 		List<jp.co.dk.document.Element> elementList = this.getElement();
 		for (jp.co.dk.document.Element element : elementList) {
-			if (elementSelector.judgment(element)) {
-				returnList.add(element);
-			}
+			if (elementSelector.judgment(element)) returnList.add(element);
 		}
 		return returnList;
 	}
@@ -132,10 +101,12 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	
 	@Override
 	public List<jp.co.dk.document.Element> getChildElement() {
-		if (this.element.getChildElements().size() == 1) {
-			return this.convertList(this.element.getChildElements().get(0).getChildElements());
+		List<Node> childList = this.element.childNodes();
+		
+		if (childList.size() == 1) {
+			return this.convertList(childList.get(0).getChildElements());
 		}else {
-			return this.convertList(this.element.getChildElements());
+			return this.convertList(childList);
 		}
 	}
 	
@@ -289,8 +260,8 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 */
 	public List<HtmlElement> getElementById(String id) {
 		List<HtmlElement> httpElementList = new ArrayList<HtmlElement>();
-		List<net.htmlparser.jericho.Element> allElement = this.element.getAllElements();
-		for (net.htmlparser.jericho.Element element : allElement) {
+		List<org.jsoup.nodes.Element> allElement = this.element.getAllElements();
+		for (org.jsoup.nodes.Element element : allElement) {
 			String elementId = this.getAttributeValue(element, HtmlAttributeName.ID.getName());
 			if (elementId!=null && elementId.equals(id)) {
 				httpElementList.add(this.createHtmlElement(element));
@@ -309,8 +280,8 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 */
 	public List<HtmlElement> getElementsByName(String name) {
 		List<HtmlElement> httpElementList = new ArrayList<HtmlElement>();
-		List<net.htmlparser.jericho.Element> allElement = this.element.getAllElements();
-		for (net.htmlparser.jericho.Element element : allElement) {
+		List<org.jsoup.nodes.Element> allElement = this.element.getAllElements();
+		for (org.jsoup.nodes.Element element : allElement) {
 			String elementName = this.getAttributeValue(element, HtmlAttributeName.NAME.getName());
 			if (elementName!=null && elementName.equals(name) ) {
 				httpElementList.add(this.createHtmlElement(element));
@@ -349,9 +320,9 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 */
 	public List<HtmlElement> getHrefList(){
 		List<HtmlElement> urlList = new ArrayList<HtmlElement>();
-		List<net.htmlparser.jericho.Element> hrefList = this.element.getAllElements(net.htmlparser.jericho.HTMLElementName.A);
+		List<org.jsoup.nodes.Element> hrefList = this.element.getAllElements(net.htmlparser.jericho.HTMLElementName.A);
 		if (hrefList.size() != 0) {
-			for (net.htmlparser.jericho.Element element: hrefList) {
+			for (org.jsoup.nodes.Element element: hrefList) {
 				urlList.add(this.createHtmlElement(element));
 			}
 			
@@ -401,7 +372,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @param name 属性名
 	 * @return 属性値
 	 */
-	private String getAttributeValue(net.htmlparser.jericho.Segment element, String name) {
+	private String getAttributeValue(org.jsoup.nodes.Element element, String name) {
 		return element.getFirstElement().getAttributeValue(name);
 	}
 
@@ -412,10 +383,10 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @param elementList HTMLパーサ一覧
 	 * @return 本インスタンス一覧
 	 */
-	private List<jp.co.dk.document.Element> convertList(List<net.htmlparser.jericho.Element> elementList) {
+	private List<jp.co.dk.document.Element> convertList(List<org.jsoup.nodes.Node> elementList) {
 		List<jp.co.dk.document.Element> httpElementList = new ArrayList<jp.co.dk.document.Element>();
 		if (elementList.size() > 0) {
-			for (net.htmlparser.jericho.Element element : elementList) {
+			for (org.jsoup.nodes.Node element : elementList) {
 				httpElementList.add(this.createHtmlElement(element));
 			}
 		}
@@ -428,7 +399,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @param element 要素オブジェクト
 	 * @return 生成された要素オブジェクト
 	 */
-	private HtmlElement createHtmlElement(net.htmlparser.jericho.Segment element) {
+	private HtmlElement createHtmlElement(org.jsoup.nodes.Node element) {
 		try {
 			return (HtmlElement)this.elementFactory.convert(new HtmlElement(element, this.elementFactory));
 		} catch (DocumentException e) {

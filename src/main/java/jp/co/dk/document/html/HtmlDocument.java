@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+import org.jsoup.Jsoup;
+
 import jp.co.dk.document.Document;
 import jp.co.dk.document.ElementFactory;
 import jp.co.dk.document.ElementName;
@@ -49,9 +51,11 @@ public class HtmlDocument extends File implements Document{
 	 * @param elementFactory 要素生成ファクトリ
 	 * @throws DocumentException 
 	 */
-	public HtmlDocument(InputStream inputStream, HtmlElementFactory elementFactory) throws DocumentException{
+	public HtmlDocument(InputStream inputStream, String encording, HtmlElementFactory elementFactory) throws DocumentException{
 		super(inputStream);
 		try {
+			org.jsoup.nodes.Document document = Jsoup.parse(inputStream, encording, "");
+			
 			this.htmlElement    = new HtmlElement(new net.htmlparser.jericho.Source(super.fileData.getStream()), elementFactory);
 			this.elementFactory = elementFactory;
 		} catch (IOException e) {
