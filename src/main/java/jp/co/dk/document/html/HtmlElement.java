@@ -3,12 +3,13 @@ package jp.co.dk.document.html;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Node;
 
-import net.htmlparser.jericho.FormControl;
 import jp.co.dk.document.ElementName;
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
@@ -34,10 +35,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	public HtmlElement(String elementStr, HtmlElementFactory elementFactory) throws HtmlDocumentException {
 		if (elementStr == null || elementStr.equals("")) throw new HtmlDocumentException(ERROR_ELEMENT_STRING_IS_NOT_SET);
 		if (elementFactory == null) throw new HtmlDocumentException(ERROR_ELEMENT_FACTORY_IS_NOT_SET);
-		net.htmlparser.jericho.Source element = new net.htmlparser.jericho.Source(elementStr); 
-		this.element  = element;
-		this.startTag = element.getFirstStartTag();
-		if (this.startTag == null) throw new HtmlDocumentException(ERROR_ELEMENT_STRING_CONVERT);
+		this.element = Jsoup.parse(elementStr);
 		this.elementFactory = elementFactory;
 	}
 	
@@ -101,10 +99,9 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	
 	@Override
 	public List<jp.co.dk.document.Element> getChildElement() {
-		List<Node> childList = this.element.childNodes();
-		
+		List<org.jsoup.nodes.Element> childList = this.element.children();
 		if (childList.size() == 1) {
-			return this.convertList(childList.get(0).getChildElements());
+			return this.convertList(childList.get(0).children());
 		}else {
 			return this.convertList(childList);
 		}
@@ -146,49 +143,30 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	
 	@Override
 	public boolean isElement(ElementName elementName){
-		boolean isElement = false;
-		String tagName = this.startTag.getName();
-		if (tagName.equals(elementName.getName())) {
-			isElement = true;
-		}
-		return isElement;
+		if (this.element.tagName().equals(elementName.getName())) return true;
+		return false;
 	}
 	
 	@Override
 	public String getAttribute(String name) {
-		return this.element.getFirstElement().getAttributeValue(name);
+		String value = this.element.attr(name);
+		if (value == null) return "";
+		return value;
 	}
 	
 	@Override
 	public boolean hasAttribute(String attributeName) {
-		boolean hasAttribute = false;
-		net.htmlparser.jericho.Attributes attributes = this.element.getFirstElement().getAttributes();
-		if (attributes == null) {
-			return false;
-		}
-		for (net.htmlparser.jericho.Attribute attribute : attributes) {
-			String tmpAttributeName = attribute.getName();
-			if (tmpAttributeName.endsWith("/")) tmpAttributeName = tmpAttributeName.substring(0, tmpAttributeName.length()-1);
-			if (tmpAttributeName.equals(attributeName)) {
-				hasAttribute = true;
-				break;
-			}
-		}
-		return hasAttribute;
+		return this.element.hasAttr(attributeName);
 	}
 		
 	@Override
 	public String getTagName() {
-		return this.startTag.getName();
+		return this.element.tagName();
 	}
 	
 	@Override
 	public String getContent() {
-		if (this.cache_content == null) {
-			Matcher matcher = HtmlElement.tagPattern.matcher(this.toString());
-			this.cache_content = matcher.replaceAll("");
-		}
-		return this.cache_content;
+		return this.element.text();
 	}
 	
 	/**
@@ -200,14 +178,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @return 要素に指定されているID
 	 */
 	public String getId() {
-		if (this.cache_id == null) {
-			String getId = this.getAttribute(HtmlAttributeName.ID.getName());
-			if (getId == null) {
-				getId = "";
-			}
-			this.cache_id = getId;
-		}
-		return this.cache_id;
+		return this.getAttribute(HtmlAttributeName.ID.getName());
 	}
 	
 	/**
@@ -219,14 +190,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @return 要素に指定されているName
 	 */
 	public String getName() {
-		if (this.cache_name == null) {
-			String getName = this.getAttribute(HtmlAttributeName.NAME.getName());
-			if (getName == null) {
-				getName = "";
-			}
-			this.cache_name = getName;
-		}
-		return this.cache_name;
+		return this.getAttribute(HtmlAttributeName.NAME.getName());
 	}
 	
 	/**
@@ -238,16 +202,9 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @return 要素に指定されているClass一覧
 	 */
 	public List<String> getClassList() {
-		List<String> classList = new ArrayList<String>();
-		
-		if (this.cache_class == null) {
-			String getClass = this.getAttribute(HtmlAttributeName.CLASS.getName());
-			if (getClass != null ) {
-				classList = Arrays.asList(getClass.split(" "));
-			}
-			this.cache_class = classList;
-		}
-		return this.cache_class;
+		Set<String> classNames = this.element.classNames();
+		if (classNames.size() == 0) return new ArrayList<String>();
+		return new ArrayList<String>(classNames);
 	}
 	
 	/**
@@ -258,16 +215,8 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @param id 取得対象ID
 	 * @return 要素一覧
 	 */
-	public List<HtmlElement> getElementById(String id) {
-		List<HtmlElement> httpElementList = new ArrayList<HtmlElement>();
-		List<org.jsoup.nodes.Element> allElement = this.element.getAllElements();
-		for (org.jsoup.nodes.Element element : allElement) {
-			String elementId = this.getAttributeValue(element, HtmlAttributeName.ID.getName());
-			if (elementId!=null && elementId.equals(id)) {
-				httpElementList.add(this.createHtmlElement(element));
-			}
-		}
-		return httpElementList;
+	public HtmlElement getElementById(String id) {
+		return this.createHtmlElement(this.element.getElementById(id));
 	}
 	
 	/**
@@ -280,13 +229,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 */
 	public List<HtmlElement> getElementsByName(String name) {
 		List<HtmlElement> httpElementList = new ArrayList<HtmlElement>();
-		List<org.jsoup.nodes.Element> allElement = this.element.getAllElements();
-		for (org.jsoup.nodes.Element element : allElement) {
-			String elementName = this.getAttributeValue(element, HtmlAttributeName.NAME.getName());
-			if (elementName!=null && elementName.equals(name) ) {
-				httpElementList.add(this.createHtmlElement(element));
-			}
-		}
+		
 		return httpElementList;
 	}
 	
@@ -299,16 +242,8 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @return 該当のHTMLタグ
 	 */
 	public HtmlElementName getElementType(){
-		if (this.cache_elementName == null) {
-			for (HtmlElementName element : HtmlElementName.values()) {
-				if (this.isElement(element)){
-					this.cache_elementName = element;
-					break;
-				}
-			}
-			return this.cache_elementName;
-		}
-		return this.cache_elementName;
+		for (HtmlElementName element : HtmlElementName.values()) if (this.isElement(element)) return element;
+		return null;
 	}
 	
 	/**
@@ -320,13 +255,8 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 */
 	public List<HtmlElement> getHrefList(){
 		List<HtmlElement> urlList = new ArrayList<HtmlElement>();
-		List<org.jsoup.nodes.Element> hrefList = this.element.getAllElements(net.htmlparser.jericho.HTMLElementName.A);
-		if (hrefList.size() != 0) {
-			for (org.jsoup.nodes.Element element: hrefList) {
-				urlList.add(this.createHtmlElement(element));
-			}
-			
-		}
+		List<org.jsoup.nodes.Element> hrefList = this.element.getElementsByTag("a");
+		if (hrefList.size() != 0) for (org.jsoup.nodes.Element element: hrefList) urlList.add(this.createHtmlElement(element));
 		return urlList;
 	}
 	
@@ -358,24 +288,10 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 */
 	protected List<HtmlElement> getFormElementList() {
 		List<HtmlElement> list = new ArrayList<HtmlElement>();
-		for (FormControl formControl : this.element.getFormControls()) list.add(this.createHtmlElement(formControl));
+		for (org.jsoup.nodes.Element formElement : this.element.getElementsByTag("form")) list.add(this.createHtmlElement(formElement));
 		return list;
 	}
 	
-	//-------------------------------------------------------------------------------------------------------------
-	
-	/**
-	 * 要素の指定属性取得<br/>
-	 * 
-	 * 本要素に設定されている指定の属性を取得します。
-	 * 
-	 * @param name 属性名
-	 * @return 属性値
-	 */
-	private String getAttributeValue(org.jsoup.nodes.Element element, String name) {
-		return element.getFirstElement().getAttributeValue(name);
-	}
-
 	/**
 	 * HTMLパーサの要素インスタンスリスト変換
 	 * HTMLパーサの要素インスタンスを本クラスのインスタンスでラップしたリストを返却する。
@@ -383,13 +299,9 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @param elementList HTMLパーサ一覧
 	 * @return 本インスタンス一覧
 	 */
-	private List<jp.co.dk.document.Element> convertList(List<org.jsoup.nodes.Node> elementList) {
+	private List<jp.co.dk.document.Element> convertList(List<org.jsoup.nodes.Element> elementList) {
 		List<jp.co.dk.document.Element> httpElementList = new ArrayList<jp.co.dk.document.Element>();
-		if (elementList.size() > 0) {
-			for (org.jsoup.nodes.Node element : elementList) {
-				httpElementList.add(this.createHtmlElement(element));
-			}
-		}
+		if (elementList.size() > 0) for (org.jsoup.nodes.Element element : elementList) httpElementList.add(this.createHtmlElement(element));
 		return httpElementList;
 	}
 	
@@ -399,11 +311,10 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @param element 要素オブジェクト
 	 * @return 生成された要素オブジェクト
 	 */
-	private HtmlElement createHtmlElement(org.jsoup.nodes.Node element) {
+	private HtmlElement createHtmlElement(org.jsoup.nodes.Element element) {
 		try {
 			return (HtmlElement)this.elementFactory.convert(new HtmlElement(element, this.elementFactory));
 		} catch (DocumentException e) {
-			// TODO 要素生成に失敗したのにデフォルト要素を返却？
 			return new HtmlElement(element, this.elementFactory);
 		}
 	}
