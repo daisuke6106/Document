@@ -39,8 +39,8 @@ public class HtmlDocument extends File implements Document{
 	 * @param inputStream 読み込み対象のストリーム
 	 * @throws DocumentException 
 	 */
-	public HtmlDocument(InputStream inputStream) throws DocumentException{
-		this(inputStream, new HtmlElementFactory());
+	public HtmlDocument(InputStream inputStream, String encording) throws DocumentException{
+		this(inputStream, encording, new HtmlElementFactory());
 	}
 	
 	/**
@@ -54,9 +54,7 @@ public class HtmlDocument extends File implements Document{
 	public HtmlDocument(InputStream inputStream, String encording, HtmlElementFactory elementFactory) throws DocumentException{
 		super(inputStream);
 		try {
-			org.jsoup.nodes.Document document = Jsoup.parse(inputStream, encording, "");
-			
-			this.htmlElement    = new HtmlElement(new net.htmlparser.jericho.Source(super.fileData.getStream()), elementFactory);
+			this.htmlElement    = new HtmlElement(Jsoup.parse(inputStream, encording, ""), elementFactory);
 			this.elementFactory = elementFactory;
 		} catch (IOException e) {
 			throw new HtmlDocumentException(DocumentMessage.ERROR_FAILED_TO_PARSE_HTML, e);
