@@ -228,9 +228,15 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @return 要素一覧
 	 */
 	public List<HtmlElement> getElementsByName(String name) {
-		List<HtmlElement> httpElementList = new ArrayList<HtmlElement>();
-		
-		return httpElementList;
+		List<HtmlElement> nameElementList = new ArrayList<HtmlElement>();
+		List<jp.co.dk.document.Element> allElementList = this.getElement();
+		for (jp.co.dk.document.Element element : allElementList) {
+			String nameAttr = element.getAttribute("name");
+			if (nameAttr != null && nameAttr.equals(name)) {
+				nameElementList.add((HtmlElement)element);
+			}
+		}
+		return nameElementList;
 	}
 	
 	/**
