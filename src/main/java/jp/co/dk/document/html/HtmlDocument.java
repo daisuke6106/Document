@@ -28,9 +28,26 @@ import jp.co.dk.document.message.DocumentMessage;
  */
 public class HtmlDocument extends File implements Document{
 	
-	protected HtmlElement htmlElement;
+	protected org.jsoup.nodes.Document document;
+	
+	protected HtmlElement html;
+	
+	protected HtmlElement head;
+	
+	protected HtmlElement body;
 	
 	protected ElementFactory elementFactory;
+	
+	/**
+	 * コンストラクタ<p/>
+	 * InputStreamから要素を生成します。
+	 * 
+	 * @param inputStream 読み込み対象のストリーム
+	 * @throws DocumentException 
+	 */
+	protected HtmlDocument(InputStream inputStream) throws DocumentException{
+		this(inputStream, "UTF-8", new HtmlElementFactory());
+	}
 	
 	/**
 	 * コンストラクタ<p/>
@@ -54,7 +71,10 @@ public class HtmlDocument extends File implements Document{
 	public HtmlDocument(InputStream inputStream, String encording, HtmlElementFactory elementFactory) throws DocumentException{
 		super(inputStream);
 		try {
-			this.htmlElement    = new HtmlElement(Jsoup.parse(inputStream, encording, ""), elementFactory);
+			this.document = Jsoup.parse(inputStream, encording, "");
+			this.html = new HtmlElement(this.document       , elementFactory);
+			this.head = new HtmlElement(this.document.head(), elementFactory);
+			this.body = new HtmlElement(this.document.body(), elementFactory);
 			this.elementFactory = elementFactory;
 		} catch (IOException e) {
 			throw new HtmlDocumentException(DocumentMessage.ERROR_FAILED_TO_PARSE_HTML, e);
@@ -68,12 +88,7 @@ public class HtmlDocument extends File implements Document{
 	 * @return ページタイトル
 	 */
 	public String getTitle() {
-		List<jp.co.dk.document.Element> title = this.htmlElement.getElement(HtmlElementName.TITLE);
-		if (title.size() == 0) {
-			return "";
-		} else {
-			return title.get(0).getContent().toString();
-		}
+		return this.document.title();
 	}
 	
 	/**
@@ -84,7 +99,7 @@ public class HtmlDocument extends File implements Document{
 	 * @return キャラクタセット
 	 */
 	public HtmlCharSetName getEncode() {
-		List<Element> elementList = this.htmlElement.getElement(HtmlElementName.META);
+		List<Element> elementList = this.head.getElement(HtmlElementName.META);
 		for (Element element : elementList) {
 			Meta meta = (Meta) element;
 			HttpEquivName httpEquiv = meta.getHttpEquiv();
@@ -99,71 +114,71 @@ public class HtmlDocument extends File implements Document{
 
 	@Override
 	public List<Element> getElement() {
-		return this.htmlElement.getElement();
+		return this.html.getElement();
 	}
 
 	@Override
 	public List<Element> getElement(ElementName elementName) {
-		return this.htmlElement.getElement(elementName);
+		return this.html.getElement(elementName);
 	}
 
 	@Override
 	public List<Element> getElement(ElementSelector elementSelector) {
-		return this.htmlElement.getElement(elementSelector);
+		return this.html.getElement(elementSelector);
 	}
 	
 	@Override
 	public List<Element> getChildElement() {
-		return this.htmlElement.getChildElement();
+		return this.html.getChildElement();
 	}
 
 	@Override
 	public List<Element> getChildElement(ElementName elementName) {
-		return this.htmlElement.getChildElement(elementName);
+		return this.html.getChildElement(elementName);
 	}
 	
 	@Override
 	public List<Element> getChildElement(ElementSelector elementSelector) {
-		return this.htmlElement.getChildElement(elementSelector);
+		return this.html.getChildElement(elementSelector);
 	}
 
 	@Override
 	public boolean hasChildElement() {
-		return this.htmlElement.hasChildElement();
+		return this.html.hasChildElement();
 	}
 
 	@Override
 	public boolean isElement(ElementName elementName) {
-		return this.htmlElement.isElement(elementName);
+		return this.html.isElement(elementName);
 	}
 
 	@Override
 	public boolean hasElement(ElementName elementName) {
-		return this.htmlElement.hasElement(elementName);
+		return this.html.hasElement(elementName);
 	}
 
 	@Override
 	public String getAttribute(String name) {
-		return this.htmlElement.getAttribute(name);
+		return this.html.getAttribute(name);
 	}
 
 	@Override
 	public boolean hasAttribute(String attributeName) {
-		return this.htmlElement.hasAttribute(attributeName);
+		return this.html.hasAttribute(attributeName);
 	}
 
 	@Override
 	public String getTagName() {
-		return this.htmlElement.getTagName();
+		return this.html.getTagName();
 	}
 
 	@Override
 	public String getContent() {
-		return this.htmlElement.getContent();
+		return this.html.getContent();
 	}
 	
 	@Override
 	public String toString() {
-		return this.htmlElement.toString();
+		return this.html.toString();
 	}
 }
