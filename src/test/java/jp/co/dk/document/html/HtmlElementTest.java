@@ -690,9 +690,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<input type=\"text\"/>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.cache_id, nullValue());
 			assertThat(htmlElement.getId(), is(""));
-			assertThat(htmlElement.cache_id, is(""));
 			assertThat(htmlElement.getId(), is(""));
 		} catch (DocumentException e) {
 			fail(e);
@@ -703,9 +701,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<input type=\"text\" id=\"test\"/>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.cache_id, nullValue());
 			assertThat(htmlElement.getId(), is("test"));
-			assertThat(htmlElement.cache_id, is("test"));
 			assertThat(htmlElement.getId(), is("test"));
 		} catch (DocumentException e) {
 			fail(e);
@@ -719,9 +715,6 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<input type=\"text\"/>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.cache_name, nullValue());
-			assertThat(htmlElement.getName(), is(""));
-			assertThat(htmlElement.cache_name, is(""));
 			assertThat(htmlElement.getName(), is(""));
 		} catch (DocumentException e) {
 			fail(e);
@@ -732,9 +725,6 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<input type=\"text\" name=\"test\"/>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.cache_name, nullValue());
-			assertThat(htmlElement.getName(), is("test"));
-			assertThat(htmlElement.cache_name, is("test"));
 			assertThat(htmlElement.getName(), is("test"));
 		} catch (DocumentException e) {
 			fail(e);
@@ -748,9 +738,6 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<input type=\"text\"/>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.cache_class, nullValue());
-			assertThat(htmlElement.getClassList().size(), is(0));
-			assertThat(htmlElement.cache_class, notNullValue());
 			assertThat(htmlElement.getClassList().size(), is(0));
 		} catch (DocumentException e) {
 			fail(e);
@@ -761,11 +748,8 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<input type=\"text\" class=\"test\"/>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.cache_class, nullValue());
 			assertThat(htmlElement.getClassList().size(), is(1));
 			assertThat(htmlElement.getClassList().get(0), is("test"));
-			assertThat(htmlElement.cache_class, notNullValue());
-			assertThat(htmlElement.getClassList().size(), is(1));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -775,12 +759,9 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<input type=\"text\" class=\"test1 test2\"/>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.cache_class, nullValue());
 			assertThat(htmlElement.getClassList().size(), is(2));
 			assertThat(htmlElement.getClassList().get(0), is("test1"));
 			assertThat(htmlElement.getClassList().get(1), is("test2"));
-			assertThat(htmlElement.cache_class, notNullValue());
-			assertThat(htmlElement.getClassList().size(), is(2));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -795,7 +776,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			html.append("this is test.");
 			html.append("</p>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.getElementById("test").size(), is(0));
+			assertThat(htmlElement.getElementById("test"), notNullValue());
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -807,8 +788,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			html.append("<input type=\"text\" id=\"test\"/>");
 			html.append("</p>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.getElementById("test").size(), is(1));
-			assertThat(htmlElement.getElementById("test").get(0).getTagName(), is("input"));
+			assertThat(htmlElement.getElementById("test").getTagName(), is("input"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -820,7 +800,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			html.append("<input type=\"text\" id=\"test\"/>");
 			html.append("</p>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.getElementById("nothing").size(), is(0));
+			assertThat(htmlElement.getElementById("nothing"), nullValue());
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -833,11 +813,8 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			html.append("<input type=\"checkbox\" id=\"test\"/>");
 			html.append("</p>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.getElementById("test").size(), is(2));
-			assertThat(htmlElement.getElementById("test").get(0).getTagName(), is("input"));
-			assertThat(htmlElement.getElementById("test").get(0).getAttribute("type"), is("text"));
-			assertThat(htmlElement.getElementById("test").get(1).getTagName(), is("input"));
-			assertThat(htmlElement.getElementById("test").get(1).getAttribute("type"), is("checkbox"));
+			assertThat(htmlElement.getElementById("test").getTagName(), is("input"));
+			assertThat(htmlElement.getElementById("test").getAttribute("type"), is("text"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -850,12 +827,7 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			html.append("<input type=\"checkbox\" id=\"test\"/>");
 			html.append("</p>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.getElementById("test").size(), is(3));
-			assertThat(htmlElement.getElementById("test").get(0).getTagName(), is("p"));
-			assertThat(htmlElement.getElementById("test").get(1).getTagName(), is("input"));
-			assertThat(htmlElement.getElementById("test").get(1).getAttribute("type"), is("text"));
-			assertThat(htmlElement.getElementById("test").get(2).getTagName(), is("input"));
-			assertThat(htmlElement.getElementById("test").get(2).getAttribute("type"), is("checkbox"));
+			assertThat(htmlElement.getElementById("test").getTagName(), is("p"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -946,9 +918,6 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			html.append("this is test.");
 			html.append("</p>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.cache_elementName, nullValue());
-			assertThat(htmlElement.getElementType() , is(HtmlElementName.P));
-			assertThat(htmlElement.cache_elementName, is(HtmlElementName.P));
 			assertThat(htmlElement.getElementType() , is(HtmlElementName.P));
 		} catch (DocumentException e) {
 			fail(e);
@@ -961,9 +930,6 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			html.append("this is test.");
 			html.append("</nothing>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.cache_elementName, nullValue());
-			assertThat(htmlElement.getElementType() , nullValue());
-			assertThat(htmlElement.cache_elementName, nullValue());
 			assertThat(htmlElement.getElementType() , nullValue());
 		} catch (DocumentException e) {
 			fail(e);
