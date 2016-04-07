@@ -40,7 +40,10 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</body>");
 			html.append("</html>");
 			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
-			assertThat(htmlDocument.htmlElement, notNullValue());
+			assertThat(htmlDocument.document, notNullValue());
+			assertThat(htmlDocument.html, notNullValue());
+			assertThat(htmlDocument.head, notNullValue());
+			assertThat(htmlDocument.body, notNullValue());
 			assertThat(htmlDocument.elementFactory, notNullValue());
 		} catch (DocumentException e) {
 			fail(e);
@@ -67,7 +70,11 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("not html text.");
 			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
-			assertThat(htmlDocument.htmlElement, notNullValue());
+			assertThat(htmlDocument.document, notNullValue());
+			assertThat(htmlDocument.html, notNullValue());
+			assertThat(htmlDocument.head, notNullValue());
+			assertThat(htmlDocument.body, notNullValue());
+			assertThat(htmlDocument.elementFactory, notNullValue());
 			assertThat(htmlDocument.elementFactory, notNullValue());
 		} catch (DocumentException e) {
 			fail(e);
@@ -76,7 +83,11 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// バイナリデータを読み込んだ場合、正常にインスタンス作成が行われているかを確認
 		try {
 			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/JPEG.jpg"));
-			assertThat(htmlDocument.htmlElement, notNullValue());
+			assertThat(htmlDocument.document, notNullValue());
+			assertThat(htmlDocument.html, notNullValue());
+			assertThat(htmlDocument.head, notNullValue());
+			assertThat(htmlDocument.body, notNullValue());
+			assertThat(htmlDocument.elementFactory, notNullValue());
 			assertThat(htmlDocument.elementFactory, notNullValue());
 		} catch (DocumentException e) {
 			fail(e);
@@ -91,7 +102,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<html>");
 			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>");
 			html.append("</head>");
 			html.append("<body>");
 			html.append("<p>");
@@ -110,7 +121,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<html>");
 			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>");
 			html.append("<title>this is title</title>");
 			html.append("</head>");
 			html.append("<body>");
@@ -130,7 +141,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<html>");
 			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>");
 			html.append("<title>これはタイトルです</title>");
 			html.append("</head>");
 			html.append("<body>");
@@ -149,7 +160,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<html>");
 			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>");
 			html.append("<title>これはタイトルです１行目</title>");
 			html.append("<title>これはタイトルです２行目</title>");
 			html.append("</head>");
@@ -170,7 +181,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			StringBuilder html = new StringBuilder();
 			html.append("<html>");
 			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>");
 			html.append("<title>これはタイトルです<br/>改行</title>");
 			html.append("</head>");
 			html.append("<body>");
@@ -321,6 +332,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</html>");
 			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			List<Element> htmlElements = htmlDocument.getElement();
+			System.out.print(htmlElements);
 			assertThat(htmlElements.size(), is(6));
 			assertThat(htmlElements.get(0).getTagName(), is("html"));
 			assertThat(htmlElements.get(1).getTagName(), is("head"));
@@ -998,12 +1010,12 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
 		List<Element> list =  htmlDocument.getElement(HtmlElementName.HTML);
 		HtmlElement element = (HtmlElement)list.get(0);
-		List<HtmlElement> idList = element.getElementById("bodyContent");
-		if (idList.size() == 0) {
+		HtmlElement id = element.getElementById("bodyContent");
+		if (id == null) {
 			fail();
 		}
-		List<HtmlElement> idNonList = element.getElementById("aaa");
-		if (idNonList.size() != 0) {
+		HtmlElement idNon = element.getElementById("aaa");
+		if (idNon != null) {
 			fail();
 		}
 	}
