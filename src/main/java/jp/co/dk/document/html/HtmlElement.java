@@ -1,14 +1,10 @@
 package jp.co.dk.document.html;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Node;
 
 import jp.co.dk.document.ElementName;
 import jp.co.dk.document.exception.DocumentException;
