@@ -45,7 +45,7 @@ public class HtmlDocument extends File implements Document{
 	 * @param inputStream 読み込み対象のストリーム
 	 * @throws DocumentException 
 	 */
-	protected HtmlDocument(InputStream inputStream) throws DocumentException{
+	public HtmlDocument(InputStream inputStream) throws DocumentException{
 		this(inputStream, "UTF-8", new HtmlElementFactory());
 	}
 	
