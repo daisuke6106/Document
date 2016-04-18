@@ -405,11 +405,18 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// HTML内に子要素が存在した場合、trueを返却されること。
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
 			html.append("<body>");
 			html.append("<p>");
 			html.append("this is test.");
 			html.append("</p>");
 			html.append("</body>");
+			html.append("</html>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			assertThat(htmlElement.hasChildElement(), is(true));
 		} catch (DocumentException e) {
@@ -419,8 +426,15 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// HTML内に子要素が存在しなかった場合、falseを返却されること。
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
 			html.append("<body>");
 			html.append("</body>");
+			html.append("</html>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			assertThat(htmlElement.hasChildElement(), is(false));
 		} catch (DocumentException e) {
@@ -430,9 +444,16 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// HTML内のcontentのみしかなかった場合、falseが返却されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
 			html.append("<body>");
 			html.append("this is test.");
-			html.append("</body>"); 
+			html.append("</body>");
+			html.append("</html>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			assertThat(htmlElement.hasChildElement(), is(false));
 		} catch (DocumentException e) {
@@ -444,9 +465,16 @@ public class HtmlElementTest extends DocumentFoundationTest {
 	public void isElement() throws DocumentException {
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
 			html.append("<body>");
 			html.append("this is test.");
-			html.append("</body>"); 
+			html.append("</body>");
+			html.append("</html>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			assertThat(htmlElement.isElement(HtmlElementName.BODY), is(true));
 			assertThat(htmlElement.isElement(HtmlElementName.P), is(false));
@@ -753,9 +781,20 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// CLASSが設定されていない場合空文字が返却されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
 			html.append("<input type=\"text\"/>");
+			html.append("</body>");
+			html.append("</html>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.getClassList().size(), is(0));
+			jp.co.dk.document.html.HtmlElement inputElement = (jp.co.dk.document.html.HtmlElement)htmlElement.getElement(HtmlElementName.INPUT).get(0);
+			List<String> classList = inputElement.getClassList();
+			assertThat(classList.size(), is(0));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -763,10 +802,21 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// CLASSが設定されていた場合そのIDが返却されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
 			html.append("<input type=\"text\" class=\"test\"/>");
+			html.append("</body>");
+			html.append("</html>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.getClassList().size(), is(1));
-			assertThat(htmlElement.getClassList().get(0), is("test"));
+			jp.co.dk.document.html.HtmlElement inputElement = (jp.co.dk.document.html.HtmlElement)htmlElement.getElement(HtmlElementName.INPUT).get(0);
+			List<String> classList = inputElement.getClassList();
+			assertThat(classList.size(), is(1));
+			assertThat(classList.get(0), is("test"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -774,11 +824,22 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// CLASSが設定されていた場合そのIDが返却されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
+			html.append("<html>");
+			html.append("<head>");
+			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
+			html.append("<title>this is title</title>");
+			html.append("</head>");
+			html.append("<body>");
 			html.append("<input type=\"text\" class=\"test1 test2\"/>");
+			html.append("</body>");
+			html.append("</html>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			assertThat(htmlElement.getClassList().size(), is(2));
-			assertThat(htmlElement.getClassList().get(0), is("test1"));
-			assertThat(htmlElement.getClassList().get(1), is("test2"));
+			jp.co.dk.document.html.HtmlElement inputElement = (jp.co.dk.document.html.HtmlElement)htmlElement.getElement(HtmlElementName.INPUT).get(0);
+			List<String> classList = inputElement.getClassList();
+			assertThat(classList.size(), is(2));
+			assertThat(classList.get(0), is("test1"));
+			assertThat(classList.get(1), is("test2"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
