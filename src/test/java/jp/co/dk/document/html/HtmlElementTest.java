@@ -46,18 +46,18 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			assertEquals(e.getMessageObj(), ERROR_ELEMENT_FACTORY_IS_NOT_SET);
 		}
 		
-		// 不正な文字列にてインスタンス生成した場合、例外を送出すること
+		// タグ無しの文字列を引数に生成した場合、正常に生成できること。
 		try {
-			new HtmlElement("あいう", new HtmlElementFactory());
-			fail();
+			HtmlElement hemltElemenet = new HtmlElement("あいう", new HtmlElementFactory());
+			assertThat(hemltElemenet.getContent(), is("あいう"));
 		} catch (HtmlDocumentException e) {	
-			assertEquals(e.getMessageObj(), ERROR_ELEMENT_STRING_CONVERT);
+			fail(e);
 		}
 		
-		// 不正な文字列にてインスタンス生成した場合、例外を送出すること
+		// タグ無しの文字列を引数に生成した場合、正常に生成できること。
 		try {
-			new HtmlElement("abc", new HtmlElementFactory());
-			fail();
+			HtmlElement hemltElemenet = new HtmlElement("abc", new HtmlElementFactory());
+			assertThat(hemltElemenet.getContent(), is("abc"));
 		} catch (HtmlDocumentException e) {
 			assertEquals(e.getMessageObj(), ERROR_ELEMENT_STRING_CONVERT);
 		}
