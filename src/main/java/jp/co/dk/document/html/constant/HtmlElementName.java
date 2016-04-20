@@ -98,6 +98,7 @@ public enum HtmlElementName implements ElementName{
 	PRE("pre"),
 	PROGRESS("progress"),
 	Q("q"),
+	ROOT("#root"),
 	RP("rp"),
 	RT("rt"),
 	RUBY("ruby"),
