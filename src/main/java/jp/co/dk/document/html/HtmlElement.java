@@ -18,7 +18,6 @@ import static jp.co.dk.document.message.DocumentMessage.*;
  * 
  * @version 1.0
  * @author D.Kanno
- * 
  */
 public class HtmlElement implements jp.co.dk.document.Element{
 	
@@ -27,20 +26,32 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	
 	/** 要素生成ファクトリ */
 	protected HtmlElementFactory elementFactory;
-	
+
+	/**
+	 * <p>コンストラクタ</p>
+	 * 単一のHTML要素を表す文字列からHTML要素インスタンスを生成する。
+	 * 
+	 * @param element 単一のHTML要素を表す文字列
+	 * @param elementFactory HTMLファクトリ
+	 * @throws HtmlDocumentException 単一のHTML要素、HTMLファクトリが指定されていない、もしくは単一のHTML要素で無い場合
+	 */
 	public HtmlElement(String elementStr, HtmlElementFactory elementFactory) throws HtmlDocumentException {
 		if (elementStr == null || elementStr.equals("")) throw new HtmlDocumentException(ERROR_ELEMENT_STRING_IS_NOT_SET);
 		if (elementFactory == null) throw new HtmlDocumentException(ERROR_ELEMENT_FACTORY_IS_NOT_SET);
-		this.element = Jsoup.parse(elementStr);
+		org.jsoup.nodes.Document document = Jsoup.parse(elementStr);
+		org.jsoup.nodes.Element body = document.body();
+		List<org.jsoup.nodes.Node> nodeList = body.childNodes();
+		if (nodeList.size() != 1) throw new HtmlDocumentException(ERROR_FAILED_TO_PARSE_HTML);
+		this.element = (org.jsoup.nodes.Element)nodeList.get(0);
 		this.elementFactory = elementFactory;
 	}
 	
 	/**
-	 * コンストラクタ
-	 * 
+	 * <p>コンストラクタ</p>
 	 * HTMLの要素のインスタンスを生成する。
 	 * 
 	 * @param element HTMLパーサの要素インスタンス
+	 * @param elementFactory HTMLファクトリ
 	 */
 	protected HtmlElement(org.jsoup.nodes.Element element, HtmlElementFactory elementFactory) {
 		this.element  = element;
@@ -48,8 +59,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	}
 	
 	/**
-	 * コンストラクタ
-	 * 
+	 * <p>コンストラクタ</p>
 	 * 指定のHTML要素から新しいHTMLの要素のインスタンスを生成する。
 	 * 
 	 * @param htmlElement HTML要素インスタンス
