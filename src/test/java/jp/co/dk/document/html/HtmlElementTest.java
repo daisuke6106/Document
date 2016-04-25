@@ -46,22 +46,6 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			assertEquals(e.getMessageObj(), ERROR_ELEMENT_FACTORY_IS_NOT_SET);
 		}
 		
-		// タグ無しの文字列を引数に生成した場合、正常に生成できること。
-		try {
-			HtmlElement hemltElemenet = new HtmlElement("あいう", new HtmlElementFactory());
-			assertThat(hemltElemenet.getContent(), is("あいう"));
-		} catch (HtmlDocumentException e) {	
-			fail(e);
-		}
-		
-		// タグ無しの文字列を引数に生成した場合、正常に生成できること。
-		try {
-			HtmlElement hemltElemenet = new HtmlElement("abc", new HtmlElementFactory());
-			assertThat(hemltElemenet.getContent(), is("abc"));
-		} catch (HtmlDocumentException e) {
-			assertEquals(e.getMessageObj(), ERROR_ELEMENT_STRING_CONVERT);
-		}
-		
 		// 要素を表す文字列にてインスタンス生成した場合、正常に生成できること
 		try {
 			HtmlElement htmlElement = new HtmlElement("<a href=\"a.shtml\">content</a>", new HtmlElementFactory());
@@ -170,28 +154,31 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// HTML内に存在するすべての要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
-			html.append("<!DOCTYPE html>");
-			html.append("<html>");
-			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
-			html.append("<title>this is title</title>");
-			html.append("</head>");
-			html.append("<body>");
-			html.append("<p>");
-			html.append("this is test.");
-			html.append("</p>");
-			html.append("</body>");
-			html.append("</html>");
+			html.append("<div id=\"parent\">");
+			html.append("  <div id=\"child1\">");
+			html.append("    <div id=\"child1_1\">");
+			html.append("      <div id=\"child1_1_1\">");
+			html.append("      </div>");
+			html.append("    </div>");
+			html.append("  </div>");
+			html.append("  <div id=\"child2\">");
+			html.append("    <div id=\"child2_1\">");
+			html.append("      <div id=\"child2_1_1\">");
+			html.append("      </div>");
+			html.append("    </div>");
+			html.append("  </div>");
+			html.append("</div>");
+			
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			List<Element> htmlElements = htmlElement.getElement();
 			assertThat(htmlElements.size(), is(7));
-			assertThat(htmlElements.get(0).getTagName(), is("#root"));
-			assertThat(htmlElements.get(1).getTagName(), is("html"));
-			assertThat(htmlElements.get(2).getTagName(), is("head"));
-			assertThat(htmlElements.get(3).getTagName(), is("meta"));
-			assertThat(htmlElements.get(4).getTagName(), is("title"));
-			assertThat(htmlElements.get(5).getTagName(), is("body"));
-			assertThat(htmlElements.get(6).getTagName(), is("p"));
+			assertThat(htmlElements.get(0).getAttribute("id"), is("parent"));
+			assertThat(htmlElements.get(1).getAttribute("id"), is("child1"));
+			assertThat(htmlElements.get(2).getAttribute("id"), is("child1_1"));
+			assertThat(htmlElements.get(3).getAttribute("id"), is("child1_1_1"));
+			assertThat(htmlElements.get(4).getAttribute("id"), is("child2"));
+			assertThat(htmlElements.get(5).getAttribute("id"), is("child2_1"));
+			assertThat(htmlElements.get(6).getAttribute("id"), is("child2_1_1"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -199,30 +186,31 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// HTML内に存在する指定の要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
-			html.append("<!DOCTYPE html>");
-			html.append("<html>");
-			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
-			html.append("<title>this is title</title>");
-			html.append("</head>");
-			html.append("<body>");
-			html.append("<p>");
-			html.append("this is test1.");
-			html.append("</p>");
-			html.append("<p>");
-			html.append("this is test2.");
-			html.append("</p>");
-			html.append("</body>");
-			html.append("</html>");
-			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			List<Element> htmlElements = htmlElement.getElement(HtmlElementName.HTML);
-			assertThat(htmlElements.size(), is(1));
-			assertThat(htmlElements.get(0).getTagName(), is("html"));
+			html.append("<div id=\"parent\">");
+			html.append("  <div id=\"child1\">");
+			html.append("    <div id=\"child1_1\">");
+			html.append("      <div id=\"child1_1_1\">");
+			html.append("      </div>");
+			html.append("    </div>");
+			html.append("  </div>");
+			html.append("  <div id=\"child2\">");
+			html.append("    <div id=\"child2_1\">");
+			html.append("      <div id=\"child2_1_1\">");
+			html.append("      </div>");
+			html.append("    </div>");
+			html.append("  </div>");
+			html.append("</div>");
 			
-			List<Element> pElements = htmlElement.getElement(HtmlElementName.P);
-			assertThat(pElements.size(), is(2));
-			assertThat(pElements.get(0).getTagName(), is("p"));
-			assertThat(pElements.get(1).getTagName(), is("p"));
+			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
+			List<Element> htmlElements = htmlElement.getElement(HtmlElementName.DIV);
+			assertThat(htmlElements.size(), is(7));
+			assertThat(htmlElements.get(0).getAttribute("id"), is("parent"));
+			assertThat(htmlElements.get(1).getAttribute("id"), is("child1"));
+			assertThat(htmlElements.get(2).getAttribute("id"), is("child1_1"));
+			assertThat(htmlElements.get(3).getAttribute("id"), is("child1_1_1"));
+			assertThat(htmlElements.get(4).getAttribute("id"), is("child2"));
+			assertThat(htmlElements.get(5).getAttribute("id"), is("child2_1"));
+			assertThat(htmlElements.get(6).getAttribute("id"), is("child2_1_1"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -230,21 +218,10 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// HTML内に存在する指定の要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
-			html.append("<!DOCTYPE html>");
-			html.append("<html>");
-			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
-			html.append("<title>this is title</title>");
-			html.append("</head>");
-			html.append("<body>");
-			html.append("<p id=\"p1\">");
-			html.append("this is test1.");
-			html.append("</p>");
-			html.append("<p id=\"p2\">");
-			html.append("this is test2.");
-			html.append("</p>");
-			html.append("</body>");
-			html.append("</html>");
+			html.append("<div>");
+			html.append("  <p id=\"p1\">this is test1.</p>");
+			html.append("  <p id=\"p2\">this is test2.</p>");
+			html.append("</div>");
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			List<Element> htmlElements = htmlElement.getElement(new ElementSelector(){
 				@Override
@@ -254,9 +231,9 @@ public class HtmlElementTest extends DocumentFoundationTest {
 				}
 			});
 			assertThat(htmlElements.size(), is(2));
-			assertThat(htmlElements.get(0).getTagName(), is("p"));
+			assertThat(htmlElements.get(0).getTagName()      , is("p"));
 			assertThat(htmlElements.get(0).getAttribute("id"), is("p1"));
-			assertThat(htmlElements.get(1).getTagName(), is("p"));
+			assertThat(htmlElements.get(1).getTagName()      , is("p"));
 			assertThat(htmlElements.get(1).getAttribute("id"), is("p2"));
 		} catch (DocumentException e) {
 			fail(e);
@@ -265,26 +242,29 @@ public class HtmlElementTest extends DocumentFoundationTest {
 	
 	@Test
 	public void getChildElement() throws DocumentException {
-		// HTML内に存在する子要素を取得できること
+		// HTML内に存在するすべての要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
-			html.append("<!DOCTYPE html>");
-			html.append("<html>");
-			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
-			html.append("<title>this is title</title>");
-			html.append("</head>");
-			html.append("<body>");
-			html.append("<p>");
-			html.append("this is test.");
-			html.append("</p>");
-			html.append("</body>");
-			html.append("</html>");
+			html.append("<div id=\"parent\">");
+			html.append("  <div id=\"child1\">");
+			html.append("    <div id=\"child1_1\">");
+			html.append("      <div id=\"child1_1_1\">");
+			html.append("      </div>");
+			html.append("    </div>");
+			html.append("  </div>");
+			html.append("  <div id=\"child2\">");
+			html.append("    <div id=\"child2_1\">");
+			html.append("      <div id=\"child2_1_1\">");
+			html.append("      </div>");
+			html.append("    </div>");
+			html.append("  </div>");
+			html.append("</div>");
+			
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			List<Element> htmlElements = htmlElement.getChildElement();
 			assertThat(htmlElements.size(), is(2));
-			assertThat(htmlElements.get(0).getTagName(), is("head"));
-			assertThat(htmlElements.get(1).getTagName(), is("body"));
+			assertThat(htmlElements.get(0).getAttribute("id"), is("child1"));
+			assertThat(htmlElements.get(1).getAttribute("id"), is("child2"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -292,22 +272,17 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// HTML内に存在する子要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
-			html.append("<!DOCTYPE html>");
-			html.append("<html>");
-			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
-			html.append("<title>this is title</title>");
-			html.append("</head>");
-			html.append("<body>");
-			html.append("<p>");
-			html.append("this is test.");
-			html.append("</p>");
-			html.append("</body>");
-			html.append("</html>");
+			html.append("<div id=\"parent\">");
+			html.append("  <div id=\"child1\">");
+			html.append("    <a id=\"child1_1\"/>");
+			html.append("  </div>");
+			html.append("  <a id=\"child2\"/>");
+			html.append("</div>");
+			
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			List<Element> htmlElements = htmlElement.getChildElement(HtmlElementName.HEAD);
+			List<Element> htmlElements = htmlElement.getChildElement(HtmlElementName.A);
 			assertThat(htmlElements.size(), is(1));
-			assertThat(htmlElements.get(0).getTagName(), is("head"));
+			assertThat(htmlElements.get(0).getAttribute("id"), is("child2"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -315,50 +290,32 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// HTML内に存在する子要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
-			html.append("<!DOCTYPE html>");
-			html.append("<html>");
-			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
-			html.append("<title>this is title</title>");
-			html.append("</head>");
-			html.append("<body>");
-			html.append("<p>");
-			html.append("this is test.");
-			html.append("</p>");
-			html.append("</body>");
-			html.append("</html>");
-			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
-			List<Element> htmlElements = htmlElement.getChildElement(HtmlElementName.P);
-			assertThat(htmlElements.size(), is(0));
-		} catch (DocumentException e) {
-			fail(e);
-		}
-		
-		// HTML内に存在する子要素を取得できること
-		try {
-			StringBuilder html = new StringBuilder();
-			html.append("<!DOCTYPE html>");
-			html.append("<html>");
-			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
-			html.append("<title>this is title</title>");
-			html.append("</head>");
-			html.append("<body>");
-			html.append("<p>");
-			html.append("this is test.");
-			html.append("</p>");
-			html.append("</body>");
-			html.append("</html>");
+			html.append("<div id=\"parent\">");
+			html.append("  <div id=\"child1\">");
+			html.append("    <div id=\"child1_1\">");
+			html.append("      <div id=\"child1_1_1\">");
+			html.append("      </div>");
+			html.append("    </div>");
+			html.append("  </div>");
+			html.append("  <div id=\"child2\">");
+			html.append("    <div id=\"child2_1\">");
+			html.append("      <div id=\"child2_1_1\">");
+			html.append("      </div>");
+			html.append("    </div>");
+			html.append("  </div>");
+			html.append("</div>");
+			
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			List<Element> htmlElements = htmlElement.getChildElement(new ElementSelector() {
 				@Override
 				public boolean judgment(Element element) {
-					if (element.getTagName().equals("head")) return true; 
+					if (element.getTagName().equals("div")) return true; 
 					return false;
 				}
 			});
-			assertThat(htmlElements.size(), is(1));
-			assertThat(htmlElements.get(0).getTagName(), is("head"));
+			assertThat(htmlElements.size(), is(2));
+			assertThat(htmlElements.get(0).getAttribute("id"), is("child1"));
+			assertThat(htmlElements.get(1).getAttribute("id"), is("child2"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
