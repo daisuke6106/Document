@@ -140,7 +140,7 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	@Override
 	public boolean hasChildElement() {
 		List<jp.co.dk.document.Element> list = this.getChildElement();
-		if (list.size()==0) {
+		if (list.size() == 0) {
 			return false;
 		} else {
 			return true;
@@ -222,7 +222,9 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 * @return 要素一覧
 	 */
 	public HtmlElement getElementById(String id) {
-		return this.createHtmlElement(this.element.getElementById(id));
+		org.jsoup.nodes.Element element = this.element.getElementById(id);
+		if (element == null) return null;
+		return this.createHtmlElement(element);
 	}
 	
 	/**
