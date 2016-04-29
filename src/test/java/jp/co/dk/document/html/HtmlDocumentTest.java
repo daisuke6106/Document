@@ -29,6 +29,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// 読み込み可能なInputStreamを渡した場合、正常にインスタンス作成が行われているかを確認
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
