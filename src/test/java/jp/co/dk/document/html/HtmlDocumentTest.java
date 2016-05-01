@@ -101,6 +101,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// TITLEタグがない場合、空文字が返却されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>");
@@ -120,6 +121,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// TITLEタグがある場合、その文字列が返却されること（英字）
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>");
@@ -159,6 +161,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// TITLEタグが複数ある場合、最初の要素を抽出されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>");
@@ -180,6 +183,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// TITLEタグがある場合、その中にタグが存在していた場合、空文字が返却されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>");
@@ -222,6 +226,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// HtmlCharSetName.UTF_8が返却されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -241,6 +246,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// METAタグがあり、charsetが設定されていなかった場合、nullが返却されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html;\">");
@@ -260,6 +266,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// METAタグがあり、charsetが設定されていた場合、且つ不明な文字列が返却されていた場合、nullが返却されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=unknown\">");
@@ -298,6 +305,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// METAタグがあり、http-equivがcontent-typeでなかった場合、nullが返却されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-style-type\" content=\"text/html; charset=unknown\">");
@@ -320,6 +328,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// HTML内に存在するすべての要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -334,13 +343,11 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			List<Element> htmlElements = htmlDocument.getElement();
 			System.out.print(htmlElements);
-			assertThat(htmlElements.size(), is(6));
-			assertThat(htmlElements.get(0).getTagName(), is("html"));
-			assertThat(htmlElements.get(1).getTagName(), is("head"));
-			assertThat(htmlElements.get(2).getTagName(), is("meta"));
-			assertThat(htmlElements.get(3).getTagName(), is("title"));
-			assertThat(htmlElements.get(4).getTagName(), is("body"));
-			assertThat(htmlElements.get(5).getTagName(), is("p"));
+			assertThat(htmlElements.size(), is(4));
+			assertThat(htmlElements.get(0).getTagName(), is("#root"));
+			assertThat(htmlElements.get(1).getTagName(), is("html"));
+			assertThat(htmlElements.get(2).getTagName(), is("head"));
+			assertThat(htmlElements.get(3).getTagName(), is("body"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
@@ -348,6 +355,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// HTML内に存在する指定の要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -378,6 +386,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// HTML内に存在する指定の要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -415,6 +424,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// HTML内に存在する子要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -438,6 +448,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// HTML内に存在する子要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -460,6 +471,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// HTML内に存在する子要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -481,6 +493,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// HTML内に存在する子要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -509,6 +522,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// HTML内に存在する子要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -539,6 +553,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// HTML内に子要素が存在した場合、trueを返却されること。
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<body>");
 			html.append("<p>");
 			html.append("this is test.");
@@ -594,6 +609,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// 指定の子要素が存在した場合、trueが返却されていること、存在しない要素を指定した場合、falseが返却されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -624,6 +640,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// タグに属性が存在する場合、且つ存在する属性を取得した場合、正常に取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html id=\"test\">");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -645,6 +662,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// タグに属性が存在する場合、且つ存在しない属性を取得した場合、nullが取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html id=\"test\">");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -688,6 +706,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// タグに属性が存在する場合、且つ存在する属性を取得した場合、正常に取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html id=\"test\">");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -709,6 +728,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// タグに属性が存在する場合、且つ存在しない属性を取得した場合、nullが取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html id=\"test\">");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -729,6 +749,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// タグに属性が存在しない場合、nullが取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -752,6 +773,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// 要素のタグ名称を取得した場合、正常に取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -773,6 +795,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// 大文字でも小文字として取得できること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<HTML>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -795,6 +818,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 	public void getContent() throws DocumentException {
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("this is test.");
 			html.append("</html>");
@@ -806,6 +830,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -896,6 +921,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// 日本語を含む文字列で保存した場合（metaヘッダあり）
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<HTML>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
@@ -921,6 +947,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// 日本語を含む文字列で保存した場合（metaヘッダなし）
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<HTML>");
 			html.append("<head>");
 			html.append("<title>タイトル</title>");
@@ -1074,6 +1101,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		// 読み込み可能なInputStreamを渡した場合、HTML文書が返却されること
 		try {
 			StringBuilder html = new StringBuilder();
+			html.append("<!DOCTYPE html>");
 			html.append("<html>");
 			html.append("<head>");
 			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
