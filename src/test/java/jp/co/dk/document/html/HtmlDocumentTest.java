@@ -342,7 +342,6 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</html>");
 			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
 			List<Element> htmlElements = htmlDocument.getElement();
-			System.out.print(htmlElements);
 			assertThat(htmlElements.size(), is(4));
 			assertThat(htmlElements.get(0).getTagName(), is("#root"));
 			assertThat(htmlElements.get(1).getTagName(), is("html"));
@@ -362,12 +361,12 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("<title>this is title</title>");
 			html.append("</head>");
 			html.append("<body>");
-			html.append("<p>");
+			html.append("<div>");
 			html.append("this is test1.");
-			html.append("</p>");
-			html.append("<p>");
+			html.append("</div>");
+			html.append("<div>");
 			html.append("this is test2.");
-			html.append("</p>");
+			html.append("</div>");
 			html.append("</body>");
 			html.append("</html>");
 			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(createDocumentStream(html.toString()));
@@ -375,7 +374,7 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			assertThat(htmlElements.size(), is(1));
 			assertThat(htmlElements.get(0).getTagName(), is("html"));
 			
-			List<Element> pElements = htmlDocument.getElement(HtmlElementName.P);
+			List<Element> pElements = htmlDocument.getElement(HtmlElementName.DIV);
 			assertThat(pElements.size(), is(2));
 			assertThat(pElements.get(0).getTagName(), is("p"));
 			assertThat(pElements.get(1).getTagName(), is("p"));
