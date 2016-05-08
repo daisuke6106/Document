@@ -154,16 +154,18 @@ public class HtmlElementTest extends DocumentFoundationTest {
 		// HTML内に存在するすべての要素を取得できること
 		try {
 			StringBuilder html = new StringBuilder();
-			html.append("<div id=\"parent\">");
-			html.append("  <div id=\"child1\">");
-			html.append("    <div id=\"child1_1\">");
-			html.append("      <div id=\"child1_1_1\">");
+			html.append("<div>");
+			html.append("  <div id=\"parent\">");
+			html.append("    <div id=\"child1\">");
+			html.append("      <div id=\"child1_1\">");
+			html.append("        <div id=\"child1_1_1\">");
+			html.append("        </div>");
 			html.append("      </div>");
 			html.append("    </div>");
-			html.append("  </div>");
-			html.append("  <div id=\"child2\">");
-			html.append("    <div id=\"child2_1\">");
-			html.append("      <div id=\"child2_1_1\">");
+			html.append("    <div id=\"child2\">");
+			html.append("      <div id=\"child2_1\">");
+			html.append("        <div id=\"child2_1_1\">");
+			html.append("        </div>");
 			html.append("      </div>");
 			html.append("    </div>");
 			html.append("  </div>");
@@ -171,14 +173,15 @@ public class HtmlElementTest extends DocumentFoundationTest {
 			
 			jp.co.dk.document.html.HtmlElement htmlElement = new jp.co.dk.document.html.HtmlElement(html.toString(), new HtmlElementFactory());
 			List<Element> htmlElements = htmlElement.getElement();
-			assertThat(htmlElements.size(), is(7));
-			assertThat(htmlElements.get(0).getAttribute("id"), is("parent"));
-			assertThat(htmlElements.get(1).getAttribute("id"), is("child1"));
-			assertThat(htmlElements.get(2).getAttribute("id"), is("child1_1"));
-			assertThat(htmlElements.get(3).getAttribute("id"), is("child1_1_1"));
-			assertThat(htmlElements.get(4).getAttribute("id"), is("child2"));
-			assertThat(htmlElements.get(5).getAttribute("id"), is("child2_1"));
-			assertThat(htmlElements.get(6).getAttribute("id"), is("child2_1_1"));
+			assertThat(htmlElements.size(), is(8));
+			assertThat(htmlElements.get(0).getAttribute("id"), is(""));
+			assertThat(htmlElements.get(1).getAttribute("id"), is("parent"));
+			assertThat(htmlElements.get(2).getAttribute("id"), is("child1"));
+			assertThat(htmlElements.get(3).getAttribute("id"), is("child1_1"));
+			assertThat(htmlElements.get(4).getAttribute("id"), is("child1_1_1"));
+			assertThat(htmlElements.get(5).getAttribute("id"), is("child2"));
+			assertThat(htmlElements.get(6).getAttribute("id"), is("child2_1"));
+			assertThat(htmlElements.get(7).getAttribute("id"), is("child2_1_1"));
 		} catch (DocumentException e) {
 			fail(e);
 		}
