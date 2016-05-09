@@ -1,13 +1,14 @@
 package jp.co.dk.document.html;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.jsoup.Jsoup;
 
 import jp.co.dk.document.Document;
-import jp.co.dk.document.ElementFactory;
 import jp.co.dk.document.ElementName;
 import jp.co.dk.document.File;
 import jp.co.dk.document.Element;
@@ -36,7 +37,7 @@ public class HtmlDocument extends File implements Document{
 	
 	protected HtmlElement body;
 	
-	protected ElementFactory elementFactory;
+	protected HtmlElementFactory elementFactory;
 	
 	/**
 	 * コンストラクタ<p/>
@@ -79,6 +80,19 @@ public class HtmlDocument extends File implements Document{
 		} catch (IOException e) {
 			throw new HtmlDocumentException(DocumentMessage.ERROR_FAILED_TO_PARSE_HTML, e);
 		}
+	}
+	
+	public HtmlDocument(String html) throws DocumentException{
+		this(html, new HtmlElementFactory());
+	}
+	
+	HtmlDocument(String html, HtmlElementFactory elementFactory) throws DocumentException{
+		super(new ByteArrayInputStream(html.getBytes()));
+		this.document = Jsoup.parse(html);
+		this.html = new HtmlElement(this.document       , elementFactory);
+		this.head = new HtmlElement(this.document.head(), elementFactory);
+		this.body = new HtmlElement(this.document.body(), elementFactory);
+		this.elementFactory = elementFactory;
 	}
 	
 	/**
@@ -180,5 +194,32 @@ public class HtmlDocument extends File implements Document{
 	@Override
 	public String toString() {
 		return this.html.toString();
+	}
+	
+	/**
+	 * HTMLパーサの要素インスタンスリスト変換
+	 * HTMLパーサの要素インスタンスを本クラスのインスタンスでラップしたリストを返却する。
+	 * 
+	 * @param elementList HTMLパーサ一覧
+	 * @return 本インスタンス一覧
+	 */
+	private List<jp.co.dk.document.Element> convertList(List<org.jsoup.nodes.Element> elementList) {
+		List<jp.co.dk.document.Element> httpElementList = new ArrayList<jp.co.dk.document.Element>();
+		if (elementList.size() > 0) for (org.jsoup.nodes.Element element : elementList) httpElementList.add(this.createHtmlElement(element));
+		return httpElementList;
+	}
+	
+	/**
+	 * 要素オブジェクトを元にHTML要素を生成します。
+	 * 
+	 * @param element 要素オブジェクト
+	 * @return 生成された要素オブジェクト
+	 */
+	private HtmlElement createHtmlElement(org.jsoup.nodes.Element element) {
+		try {
+			return (HtmlElement)this.elementFactory.convert(new HtmlElement(element, this.elementFactory));
+		} catch (DocumentException e) {
+			return new HtmlElement(element, this.elementFactory);
+		}
 	}
 }

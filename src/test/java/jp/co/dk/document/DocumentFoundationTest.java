@@ -1,6 +1,7 @@
 package jp.co.dk.document;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 
@@ -15,9 +16,9 @@ public class DocumentFoundationTest extends TestCaseTemplate {
 		return new jp.co.dk.document.File(super.getInputStreamBySystemResource("jp/co/dk/document/JPEG.jpg"));
 	}
 	
-	protected jp.co.dk.document.html.HtmlDocument createHtmlDocument() throws DocumentException {
+	protected jp.co.dk.document.html.HtmlDocument createHtmlDocument() throws DocumentException, IOException {
 		try {
-			return new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/html/HTML.html"));
+			return new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/html/HTML.html", "UTF-8"));
 		} catch (HtmlDocumentException e) {
 			fail(e);
 		}
