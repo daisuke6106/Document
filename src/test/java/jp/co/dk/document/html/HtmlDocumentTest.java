@@ -1085,37 +1085,4 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		}
 	}
 	
-	@Test
-	public void toStringTest() {
-		// 読み込み可能なInputStreamを渡した場合、HTML文書が返却されること
-		try {
-			StringBuilder html = new StringBuilder();
-			html.append("<!DOCTYPE html>");
-			html.append("<html>");
-			html.append("<head>");
-			html.append("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">");
-			html.append("</head>");
-			html.append("<body>");
-			html.append("<p>");
-			html.append("this is test.");
-			html.append("</p>");
-			html.append("</body>");
-			html.append("</html>");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(html.toString());
-			assertThat(htmlDocument.toString(), is(html.toString()));
-		} catch (DocumentException e) {
-			fail(e);
-		}
-		
-		// HTML要素でないテキストを読み込んだとしても、そのテキストが返却されること
-		try {
-			StringBuilder html = new StringBuilder();
-			html.append("not html text.");
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(html.toString());
-			assertThat(htmlDocument.toString(), is(html.toString()));
-		} catch (DocumentException e) {
-			fail(e);
-		}
-		
-	}
 }
