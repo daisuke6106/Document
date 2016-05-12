@@ -838,9 +838,9 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			html.append("</html>");
 			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(html.toString());
 			StringBuilder result = new StringBuilder();
-			result.append("this is title");
-			result.append("this is line 1.");
-			result.append("this is line 2.");
+			result.append("this is title ");
+			result.append("this is line 1. ");
+			result.append("this is line 2. ");
 			result.append("this is line 3.");
 			result.append("this is line 4.");
 			assertThat(htmlDocument.getContent(), is(result.toString()));
