@@ -16,7 +16,6 @@ import jp.co.dk.document.Element;
 import jp.co.dk.document.DocumentFoundationTest;
 import jp.co.dk.document.ElementSelector;
 import jp.co.dk.document.exception.DocumentException;
-import jp.co.dk.document.html.HtmlElement;
 import jp.co.dk.document.html.constant.HtmlCharSetName;
 import jp.co.dk.document.html.constant.HtmlElementName;
 import jp.co.dk.document.message.DocumentMessage;
@@ -83,13 +82,38 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 		
 		// バイナリデータを読み込んだ場合、正常にインスタンス作成が行われているかを確認
 		try {
-			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/JPEG.jpg", "UTF-8"));
-			assertThat(htmlDocument.document, notNullValue());
-			assertThat(htmlDocument.html, notNullValue());
-			assertThat(htmlDocument.head, notNullValue());
-			assertThat(htmlDocument.body, notNullValue());
-			assertThat(htmlDocument.elementFactory, notNullValue());
-			assertThat(htmlDocument.elementFactory, notNullValue());
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/JPEG.jpg"));
+			fail();
+		} catch (DocumentException e) {
+			assertThat(e.getMessageObj(), is((MessageInterface)DocumentMessage.ERROR_FAILED_TO_PARSE_HTML));
+		} catch (IOException e) {
+			fail(e);
+		}
+		
+		// UTF-8のHTMLを読み込んだ場合でも正常にう処理できること。
+		try {
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/html/HTML_UTF-8.html"));
+			assertThat(htmlDocument.getTitle(), is("UTF-8の文書"));
+		} catch (DocumentException e) {
+			fail(e);
+		} catch (IOException e) {
+			fail(e);
+		}
+		
+		// Shift_JISのHTMLを読み込んだ場合でも正常にう処理できること。
+		try {
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/html/HTML_SJIS.html"));
+			assertThat(htmlDocument.getTitle(), is("Shift_JISの文書"));
+		} catch (DocumentException e) {
+			fail(e);
+		} catch (IOException e) {
+			fail(e);
+		}
+		
+		// EUC-JPのHTMLを読み込んだ場合でも正常にう処理できること。
+		try {
+			jp.co.dk.document.html.HtmlDocument htmlDocument = new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/html/HTML_EUC-JP.html"));
+			assertThat(htmlDocument.getTitle(), is("EUC-JPの文書"));
 		} catch (DocumentException e) {
 			fail(e);
 		} catch (IOException e) {
@@ -958,131 +982,4 @@ public class HtmlDocumentTest extends DocumentFoundationTest {
 			fail(e);
 		}
 	}
-	
-	@Test
-	public void getId() throws DocumentException, IOException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		List<Element> elementList = htmlDocument.getElement();
-		for (Element element: elementList) {
-			if (element.hasAttribute("id")) {
-				HtmlElement htmlElmenet = (HtmlElement)element;
-				String id = htmlElmenet.getId();
-				if (id.equals("")) {
-					fail();
-				}
-			} else {
-				HtmlElement htmlElmenet = (HtmlElement)element;
-				String id = htmlElmenet.getId();
-				if (!id.equals("")) {
-					fail();
-				}
-			}
-		}
-	}
-	
-	@Test
-	public void getAName() throws DocumentException, IOException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		List<Element> elementList = htmlDocument.getElement();
-		for (Element element: elementList) {
-			if (element.hasAttribute("name")) {
-				HtmlElement htmlElmenet = (HtmlElement)element;
-				String name = htmlElmenet.getName();
-				if (name.equals("")) {
-					fail();
-				}
-			} else {
-				HtmlElement htmlElmenet = (HtmlElement)element;
-				String name = htmlElmenet.getName();
-				if (!name.equals("")) {
-					fail();
-				}
-			}
-		}
-	}
-	
-	@Test
-	public void getClassList() throws DocumentException, IOException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		List<Element> elementList = htmlDocument.getElement();
-		for (Element element: elementList) {
-			if (element.hasAttribute("class")) {
-				HtmlElement htmlElmenet = (HtmlElement)element;
-				List<String> classList = htmlElmenet.getClassList();
-				if (classList.size()==0) {
-					fail();
-				}
-			} else {
-				HtmlElement htmlElmenet = (HtmlElement)element;
-				List<String> classList = htmlElmenet.getClassList();
-				if (classList.size()!=0) {
-					fail();
-				}
-			}
-		}
-	}
-	
-	@Test
-	public void getElementById() throws DocumentException, IOException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		List<Element> list =  htmlDocument.getElement(HtmlElementName.HTML);
-		HtmlElement element = (HtmlElement)list.get(0);
-		HtmlElement id = element.getElementById("bodyContent");
-		if (id == null) {
-			fail();
-		}
-		HtmlElement idNon = element.getElementById("aaa");
-		if (idNon != null) {
-			fail();
-		}
-	}
-	
-	@Test
-	public void getElementByName() throws DocumentException, IOException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		List<Element> list =  htmlDocument.getElement(HtmlElementName.HTML);
-		HtmlElement element = (HtmlElement)list.get(0);
-		List<HtmlElement> nameList = element.getElementsByName("search");
-		if (nameList.size() != 2) {
-			fail();
-		}
-		List<HtmlElement> nameNonList = element.getElementsByName("aaa");
-		if (nameNonList.size() != 0) {
-			fail();
-		}
-	}
-	
-	@Test
-	public void getElementType() throws DocumentException, IOException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		List<Element> list =  htmlDocument.getElement(HtmlElementName.HTML);
-		HtmlElement element = (HtmlElement)list.get(0);
-		HtmlElementName elementType = element.getElementType();
-		if (elementType != HtmlElementName.HTML) {
-			fail();
-		}
-	}
-	
-	@Test
-	public void getHrefList() throws DocumentException, IOException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		List<Element> list =  htmlDocument.getElement(HtmlElementName.HTML);
-		HtmlElement element = (HtmlElement)list.get(0);
-		List<HtmlElement> anchorList = element.getHrefList();
-		if (anchorList.size() != 437) {
-			fail();
-		}
-	}
-	
-	@Test
-	public void getFormElement() throws DocumentException, IOException {
-		jp.co.dk.document.html.HtmlDocument htmlDocument = super.createHtmlDocument();
-		List<Element> list =  htmlDocument.getElement(HtmlElementName.HTML);
-		HtmlElement element = (HtmlElement)list.get(0);
-		List<Element> elementList = element.getElement(HtmlElementName.FORM);
-		if (elementList.size() != 3) {
-			fail();
-		}
-	}
-	
 }

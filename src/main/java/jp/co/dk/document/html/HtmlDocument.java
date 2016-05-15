@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.jsoup.Jsoup;
+import org.mozilla.universalchardet.UniversalDetector;
 
 import jp.co.dk.document.Document;
 import jp.co.dk.document.ElementName;
@@ -29,6 +30,8 @@ import jp.co.dk.document.message.DocumentMessage;
  */
 public class HtmlDocument extends File implements Document{
 	
+	protected String encode;
+	
 	protected org.jsoup.nodes.Document document;
 	
 	protected HtmlElement html;
@@ -44,21 +47,10 @@ public class HtmlDocument extends File implements Document{
 	 * InputStreamから要素を生成します。
 	 * 
 	 * @param inputStream 読み込み対象のストリーム
-	 * @throws DocumentException 
+	 * @throws DocumentException HTMLの読み込みに失敗した場合
 	 */
 	public HtmlDocument(InputStream inputStream) throws DocumentException{
-		this(inputStream, "UTF-8", new HtmlElementFactory());
-	}
-	
-	/**
-	 * コンストラクタ<p/>
-	 * InputStreamから要素を生成します。
-	 * 
-	 * @param inputStream 読み込み対象のストリーム
-	 * @throws DocumentException 
-	 */
-	public HtmlDocument(InputStream inputStream, String encording) throws DocumentException{
-		this(inputStream, encording, new HtmlElementFactory());
+		this(inputStream, new HtmlElementFactory());
 	}
 	
 	/**
@@ -67,15 +59,54 @@ public class HtmlDocument extends File implements Document{
 	 * 
 	 * @param inputStream 読み込み対象のストリーム
 	 * @param elementFactory 要素生成ファクトリ
-	 * @throws DocumentException 
+	 * @throws DocumentException HTMLの読み込みに失敗した場合 
 	 */
-	public HtmlDocument(InputStream inputStream, String encording, HtmlElementFactory elementFactory) throws DocumentException{
+	public HtmlDocument(InputStream inputStream, HtmlElementFactory elementFactory) throws DocumentException{
 		super(inputStream);
+		InputStream is = super.fileData.getStream();
 		try {
-			this.document = Jsoup.parse(inputStream, encording, "");
-			this.html = new HtmlElement(this.document       , elementFactory);
-			this.head = new HtmlElement(this.document.head(), elementFactory);
-			this.body = new HtmlElement(this.document.body(), elementFactory);
+			this.encode = this.getEncodeByData();
+			if (this.encode == null) throw new HtmlDocumentException(DocumentMessage.ERROR_FAILED_TO_PARSE_HTML);
+			this.document = Jsoup.parse(is, encode, "");
+			this.html     = new HtmlElement(this.document       , elementFactory);
+			this.head     = new HtmlElement(this.document.head(), elementFactory);
+			this.body     = new HtmlElement(this.document.body(), elementFactory);
+			this.elementFactory = elementFactory;
+		} catch (IOException e) {
+			throw new HtmlDocumentException(DocumentMessage.ERROR_FAILED_TO_PARSE_HTML, e);
+		}
+	}
+	
+	/**
+	 * コンストラクタ<p/>
+	 * InputStreamから要素を生成します。
+	 * 
+	 * @param inputStream 読み込み対象のストリーム
+	 * @param encode 文字コード
+	 * @throws DocumentException HTMLの読み込みに失敗した場合  
+	 */
+	public HtmlDocument(InputStream inputStream, String encode) throws DocumentException{
+		this(inputStream, encode, new HtmlElementFactory());
+	}
+	
+	/**
+	 * コンストラクタ<p/>
+	 * InputStreamから要素を生成します。
+	 * 
+	 * @param inputStream 読み込み対象のストリーム
+	 * @param encode 文字コード
+	 * @param elementFactory 要素生成ファクトリ
+	 * @throws DocumentException HTMLの読み込みに失敗した場合 
+	 */
+	public HtmlDocument(InputStream inputStream, String encode, HtmlElementFactory elementFactory) throws DocumentException{
+		super(inputStream);
+		InputStream is = super.fileData.getStream();
+		try {
+			this.encode   = encode;
+			this.document = Jsoup.parse(is, this.encode, "");
+			this.html     = new HtmlElement(this.document       , elementFactory);
+			this.head     = new HtmlElement(this.document.head(), elementFactory);
+			this.body     = new HtmlElement(this.document.body(), elementFactory);
 			this.elementFactory = elementFactory;
 		} catch (IOException e) {
 			throw new HtmlDocumentException(DocumentMessage.ERROR_FAILED_TO_PARSE_HTML, e);
@@ -203,7 +234,7 @@ public class HtmlDocument extends File implements Document{
 	 * @param elementList HTMLパーサ一覧
 	 * @return 本インスタンス一覧
 	 */
-	private List<jp.co.dk.document.Element> convertList(List<org.jsoup.nodes.Element> elementList) {
+	protected List<jp.co.dk.document.Element> convertList(List<org.jsoup.nodes.Element> elementList) {
 		List<jp.co.dk.document.Element> httpElementList = new ArrayList<jp.co.dk.document.Element>();
 		if (elementList.size() > 0) for (org.jsoup.nodes.Element element : elementList) httpElementList.add(this.createHtmlElement(element));
 		return httpElementList;
@@ -215,11 +246,27 @@ public class HtmlDocument extends File implements Document{
 	 * @param element 要素オブジェクト
 	 * @return 生成された要素オブジェクト
 	 */
-	private HtmlElement createHtmlElement(org.jsoup.nodes.Element element) {
+	protected HtmlElement createHtmlElement(org.jsoup.nodes.Element element) {
 		try {
 			return (HtmlElement)this.elementFactory.convert(new HtmlElement(element, this.elementFactory));
 		} catch (DocumentException e) {
 			return new HtmlElement(element, this.elementFactory);
 		}
+	}
+	
+	/**
+	 * <p>バイナリデータを基に、文字コードを判定します。</p>
+	 * 判定できなかった場合、nullが返却されます。
+	 * @return 文字コード
+	 * @throws IOException バイナリデータの読み込みに失敗した場合
+	 */
+	protected String getEncodeByData() throws IOException {
+		InputStream is = super.fileData.getStream();
+		byte[] buf = new byte[1024];
+		UniversalDetector detector = new UniversalDetector(null);
+		int nread;
+		while ((nread = is.read(buf)) > 0 && !detector.isDone()) detector.handleData(buf, 0, nread);
+		detector.dataEnd();
+		return detector.getDetectedCharset();
 	}
 }

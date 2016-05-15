@@ -7,7 +7,6 @@ import java.io.InputStream;
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.exception.DocumentFatalException;
 import jp.co.dk.document.message.DocumentMessage;
-import jp.co.dk.test.template.TestCaseTemplate;
 import mockit.Expectations;
 
 import org.junit.Before;
@@ -43,7 +42,7 @@ public class ByteDumpTest {
 		protected ByteDump byteDump;
 		
 		@Before
-		public void init() throws DocumentException {
+		public void init() throws DocumentException, IOException {
 			this.byteDump = new ByteDump(super.getInputStreamBySystemResource("jp/co/dk/document/JPEG.jpg"));
 			assertThat(this.byteDump.buffer.limit(), is(505061));
 		}

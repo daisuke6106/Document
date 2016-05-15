@@ -15,7 +15,6 @@
 	<classpathentry kind="lib" path="lib/property_1.0.0.jar"/>
 	<classpathentry kind="lib" path="lib/message_1.0.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/test/testtemplate_1.0.0.jar"/>
 	<classpathentry kind="lib" path="lib/test/jmockit-coverage.jar"/>
 	<classpathentry kind="lib" path="lib/test/jmockit.jar"/>
 	<classpathentry kind="lib" path="lib/test/junit-4.10.jar"/>
@@ -32,5 +31,7 @@
 	<classpathentry kind="lib" path="lib/poi-3.13/poi-ooxml-schemas-3.13-20150929.jar"/>
 	<classpathentry kind="lib" path="lib/poi-3.13/poi-scratchpad-3.13-20150929.jar"/>
 	<classpathentry kind="lib" path="lib/jsoup-1.8.3.jar"/>
+	<classpathentry kind="lib" path="lib/test/testtemplate_1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/juniversalchardet-1.0.3.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

@@ -12,20 +12,20 @@ import jp.co.dk.test.template.TestCaseTemplate;
 
 public class DocumentFoundationTest extends TestCaseTemplate {
 	
-	protected jp.co.dk.document.File createFileDocument() throws DocumentException {
+	protected jp.co.dk.document.File createFileDocument() throws DocumentException, IOException {
 		return new jp.co.dk.document.File(super.getInputStreamBySystemResource("jp/co/dk/document/JPEG.jpg"));
 	}
 	
 	protected jp.co.dk.document.html.HtmlDocument createHtmlDocument() throws DocumentException, IOException {
 		try {
-			return new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/html/HTML.html", "UTF-8"));
+			return new jp.co.dk.document.html.HtmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/html/HTML.html"));
 		} catch (HtmlDocumentException e) {
 			fail(e);
 		}
 		return null;
 	}
 	
-	protected jp.co.dk.document.xml.XmlDocument createXmlDocument() throws DocumentException {
+	protected jp.co.dk.document.xml.XmlDocument createXmlDocument() throws DocumentException, IOException {
 		try {
 			return new jp.co.dk.document.xml.XmlDocument(super.getInputStreamBySystemResource("jp/co/dk/document/xml/XML.xml"));
 		} catch (XmlDocumentException e) {

@@ -2,6 +2,7 @@ package jp.co.dk.document;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.message.DocumentMessage;
@@ -19,7 +20,7 @@ public class FileTest {
 		protected java.io.File        saveTmpFile;
 		
 		@Before
-		public void init() throws DocumentException {
+		public void init() throws DocumentException, IOException {
 			this.sut             = super.createFileDocument();
 			this.saveTmpDir      = super.getTestTmpDir();
 			this.fraudTestTmpDir = super.getFraudTestTmpDir();
@@ -27,7 +28,7 @@ public class FileTest {
 		}
 		
 		@Test
-		public void  save() {
+		public void  save() throws IOException {
 			
 			/* 正常に保存ができること。保存したファイルがコピー元と一致すること。*/
 			try {
