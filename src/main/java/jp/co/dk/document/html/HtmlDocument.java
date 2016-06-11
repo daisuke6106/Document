@@ -21,6 +21,8 @@ import jp.co.dk.document.html.constant.HttpEquivName;
 import jp.co.dk.document.html.element.Meta;
 import jp.co.dk.document.html.exception.HtmlDocumentException;
 import jp.co.dk.document.message.DocumentMessage;
+import jp.co.dk.morphologicalanalysis.Alanalysis;
+import jp.co.dk.morphologicalanalysis.Token;
 
 /**
  * HtmlRootElementは、HTMLドキュメントの最上位を表すクラス。
@@ -268,5 +270,28 @@ public class HtmlDocument extends File implements Document{
 		while ((nread = is.read(buf)) > 0 && !detector.isDone()) detector.handleData(buf, 0, nread);
 		detector.dataEnd();
 		return detector.getDetectedCharset();
+	}
+	
+	/**
+	 * タイトルから名詞一覧を取得する。
+	 * ページがHTMLでない、またはタイトルが存在しなかった場合、空のリストを返却します。
+	 * 
+	 * @return 名詞一覧
+	 */
+	public List<Token> getNounsByTitle() {
+		String title = this.getTitle();
+		if (title == null || title.equals("")) return new ArrayList<>();
+		Alanalysis alanalisys = new Alanalysis(title);
+		return alanalisys.getNouns();
+	}
+
+	/**
+	 * コンテンツから名詞一覧を取得する。
+	 * ページがHTMLでない、またはコンテンツが存在しなかった場合、空のリストを返却します。
+	 * 
+	 * @return 名詞一覧
+	 */
+	public List<Token> getNounsByBody() {
+		return this.body.getNouns();
 	}
 }

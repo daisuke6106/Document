@@ -11,6 +11,8 @@ import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
 import jp.co.dk.document.html.constant.HtmlElementName;
 import jp.co.dk.document.html.exception.HtmlDocumentException;
+import jp.co.dk.morphologicalanalysis.Alanalysis;
+import jp.co.dk.morphologicalanalysis.Token;
 import static jp.co.dk.document.message.DocumentMessage.*;
 
 /**
@@ -272,6 +274,19 @@ public class HtmlElement implements jp.co.dk.document.Element{
 		List<org.jsoup.nodes.Element> hrefList = this.element.getElementsByTag("a");
 		if (hrefList.size() != 0) for (org.jsoup.nodes.Element element: hrefList) urlList.add(this.createHtmlElement(element));
 		return urlList;
+	}
+	
+	/**
+	 * コンテンツから名詞一覧を取得する。
+	 * ページがHTMLでない、またはコンテンツが存在しなかった場合、空のリストを返却します。
+	 * 
+	 * @return 名詞一覧
+	 */
+	public List<Token> getNouns() {
+		String content = this.getContent();
+		if (content == null || content.equals("")) return new ArrayList<>();
+		Alanalysis alanalisys = new Alanalysis(content);
+		return alanalisys.getNouns();
 	}
 	
 	@Override
