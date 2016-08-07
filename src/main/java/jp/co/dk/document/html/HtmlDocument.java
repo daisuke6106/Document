@@ -273,7 +273,7 @@ public class HtmlDocument extends File implements Document{
 	}
 	
 	/**
-	 * タイトルから名詞一覧を取得する。
+	 * <p>タイトルから名詞一覧を取得する。</p>
 	 * ページがHTMLでない、またはタイトルが存在しなかった場合、空のリストを返却します。
 	 * 
 	 * @return 名詞一覧
@@ -286,12 +286,34 @@ public class HtmlDocument extends File implements Document{
 	}
 
 	/**
-	 * コンテンツから名詞一覧を取得する。
+	 * <p>コンテンツから名詞一覧を取得する。</p>
 	 * ページがHTMLでない、またはコンテンツが存在しなかった場合、空のリストを返却します。
 	 * 
 	 * @return 名詞一覧
 	 */
 	public List<Token> getNounsByBody() {
 		return this.body.getNouns();
+	}
+	
+	/**
+	 * <p>文字列を基に該当する要素を取得する。</p>
+	 * 
+	 * @param selector 文字列
+	 * @return 該当要素
+	 */
+	public List<Element> getNode(String selector) {
+		List<Element> nodes = new ArrayList<>();
+		if (selector.startsWith("#")) {
+			String idName = selector.substring(1);
+			nodes.add(this.html.getElementById(idName));
+			return nodes;
+		} else if (selector.startsWith(".")) {
+			String className = selector.substring(1);
+			return this.getElement(element -> ((HtmlElement)element).getClassList().contains(className));
+		} else {
+			HtmlElementName htmlElementName = HtmlElementName.getName(selector);
+			if (htmlElementName != null) nodes.addAll(this.getElement(htmlElementName));
+		}
+		return nodes;
 	}
 }

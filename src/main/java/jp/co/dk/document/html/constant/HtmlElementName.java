@@ -154,4 +154,16 @@ public enum HtmlElementName implements ElementName{
 	public String getName(){
 		return this.name;
 	}
+	
+	/**
+	 * <p>HTMLの要素名称文字列からHTMLの要素名称インスタンスに変換します。</p>
+	 * 該当するものがない場合、nullを返却する。
+	 * 
+	 * @param name HTMLの要素名称文字列
+	 * @return HTMLの要素名称
+	 */
+	public static HtmlElementName getName(String name) {
+		for (HtmlElementName htmlElementName : HtmlElementName.values()) if (htmlElementName.name.equals(name)) return htmlElementName;
+		return null;
+	}
 }
