@@ -8,8 +8,8 @@ package jp.co.dk.document;
  * @author D.Kanno
  */
 @FunctionalInterface
-public interface ElementSelector {
 	
+public interface ElementSelector {
 	/**
 	 * 対象の要素かを判定する。
 	 * 

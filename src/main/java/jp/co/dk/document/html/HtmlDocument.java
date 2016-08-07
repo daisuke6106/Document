@@ -296,23 +296,53 @@ public class HtmlDocument extends File implements Document{
 	}
 	
 	/**
-	 * <p>文字列を基に該当する要素を取得する。</p>
+	 * <p>指定フォーマットで定義された要素指定文字列を基に該当する要素を取得する。</p>
+	 * ・タグを指定する場合、タグ名称のみ記述する。（例：head body 等）<br/>
+	 * ・IDを指定する場合、#を付与し、ID名を記述する。（例：#ID1 等）<br/>
+	 * ・クラスを指定する場合、.を付与し、クラス名を記述する。（例：.className 等）<br/>
 	 * 
-	 * @param selector 文字列
-	 * @return 該当要素
+	 * @param selector 要素取得のためのフォーマット文字列
+	 * @return 該当要素一覧
 	 */
 	public List<Element> getNode(String selector) {
+		String[] splitedSelector = selector.split(">");
+		List<Element> resultElementList = new ArrayList<>();
+		resultElementList.add(this.html);
+		for (String selectorStr : splitedSelector) resultElementList = this.getNode(resultElementList, selectorStr);
+		return resultElementList;
+	}
+	
+	/**
+	 * <p>指定フォーマットで定義された要素指定文字列を基に該当する要素を取得する。</p>
+	 * 
+	 * @param elementList 要素一覧
+	 * @param selector 要素取得のためのフォーマット文字列
+	 * @return 該当要素一覧
+	 */
+	protected List<Element> getNode(List<Element> elementList, String selector) {
+		List<Element> reulstElementList = new ArrayList<>();
+		for (Element element : elementList) reulstElementList.addAll(this.getNode(element, selector));
+		return reulstElementList;
+	}
+	
+	/**
+	 * <p>指定フォーマットで定義された要素指定文字列を基に該当する要素を取得する。</p>
+	 * 
+	 * @param selector 要素取得のためのフォーマット文字列
+	 * @return 該当要素一覧
+	 */
+	protected List<Element> getNode(Element element, String selector) {
 		List<Element> nodes = new ArrayList<>();
 		if (selector.startsWith("#")) {
 			String idName = selector.substring(1);
-			nodes.add(this.html.getElementById(idName));
+			nodes.add(((HtmlElement)element).getElementById(idName));
 			return nodes;
 		} else if (selector.startsWith(".")) {
 			String className = selector.substring(1);
-			return this.getElement(element -> ((HtmlElement)element).getClassList().contains(className));
+			return element.getElement(e -> ((HtmlElement)e).getClassList().contains(className));
 		} else {
 			HtmlElementName htmlElementName = HtmlElementName.getName(selector);
-			if (htmlElementName != null) nodes.addAll(this.getElement(htmlElementName));
+			if (htmlElementName != null) nodes.addAll(element.getElement(htmlElementName));
 		}
 		return nodes;
 	}
