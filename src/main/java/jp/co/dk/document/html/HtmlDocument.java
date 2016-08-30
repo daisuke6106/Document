@@ -305,7 +305,7 @@ public class HtmlDocument extends File implements Document{
 	 * @return 該当要素一覧
 	 */
 	public List<Element> getNode(String selector) {
-		String[] splitedSelector = selector.split(">");
+		String[] splitedSelector = selector.split(" ");
 		List<Element> resultElementList = new ArrayList<>();
 		resultElementList.add(this.html);
 		for (String selectorStr : splitedSelector) resultElementList = this.getNode(resultElementList, selectorStr);
