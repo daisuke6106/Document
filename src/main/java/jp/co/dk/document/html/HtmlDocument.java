@@ -304,46 +304,7 @@ public class HtmlDocument extends File implements Document{
 	 * @param selector 要素取得のためのフォーマット文字列
 	 * @return 該当要素一覧
 	 */
-	public List<Element> getNode(String selector) {
-		String[] splitedSelector = selector.split(" ");
-		List<Element> resultElementList = new ArrayList<>();
-		resultElementList.add(this.html);
-		for (String selectorStr : splitedSelector) resultElementList = this.getNode(resultElementList, selectorStr);
-		return resultElementList;
-	}
-	
-	/**
-	 * <p>指定フォーマットで定義された要素指定文字列を基に該当する要素を取得する。</p>
-	 * 
-	 * @param elementList 要素一覧
-	 * @param selector 要素取得のためのフォーマット文字列
-	 * @return 該当要素一覧
-	 */
-	protected List<Element> getNode(List<Element> elementList, String selector) {
-		List<Element> reulstElementList = new ArrayList<>();
-		for (Element element : elementList) reulstElementList.addAll(this.getNode(element, selector));
-		return reulstElementList;
-	}
-	
-	/**
-	 * <p>指定フォーマットで定義された要素指定文字列を基に該当する要素を取得する。</p>
-	 * 
-	 * @param selector 要素取得のためのフォーマット文字列
-	 * @return 該当要素一覧
-	 */
-	protected List<Element> getNode(Element element, String selector) {
-		List<Element> nodes = new ArrayList<>();
-		if (selector.startsWith("#")) {
-			String idName = selector.substring(1);
-			nodes.add(((HtmlElement)element).getElementById(idName));
-			return nodes;
-		} else if (selector.startsWith(".")) {
-			String className = selector.substring(1);
-			return element.getElement(e -> ((HtmlElement)e).getClassList().contains(className));
-		} else {
-			HtmlElementName htmlElementName = HtmlElementName.getName(selector);
-			if (htmlElementName != null) nodes.addAll(element.getElement(htmlElementName));
-		}
-		return nodes;
+	public List<HtmlElement> getNode(String selector) {
+		return this.html.getNode(selector);
 	}
 }

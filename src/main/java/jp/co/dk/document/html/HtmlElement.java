@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.jsoup.Jsoup;
 
+import jp.co.dk.document.Element;
 import jp.co.dk.document.ElementName;
 import jp.co.dk.document.exception.DocumentException;
 import jp.co.dk.document.html.constant.HtmlAttributeName;
@@ -287,6 +288,65 @@ public class HtmlElement implements jp.co.dk.document.Element{
 		if (content == null || content.equals("")) return new ArrayList<>();
 		Alanalysis alanalisys = new Alanalysis(content);
 		return alanalisys.getNouns();
+	}
+	
+
+	/**
+	 * <p>指定フォーマットで定義された要素指定文字列を基に該当する要素を取得する。</p>
+	 * ・タグを指定する場合、タグ名称のみ記述する。（例：head body 等）<br/>
+	 * ・IDを指定する場合、#を付与し、ID名を記述する。（例：#ID1 等）<br/>
+	 * ・クラスを指定する場合、.を付与し、クラス名を記述する。（例：.className 等）<br/>
+	 * 
+	 * @param selector 要素取得のためのフォーマット文字列
+	 * @return 該当要素一覧
+	 */
+	public List<HtmlElement> getNode(String selector) {
+		String[] splitedSelector = selector.split(" ");
+		List<HtmlElement> resultElementList = new ArrayList<>();
+		resultElementList.add(this);
+		for (String selectorStr : splitedSelector) resultElementList = this.getNode(resultElementList, selectorStr);
+		return resultElementList;
+	}
+	
+	/**
+	 * <p>指定フォーマットで定義された要素指定文字列を基に該当する要素を取得する。</p>
+	 * 
+	 * @param elementList 要素一覧
+	 * @param selector 要素取得のためのフォーマット文字列
+	 * @return 該当要素一覧
+	 */
+	private List<HtmlElement> getNode(List<HtmlElement> elementList, String selector) {
+		List<HtmlElement> reulstElementList = new ArrayList<>();
+		for (HtmlElement element : elementList) reulstElementList.addAll(element.getNodeByStr(selector));
+		return reulstElementList;
+	}
+	
+	
+	/**
+	 * <p>指定フォーマットで定義された要素指定文字列を基に該当する要素を取得する。</p>
+	 * 
+	 * @param selector 要素取得のためのフォーマット文字列
+	 * @return 該当要素一覧
+	 */
+	private List<HtmlElement> getNodeByStr(String selector) {
+		List<HtmlElement> nodes = new ArrayList<>();
+		if (selector.startsWith("#")) {
+			String idName = selector.substring(1);
+			nodes.add(this.getElementById(idName));
+			return nodes;
+		} else if (selector.startsWith(".")) {
+			String className = selector.substring(1);
+			List<Element> elementList = this.getElement(e -> ((HtmlElement)e).getClassList().contains(className));
+			for (Element element : elementList) nodes.add((HtmlElement)element);
+			return nodes;
+		} else {
+			HtmlElementName htmlElementName = HtmlElementName.getName(selector);
+			if (htmlElementName != null) {
+				List<Element> elementList = this.getElement(htmlElementName);
+				for (Element element : elementList) nodes.add((HtmlElement)element);
+			}
+		}
+		return nodes;
 	}
 	
 	@Override
