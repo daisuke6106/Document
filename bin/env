@@ -1,0 +1,6 @@
+#!/bin/sh
+CURRENT=$(cd $(dirname $0) && pwd)
+MAIN_JAR="${CURRENT}/../document_0.2.1.jar"
+LIB_JAR="${CURRENT}/../lib/*"
+MESSAGE_DIR="${CURRENT}/../messages"
+PROPERTY_DIR="${CURRENT}/../properties"

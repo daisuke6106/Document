@@ -25,5 +25,6 @@
 	<classpathentry kind="lib" path="lib/juniversalchardet-1.0.3.jar"/>
 	<classpathentry kind="lib" path="lib/kuromoji-0.7.7.jar"/>
 	<classpathentry kind="lib" path="lib/morphologicalanalysis_0.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-cli-1.2.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
