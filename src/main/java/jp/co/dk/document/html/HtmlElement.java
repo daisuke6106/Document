@@ -377,7 +377,12 @@ public class HtmlElement implements jp.co.dk.document.Element{
 	 */
 	protected List<HtmlElement> getFormElementList() {
 		List<HtmlElement> list = new ArrayList<HtmlElement>();
-		for (org.jsoup.nodes.Element formElement : this.element.getElementsByTag("form")) list.add(this.createHtmlElement(formElement));
+		for (org.jsoup.nodes.Element formElement : this.element.getElementsByTag("input")) {
+			list.add(this.createHtmlElement(formElement));
+		}
+		for (org.jsoup.nodes.Element formElement : this.element.getElementsByTag("select")) {
+			list.add(this.createHtmlElement(formElement));
+		}
 		return list;
 	}
 	
