@@ -106,6 +106,11 @@ public class HtmlElement implements jp.co.dk.document.Element{
 		return false;
 	}
 	
+	public jp.co.dk.document.Element getParentElement() {
+		org.jsoup.nodes.Element parent = this.element.parent();
+		return this.createHtmlElement(parent);
+	}
+	
 	@Override
 	public List<jp.co.dk.document.Element> getChildElement() {
 		List<org.jsoup.nodes.Element> childList = this.element.children();
@@ -337,6 +342,11 @@ public class HtmlElement implements jp.co.dk.document.Element{
 		} else if (selector.startsWith(".")) {
 			String className = selector.substring(1);
 			List<Element> elementList = this.getElement(e -> ((HtmlElement)e).getClassList().contains(className));
+			for (Element element : elementList) nodes.add((HtmlElement)element);
+			return nodes;
+		} else if (selector.startsWith("!")) {
+			String contentePattern = selector.substring(1);
+			List<Element> elementList = this.getElement(e -> ((HtmlElement)e).getContent().matches(contentePattern));
 			for (Element element : elementList) nodes.add((HtmlElement)element);
 			return nodes;
 		} else {
